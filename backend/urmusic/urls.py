@@ -16,6 +16,9 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
+from urmusic_api.views import AccountRegistration
+
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('api/account/register/', AccountRegistration.as_view())
 ]
