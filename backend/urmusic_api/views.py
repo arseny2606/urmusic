@@ -10,7 +10,7 @@ class AccountRegistration(APIView):
         if serializer.is_valid():
             if request.data['password'] == request.data['password2']:
                 serializer.save()
-                return Response({'data': request.data['username'] \
+                return Response({'data': request.data['email'] \
                                          + ', registration success.',
                                  'method': 'post'})
             else:
