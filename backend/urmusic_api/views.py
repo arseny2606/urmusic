@@ -1,8 +1,8 @@
 from rest_framework.response import Response
-#преобразование словара в json
 from .models import Account
 from rest_framework.views import APIView
 from .serializers import RegistrationSerializer
+
 
 class AccountRegistration(APIView):
     def post(self, request):
@@ -21,6 +21,7 @@ class AccountRegistration(APIView):
             print(request.data)
             return Response({'data': 'invalid data',
                              'method': 'post'})
-    def get(self, request):
+
+    def get(self, _):
         return Response({'data': '',
                          'method': 'get'})
