@@ -1,5 +1,5 @@
 from rest_framework.response import Response
-from .models import Account
+from .models import User
 from rest_framework.views import APIView
 from .serializers import RegistrationSerializer
 
