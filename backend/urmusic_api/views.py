@@ -1,6 +1,6 @@
 from rest_framework.response import Response
-from .models import User
 from rest_framework.views import APIView
+
 from .serializers import RegistrationSerializer
 
 
@@ -10,17 +10,12 @@ class AccountRegistration(APIView):
         if serializer.is_valid():
             if request.data['password'] == request.data['password2']:
                 serializer.save()
-                return Response({'data': request.data['email'] \
-                                         + ', registration success.',
-                                 'method': 'post'})
+                return Response({'email': request.data['email'],
+                                 'status': 'success'})
             else:
-                return Response({'data': 'passwords not same',
-                                 'method': 'post'})
+                return Response({'error': 'passwords aren\'t same'})
         else:
-            print(serializer.is_valid())
-            print(request.data)
-            return Response({'data': 'invalid data',
-                             'method': 'post'})
+            return Response({'error': 'invalid data'})
 
     def get(self, _):
         return Response({'data': '',
