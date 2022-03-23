@@ -9,6 +9,8 @@ class AccountType(models.Model):
 class User(AbstractUser):
     username = None
     email = models.EmailField(unique=True)
+    avatar = models.ImageField(null=True)
+    city = models.CharField(max_length=200)
     vk_id = models.IntegerField(null=True, unique=True)
     account_type = models.ForeignKey(AccountType, on_delete=models.SET_DEFAULT, default=1)
     is_staff = models.BooleanField(default=False)
@@ -24,6 +26,11 @@ class User(AbstractUser):
                                    is_superuser=True)
         self.set_password("admin")
         self.save()
+
+    def get_avatar(self):
+        if not self.avatar:
+            return "/media/avatar_placeholder.jpg"
+        return self.avatar.url
 
     def __str__(self):
         return f"{self.account_type.name} user with login {self.email} and vk id {self.vk_id}"
