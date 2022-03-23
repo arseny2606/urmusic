@@ -29,6 +29,7 @@ import {
 } from "@vkontakte/icons";
 import Catalogue from "./panels/Catalogue";
 import Favourites from "./panels/Favourites";
+import Profile from "./panels/Profile";
 
 const App = () => {
     const platform = usePlatform();
@@ -175,14 +176,7 @@ const App = () => {
                                     >
                                         <Catalogue id={"catalogue"} nav={"/catalogue"}/>
                                         <Favourites id={"favourites"} nav={"/favourites"}/>
-                                        <Panel id="profile" nav="/profile">
-                                            <PanelHeader left={<PanelHeaderBack/>}>Профиль</PanelHeader>
-                                            <Group style={{height: "1000px"}}>
-                                                <Placeholder
-                                                    icon={<Icon28UserCircleOutline width={56} height={56}/>}
-                                                ></Placeholder>
-                                            </Group>
-                                        </Panel>
+                                        <Profile id={"profile"} nav={"/profile"}/>
                                     </Epic>
                                 </SplitCol>
                             </SplitLayout>
