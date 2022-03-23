@@ -8,7 +8,7 @@
     "build": "cross-env NODE_OPTIONS=--openssl-legacy-provider react-scripts build",
     "predeploy": "cross-env NODE_OPTIONS=--openssl-legacy-provider npm run build",
     "deploy": "cross-env NODE_OPTIONS=--openssl-legacy-provider vk-miniapps-deploy",
-    "tunnel": "cross-env NODE_OPTIONS=--openssl-legacy-provider vk-tunnel --insecure=0 --http-protocol=http --ws-protocol=ws --host=localhost --port=10888"
+    "tunnel": "vk-tunnel --insecure=1 --http-protocol=http --ws-protocol=wss --host=127.0.0.1 --port=10888"
   },
   "keywords": [],
   "author": "",
@@ -19,11 +19,12 @@
     "react-scripts": "^5.0.0"
   },
   "dependencies": {
+    "@itznevikat/router": "0.1.0-beta17",
     "@vkontakte/icons": "^1.141.1",
     "@vkontakte/vk-bridge": "^2.5.3",
     "@vkontakte/vk-miniapps-deploy": "0.0.25",
     "@vkontakte/vkjs": "^0.22.2",
-    "@vkontakte/vkui": "^4.5.0",
+    "@vkontakte/vkui": "^4.28.0",
     "babel-eslint": "^10.1.0",
     "chalk": "^4.1.0",
     "eruda": "^2.4.1",
