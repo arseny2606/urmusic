@@ -20,9 +20,7 @@ import {
 } from '@vkontakte/vkui';
 import '@vkontakte/vkui/dist/vkui.css';
 
-import Home from './panels/Home';
-import Persik from './panels/Persik';
-import {Match, Root, Epic, View, push} from "@itznevikat/router";
+import {Match, Root, Epic, push} from "@itznevikat/router";
 import {
     Icon28FavoriteOutline,
     Icon28MenuOutline,

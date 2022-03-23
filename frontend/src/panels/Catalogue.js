@@ -50,7 +50,6 @@ const Catalogue = ({id, nav, platform}) => {
         return objects.filter(({name}) => name.toLowerCase().indexOf(search.toLowerCase()) > -1);
     }
 
-    const onFiltersClick = () => this.setState({activeModal: "filters"});
     return (
         <Panel id={id} nav={nav}>
             <PanelHeader left={<IconButton><Icon24Filter/></IconButton>}>Каталог</PanelHeader>
@@ -59,7 +58,6 @@ const Catalogue = ({id, nav, platform}) => {
                     value={search}
                     onChange={onChange}
                     icon={<Icon24Search/>}
-                    onIconClick={onFiltersClick}
                 />
                 {getObjects().length > 0 &&
                     getObjects().map((object) => (
