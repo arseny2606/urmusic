@@ -28,6 +28,7 @@ import {
     Icon28UserOutline,
 } from "@vkontakte/icons";
 import Catalogue from "./panels/Catalogue";
+import Favourites from "./panels/Favourites";
 
 const App = () => {
     const platform = usePlatform();
@@ -172,15 +173,8 @@ const App = () => {
                                             )
                                         }
                                     >
-                                        <Catalogue id={"catalogue"} nav={"/catalogue"} platform={platform}/>
-                                        <Panel id="favourites" nav="/favourites">
-                                            <PanelHeader left={<PanelHeaderBack/>}>Избранное</PanelHeader>
-                                            <Group style={{height: "1000px"}}>
-                                                <Placeholder
-                                                    icon={<Icon28UserCircleOutline width={56} height={56}/>}
-                                                ></Placeholder>
-                                            </Group>
-                                        </Panel>
+                                        <Catalogue id={"catalogue"} nav={"/catalogue"}/>
+                                        <Favourites id={"favourites"} nav={"/favourites"}/>
                                         <Panel id="profile" nav="/profile">
                                             <PanelHeader left={<PanelHeaderBack/>}>Профиль</PanelHeader>
                                             <Group style={{height: "1000px"}}>
