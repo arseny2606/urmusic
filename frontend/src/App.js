@@ -29,13 +29,14 @@ import {
     Icon28UserCircleOutline,
     Icon28UserOutline,
 } from "@vkontakte/icons";
+import Catalogue from "./panels/Catalogue";
 
 const App = () => {
     const platform = usePlatform();
     const [fetchedUser, setFetchedUser] = useState(null);
     const [popout, setPopout] = useState(<ScreenSpinner size='large'/>);
     const [isVK, setIsVK] = useState(true);
-    const [activeStory, setActiveStory] = React.useState("profile");
+    const [activeStory, setActiveStory] = React.useState("catalogue");
     const onStoryChange = (e) => {
         setActiveStory(e.currentTarget.dataset.story);
         push(`/${e.currentTarget.dataset.story}`);
@@ -73,7 +74,7 @@ const App = () => {
         <ConfigProvider>
             <AdaptivityProvider>
                 <AppRoot>
-                    <Match initialURL={"/profile"}>
+                    <Match initialURL={"/catalogue"}>
                         <Root nav="/">
                             <SplitLayout
                                 header={hasHeader && <PanelHeader separator={false}/>}
@@ -173,14 +174,7 @@ const App = () => {
                                             )
                                         }
                                     >
-                                        <Panel id="catalogue" nav="/catalogue">
-                                            <PanelHeader left={<PanelHeaderBack/>}>Каталог</PanelHeader>
-                                            <Group style={{height: "1000px"}}>
-                                                <Placeholder
-                                                    icon={<Icon28UserCircleOutline width={56} height={56}/>}
-                                                ></Placeholder>
-                                            </Group>
-                                        </Panel>
+                                        <Catalogue id={"catalogue"} nav={"/catalogue"} platform={platform}/>
                                         <Panel id="favourites" nav="/favourites">
                                             <PanelHeader left={<PanelHeaderBack/>}>Избранное</PanelHeader>
                                             <Group style={{height: "1000px"}}>
