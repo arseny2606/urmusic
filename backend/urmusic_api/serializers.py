@@ -98,6 +98,7 @@ class AuthTokenSerializer(serializers.Serializer):
         attrs['user'] = user
         return attrs
 
+
 class RestaurantSerializer(serializers.ModelSerializer):
     image_url = serializers.SerializerMethodField('get_image_url')
     tracks_count = serializers.SerializerMethodField('get_tracks_count')
@@ -112,12 +113,24 @@ class RestaurantSerializer(serializers.ModelSerializer):
         model = Restaurant
         fields = ['id', 'name', 'address', 'tracks_count', 'image_url']
 
-class TrackSerializer(serializers.Serializer):
+
+class TrackSerializer(serializers.ModelSerializer):
     track_url = serializers.SerializerMethodField('get_track_url')
 
     def get_track_url(self, track):
         return track.file.url
 
     class Meta:
-        model = TrackOrder
+        model = Track
         fields = ['title', 'artist', 'track_url']
+
+
+class TrackOrderSerializer(serializers.ModelSerializer):
+    track_data = serializers.SerializerMethodField('get_track_data')
+
+    def get_track_data(self, track_order):
+        return TrackSerializer(track_order.track).data
+
+    class Meta:
+        model = TrackOrder
+        fields = ['track_data', 'creation_time', 'owner']
