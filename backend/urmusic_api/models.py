@@ -11,7 +11,7 @@ class AccountType(models.Model):
 class User(AbstractUser):
     username = None
     email = models.EmailField(unique=True)
-    avatar = models.ImageField(null=True)
+    avatar = models.ImageField(null=True, upload_to="avatars/")
     city = models.CharField(max_length=200)
     vk_id = models.IntegerField(null=True, unique=True)
     account_type = models.ForeignKey(AccountType, on_delete=models.SET_DEFAULT, default=1)
@@ -41,7 +41,7 @@ class User(AbstractUser):
 class Restaurant(models.Model):
     name = models.CharField(max_length=100)
     address = models.CharField(max_length=150)
-    image = models.ImageField()
+    image = models.ImageField(upload_to="restaurant_images/")
     owner = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
 
 
