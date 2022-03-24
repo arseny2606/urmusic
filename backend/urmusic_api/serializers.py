@@ -1,7 +1,8 @@
 from django.contrib.auth import authenticate
-from rest_framework import serializers
-from .models import User, TrackOrder, Restaurant
 from django.utils.translation import gettext_lazy as _
+from rest_framework import serializers
+
+from .models import User, TrackOrder, Restaurant
 
 
 class RegistrationSerializer(serializers.Serializer):
@@ -48,7 +49,8 @@ class RegistrationSerializer(serializers.Serializer):
                 msg = _('Такой пользователь уже существует.')
                 raise serializers.ValidationError(msg, code='authorization')
         else:
-            msg = _('Должно содержать параметры "email", "password", "password2", "city", "first_name", "last_name".')
+            msg = _(
+                'Должно содержать параметры "email", "password", "password2", "city", "first_name", "last_name".')
             raise serializers.ValidationError(msg, code='authorization')
         if password != password2:
             msg = _('Пароли не совпадают.')
@@ -95,6 +97,7 @@ class AuthTokenSerializer(serializers.Serializer):
 
         attrs['user'] = user
         return attrs
+
 
 class RestaurantSerializer(serializers.ModelSerializer):
     image_url = serializers.SerializerMethodField('get_image_url')
