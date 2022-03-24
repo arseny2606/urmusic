@@ -1,42 +1,39 @@
-import React, {useState, useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import bridge from '@vkontakte/vk-bridge';
 import {
-    ScreenSpinner,
-    AdaptivityProvider,
+    AdaptivityProvider, Alert,
     AppRoot,
-    SplitLayout,
-    PanelHeader,
-    usePlatform,
-    VKCOM,
-    SplitCol,
-    Panel,
-    Group,
     Cell,
+    ConfigProvider,
+    Group,
+    Panel,
+    PanelHeader,
+    ScreenSpinner,
+    SplitCol,
+    SplitLayout,
     Tabbar,
     TabbarItem,
-    Badge,
-    PanelHeaderBack,
-    Placeholder, ConfigProvider
+    usePlatform,
+    VKCOM
 } from '@vkontakte/vkui';
 import '@vkontakte/vkui/dist/vkui.css';
 
-import {Match, Root, Epic, push} from "@itznevikat/router";
-import {
-    Icon28FavoriteOutline,
-    Icon28MenuOutline,
-    Icon28UserCircleOutline,
-    Icon28UserOutline,
-} from "@vkontakte/icons";
+import {Epic, Match, push, replace, Root} from "@itznevikat/router";
+import {Icon28FavoriteOutline, Icon28MenuOutline, Icon28UserOutline,} from "@vkontakte/icons";
 import Catalogue from "./panels/Catalogue";
 import Favourites from "./panels/Favourites";
 import Profile from "./panels/Profile";
+import axios from "axios";
+import Login from "./panels/Login";
 
 const App = () => {
     const platform = usePlatform();
     const [fetchedUser, setFetchedUser] = useState(null);
     const [popout, setPopout] = useState(<ScreenSpinner size='large'/>);
     const [isVK, setIsVK] = useState(true);
-    const [activeStory, setActiveStory] = React.useState("catalogue");
+    const [activeStory, setActiveStory] = useState("catalogue");
+    const [token, setToken] = useState("");
+    const apiURL = "http://127.0.0.1:8000";
     const onStoryChange = (e) => {
         setActiveStory(e.currentTarget.dataset.story);
         push(`/${e.currentTarget.dataset.story}`);
@@ -45,8 +42,17 @@ const App = () => {
 
     useEffect(() => {
         bridge.subscribe(({detail: {type, data}}) => {
-            if (type === "vk-connect") {
+            if (type === "webpackOK" && isVK) {
                 setIsVK(false);
+                setPopout(null);
+                if (localStorage.getItem("token")){
+                    setToken(localStorage.getItem("token"));
+                    replace("/catalogue");
+                }
+                else{
+                    replace("/login");
+                    // localStorage.setItem("token", "123");
+                }
             }
             if (type === 'VKWebAppUpdateConfig') {
                 const schemeAttribute = document.createAttribute('scheme');
@@ -59,6 +65,7 @@ const App = () => {
             bridge.send('VKWebAppGetUserInfo').then(user => {
                 setIsVK(true);
                 setFetchedUser(user);
+                replace("/catalogue");
             });
             setPopout(null);
         }
@@ -70,16 +77,70 @@ const App = () => {
         push(`/${e.currentTarget.dataset.to}`);
     };
 
+    const exitApp = () => {
+        bridge.send("VKWebAppClose", { "status": "failed", "payload": { "name": "test" } });
+    }
+
+    const apiRequest = async function (method, params, tokend = undefined) {
+        try {
+            const config = {
+                headers: {
+                    Authorization: `Token ${tokend ? tokend : token}`,
+                }
+            }
+            if (!method.endsWith("/")) method = method + "/";
+            const paramsURL = new URLSearchParams();
+            for(const i of params.split("&")){
+                if (i.split("=")[0]) paramsURL.append(i.split("=")[0], i.split("=")[1]);
+            }
+            return await axios.post(`${apiURL}/api/${method}`, paramsURL, config).then(response => {
+                return response.data
+            });
+        }
+        catch (e) {
+            if (e.response.status === 401 || e.response.status === 500 || e.response.status === 502) {
+                setPopout(<Alert
+                    actions={[{
+                        title: 'Выйти из приложения',
+                        mode: 'default',
+                        action: () => exitApp(),
+                    }]}
+                    actionsLayout="vertical"
+                    header="Ошибка"
+                    text={e.response.data.error}
+                    onClose={() => exitApp()}
+                />);
+            }
+            else if (e.response.status === 429 || e.response.status === 400) {
+                setPopout(<Alert
+                    actions={[{
+                        title: 'Хорошо',
+                        mode: 'default',
+                        action: () => setPopout(null)
+                    }]}
+                    actionsLayout="vertical"
+                    header="Ошибка"
+                    text={e.response.data.error}
+                    onClose={() => setPopout(null)}
+                />);
+            }
+            else {
+                return e.response.data;
+            }
+        }
+    };
+
     return (
         <ConfigProvider>
             <AdaptivityProvider>
                 <AppRoot>
-                    <Match initialURL={"/catalogue"}>
+                    <Match initialURL={"/login"}>
                         <Root nav="/">
                             <SplitLayout
                                 header={hasHeader && <PanelHeader separator={false}/>}
                                 style={{justifyContent: "center"}}
                                 nav={"/"}
+                                popout={popout}
                             >
                                 {!isVK && (
                                     <SplitCol fixed width={280} maxWidth={280}>
@@ -179,6 +240,9 @@ const App = () => {
                                         <Profile id={"profile"} nav={"/profile"}/>
                                     </Epic>
                                 </SplitCol>
+                            </SplitLayout>
+                            <SplitLayout nav={"/login"} popout={popout}>
+                                <Login nav={"/login"} id={"login"} apiRequest={apiRequest} setToken={setToken}/>
                             </SplitLayout>
                         </Root>
                     </Match>
