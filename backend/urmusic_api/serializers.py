@@ -1,6 +1,6 @@
 from django.contrib.auth import authenticate
 from rest_framework import serializers
-from .models import User
+from .models import User, TrackOrder, Restaurant
 from django.utils.translation import gettext_lazy as _
 
 
@@ -80,3 +80,17 @@ class AuthTokenSerializer(serializers.Serializer):
 
         attrs['user'] = user
         return attrs
+
+class RestaurantSerializer(serializers.ModelSerializer):
+    image_url = serializers.SerializerMethodField('get_image_url')
+    tracks_count = serializers.SerializerMethodField('get_tracks_count')
+
+    def get_image_url(self, restaurant):
+        return restaurant.image.url
+
+    def get_tracks_count(self, restaurant):
+        return TrackOrder.objects.filter(restaurant=restaurant).count()
+
+    class Meta:
+        model = Restaurant
+        fields = ['id', 'name', 'address', 'tracks_count', 'image_url']
