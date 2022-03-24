@@ -25,6 +25,7 @@ import Favourites from "./panels/Favourites";
 import Profile from "./panels/Profile";
 import axios from "axios";
 import Login from "./panels/Login";
+import Register from "./panels/Register";
 
 const App = () => {
     const platform = usePlatform();
@@ -242,6 +243,9 @@ const App = () => {
                             </SplitLayout>
                             <SplitLayout nav={"/login"} popout={popout}>
                                 <Login nav={"/login"} id={"login"} apiRequest={apiRequest} setToken={setToken}/>
+                            </SplitLayout>
+                            <SplitLayout nav={"/register"} popout={popout}>
+                                <Register nav={"/register"} id={"register"} apiRequest={apiRequest}/>
                             </SplitLayout>
                         </Root>
                     </Match>

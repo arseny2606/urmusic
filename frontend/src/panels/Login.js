@@ -36,6 +36,10 @@ const Login = ({id, nav, apiRequest, setToken}) => {
         });
     }
 
+    const goToRegister = e => {
+        replace("/register");
+    }
+
     return (
         <Panel id={id} nav={nav}>
             <PanelHeader>Вход в аккаунт</PanelHeader>
@@ -43,7 +47,7 @@ const Login = ({id, nav, apiRequest, setToken}) => {
                 <Group width={100} height={100}>
                     <FormLayout onSubmit={onSubmit}>
                         <FormItem top="E-mail">
-                            <Input type="email" align="center" placeholder="Введите e-mail" onChange={onEmailChange} value={email} />
+                            <Input type="email" align="center" placeholder="Введите e-mail" onChange={onEmailChange} value={email} required />
                         </FormItem>
                         <FormItem top="Пароль">
                             <Input type={passwordShown ? "text" : "password"} align="center" placeholder="Введите пароль" onChange={onPasswordChange} value={password}  after={
@@ -51,7 +55,7 @@ const Login = ({id, nav, apiRequest, setToken}) => {
                                     hoverMode="opacity"
                                     aria-label="Показать пароль"
                                     onClick={onPasswordShownChange}
-                                >
+                                    required>
                                     {passwordShown ? <Icon24Hide width={16} height={16}/> : <Icon16View/>}
                                 </IconButton>
                             }/>
@@ -61,7 +65,7 @@ const Login = ({id, nav, apiRequest, setToken}) => {
                                 Войти
                             </Button>
                         </FormItem>
-                        <Link>Регистрация</Link>
+                        <Link onClick={goToRegister}>Регистрация</Link>
                     </FormLayout>
                 </Group>
             </Placeholder>
