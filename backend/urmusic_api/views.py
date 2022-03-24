@@ -32,11 +32,12 @@ class AuthByPassword(APIView):
             'email': user.email
         })
 
+
 class AllRestaurants(APIView):
     def get(self, request):
         restaurants = Restaurant.objects.all()
-        response = {"data": []}
-        response["data"] = [RestaurantSerializer(restaurant).data for restaurant in restaurants]
+        response = {"data": [RestaurantSerializer(restaurant).data for restaurant in restaurants]}
         return Response(response)
+
     def post(self, request):
-        self.get(self)
+        self.get(request)
