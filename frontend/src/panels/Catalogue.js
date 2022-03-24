@@ -15,8 +15,9 @@ import {
     Icon24Search
 } from "@vkontakte/icons";
 import {useEffect, useState} from "react";
+import {replace} from "@itznevikat/router";
 
-const Catalogue = ({id, nav}) => {
+const Catalogue = ({id, nav, token}) => {
     const [search, setSearch] = useState("");
     const [objects, setObjects] = useState([]);
 
@@ -38,6 +39,10 @@ const Catalogue = ({id, nav}) => {
 
     useEffect(() => {
             function fetchData() {
+                if (!token) {
+                    replace("/login");
+                    return;
+                }
                 const obj = [];
                 for(let i = 0; i < 10; ++i) obj.push({id: i + 1, name: "Беляши у Ашота", address: "Проспект Мира, дом 228", tracks: 15, imageUrl: "https://img-s3.onedio.com/id-58b42ae7b05db4070f77f174/rev-0/raw/s-249a5edb2c4739ffd306edf36e3d702b6bae5b67.jpg"});
                 setObjects(obj);
