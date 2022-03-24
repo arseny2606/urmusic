@@ -46,8 +46,9 @@ class Restaurant(models.Model):
 
 
 class Track(models.Model):
-    title = models.TextField(default='track')
-
+    title = models.TextField()
+    artist = models.TextField(null=True)
+    file = models.FileField(upload_to='tracks/', null=True)
 
 class TrackOrder(models.Model):
     restaurant = models.ForeignKey(Restaurant, on_delete=models.CASCADE)
