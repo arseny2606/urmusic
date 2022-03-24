@@ -16,10 +16,11 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
-from urmusic_api.views import AccountRegistration, AuthByPassword
+from urmusic_api.views import AccountRegistration, AuthByPassword, AllRestaurants
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/account/register/', AccountRegistration.as_view()),
-    path('api/account/login/', AuthByPassword.as_view())
+    path('api/account/login/', AuthByPassword.as_view()),
+    path('api/restaurants/all/', AllRestaurants.as_view())
 ]

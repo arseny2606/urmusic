@@ -1,7 +1,8 @@
 from django.contrib.auth import authenticate
-from rest_framework import serializers
-from .models import User
 from django.utils.translation import gettext_lazy as _
+from rest_framework import serializers
+
+from .models import User, TrackOrder, Restaurant
 
 
 class RegistrationSerializer(serializers.Serializer):
@@ -21,19 +22,35 @@ class RegistrationSerializer(serializers.Serializer):
         trim_whitespace=False,
         write_only=True
     )
+    city = serializers.CharField(
+        label=_("City"),
+        write_only=True
+    )
+    first_name = serializers.CharField(
+        label=_("First name"),
+        write_only=True
+    )
+    last_name = serializers.CharField(
+        label=_("Last name"),
+        write_only=True
+    )
 
     def validate(self, attrs):
         email = attrs.get('email')
         password = attrs.get('password')
         password2 = attrs.get('password2')
+        city = attrs.get('city')
+        first_name = attrs.get('first_name')
+        last_name = attrs.get('last_name')
 
-        if email and password and password2:
+        if email and password and password2 and city and first_name and last_name:
             user = User.objects.filter(email=email).count()
             if user:
                 msg = _('Такой пользователь уже существует.')
                 raise serializers.ValidationError(msg, code='authorization')
         else:
-            msg = _('Must include "email", "password" and "password2".')
+            msg = _(
+                'Должно содержать параметры "email", "password", "password2", "city", "first_name", "last_name".')
             raise serializers.ValidationError(msg, code='authorization')
         if password != password2:
             msg = _('Пароли не совпадают.')
@@ -80,3 +97,18 @@ class AuthTokenSerializer(serializers.Serializer):
 
         attrs['user'] = user
         return attrs
+
+
+class RestaurantSerializer(serializers.ModelSerializer):
+    image_url = serializers.SerializerMethodField('get_image_url')
+    tracks_count = serializers.SerializerMethodField('get_tracks_count')
+
+    def get_image_url(self, restaurant):
+        return restaurant.image.url
+
+    def get_tracks_count(self, restaurant):
+        return TrackOrder.objects.filter(restaurant=restaurant).count()
+
+    class Meta:
+        model = Restaurant
+        fields = ['id', 'name', 'address', 'tracks_count', 'image_url']
