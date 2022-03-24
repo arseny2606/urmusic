@@ -2,7 +2,7 @@ from django.contrib.auth import authenticate
 from django.utils.translation import gettext_lazy as _
 from rest_framework import serializers
 
-from .models import User, TrackOrder, Restaurant
+from .models import User, TrackOrder, Restaurant, Track
 
 
 class RegistrationSerializer(serializers.Serializer):
@@ -98,7 +98,6 @@ class AuthTokenSerializer(serializers.Serializer):
         attrs['user'] = user
         return attrs
 
-
 class RestaurantSerializer(serializers.ModelSerializer):
     image_url = serializers.SerializerMethodField('get_image_url')
     tracks_count = serializers.SerializerMethodField('get_tracks_count')
@@ -112,3 +111,13 @@ class RestaurantSerializer(serializers.ModelSerializer):
     class Meta:
         model = Restaurant
         fields = ['id', 'name', 'address', 'tracks_count', 'image_url']
+
+class TrackSerializer(serializers.Serializer):
+    track_url = serializers.SerializerMethodField('get_track_url')
+
+    def get_track_url(self, track):
+        return track.file.url
+
+    class Meta:
+        model = TrackOrder
+        fields = ['title', 'artist', 'track_url']
