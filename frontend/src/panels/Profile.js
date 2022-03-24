@@ -15,12 +15,17 @@ import {
     Icon24Search, Icon28MailOutline, Icon28PhoneOutline
 } from "@vkontakte/icons";
 import {useEffect, useState} from "react";
+import {replace} from "@itznevikat/router";
 
-const Profile = ({id, nav}) => {
+const Profile = ({id, nav, token}) => {
     const [profile, setProfile] = useState({});
 
     useEffect(() => {
             function fetchData() {
+                if (!token) {
+                    replace("/login");
+                    return;
+                }
                 const obj = {
                     id: 1,
                     name: "Ашот Камшот",

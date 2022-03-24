@@ -51,7 +51,6 @@ const App = () => {
                 }
                 else{
                     replace("/login");
-                    // localStorage.setItem("token", "123");
                 }
             }
             if (type === 'VKWebAppUpdateConfig') {
@@ -235,9 +234,9 @@ const App = () => {
                                             )
                                         }
                                     >
-                                        <Catalogue id={"catalogue"} nav={"/catalogue"}/>
-                                        <Favourites id={"favourites"} nav={"/favourites"}/>
-                                        <Profile id={"profile"} nav={"/profile"}/>
+                                        <Catalogue id={"catalogue"} nav={"/catalogue"} token={token}/>
+                                        <Favourites id={"favourites"} nav={"/favourites"} token={token}/>
+                                        <Profile id={"profile"} nav={"/profile"} token={token}/>
                                     </Epic>
                                 </SplitCol>
                             </SplitLayout>
