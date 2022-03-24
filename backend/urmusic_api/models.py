@@ -1,3 +1,5 @@
+import datetime
+
 from django.contrib.auth.models import UserManager, AbstractUser
 from django.db import models
 
@@ -34,3 +36,18 @@ class User(AbstractUser):
 
     def __str__(self):
         return f"{self.account_type.name} user with login {self.email} and vk id {self.vk_id}"
+
+class Restaurant(models.Model):
+    name = models.CharField(max_length=100)
+    address = models.CharField(max_length=150)
+    image = models.ImageField()
+    owner = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
+
+class Track(models.Model):
+    title = models.TextField(default='track')
+
+class TrackOrder(models.Model):
+    restaurant = models.ForeignKey(Restaurant, on_delete=models.CASCADE)
+    track = models.ForeignKey(Track, on_delete=models.CASCADE)
+    creation_time = models.DateTimeField(default=datetime.datetime.now)
+    owner = models.ForeignKey(User, on_delete=models.CASCADE)
