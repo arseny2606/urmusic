@@ -22,5 +22,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/account/register/', AccountRegistration.as_view()),
     path('api/account/login/', AuthByPassword.as_view()),
-    path('api/restaurants/all', AllRestaurants.as_view())
+    path('api/restaurants/all/', AllRestaurants.as_view())
 ]
