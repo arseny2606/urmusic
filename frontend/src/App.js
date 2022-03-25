@@ -26,6 +26,7 @@ import Profile from "./panels/Profile";
 import axios from "axios";
 import Login from "./panels/Login";
 import Register from "./panels/Register";
+import VkLogin from "./panels/VkLogin";
 
 const App = () => {
     const platform = usePlatform();
@@ -71,7 +72,7 @@ const App = () => {
             bridge.send('VKWebAppGetUserInfo').then(user => {
                 setIsVK(true);
                 setFetchedUser(user);
-                replace("/catalogue");
+                replace("/vklogin", {params: window.location.search.slice(1)});
             });
             setPopout(null);
         }
@@ -258,6 +259,9 @@ const App = () => {
                             </SplitLayout>
                             <SplitLayout nav={"/register"} popout={popout}>
                                 <Register nav={"/register"} id={"register"} apiRequest={apiRequest}/>
+                            </SplitLayout>
+                            <SplitLayout nav={"/vklogin"} popout={popout}>
+                                <VkLogin nav={"/vklogin"} id={"vklogin"} apiRequest={apiRequest} setToken={setToken} fetchedUser={fetchedUser} />
                             </SplitLayout>
                         </Root>
                     </Match>
