@@ -17,27 +17,24 @@ import {
 import {useEffect, useState} from "react";
 import {replace} from "@itznevikat/router";
 
-const Profile = ({id, nav, token}) => {
+const Profile = ({id, nav, token, apiRequest}) => {
     const [profile, setProfile] = useState({});
 
     useEffect(() => {
             function fetchData() {
                 if (!token) {
-                    replace("/login");
-                    return;
+                    if (!localStorage.getItem("token")) {
+                        replace("/login");
+                        return;
+                    }
                 }
-                const obj = {
-                    id: 1,
-                    name: "Ашот Камшот",
-                    city: "Москва",
-                    avatarUrl: "https://img-s3.onedio.com/id-58b42ae7b05db4070f77f174/rev-0/raw/s-249a5edb2c4739ffd306edf36e3d702b6bae5b67.jpg",
-                    email: "g•••@gmail.com"
-                };
-                setProfile(obj);
+                apiRequest("account/profile/").then(response => {
+                    setProfile(response);
+                })
             }
 
             fetchData();
-        }, []
+        }, [token]
     )
 
     return (
@@ -56,7 +53,7 @@ const Profile = ({id, nav, token}) => {
                                 padding: 32,
                             }}
                         >
-                            <Avatar size={128} src={profile.avatarUrl}/>
+                            <Avatar size={128} src={profile.avatar_url}/>
                             <Title
                                 style={{marginBottom: 8, marginTop: 20}}
                                 level="1"

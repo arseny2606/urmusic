@@ -40,8 +40,10 @@ const Catalogue = ({id, nav, token}) => {
     useEffect(() => {
             function fetchData() {
                 if (!token) {
-                    replace("/login");
-                    return;
+                    if (!localStorage.getItem("token")) {
+                        replace("/login");
+                        return;
+                    }
                 }
                 const obj = [];
                 for(let i = 0; i < 10; ++i) obj.push({id: i + 1, name: "Беляши у Ашота", address: "Проспект Мира, дом 228", tracks: 15, imageUrl: "https://img-s3.onedio.com/id-58b42ae7b05db4070f77f174/rev-0/raw/s-249a5edb2c4739ffd306edf36e3d702b6bae5b67.jpg"});
@@ -49,7 +51,7 @@ const Catalogue = ({id, nav, token}) => {
             }
 
             fetchData();
-        }, []
+        }, [token]
     )
 
     const onChange = (e) => {

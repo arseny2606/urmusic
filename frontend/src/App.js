@@ -43,12 +43,15 @@ const App = () => {
 
     useEffect(() => {
         bridge.subscribe(({detail: {type, data}}) => {
-            if (type === "webpackOK" && isVK) {
+            if (type === "webpackOk" && isVK) {
                 setIsVK(false);
                 setPopout(null);
                 if (localStorage.getItem("token")){
                     setToken(localStorage.getItem("token"));
-                    replace("/catalogue");
+                    if (document.location.hash === "#/") replace("/catalogue");
+                    else{
+                        setActiveStory(document.location.hash.substring(2));
+                    }
                 }
                 else{
                     replace("/login");
@@ -62,6 +65,9 @@ const App = () => {
         });
 
         function fetchData() {
+            if (localStorage.getItem("token")) {
+                setToken(localStorage.getItem("token"));
+            }
             bridge.send('VKWebAppGetUserInfo').then(user => {
                 setIsVK(true);
                 setFetchedUser(user);
@@ -81,8 +87,14 @@ const App = () => {
         bridge.send("VKWebAppClose", { "status": "failed", "payload": { "name": "test" } });
     }
 
-    const apiRequest = async function (method, params, tokend = undefined) {
+    const apiRequest = async function (method, params = "", tokend = undefined) {
         try {
+            if (!token){
+                if (localStorage.getItem("token")){
+                    setToken(localStorage.getItem("token"));
+                    tokend = localStorage.getItem("token");
+                }
+            }
             const config = {
                 headers: {
                     Authorization: `Token ${tokend ? tokend : token}`,
@@ -134,7 +146,7 @@ const App = () => {
         <ConfigProvider>
             <AdaptivityProvider>
                 <AppRoot>
-                    <Match initialURL={"/login"}>
+                    <Match>
                         <Root nav="/">
                             <SplitLayout
                                 header={hasHeader && <PanelHeader separator={false}/>}
@@ -237,7 +249,7 @@ const App = () => {
                                     >
                                         <Catalogue id={"catalogue"} nav={"/catalogue"} token={token}/>
                                         <Favourites id={"favourites"} nav={"/favourites"} token={token}/>
-                                        <Profile id={"profile"} nav={"/profile"} token={token}/>
+                                        <Profile id={"profile"} nav={"/profile"} token={token} apiRequest={apiRequest}/>
                                     </Epic>
                                 </SplitCol>
                             </SplitLayout>
