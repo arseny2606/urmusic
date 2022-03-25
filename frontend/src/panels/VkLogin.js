@@ -15,7 +15,7 @@ import {useEffect, useState} from "react";
 import {Icon16View, Icon24Hide} from "@vkontakte/icons";
 import {replace, useMeta} from "@itznevikat/router";
 
-const VkLogin = ({id, nav, apiRequest, setToken, fetchedUser, setPopout, setActiveStory}) => {
+const VkLogin = ({id, nav, apiRequest, setToken, fetchedUser, setPopout, setActiveStory, isVK}) => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [passwordShown, setPasswordShown] = useState(false);
@@ -23,9 +23,14 @@ const VkLogin = ({id, nav, apiRequest, setToken, fetchedUser, setPopout, setActi
 
     useEffect(() => {
             function fetchData() {
+                if (!isVK) {
+                    replace("/login");
+                    return;
+                }
                 if (!params) {
                     apiRequest(`account/vklogin/?${window.location.search.slice(1)}&/`).then(response => {
                         if (response.status_code === 404) {
+                            if (document.location.hash !== "#/vklogin") return;
                             setPopout(<Alert
                                 actions={[{
                                     title: 'Хорошо',
@@ -50,6 +55,7 @@ const VkLogin = ({id, nav, apiRequest, setToken, fetchedUser, setPopout, setActi
                 } else {
                     apiRequest(`account/vklogin/?${params}&/`).then(response => {
                         if (response.status_code === 404) {
+                            if (document.location.hash !== "#/vklogin") return;
                             setPopout(<Alert
                                 actions={[{
                                     title: 'Хорошо',
@@ -76,7 +82,7 @@ const VkLogin = ({id, nav, apiRequest, setToken, fetchedUser, setPopout, setActi
 
             fetchData();
         }
-        , []);
+        , [params]);
 
     const onEmailChange = e => {
         setEmail(e.currentTarget.value);

@@ -28,6 +28,7 @@ import axios from "axios";
 import Login from "./panels/Login";
 import Register from "./panels/Register";
 import VkLogin from "./panels/VkLogin";
+import VkRegister from "./panels/VkRegister";
 
 const App = () => {
     const platform = usePlatform();
@@ -36,7 +37,7 @@ const App = () => {
     const [isVK, setIsVK] = useState(false);
     const [activeStory, setActiveStory] = useState("catalogue");
     const [token, setToken] = useState("");
-    const apiURL = "http://127.0.0.1:8000";
+    const apiURL = "https://8c48-109-252-191-52.ngrok.io";
     const onStoryChange = (e) => {
         setActiveStory(e.currentTarget.dataset.story);
         push(`/${e.currentTarget.dataset.story}`);
@@ -106,7 +107,7 @@ const App = () => {
             for (const i of params.split("&")) {
                 if (i.split("=")[0]) paramsURL.append(i.split("=")[0], i.split("=")[1]);
             }
-            for(const i in additionalData){
+            for (const i in additionalData) {
                 paramsURL.append(i, additionalData[i]);
             }
             return await axios.post(`${apiURL}/api/${method}`, paramsURL, config).then(response => {
@@ -264,7 +265,12 @@ const App = () => {
                             </SplitLayout>
                             <SplitLayout nav={"/vklogin"} popout={popout}>
                                 <VkLogin nav={"/vklogin"} id={"vklogin"} apiRequest={apiRequest} setToken={setToken}
-                                         fetchedUser={fetchedUser} setPopout={setPopout} setActiveStory={setActiveStory}/>
+                                         fetchedUser={fetchedUser} setPopout={setPopout} setActiveStory={setActiveStory}
+                                         isVK={isVK}/>
+                            </SplitLayout>
+                            <SplitLayout nav={"/vkregister"} popout={popout}>
+                                <VkRegister nav={"/vkregister"} id={"vkregister"} apiRequest={apiRequest}
+                                            fetchedUser={fetchedUser} setToken={setToken} isVK={isVK}/>
                             </SplitLayout>
                         </Root>
                     </Match>
