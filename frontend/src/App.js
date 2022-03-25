@@ -72,8 +72,7 @@ const App = () => {
             bridge.send('VKWebAppGetUserInfo').then(user => {
                 setIsVK(true);
                 setFetchedUser(user);
-                console.log(user);
-                replace("/vklogin", {params: window.location.search.slice(1)});
+                replace("/vklogin", {params: window.location.search.slice(1), hash: document.location.hash});
             });
             setPopout(null);
         }
@@ -89,7 +88,7 @@ const App = () => {
         bridge.send("VKWebAppClose", {"status": "failed", "payload": {"name": "test"}});
     }
 
-    const apiRequest = async function (method, params = "", tokend = undefined) {
+    const apiRequest = async function (method, params = "", tokend = undefined, additionalData = {}) {
         try {
             if (!token) {
                 if (localStorage.getItem("token")) {
@@ -106,6 +105,9 @@ const App = () => {
             const paramsURL = new URLSearchParams();
             for (const i of params.split("&")) {
                 if (i.split("=")[0]) paramsURL.append(i.split("=")[0], i.split("=")[1]);
+            }
+            for(const i in additionalData){
+                paramsURL.append(i, additionalData[i]);
             }
             return await axios.post(`${apiURL}/api/${method}`, paramsURL, config).then(response => {
                 return response.data
@@ -262,7 +264,7 @@ const App = () => {
                             </SplitLayout>
                             <SplitLayout nav={"/vklogin"} popout={popout}>
                                 <VkLogin nav={"/vklogin"} id={"vklogin"} apiRequest={apiRequest} setToken={setToken}
-                                         fetchedUser={fetchedUser} setPopout={setPopout}/>
+                                         fetchedUser={fetchedUser} setPopout={setPopout} setActiveStory={setActiveStory}/>
                             </SplitLayout>
                         </Root>
                     </Match>

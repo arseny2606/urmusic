@@ -202,6 +202,7 @@ class LinkVKSerializer(serializers.Serializer):
         user.last_name = validated_data["last_name"]
         user.city = validated_data["city"]
         img_temp = NamedTemporaryFile()
+        print(validated_data["photo_url"])
         img_temp.write(urllib.request.urlopen(validated_data["photo_url"]).read())
         img_temp.flush()
         user.avatar.save(f"avatar_{user.id}.jpg", File(img_temp), save=True)
