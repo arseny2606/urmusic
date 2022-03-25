@@ -149,7 +149,7 @@ class UserSerializer(serializers.ModelSerializer):
         return settings.BASE_URL + user.get_avatar()
 
     def get_email(self, user):
-        return f"{user.email[0]}•••{user.email.split('@')[1]}"
+        return f"{user.email[0]}•••@{user.email.split('@')[1]}"
 
     class Meta:
         model = User
