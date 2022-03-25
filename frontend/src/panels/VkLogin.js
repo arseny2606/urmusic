@@ -1,4 +1,5 @@
 import {
+    Alert,
     Button,
     FormItem,
     FormLayout,
@@ -14,7 +15,7 @@ import {useEffect, useState} from "react";
 import {Icon16View, Icon24Hide} from "@vkontakte/icons";
 import {replace, useMeta} from "@itznevikat/router";
 
-const VkLogin = ({id, nav, apiRequest, setToken, fetchedUser}) => {
+const VkLogin = ({id, nav, apiRequest, setToken, fetchedUser, setPopout}) => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [passwordShown, setPasswordShown] = useState(false);
@@ -25,7 +26,17 @@ const VkLogin = ({id, nav, apiRequest, setToken, fetchedUser}) => {
                 if (!params) {
                     apiRequest(`account/vklogin/?${window.location.search.slice(1)}&/`).then(response => {
                         if (response.status_code === 404) {
-                            console.log(404);
+                            setPopout(<Alert
+                                actions={[{
+                                    title: 'Хорошо',
+                                    mode: 'default',
+                                    action: () => setPopout(null)
+                                }]}
+                                actionsLayout="vertical"
+                                header="Ошибка"
+                                text="Пользователь с таким аккаунтом ВКонтакте не найден. Войдите в свой аккаунт или зарегистрируйтесь."
+                                onClose={() => setPopout(null)}
+                            />);
                         } else {
                             setToken(response.token);
                             localStorage.setItem('token', response.token);
@@ -35,7 +46,17 @@ const VkLogin = ({id, nav, apiRequest, setToken, fetchedUser}) => {
                 } else {
                     apiRequest(`account/vklogin/?${params}&/`).then(response => {
                         if (response.status_code === 404) {
-                            console.log(404);
+                            setPopout(<Alert
+                                actions={[{
+                                    title: 'Хорошо',
+                                    mode: 'default',
+                                    action: () => setPopout(null)
+                                }]}
+                                actionsLayout="vertical"
+                                header="Ошибка"
+                                text="Пользователь с таким аккаунтом ВКонтакте не найден. Войдите в свой аккаунт или зарегистрируйтесь."
+                                onClose={() => setPopout(null)}
+                            />);
                         } else {
                             setToken(response.token);
                             localStorage.setItem('token', response.token);
@@ -67,13 +88,15 @@ const VkLogin = ({id, nav, apiRequest, setToken, fetchedUser}) => {
             if (response) {
                 localStorage.setItem("token", response.token);
                 setToken(response.token);
-                replace("/catalogue");
+                apiRequest("account/linkvk", `vk_id=${fetchedUser.id}`, response.token).then(response => {
+                    replace("/catalogue");
+                })
             }
         });
     }
 
     const goToRegister = e => {
-        replace("/register");
+        replace("/vkregister");
     }
 
     return (
