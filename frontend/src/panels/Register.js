@@ -1,14 +1,20 @@
 import {
     Button,
-    FormItem, FormLayout, Group, IconButton, Input, Link,
+    FormItem,
+    FormLayout,
+    Group,
+    IconButton,
+    Input,
+    Link,
     Panel,
-    PanelHeader, Placeholder
+    PanelHeader,
+    Placeholder
 } from "@vkontakte/vkui";
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import {Icon16View, Icon24Hide} from "@vkontakte/icons";
 import {replace} from "@itznevikat/router";
 
-const Register = ({id, nav, apiRequest}) => {
+const Register = ({id, nav, apiRequest, isVK}) => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [password2, setPassword2] = useState("");
@@ -48,8 +54,7 @@ const Register = ({id, nav, apiRequest}) => {
     const onSubmit = e => {
         e.preventDefault();
         apiRequest("account/register", `email=${email}&password=${password}&password2=${password2}&city=${city}&first_name=${firstName}&last_name=${lastName}`).then(response => {
-            if (response){
-                console.log(response);
+            if (response) {
                 replace("/login");
             }
         });
@@ -59,6 +64,15 @@ const Register = ({id, nav, apiRequest}) => {
         replace("/login");
     }
 
+    useEffect(() => {
+        function checkLogin() {
+            if (localStorage.getItem("token")) replace("/catalogue");
+            if (isVK) replace("/vkregister");
+        }
+
+        checkLogin();
+    }, []);
+
     return (
         <Panel id={id} nav={nav}>
             <PanelHeader>Регистрация нового аккаунта</PanelHeader>
@@ -66,10 +80,12 @@ const Register = ({id, nav, apiRequest}) => {
                 <Group width={100} height={100}>
                     <FormLayout onSubmit={onSubmit}>
                         <FormItem top="E-mail">
-                            <Input type="email" align="center" placeholder="Введите e-mail" onChange={onEmailChange} value={email} required />
+                            <Input type="email" align="center" placeholder="Введите e-mail" onChange={onEmailChange}
+                                   value={email} required/>
                         </FormItem>
                         <FormItem top="Пароль">
-                            <Input type={passwordShown ? "text" : "password"} align="center" placeholder="Введите пароль" onChange={onPasswordChange} value={password}  after={
+                            <Input type={passwordShown ? "text" : "password"} align="center"
+                                   placeholder="Введите пароль" onChange={onPasswordChange} value={password} after={
                                 <IconButton
                                     hoverMode="opacity"
                                     aria-label="Показать пароль"
@@ -80,7 +96,8 @@ const Register = ({id, nav, apiRequest}) => {
                             } required/>
                         </FormItem>
                         <FormItem top="Повторите пароль">
-                            <Input type={passwordShown ? "text" : "password"} align="center" placeholder="Повторите пароль" onChange={onPassword2Change} value={password2}  after={
+                            <Input type={passwordShown ? "text" : "password"} align="center"
+                                   placeholder="Повторите пароль" onChange={onPassword2Change} value={password2} after={
                                 <IconButton
                                     hoverMode="opacity"
                                     aria-label="Показать пароль"
@@ -91,13 +108,16 @@ const Register = ({id, nav, apiRequest}) => {
                             } required/>
                         </FormItem>
                         <FormItem top="Имя">
-                            <Input type="text" align="center" placeholder="Введите имя" onChange={onFirstNameChange} value={firstName} required />
+                            <Input type="text" align="center" placeholder="Введите имя" onChange={onFirstNameChange}
+                                   value={firstName} required/>
                         </FormItem>
                         <FormItem top="Фамилия">
-                            <Input type="text" align="center" placeholder="Введите фамилию" onChange={onLastNameChange} value={lastName} required />
+                            <Input type="text" align="center" placeholder="Введите фамилию" onChange={onLastNameChange}
+                                   value={lastName} required/>
                         </FormItem>
                         <FormItem top="Город">
-                            <Input type="text" align="center" placeholder="Введите город" onChange={onCityChange} value={city} required />
+                            <Input type="text" align="center" placeholder="Введите город" onChange={onCityChange}
+                                   value={city} required/>
                         </FormItem>
                         <FormItem>
                             <Button size="l" stretched type={"submit"}>
