@@ -55,12 +55,12 @@ class AuthByVK(APIView):
             return Response({
                 "error": "Отправлены неверные данные.",
                 "status_code": 401
-            })
+            }, status.HTTP_401_UNAUTHORIZED)
         if User.objects.filter(vk_id=request.GET["vk_user_id"]).count() == 0:
             return Response({
                 "error": "Пользователь не найден.",
-                "status_code": 401
-            })
+                "status_code": 404
+            }, status.HTTP_404_NOT_FOUND)
         user = User.objects.filter(vk_id=request.GET["vk_user_id"]).first()
         token, created = Token.objects.get_or_create(user=user)
         return Response({
