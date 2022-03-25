@@ -25,8 +25,9 @@ class AccountRegistration(APIView):
         serializer = self.serializer_class(data=request.data,
                                            context={'request': request})
         serializer.is_valid(raise_exception=True)
-        serializer.save()
+        user = serializer.save()
         return Response({'email': request.data['email'],
+                         'token': Token.objects.get_or_create(user=user)[0].key,
                          'status': 'success'})
 
 
