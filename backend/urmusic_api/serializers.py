@@ -154,3 +154,25 @@ class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
         fields = ['id', 'name', 'city', 'avatar_url', 'email']
+
+
+class LinkVKSerializer(serializers.Serializer):
+    vk_id = serializers.IntegerField(
+        label=_("VK ID"),
+        write_only=True
+    )
+
+    def validate(self, attrs):
+        vk_id = attrs.get('vk_id')
+
+        if not vk_id:
+            msg = _(
+                'Должно содержать параметр "vk_id".')
+            raise serializers.ValidationError(msg, code='authorization')
+        return attrs
+
+    def create(self, validated_data):
+        user = self.context["request"].user
+        user.vk_id = validated_data["vk_id"]
+        user.save()
+        return user
