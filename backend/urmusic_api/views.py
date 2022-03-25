@@ -8,7 +8,7 @@ from rest_framework.views import APIView
 
 from .models import Restaurant, TrackOrder
 from .serializers import RegistrationSerializer, AuthTokenSerializer, RestaurantSerializer, \
-    TrackOrderSerializer
+    TrackOrderSerializer, UserSerializer
 
 
 class AccountRegistration(APIView):
@@ -48,20 +48,35 @@ class AllRestaurants(APIView):
         return Response(response)
 
     def post(self, request):
-        self.get(request)
+        return self.get(request)
 
 
-class OneRestaurants(APIView):
+class OneRestaurant(APIView):
     authentication_classes = [SessionAuthentication, BasicAuthentication, TokenAuthentication]
     permission_classes = [IsAuthenticated]
 
     def get(self, request):
         restaurant_id = request.GET.get("id")
         if Restaurant.objects.filter(id=restaurant_id).count() == 0:
-            return Response({"error": f"Ресторан с id {restaurant_id} не найден!", "status_code": 404},
-                            status.HTTP_404_NOT_FOUND)
+            return Response(
+                {"error": f"Ресторан с id {restaurant_id} не найден!", "status_code": 404},
+                status.HTTP_404_NOT_FOUND)
         restaurant = Restaurant.objects.filter(id=restaurant_id).first()
         tracks = TrackOrder.objects.filter(restaurant=restaurant).all()
         response = {"data": RestaurantSerializer(restaurant).data,
                     "tracks": [TrackOrderSerializer(track).data for track in tracks]}
         return Response(response)
+
+    def post(self, request):
+        return self.get(request)
+
+
+class GetProfile(APIView):
+    authentication_classes = [SessionAuthentication, BasicAuthentication, TokenAuthentication]
+    permission_classes = [IsAuthenticated]
+
+    def get(self, request):
+        return Response(UserSerializer(request.user).data)
+
+    def post(self, request):
+        return self.get(request)

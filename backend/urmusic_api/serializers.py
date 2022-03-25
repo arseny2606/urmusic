@@ -122,7 +122,7 @@ class TrackSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Track
-        fields = ['title', 'artist', 'track_url']
+        fields = ['id', 'title', 'artist', 'track_url']
 
 
 class TrackOrderSerializer(serializers.ModelSerializer):
@@ -133,4 +133,23 @@ class TrackOrderSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = TrackOrder
-        fields = ['track_data', 'creation_time', 'owner']
+        fields = ['id', 'track_data', 'creation_time', 'owner']
+
+
+class UserSerializer(serializers.ModelSerializer):
+    name = serializers.SerializerMethodField('get_name')
+    avatar_url = serializers.SerializerMethodField('get_avatar_url')
+    email = serializers.SerializerMethodField('get_email')
+
+    def get_name(self, user):
+        return f"{user.first_name} {user.last_name}"
+
+    def get_avatar_url(self, user):
+        return user.get_avatar()
+
+    def get_email(self, user):
+        return f"{user.email[0]}•••{user.email.split('@')[1]}"
+
+    class Meta:
+        model = User
+        fields = ['id', 'name', 'city', 'avatar_url', 'email']
