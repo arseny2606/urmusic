@@ -1,3 +1,10 @@
+from base64 import b64encode
+from collections import OrderedDict
+from hashlib import sha256
+from hmac import HMAC
+from urllib.parse import urlencode, parse_qsl, urlparse
+
+from django.conf import settings
 from rest_framework import status
 from rest_framework.authentication import TokenAuthentication, BasicAuthentication, \
     SessionAuthentication
@@ -6,7 +13,7 @@ from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
-from .models import Restaurant, TrackOrder
+from .models import Restaurant, TrackOrder, User
 from .serializers import RegistrationSerializer, AuthTokenSerializer, RestaurantSerializer, \
     TrackOrderSerializer, UserSerializer
 
@@ -36,6 +43,34 @@ class AuthByPassword(APIView):
             'token': token.key,
             'email': user.email
         })
+
+
+class AuthByVK(APIView):
+    def get(self, request):
+        vk_subset = OrderedDict(sorted(x for x in request.GET.items() if x[0][:3] == "vk_"))
+        hash_code = b64encode(
+            HMAC(settings.APP_SECRET_KEY.encode(), urlencode(vk_subset, doseq=True).encode(), sha256).digest())
+        decoded_hash_code = hash_code.decode('utf-8')[:-1].replace('+', '-').replace('/', '_')
+        if request.GET["sign"] != decoded_hash_code:
+            return Response({
+                "error": "Отправлены неверные данные.",
+                "status_code": 401
+            })
+        if User.objects.filter(vk_id=request.GET["vk_user_id"]).count() == 0:
+            return Response({
+                "error": "Пользователь не найден.",
+                "status_code": 401
+            })
+        user = User.objects.filter(vk_id=request.GET["vk_user_id"]).first()
+        token, created = Token.objects.get_or_create(user=user)
+        return Response({
+            'token': token.key,
+            'vk_id': user.vk_id
+        })
+
+    def post(self, request):
+        return self.get(request)
+
 
 
 class AllRestaurants(APIView):

@@ -11,9 +11,9 @@ class AccountType(models.Model):
 class User(AbstractUser):
     username = None
     email = models.EmailField(unique=True)
-    avatar = models.ImageField(null=True, upload_to="avatars/")
+    avatar = models.ImageField(upload_to="avatars/", blank=True, null=True)
     city = models.CharField(max_length=200)
-    vk_id = models.IntegerField(null=True, unique=True)
+    vk_id = models.IntegerField(unique=True,  blank=True, null=True)
     account_type = models.ForeignKey(AccountType, on_delete=models.SET_DEFAULT, default=1)
     is_staff = models.BooleanField(default=False)
     is_superuser = models.BooleanField(default=False)
