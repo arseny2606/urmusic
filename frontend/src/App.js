@@ -72,6 +72,7 @@ const App = () => {
             bridge.send('VKWebAppGetUserInfo').then(user => {
                 setIsVK(true);
                 setFetchedUser(user);
+                console.log(user);
                 replace("/vklogin", {params: window.location.search.slice(1)});
             });
             setPopout(null);
@@ -261,7 +262,7 @@ const App = () => {
                             </SplitLayout>
                             <SplitLayout nav={"/vklogin"} popout={popout}>
                                 <VkLogin nav={"/vklogin"} id={"vklogin"} apiRequest={apiRequest} setToken={setToken}
-                                         fetchedUser={fetchedUser}/>
+                                         fetchedUser={fetchedUser} setPopout={setPopout}/>
                             </SplitLayout>
                         </Root>
                     </Match>
