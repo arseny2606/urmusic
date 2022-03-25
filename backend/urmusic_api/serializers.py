@@ -105,7 +105,7 @@ class RestaurantSerializer(serializers.ModelSerializer):
     tracks_count = serializers.SerializerMethodField('get_tracks_count')
 
     def get_image_url(self, restaurant):
-        return restaurant.image.url
+        return settings.BASE_URL + restaurant.image.url
 
     def get_tracks_count(self, restaurant):
         return TrackOrder.objects.filter(restaurant=restaurant).count()
@@ -119,7 +119,7 @@ class TrackSerializer(serializers.ModelSerializer):
     track_url = serializers.SerializerMethodField('get_track_url')
 
     def get_track_url(self, track):
-        return track.file.url
+        return settings.BASE_URL + track.file.url
 
     class Meta:
         model = Track

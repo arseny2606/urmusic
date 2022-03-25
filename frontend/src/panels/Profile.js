@@ -57,7 +57,7 @@ const Profile = ({id, nav, token, apiRequest}) => {
                             <Title
                                 style={{marginBottom: 8, marginTop: 20}}
                                 level="1"
-                                weight="medium"
+                                weight="2"
                             >
                                 {profile.name}
                             </Title>
