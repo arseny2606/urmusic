@@ -15,11 +15,11 @@ import {useEffect, useState} from "react";
 import {Icon16View, Icon24Hide} from "@vkontakte/icons";
 import {replace, useMeta} from "@itznevikat/router";
 
-const VkLogin = ({id, nav, apiRequest, setToken, fetchedUser, setPopout}) => {
+const VkLogin = ({id, nav, apiRequest, setToken, fetchedUser, setPopout, setActiveStory}) => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [passwordShown, setPasswordShown] = useState(false);
-    const {params} = useMeta();
+    const {params, hash} = useMeta();
 
     useEffect(() => {
             function fetchData() {
@@ -40,7 +40,11 @@ const VkLogin = ({id, nav, apiRequest, setToken, fetchedUser, setPopout}) => {
                         } else {
                             setToken(response.token);
                             localStorage.setItem('token', response.token);
-                            replace("/catalogue");
+                            if (hash === "#/" || !hash) replace("/catalogue");
+                            else {
+                                setActiveStory(hash.substring(2));
+                                replace(hash.substring(1));
+                            }
                         }
                     })
                 } else {
@@ -60,7 +64,11 @@ const VkLogin = ({id, nav, apiRequest, setToken, fetchedUser, setPopout}) => {
                         } else {
                             setToken(response.token);
                             localStorage.setItem('token', response.token);
-                            replace("/catalogue");
+                            if (hash === "#/" || !hash) replace("/catalogue");
+                            else {
+                                setActiveStory(hash.substring(2));
+                                replace(hash.substring(1));
+                            }
                         }
                     })
                 }
@@ -88,8 +96,12 @@ const VkLogin = ({id, nav, apiRequest, setToken, fetchedUser, setPopout}) => {
             if (response) {
                 localStorage.setItem("token", response.token);
                 setToken(response.token);
-                apiRequest("account/linkvk", `vk_id=${fetchedUser.id}`, response.token).then(response => {
-                    replace("/catalogue");
+                apiRequest("account/linkvk", `vk_id=${fetchedUser.id}&first_name=${fetchedUser.first_name}&last_name=${fetchedUser.last_name}&city=${fetchedUser.city.title}`, response.token, {photo_url: fetchedUser.photo_200}).then(response => {
+                    if (hash === "#/" || !hash) replace("/catalogue");
+                    else {
+                        setActiveStory(hash.substring(2));
+                        replace(hash.substring(1));
+                    }
                 })
             }
         });
