@@ -1,5 +1,9 @@
-from django.contrib.auth import authenticate
+import urllib.request
+
 from django.conf import settings
+from django.contrib.auth import authenticate
+from django.core.files import File
+from django.core.files.temp import NamedTemporaryFile
 from django.utils.translation import gettext_lazy as _
 from rest_framework import serializers
 
@@ -161,18 +165,45 @@ class LinkVKSerializer(serializers.Serializer):
         label=_("VK ID"),
         write_only=True
     )
+    first_name = serializers.CharField(
+        label=_("First name"),
+        write_only=True
+    )
+    last_name = serializers.CharField(
+        label=_("Last name"),
+        write_only=True
+    )
+    city = serializers.CharField(
+        label=_("City"),
+        write_only=True
+    )
+    photo_url = serializers.CharField(
+        label=_("Photo URL"),
+        write_only=True
+    )
 
     def validate(self, attrs):
         vk_id = attrs.get('vk_id')
+        first_name = attrs.get('first_name')
+        last_name = attrs.get('last_name')
+        city = attrs.get('city')
+        photo_url = attrs.get('photo_url')
 
-        if not vk_id:
+        if not vk_id or not first_name or not last_name or not city or not photo_url:
             msg = _(
-                'Должно содержать параметр "vk_id".')
+                'Должно содержать параметры "vk_id", "first_name", "last_name", "city", "photo_url".')
             raise serializers.ValidationError(msg, code='authorization')
         return attrs
 
     def create(self, validated_data):
         user = self.context["request"].user
         user.vk_id = validated_data["vk_id"]
+        user.first_name = validated_data["first_name"]
+        user.last_name = validated_data["last_name"]
+        user.city = validated_data["city"]
+        img_temp = NamedTemporaryFile()
+        img_temp.write(urllib.request.urlopen(validated_data["photo_url"]).read())
+        img_temp.flush()
+        user.avatar.save(f"avatar_{user.id}.jpg", File(img_temp), save=True)
         user.save()
         return user
