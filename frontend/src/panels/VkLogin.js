@@ -1,8 +1,14 @@
 import {
     Button,
-    FormItem, FormLayout, Group, IconButton, Input, Link,
+    FormItem,
+    FormLayout,
+    Group,
+    IconButton,
+    Input,
+    Link,
     Panel,
-    PanelHeader, Placeholder
+    PanelHeader,
+    Placeholder
 } from "@vkontakte/vkui";
 import {useEffect, useState} from "react";
 import {Icon16View, Icon24Hide} from "@vkontakte/icons";
@@ -16,24 +22,21 @@ const VkLogin = ({id, nav, apiRequest, setToken, fetchedUser}) => {
 
     useEffect(() => {
             function fetchData() {
-                if (!params){
+                if (!params) {
                     apiRequest(`account/vklogin/?${window.location.search.slice(1)}&/`).then(response => {
-                        if (response.status_code === 404){
+                        if (response.status_code === 404) {
                             console.log(404);
-                        }
-                        else {
+                        } else {
                             setToken(response.token);
                             localStorage.setItem('token', response.token);
                             replace("/catalogue");
                         }
                     })
-                }
-                else{
+                } else {
                     apiRequest(`account/vklogin/?${params}&/`).then(response => {
-                        if (response.status_code === 404){
+                        if (response.status_code === 404) {
                             console.log(404);
-                        }
-                        else {
+                        } else {
                             setToken(response.token);
                             localStorage.setItem('token', response.token);
                             replace("/catalogue");
@@ -44,7 +47,7 @@ const VkLogin = ({id, nav, apiRequest, setToken, fetchedUser}) => {
 
             fetchData();
         }
-    , []);
+        , []);
 
     const onEmailChange = e => {
         setEmail(e.currentTarget.value);
@@ -61,7 +64,7 @@ const VkLogin = ({id, nav, apiRequest, setToken, fetchedUser}) => {
     const onSubmit = e => {
         e.preventDefault();
         apiRequest("account/login", `email=${email}&password=${password}`).then(response => {
-            if (response){
+            if (response) {
                 localStorage.setItem("token", response.token);
                 setToken(response.token);
                 replace("/catalogue");
@@ -80,10 +83,12 @@ const VkLogin = ({id, nav, apiRequest, setToken, fetchedUser}) => {
                 <Group width={100} height={100}>
                     <FormLayout onSubmit={onSubmit}>
                         <FormItem top="E-mail">
-                            <Input type="email" align="center" placeholder="Введите e-mail" onChange={onEmailChange} value={email} required />
+                            <Input type="email" align="center" placeholder="Введите e-mail" onChange={onEmailChange}
+                                   value={email} required/>
                         </FormItem>
                         <FormItem top="Пароль">
-                            <Input type={passwordShown ? "text" : "password"} align="center" placeholder="Введите пароль" onChange={onPasswordChange} value={password}  after={
+                            <Input type={passwordShown ? "text" : "password"} align="center"
+                                   placeholder="Введите пароль" onChange={onPasswordChange} value={password} after={
                                 <IconButton
                                     hoverMode="opacity"
                                     aria-label="Показать пароль"

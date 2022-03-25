@@ -1,7 +1,8 @@
 import React, {useEffect, useState} from 'react';
 import bridge from '@vkontakte/vk-bridge';
 import {
-    AdaptivityProvider, Alert,
+    AdaptivityProvider,
+    Alert,
     AppRoot,
     Cell,
     ConfigProvider,
@@ -32,7 +33,7 @@ const App = () => {
     const platform = usePlatform();
     const [fetchedUser, setFetchedUser] = useState(null);
     const [popout, setPopout] = useState(<ScreenSpinner size='large'/>);
-    const [isVK, setIsVK] = useState(true);
+    const [isVK, setIsVK] = useState(false);
     const [activeStory, setActiveStory] = useState("catalogue");
     const [token, setToken] = useState("");
     const apiURL = "http://127.0.0.1:8000";
@@ -44,17 +45,16 @@ const App = () => {
 
     useEffect(() => {
         bridge.subscribe(({detail: {type, data}}) => {
-            if (type === "webpackOk" && isVK) {
+            if (type === "webpackOk") {
                 setIsVK(false);
                 setPopout(null);
-                if (localStorage.getItem("token")){
+                if (localStorage.getItem("token")) {
                     setToken(localStorage.getItem("token"));
-                    if (document.location.hash === "#/") replace("/catalogue");
-                    else{
+                    if (document.location.hash === "#/" || !document.location.hash) replace("/catalogue");
+                    else {
                         setActiveStory(document.location.hash.substring(2));
                     }
-                }
-                else{
+                } else {
                     replace("/login");
                 }
             }
@@ -85,13 +85,13 @@ const App = () => {
     };
 
     const exitApp = () => {
-        bridge.send("VKWebAppClose", { "status": "failed", "payload": { "name": "test" } });
+        bridge.send("VKWebAppClose", {"status": "failed", "payload": {"name": "test"}});
     }
 
     const apiRequest = async function (method, params = "", tokend = undefined) {
         try {
-            if (!token){
-                if (localStorage.getItem("token")){
+            if (!token) {
+                if (localStorage.getItem("token")) {
                     setToken(localStorage.getItem("token"));
                     tokend = localStorage.getItem("token");
                 }
@@ -103,14 +103,13 @@ const App = () => {
             }
             if (!method.endsWith("/")) method = method + "/";
             const paramsURL = new URLSearchParams();
-            for(const i of params.split("&")){
+            for (const i of params.split("&")) {
                 if (i.split("=")[0]) paramsURL.append(i.split("=")[0], i.split("=")[1]);
             }
             return await axios.post(`${apiURL}/api/${method}`, paramsURL, config).then(response => {
                 return response.data
             });
-        }
-        catch (e) {
+        } catch (e) {
             if (e.response.status === 401 || e.response.status === 500 || e.response.status === 502) {
                 setPopout(<Alert
                     actions={[{
@@ -123,8 +122,7 @@ const App = () => {
                     text={e.response.data.error}
                     onClose={() => exitApp()}
                 />);
-            }
-            else if (e.response.status === 429 || e.response.status === 400) {
+            } else if (e.response.status === 429 || e.response.status === 400) {
                 setPopout(<Alert
                     actions={[{
                         title: 'Хорошо',
@@ -136,8 +134,7 @@ const App = () => {
                     text={e.response.data.error}
                     onClose={() => setPopout(null)}
                 />);
-            }
-            else {
+            } else {
                 return e.response.data;
             }
         }
@@ -248,20 +245,23 @@ const App = () => {
                                             )
                                         }
                                     >
-                                        <Catalogue id={"catalogue"} nav={"/catalogue"} token={token} apiRequest={apiRequest}/>
+                                        <Catalogue id={"catalogue"} nav={"/catalogue"} token={token}
+                                                   apiRequest={apiRequest}/>
                                         <Favourites id={"favourites"} nav={"/favourites"} token={token}/>
                                         <Profile id={"profile"} nav={"/profile"} token={token} apiRequest={apiRequest}/>
                                     </Epic>
                                 </SplitCol>
                             </SplitLayout>
                             <SplitLayout nav={"/login"} popout={popout}>
-                                <Login nav={"/login"} id={"login"} apiRequest={apiRequest} setToken={setToken}/>
+                                <Login nav={"/login"} id={"login"} apiRequest={apiRequest} setToken={setToken}
+                                       isVK={isVK}/>
                             </SplitLayout>
                             <SplitLayout nav={"/register"} popout={popout}>
-                                <Register nav={"/register"} id={"register"} apiRequest={apiRequest}/>
+                                <Register nav={"/register"} id={"register"} apiRequest={apiRequest} isVK={isVK}/>
                             </SplitLayout>
                             <SplitLayout nav={"/vklogin"} popout={popout}>
-                                <VkLogin nav={"/vklogin"} id={"vklogin"} apiRequest={apiRequest} setToken={setToken} fetchedUser={fetchedUser} />
+                                <VkLogin nav={"/vklogin"} id={"vklogin"} apiRequest={apiRequest} setToken={setToken}
+                                         fetchedUser={fetchedUser}/>
                             </SplitLayout>
                         </Root>
                     </Match>

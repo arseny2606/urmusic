@@ -1,19 +1,13 @@
 import {
     Avatar,
-    Cell,
-    Footer, Gradient,
     Group,
-    IconButton,
+    Gradient,
     Panel,
     PanelHeader,
-    Search, SimpleCell,
-    Text, Title
+    SimpleCell,
+    Title
 } from "@vkontakte/vkui";
-import {
-    Icon24ChevronRight,
-    Icon24Filter,
-    Icon24Search, Icon28MailOutline, Icon28PhoneOutline
-} from "@vkontakte/icons";
+import {Icon28MailOutline} from "@vkontakte/icons";
 import {useEffect, useState} from "react";
 import {replace} from "@itznevikat/router";
 
