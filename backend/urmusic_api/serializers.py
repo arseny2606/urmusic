@@ -1,4 +1,5 @@
 from django.contrib.auth import authenticate
+from django.conf import settings
 from django.utils.translation import gettext_lazy as _
 from rest_framework import serializers
 
@@ -145,7 +146,7 @@ class UserSerializer(serializers.ModelSerializer):
         return f"{user.first_name} {user.last_name}"
 
     def get_avatar_url(self, user):
-        return user.get_avatar()
+        return settings.BASE_URL + user.get_avatar()
 
     def get_email(self, user):
         return f"{user.email[0]}•••{user.email.split('@')[1]}"
