@@ -2,7 +2,7 @@ from base64 import b64encode
 from collections import OrderedDict
 from hashlib import sha256
 from hmac import HMAC
-from urllib.parse import urlencode, parse_qsl, urlparse
+from urllib.parse import urlencode
 
 from django.conf import settings
 from rest_framework import status
@@ -15,7 +15,7 @@ from rest_framework.views import APIView
 
 from .models import Restaurant, TrackOrder, User
 from .serializers import RegistrationSerializer, AuthTokenSerializer, RestaurantSerializer, \
-    TrackOrderSerializer, UserSerializer
+    TrackOrderSerializer, UserSerializer, LinkVKSerializer
 
 
 class AccountRegistration(APIView):
@@ -49,7 +49,8 @@ class AuthByVK(APIView):
     def get(self, request):
         vk_subset = OrderedDict(sorted(x for x in request.GET.items() if x[0][:3] == "vk_"))
         hash_code = b64encode(
-            HMAC(settings.APP_SECRET_KEY.encode(), urlencode(vk_subset, doseq=True).encode(), sha256).digest())
+            HMAC(settings.APP_SECRET_KEY.encode(), urlencode(vk_subset, doseq=True).encode(),
+                 sha256).digest())
         decoded_hash_code = hash_code.decode('utf-8')[:-1].replace('+', '-').replace('/', '_')
         if request.GET["sign"] != decoded_hash_code:
             return Response({
@@ -70,7 +71,6 @@ class AuthByVK(APIView):
 
     def post(self, request):
         return self.get(request)
-
 
 
 class AllRestaurants(APIView):
@@ -115,3 +115,17 @@ class GetProfile(APIView):
 
     def post(self, request):
         return self.get(request)
+
+
+class LinkVK(APIView):
+    authentication_classes = [SessionAuthentication, BasicAuthentication, TokenAuthentication]
+    permission_classes = [IsAuthenticated]
+    serializer_class = LinkVKSerializer
+
+    def post(self, request):
+        serializer = self.serializer_class(data=request.data,
+                                           context={'request': request})
+        serializer.is_valid(raise_exception=True)
+        serializer.save()
+        return Response({'user_id': request.user.id,
+                         'status': 'success'})
