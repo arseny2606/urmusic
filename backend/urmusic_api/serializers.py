@@ -1,4 +1,3 @@
-import datetime
 import urllib.request
 
 from django.conf import settings
@@ -193,7 +192,7 @@ class LinkVKSerializer(serializers.Serializer):
         if not vk_id or not first_name or not last_name or not city or not photo_url:
             msg = _(
                 'Должно содержать параметры "vk_id", "first_name", "last_name", "city", "photo_url".')
-            raise serializers.ValidationError(msg, code='authorization')
+            raise serializers.ValidationError(msg, code='validation')
         return attrs
 
     def create(self, validated_data):
@@ -203,47 +202,63 @@ class LinkVKSerializer(serializers.Serializer):
         user.last_name = validated_data["last_name"]
         user.city = validated_data["city"]
         img_temp = NamedTemporaryFile()
-        print(validated_data["photo_url"])
         img_temp.write(urllib.request.urlopen(validated_data["photo_url"]).read())
         img_temp.flush()
         user.avatar.save(f"avatar_{user.id}.jpg", File(img_temp), save=True)
         user.save()
         return user
 
+
 class CreateOrderSerializer(serializers.Serializer):
     restaurant_id = serializers.IntegerField(write_only=True)
-    order_id = serializers.IntegerField(write_only=True)
+    track_id = serializers.IntegerField(write_only=True)
 
     def validate(self, attrs):
         restaraunt_id = attrs.get('restaurant_id')
         track_id = attrs.get('track_id')
         if not track_id or not restaraunt_id:
             msg = _(
-                'Данный трек или ресторан не найден".')
-            raise serializers.ValidationError(msg, code='create order')
+                'Должно содержать параметры "restaraunt_id", "track_id".')
+            raise serializers.ValidationError(msg, code='validation')
+        if not Track.objects.filter(id=track_id).count():
+            msg = _(
+                'Трека с таким ID не существует.')
+            raise serializers.ValidationError(msg, code='validation')
+        attrs["track"] = Track.objects.filter(id=track_id).first()
+        if not Restaurant.objects.filter(id=restaraunt_id).count():
+            msg = _(
+                'Ресторана с таким ID не существует.')
+            raise serializers.ValidationError(msg, code='validation')
+        attrs["restaurant"] = Restaurant.objects.filter(id=restaraunt_id).first()
         return attrs
 
     def create(self, validated_data):
-        order = TrackOrder(restaurant = validated_data['restaurant_id'], track = validated_data['track_id'], owner = self.context['request'].user)
+        order = TrackOrder(restaurant=validated_data['restaurant'],
+                           track=validated_data['track'], owner=self.context['request'].user)
         order.save()
         return order
 
+
 class DeleteOrderSerializer(serializers.Serializer):
-    restaurant_id = serializers.IntegerField(write_only=True)
     order_id = serializers.IntegerField(write_only=True)
 
     def validate(self, attrs):
-        restaurant_id = attrs.get('restaurant_id')
-        track_id = attrs.get('track_id')
-        owner = self.context['request'].user
-        owners = TrackOrder.objects.filter(restaurant = restaurant_id, track = track_id).all()
-        if not track_id or not restaurant_id or not (owner in owners):
+        order_id = attrs["order_id"]
+        if not order_id:
             msg = _(
-                'Данный трек или ресторан не найден или вы не являетесь создателем".')
-            raise serializers.ValidationError(msg, code='delete order')
+                'Должно содержать параметр "order_id".')
+            raise serializers.ValidationError(msg, code='validation')
+        if not TrackOrder.objects.filter(id=order_id).count():
+            msg = _(
+                'Такой записи в очереди не существует.')
+            raise serializers.ValidationError(msg, code='validation')
+        track_order = TrackOrder.objects.filter(id=order_id).first()
+        if track_order.owner != self.context["request"].user:
+            msg = _(
+                'Вы не являетесь владельцем этой записи в очереди.')
+            raise serializers.ValidationError(msg, code='validation')
+        attrs["order"] = track_order
         return attrs
 
     def delete(self, validated_data):
-        order = TrackOrder.objects.filter(restaurant = validated_data['restaurant_id'], track = validated_data['track_id'], owner = self.context['request'].user)
-        order.delete()
-        return order
+        validated_data["order"].delete()
