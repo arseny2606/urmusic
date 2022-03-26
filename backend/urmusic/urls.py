@@ -30,6 +30,6 @@ urlpatterns = [
                   path('api/account/profile/', GetProfile.as_view()),
                   path('api/restaurants/all/', AllRestaurants.as_view()),
                   path('api/restaurants/get/', OneRestaurant.as_view()),
-                  path('api/account/create/', CreateOrder.as_view()),
-                  path('api/account/delete/', DeleteOrder.as_view())
+                  path('api/tracks/create/', CreateOrder.as_view()),
+                  path('api/tracks/delete/', DeleteOrder.as_view())
               ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
