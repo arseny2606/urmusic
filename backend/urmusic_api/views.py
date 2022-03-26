@@ -15,7 +15,7 @@ from rest_framework.views import APIView
 
 from .models import Restaurant, TrackOrder, User
 from .serializers import RegistrationSerializer, AuthTokenSerializer, RestaurantSerializer, \
-    TrackOrderSerializer, UserSerializer, LinkVKSerializer
+    TrackOrderSerializer, UserSerializer, LinkVKSerializer, CreateOrderSerializer, DeleteOrderSerializer
 
 
 class AccountRegistration(APIView):
@@ -130,3 +130,30 @@ class LinkVK(APIView):
         serializer.save()
         return Response({'user_id': request.user.id,
                          'status': 'success'})
+
+class CreateOrder(APIView):
+    authentication_classes = [SessionAuthentication, BasicAuthentication, TokenAuthentication]
+    permission_classes = [IsAuthenticated]
+
+    def get(self, request):
+        return Response({'status': 'waiting choose'})
+
+    def post(self, request):
+        serializer = CreateOrderSerializer(data = request.data, context={'request': request})
+        serializer.is_valid(raise_exception=True)
+        serializer.save()
+        return Response({'status': 'success'})
+
+
+class DeleteOrder(APIView):
+    authentication_classes = [SessionAuthentication, BasicAuthentication, TokenAuthentication]
+    permission_classes = [IsAuthenticated]
+
+    def get(self, request):
+        return Response({'status': 'waiting choose'})
+
+    def post(self, request):
+        serializer = DeleteOrderSerializer(data = request.data, context = {'request': request})
+        serializer.is_valid(raise_exception=True)
+        serializer.delete()
+        return Response({'status': 'success'})
