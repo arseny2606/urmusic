@@ -29,7 +29,7 @@ import Login from "./panels/Login";
 import Register from "./panels/Register";
 import VkLogin from "./panels/VkLogin";
 import VkRegister from "./panels/VkRegister";
-import Restaurant from "./panels/Restaurant";
+import RestaurantLayout from "./panels/RestaurantLayout";
 
 const App = () => {
     const platform = usePlatform();
@@ -273,9 +273,8 @@ const App = () => {
                                 <VkRegister nav={"/vkregister"} id={"vkregister"} apiRequest={apiRequest}
                                             fetchedUser={fetchedUser} setToken={setToken} isVK={isVK}/>
                             </SplitLayout>
-                            <SplitLayout nav={"/restaurant"} popout={popout}>
-                                <Restaurant nav={"/restaurant"} id={"restaurant"} apiRequest={apiRequest} token={token} />
-                            </SplitLayout>
+                            <RestaurantLayout nav={"/restaurant"} id={"restaurant"} apiRequest={apiRequest}
+                                              token={token} popout={popout}/>
                         </Root>
                     </Match>
                 </AppRoot>
