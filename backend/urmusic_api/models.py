@@ -41,6 +41,7 @@ class User(AbstractUser):
 class Restaurant(models.Model):
     name = models.CharField(max_length=100)
     address = models.CharField(max_length=150)
+    description = models.TextField()
     image = models.ImageField(upload_to="restaurant_images/")
     owner = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
 

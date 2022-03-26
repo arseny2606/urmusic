@@ -15,7 +15,7 @@ import {
     Icon24Search
 } from "@vkontakte/icons";
 import {useEffect, useState} from "react";
-import {replace} from "@itznevikat/router";
+import {push, replace} from "@itznevikat/router";
 
 const Catalogue = ({id, nav, token, apiRequest}) => {
     const [search, setSearch] = useState("");
@@ -63,6 +63,10 @@ const Catalogue = ({id, nav, token, apiRequest}) => {
         return objects.filter(({name}) => name.toLowerCase().indexOf(search.toLowerCase()) > -1);
     }
 
+    const goToRestaurant = (e) => {
+        push(`/restaurant?restaurant_id=${e.currentTarget.dataset.to}`);
+    }
+
     return (
         <Panel id={id} nav={nav}>
             <PanelHeader left={<IconButton><Icon24Filter/></IconButton>}>Каталог</PanelHeader>
@@ -78,7 +82,7 @@ const Catalogue = ({id, nav, token, apiRequest}) => {
                             <Cell key={object.id} before={<Avatar mode="image" src={object.image_url} size={72}/>}
                                   after={<Icon24ChevronRight/>} description={
                                 <Text>{object.address}<br/>{object.tracks_count} {getNoun(object.tracks_count, 'трек', 'трека', 'треков')} в
-                                    очереди</Text>}><Text weight="medium"
+                                    очереди</Text>} onClick={goToRestaurant} data-to={object.id}><Text weight="medium"
                                                           style={{fontSize: 16}}>{object.name}</Text></Cell>
                         ))}
                     {getObjects().length === 0 && <Footer>Ничего не найдено</Footer>}
