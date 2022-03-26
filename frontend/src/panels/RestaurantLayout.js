@@ -154,7 +154,7 @@ const RestaurantLayout = ({id, nav, token, apiRequest, popout}) => {
         }>
             <Panel id={id} nav={nav}>
                 {restaurantData && <>
-                    <PanelHeader left={<PanelHeaderBack onClick={() => replace("/catalogue")}/>} right={restaurantData.data.owner === profile.id && <IconButton><Icon24ExternalLinkOutline/></IconButton>}>Ресторан
+                    <PanelHeader left={<PanelHeaderBack onClick={() => replace("/catalogue")}/>} right={restaurantData.data.owner === profile.id && <IconButton onClick={() => push(`/audioplayer?restaurant_id=${restaurant_id}`)}><Icon24ExternalLinkOutline/></IconButton>}>Ресторан
                         «{restaurantData.data.name}»</PanelHeader>
                     <Group>
                         <CardGrid size="l">

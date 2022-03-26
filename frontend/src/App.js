@@ -31,6 +31,7 @@ import VkLogin from "./panels/VkLogin";
 import VkRegister from "./panels/VkRegister";
 import RestaurantLayout from "./panels/RestaurantLayout";
 import {WebviewType} from "@vkontakte/vkui/dist/components/ConfigProvider/ConfigProviderContext";
+import AudioPlayer from "./panels/AudioPlayer";
 
 const App = () => {
     const platform = usePlatform();
@@ -273,6 +274,10 @@ const App = () => {
                             <SplitLayout nav={"/vkregister"} popout={popout}>
                                 <VkRegister nav={"/vkregister"} id={"vkregister"} apiRequest={apiRequest}
                                             fetchedUser={fetchedUser} setToken={setToken} isVK={isVK}/>
+                            </SplitLayout>
+                            <SplitLayout nav={"/audioplayer"} popout={popout}>
+                                <AudioPlayer nav={"/audioplayer"} id={"audioplayer"} apiRequest={apiRequest}
+                                             token={token}/>
                             </SplitLayout>
                             <RestaurantLayout nav={"/restaurant"} id={"restaurant"} apiRequest={apiRequest}
                                               token={token} popout={popout}/>
