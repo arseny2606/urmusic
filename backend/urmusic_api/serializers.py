@@ -1,5 +1,6 @@
 import urllib.request
 
+import mutagen as mutagen
 from django.conf import settings
 from django.contrib.auth import authenticate
 from django.core.files import File
@@ -120,14 +121,20 @@ class RestaurantSerializer(serializers.ModelSerializer):
 
 
 class TrackSerializer(serializers.ModelSerializer):
+    duration = serializers.SerializerMethodField('get_track_duration')
     track_url = serializers.SerializerMethodField('get_track_url')
+
+    def get_track_duration(self, track):
+        audio_info = mutagen.File(track.file).info
+        duration = audio_info.length
+        return f"{str(int(duration // 60)).zfill(2)}:{str(int(duration % 60)).zfill(2)}"
 
     def get_track_url(self, track):
         return settings.BASE_URL + track.file.url
 
     class Meta:
         model = Track
-        fields = ['id', 'title', 'artist', 'track_url']
+        fields = ['id', 'title', 'artist', 'duration', 'track_url']
 
 
 class TrackOrderSerializer(serializers.ModelSerializer):
