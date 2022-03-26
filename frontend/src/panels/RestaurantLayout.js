@@ -46,13 +46,6 @@ const RestaurantLayout = ({id, nav, token, apiRequest, popout}) => {
         return five;
     }
 
-    function zfill(num, size) {
-        num = num.toString();
-        while (num.length < size) num = "0" + num;
-        return num;
-    }
-
-
     useEffect(async () => {
             async function fetchData() {
                 if (!token) {
@@ -69,10 +62,6 @@ const RestaurantLayout = ({id, nav, token, apiRequest, popout}) => {
                         replace("/catalogue");
                         return;
                     }
-                    // for (let i = 0; i < response.tracks.length; ++i) {
-                    //     const duration = await getDuration(response.tracks[i].track_data.track_url);
-                    //     response.tracks[i].track_data.duration = `${zfill(parseInt(duration / 60), 2)}:${zfill(parseInt(duration) % 60, 2)}`;
-                    // }
                     setRestaurantData(response);
                 });
                 apiRequest('tracks/all/').then(response => {
@@ -84,16 +73,6 @@ const RestaurantLayout = ({id, nav, token, apiRequest, popout}) => {
         }, [token]
     )
 
-    function getDuration(src) {
-        return new Promise(function (resolve) {
-            const audio = new Audio();
-            audio.addEventListener("loadedmetadata", function () {
-                resolve(audio.duration);
-            });
-            audio.src = src;
-        });
-    }
-
     const deleteTrack = (id) => {
         apiRequest("tracks/delete", `order_id=${id}`).then(() => {
             apiRequest(`restaurants/get/?id=${restaurant_id}&`).then(async response => {
@@ -101,10 +80,6 @@ const RestaurantLayout = ({id, nav, token, apiRequest, popout}) => {
                     replace("/catalogue");
                     return;
                 }
-                // for (let i = 0; i < response.tracks.length; ++i) {
-                //     const duration = await getDuration(response.tracks[i].track_data.track_url);
-                //     response.tracks[i].track_data.duration = `${zfill(parseInt(duration / 60), 2)}:${zfill(parseInt(duration) % 60, 2)}`;
-                // }
                 setRestaurantData(response);
             });
         })
@@ -130,10 +105,6 @@ const RestaurantLayout = ({id, nav, token, apiRequest, popout}) => {
                     replace("/catalogue");
                     return;
                 }
-                // for (let i = 0; i < response.tracks.length; ++i) {
-                //     const duration = await getDuration(response.tracks[i].track_data.track_url);
-                //     response.tracks[i].track_data.duration = `${zfill(parseInt(duration / 60), 2)}:${zfill(parseInt(duration) % 60, 2)}`;
-                // }
                 setRestaurantData(response);
             });
         });
