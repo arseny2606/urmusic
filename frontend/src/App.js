@@ -29,6 +29,7 @@ import Login from "./panels/Login";
 import Register from "./panels/Register";
 import VkLogin from "./panels/VkLogin";
 import VkRegister from "./panels/VkRegister";
+import Restaurant from "./panels/Restaurant";
 
 const App = () => {
     const platform = usePlatform();
@@ -37,7 +38,7 @@ const App = () => {
     const [isVK, setIsVK] = useState(false);
     const [activeStory, setActiveStory] = useState("catalogue");
     const [token, setToken] = useState("");
-    const apiURL = "https://8c48-109-252-191-52.ngrok.io";
+    const apiURL = "http://127.0.0.1:8000";
     const onStoryChange = (e) => {
         setActiveStory(e.currentTarget.dataset.story);
         push(`/${e.currentTarget.dataset.story}`);
@@ -148,7 +149,7 @@ const App = () => {
         <ConfigProvider>
             <AdaptivityProvider>
                 <AppRoot>
-                    <Match>
+                    <Match fallbackURL={"/catalogue"}>
                         <Root nav="/">
                             <SplitLayout
                                 header={hasHeader && <PanelHeader separator={false}/>}
@@ -271,6 +272,9 @@ const App = () => {
                             <SplitLayout nav={"/vkregister"} popout={popout}>
                                 <VkRegister nav={"/vkregister"} id={"vkregister"} apiRequest={apiRequest}
                                             fetchedUser={fetchedUser} setToken={setToken} isVK={isVK}/>
+                            </SplitLayout>
+                            <SplitLayout nav={"/restaurant"} popout={popout}>
+                                <Restaurant nav={"/restaurant"} id={"restaurant"} apiRequest={apiRequest} token={token} />
                             </SplitLayout>
                         </Root>
                     </Match>

@@ -116,7 +116,7 @@ class RestaurantSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Restaurant
-        fields = ['id', 'name', 'address', 'tracks_count', 'image_url']
+        fields = ['id', 'name', 'address', 'description', 'tracks_count', 'image_url']
 
 
 class TrackSerializer(serializers.ModelSerializer):
