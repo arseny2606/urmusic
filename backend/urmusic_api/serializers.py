@@ -1,3 +1,4 @@
+import datetime
 import urllib.request
 
 from django.conf import settings
@@ -208,3 +209,41 @@ class LinkVKSerializer(serializers.Serializer):
         user.avatar.save(f"avatar_{user.id}.jpg", File(img_temp), save=True)
         user.save()
         return user
+
+class CreateOrderSerializer(serializers.Serializer):
+    restaurant_id = serializers.IntegerField(write_only=True)
+    order_id = serializers.IntegerField(write_only=True)
+
+    def validate(self, attrs):
+        restaraunt_id = attrs.get('restaurant_id')
+        track_id = attrs.get('track_id')
+        if not track_id or not restaraunt_id:
+            msg = _(
+                'Данный трек или ресторан не найден".')
+            raise serializers.ValidationError(msg, code='create order')
+        return attrs
+
+    def create(self, validated_data):
+        order = TrackOrder(restaurant = validated_data['restaurant_id'], track = validated_data['track_id'], owner = self.context['request'].user)
+        order.save()
+        return order
+
+class DeleteOrderSerializer(serializers.Serializer):
+    restaurant_id = serializers.IntegerField(write_only=True)
+    order_id = serializers.IntegerField(write_only=True)
+
+    def validate(self, attrs):
+        restaurant_id = attrs.get('restaurant_id')
+        track_id = attrs.get('track_id')
+        owner = self.context['request'].user
+        owners = TrackOrder.objects.filter(restaurant = restaurant_id, track = track_id).all()
+        if not track_id or not restaurant_id or not (owner in owners):
+            msg = _(
+                'Данный трек или ресторан не найден или вы не являетесь создателем".')
+            raise serializers.ValidationError(msg, code='delete order')
+        return attrs
+
+    def delete(self, validated_data):
+        order = TrackOrder.objects.filter(restaurant = validated_data['restaurant_id'], track = validated_data['track_id'], owner = self.context['request'].user)
+        order.delete()
+        return order
