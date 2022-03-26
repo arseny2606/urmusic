@@ -13,10 +13,10 @@ from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
-from .models import Restaurant, TrackOrder, User
+from .models import Restaurant, TrackOrder, User, Track
 from .serializers import RegistrationSerializer, AuthTokenSerializer, RestaurantSerializer, \
     TrackOrderSerializer, UserSerializer, LinkVKSerializer, CreateOrderSerializer, \
-    DeleteOrderSerializer
+    DeleteOrderSerializer, TrackSerializer
 
 
 class AccountRegistration(APIView):
@@ -155,3 +155,16 @@ class DeleteOrder(APIView):
         serializer.is_valid(raise_exception=True)
         serializer.delete(serializer.validated_data)
         return Response({'status': 'success'})
+
+
+class AllTracks(APIView):
+    authentication_classes = [SessionAuthentication, BasicAuthentication, TokenAuthentication]
+    permission_classes = [IsAuthenticated]
+
+    def get(self, request):
+        tracks = Track.objects.all()
+        response = {"data": [TrackSerializer(track).data for track in tracks]}
+        return Response(response)
+
+    def post(self, request):
+        return self.get(request)
