@@ -77,7 +77,7 @@ const Catalogue = ({id, nav, token, apiRequest}) => {
                         onChange={onChange}
                         icon={<Icon24Search/>}
                     />
-                    {getObjects().length > 0 &&
+                    {getObjects().length > 0 && <>{
                         getObjects().map((object) => (
                             <Cell key={object.id} before={<Avatar mode="image" src={object.image_url} size={72}/>}
                                   after={<Icon24ChevronRight/>} description={
@@ -85,6 +85,9 @@ const Catalogue = ({id, nav, token, apiRequest}) => {
                                     очереди</Text>} onClick={goToRestaurant} data-to={object.id}><Text weight="medium"
                                                           style={{fontSize: 16}}>{object.name}</Text></Cell>
                         ))}
+                        <Footer>{getObjects().length} {getNoun(getObjects().length, "ресторан", "ресторана", "ресторанов")}</Footer>
+                        </>
+                    }
                     {getObjects().length === 0 && <Footer>Ничего не найдено</Footer>}
                 </Group>
             }

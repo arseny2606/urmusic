@@ -243,7 +243,7 @@ class DeleteOrderSerializer(serializers.Serializer):
     order_id = serializers.IntegerField(write_only=True)
 
     def validate(self, attrs):
-        order_id = attrs["order_id"]
+        order_id = attrs.get("order_id")
         if not order_id:
             msg = _(
                 'Должно содержать параметр "order_id".')
