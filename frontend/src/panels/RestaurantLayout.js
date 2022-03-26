@@ -9,7 +9,7 @@ import {
     Footer,
     FormItem,
     Group,
-    Header,
+    Header, IconButton,
     ModalCard,
     Panel,
     PanelHeader,
@@ -20,7 +20,7 @@ import {
 } from "@vkontakte/vkui";
 import {useEffect, useState} from "react";
 import {back, ModalRoot, push, replace, useParams} from "@itznevikat/router";
-import {Icon24Add, Icon56AddCircleOutline} from "@vkontakte/icons";
+import {Icon24Add, Icon24ExternalLinkOutline, Icon56AddCircleOutline} from "@vkontakte/icons";
 
 const RestaurantLayout = ({id, nav, token, apiRequest, popout}) => {
     const [restaurantData, setRestaurantData] = useState(undefined);
@@ -154,7 +154,7 @@ const RestaurantLayout = ({id, nav, token, apiRequest, popout}) => {
         }>
             <Panel id={id} nav={nav}>
                 {restaurantData && <>
-                    <PanelHeader left={<PanelHeaderBack onClick={() => replace("/catalogue")}/>}>Ресторан
+                    <PanelHeader left={<PanelHeaderBack onClick={() => replace("/catalogue")}/>} right={restaurantData.data.owner === profile.id && <IconButton><Icon24ExternalLinkOutline/></IconButton>}>Ресторан
                         «{restaurantData.data.name}»</PanelHeader>
                     <Group>
                         <CardGrid size="l">

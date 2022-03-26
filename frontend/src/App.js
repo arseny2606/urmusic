@@ -30,6 +30,7 @@ import Register from "./panels/Register";
 import VkLogin from "./panels/VkLogin";
 import VkRegister from "./panels/VkRegister";
 import RestaurantLayout from "./panels/RestaurantLayout";
+import {WebviewType} from "@vkontakte/vkui/dist/components/ConfigProvider/ConfigProviderContext";
 
 const App = () => {
     const platform = usePlatform();
@@ -146,7 +147,7 @@ const App = () => {
     };
 
     return (
-        <ConfigProvider>
+        <ConfigProvider webviewType={isVK ? WebviewType.VKAPPS : WebviewType.INTERNAL}>
             <AdaptivityProvider>
                 <AppRoot>
                     <Match fallbackURL={"/catalogue"}>
