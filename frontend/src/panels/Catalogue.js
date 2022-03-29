@@ -64,14 +64,6 @@ const Catalogue = ({id, nav, token, apiRequest}) => {
         return objects.filter(({name}) => name.toLowerCase().indexOf(search.toLowerCase()) > -1);
     }
 
-    const logout = e => {
-        e.preventDefault();
-        window.location.reload();
-        localStorage.setItem("token", "");
-        setToken("");
-        replace("/login");
-    }
-
     const goToRestaurant = (e) => {
         push(`/restaurant?restaurant_id=${e.currentTarget.dataset.to}`);
     }
@@ -79,12 +71,7 @@ const Catalogue = ({id, nav, token, apiRequest}) => {
     return (
         <Panel id={id} nav={nav}>
             <PanelHeader
-            left={<IconButton><Icon24Filter/></IconButton>}
-            right={
-                <PanelHeaderButton onClick={logout}>
-                    Выйти из аккаунта
-                </PanelHeaderButton>
-            }>Каталог</PanelHeader>
+            left={<IconButton><Icon24Filter/></IconButton>}>Каталог</PanelHeader>
             {objects.length > 0 &&
                 <Group>
                     <Search

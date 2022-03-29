@@ -20,7 +20,12 @@ import {
 import '@vkontakte/vkui/dist/vkui.css';
 
 import {Epic, Match, push, replace, Root} from "@itznevikat/router";
-import {Icon28FavoriteOutline, Icon28MenuOutline, Icon28UserOutline,} from "@vkontakte/icons";
+import {
+    Icon28DoorArrowRightOutline,
+    Icon28FavoriteOutline,
+    Icon28MenuOutline,
+    Icon28UserOutline,
+} from "@vkontakte/icons";
 import Catalogue from "./panels/Catalogue";
 import Favourites from "./panels/Favourites";
 import Profile from "./panels/Profile";
@@ -147,6 +152,13 @@ const App = () => {
         }
     };
 
+    const logout = e => {
+        e.preventDefault();
+        localStorage.removeItem("token");
+        setToken("");
+        replace("/login");
+    }
+
     return (
         <ConfigProvider webviewType={isVK ? WebviewType.VKAPPS : WebviewType.INTERNAL}>
             <AdaptivityProvider>
@@ -212,6 +224,14 @@ const App = () => {
                                                 >
                                                     Профиль
                                                 </Cell>
+                                                {token && !isVK &&
+                                                    <Cell
+                                                        data-story="profile"
+                                                        onClick={logout}
+                                                        before={<Icon28DoorArrowRightOutline />}
+                                                    >
+                                                        Выход
+                                                    </Cell>}
                                             </Group>
                                         </Panel>
                                     </SplitCol>

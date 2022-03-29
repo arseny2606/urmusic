@@ -15,14 +15,6 @@ import {replace} from "@itznevikat/router";
 const Favourites = ({id, nav, token}) => {
     const [favouriteObjects, setFavouriteObjects] = useState([]);
 
-    const logout = e => {
-        e.preventDefault();
-        window.location.reload();
-        localStorage.setItem("token", "");
-        setToken("");
-        replace("/login");
-    }
-
     const getNoun = (number, one, two, five) => {
         let n = Math.abs(number);
         n %= 100;
@@ -64,11 +56,7 @@ const Favourites = ({id, nav, token}) => {
 
     return (
         <Panel id={id} nav={nav}>
-            <PanelHeader right={
-                <PanelHeaderButton onClick={logout}>
-                    Выйти из аккаунта
-                </PanelHeaderButton>
-            }>Избранное</PanelHeader>
+            <PanelHeader>Избранное</PanelHeader>
             <Group>
                 {favouriteObjects.length > 0 &&
                     favouriteObjects.map((object) => (

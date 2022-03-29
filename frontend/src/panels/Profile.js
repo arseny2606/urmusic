@@ -15,14 +15,6 @@ import {replace} from "@itznevikat/router";
 const Profile = ({id, nav, token, apiRequest}) => {
     const [profile, setProfile] = useState({});
 
-    const logout = e => {
-        e.preventDefault();
-        window.location.reload();
-        localStorage.setItem("token", "");
-        setToken("");
-        replace("/login");
-    }
-
     useEffect(() => {
             function fetchData() {
                 if (!token) {
@@ -80,11 +72,6 @@ const Profile = ({id, nav, token, apiRequest}) => {
                         >
                             Email
                         </SimpleCell>
-                    </Group>
-                    <Group mode="plain">
-                        <CellButton centered onClick={logout}>
-                            Выйти из аккаунта
-                        </CellButton>
                     </Group>
                 </Group>
             }
