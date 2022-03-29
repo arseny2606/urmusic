@@ -19,7 +19,7 @@ from .serializers import RegistrationSerializer, AuthTokenSerializer, \
     RestaurantSerializer, \
     TrackOrderSerializer, UserSerializer, LinkVKSerializer, \
     CreateOrderSerializer, DeleteOrderSerializer, TrackSerializer, \
-    FavouriteRestaurantSerializer
+    FavouriteRestaurantSerializer, AddFavoriteRestaurantSerializer
 
 
 class AccountRegistration(APIView):
@@ -129,11 +129,26 @@ class FavouriteRestaurants(APIView):
         favrestaurants = FavouriteRestaurant.objects.all()
         response = {
             "data": [FavouriteRestaurantSerializer(favrestaurant).data for
-                     favrestaurant in favrestaurants if favrestaurant.user == request.user]}
+                     favrestaurant in favrestaurants if
+                     favrestaurant.user == request.user]}
         return Response(response)
 
     def post(self, request):
         return self.get(request)
+
+
+class AddFavoriteRestaurant(APIView):
+    authentication_classes = [SessionAuthentication, BasicAuthentication,
+                              TokenAuthentication]
+    permission_classes = [IsAuthenticated]
+    serializer_class = AddFavoriteRestaurantSerializer
+
+    def post(self, request):
+        serializer = self.serializer_class(data=request.data,
+                                           context={'request': request})
+        serializer.is_valid(raise_exception=True)
+        serializer.save()
+        return Response({'status': 'success'})
 
 
 class GetProfile(APIView):

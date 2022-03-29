@@ -130,6 +130,34 @@ class FavouriteRestaurantSerializer(serializers.ModelSerializer):
         fields = ['restaurant', 'user']
 
 
+class AddFavoriteRestaurantSerializer(serializers.ModelSerializer):
+    restaurant = serializers.IntegerField(write_only=True)
+
+    def validate(self, attrs):
+        restaurant = attrs.get('restaurant')
+        if not restaurant:
+            msg = _(
+                'Должно содержать параметр "restaurant".')
+            raise serializers.ValidationError(msg, code='validation')
+        restaurant = attrs.get('restaurant')
+        if not Restaurant.objects.filter(id=restaurant).count():
+            msg = _(
+                'Ресторана с таким ID не существует.')
+            raise serializers.ValidationError(msg, code='validation')
+        attrs["restaurant"] = Restaurant.objects.filter(
+            id=restaurant).first()
+        return attrs
+
+    def create(self, validated_data):
+        instance, _ = FavouriteRestaurant.objects.get_or_create(
+            **validated_data)
+        return instance
+
+    class Meta:
+        model = FavouriteRestaurant
+        fields = ['restaurant', 'user']
+
+
 class TrackSerializer(serializers.ModelSerializer):
     duration = serializers.SerializerMethodField('get_track_duration')
     track_url = serializers.SerializerMethodField('get_track_url')
@@ -232,23 +260,23 @@ class CreateOrderSerializer(serializers.Serializer):
     track_id = serializers.IntegerField(write_only=True)
 
     def validate(self, attrs):
-        restaraunt_id = attrs.get('restaurant_id')
+        restaurant_id = attrs.get('restaurant_id')
         track_id = attrs.get('track_id')
-        if not track_id or not restaraunt_id:
+        if not track_id or not restaurant_id:
             msg = _(
-                'Должно содержать параметры "restaraunt_id", "track_id".')
+                'Должно содержать параметры "restaurant_id", "track_id".')
             raise serializers.ValidationError(msg, code='validation')
         if not Track.objects.filter(id=track_id).count():
             msg = _(
                 'Трека с таким ID не существует.')
             raise serializers.ValidationError(msg, code='validation')
         attrs["track"] = Track.objects.filter(id=track_id).first()
-        if not Restaurant.objects.filter(id=restaraunt_id).count():
+        if not Restaurant.objects.filter(id=restaurant_id).count():
             msg = _(
                 'Ресторана с таким ID не существует.')
             raise serializers.ValidationError(msg, code='validation')
         attrs["restaurant"] = Restaurant.objects.filter(
-            id=restaraunt_id).first()
+            id=restaurant_id).first()
         return attrs
 
     def create(self, validated_data):
