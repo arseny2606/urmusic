@@ -1,6 +1,8 @@
+import datetime
 import urllib.request
 
 import mutagen as mutagen
+import pytz
 from django.conf import settings
 from django.contrib.auth import authenticate
 from django.core.files import File
@@ -8,6 +10,7 @@ from django.core.files.temp import NamedTemporaryFile
 from django.utils.translation import gettext_lazy as _
 from rest_framework import serializers
 
+from .exceptions import OurThrottled
 from .models import User, TrackOrder, Restaurant, Track
 
 
@@ -238,6 +241,16 @@ class CreateOrderSerializer(serializers.Serializer):
             msg = _(
                 'Ресторана с таким ID не существует.')
             raise serializers.ValidationError(msg, code='validation')
+        time_array = TrackOrder.objects.filter(owner=self.context['request'].user).all()
+        if time_array.count():
+            time = time_array.last().creation_time.timestamp()
+            now = datetime.datetime.now(tz=pytz.timezone(settings.TIME_ZONE)).timestamp()
+            if now - time < 60 * 5:
+                msg = 'Вы слишком быстро добавляете треки.'
+                raise OurThrottled(wait=60 * 5 - int(now - time), detail=msg)
+            if time_array.count() >= 3:
+                msg = _('Вы добавили слишком много треков.')
+                raise OurThrottled(detail=msg)
         attrs["restaurant"] = Restaurant.objects.filter(id=restaraunt_id).first()
         return attrs
 
