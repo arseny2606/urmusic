@@ -1,3 +1,4 @@
+import datetime
 from base64 import b64encode
 from collections import OrderedDict
 from hashlib import sha256
@@ -139,11 +140,17 @@ class CreateOrder(APIView):
     serializer_class = CreateOrderSerializer
 
     def post(self, request):
+        time_array = TrackOrder.objects.filter(owner=request.user).all()
+        time = list(time_array)[-1].creation_time.timestamp()
+        now = datetime.datetime.now().timestamp() - 60 * 60 * 3
+        if now - time < 60 * 5:
+            return Response({'status': 'error: cooldown failed'})
+        if len(list(time_array)) >= 3:
+            return Response({'status': 'error: max count of tracks reached'})
         serializer = self.serializer_class(data=request.data, context={'request': request})
         serializer.is_valid(raise_exception=True)
         serializer.save()
         return Response({'status': 'success'})
-
 
 class DeleteOrder(APIView):
     authentication_classes = [SessionAuthentication, BasicAuthentication, TokenAuthentication]
