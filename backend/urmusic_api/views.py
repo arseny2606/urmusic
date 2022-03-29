@@ -129,7 +129,7 @@ class FavouriteRestaurants(APIView):
         favrestaurants = FavouriteRestaurant.objects.all()
         response = {
             "data": [FavouriteRestaurantSerializer(favrestaurant).data for
-                     favrestaurant in favrestaurants]}
+                     favrestaurant in favrestaurants if favrestaurant.user == request.user]}
         return Response(response)
 
     def post(self, request):
