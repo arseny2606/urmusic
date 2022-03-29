@@ -8,7 +8,7 @@ from django.core.files.temp import NamedTemporaryFile
 from django.utils.translation import gettext_lazy as _
 from rest_framework import serializers
 
-from .models import User, TrackOrder, Restaurant, Track
+from .models import User, TrackOrder, Restaurant, Track, FavouriteRestaurant
 
 
 class RegistrationSerializer(serializers.Serializer):
@@ -65,7 +65,8 @@ class RegistrationSerializer(serializers.Serializer):
         return attrs
 
     def create(self, validated_data):
-        user = User.objects.create(email=validated_data["email"], city=validated_data["city"],
+        user = User.objects.create(email=validated_data["email"],
+                                   city=validated_data["city"],
                                    first_name=validated_data["first_name"],
                                    last_name=validated_data["last_name"])
         user.set_password(validated_data["password"])
@@ -119,7 +120,14 @@ class RestaurantSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Restaurant
-        fields = ['id', 'name', 'address', 'description', 'tracks_count', 'image_url', 'owner']
+        fields = ['id', 'name', 'address', 'description', 'tracks_count',
+                  'image_url', 'owner']
+
+
+class FavouriteRestaurantSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = FavouriteRestaurant
+        fields = ['restaurant', 'user']
 
 
 class TrackSerializer(serializers.ModelSerializer):
@@ -211,7 +219,8 @@ class LinkVKSerializer(serializers.Serializer):
         user.last_name = validated_data["last_name"]
         user.city = validated_data["city"]
         img_temp = NamedTemporaryFile()
-        img_temp.write(urllib.request.urlopen(validated_data["photo_url"]).read())
+        img_temp.write(
+            urllib.request.urlopen(validated_data["photo_url"]).read())
         img_temp.flush()
         user.avatar.save(f"avatar_{user.id}.jpg", File(img_temp), save=True)
         user.save()
@@ -238,12 +247,14 @@ class CreateOrderSerializer(serializers.Serializer):
             msg = _(
                 'Ресторана с таким ID не существует.')
             raise serializers.ValidationError(msg, code='validation')
-        attrs["restaurant"] = Restaurant.objects.filter(id=restaraunt_id).first()
+        attrs["restaurant"] = Restaurant.objects.filter(
+            id=restaraunt_id).first()
         return attrs
 
     def create(self, validated_data):
         order = TrackOrder(restaurant=validated_data['restaurant'],
-                           track=validated_data['track'], owner=self.context['request'].user)
+                           track=validated_data['track'],
+                           owner=self.context['request'].user)
         order.save()
         return order
 
@@ -262,7 +273,8 @@ class DeleteOrderSerializer(serializers.Serializer):
                 'Такой записи в очереди не существует.')
             raise serializers.ValidationError(msg, code='validation')
         track_order = TrackOrder.objects.filter(id=order_id).first()
-        if track_order.owner != self.context["request"].user and track_order.restaurant.owner != \
+        if track_order.owner != self.context[
+            "request"].user and track_order.restaurant.owner != \
                 self.context["request"].user:
             msg = _(
                 'Вы не являетесь владельцем этой записи в очереди.')

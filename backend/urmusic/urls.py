@@ -19,7 +19,7 @@ from django.contrib import admin
 from django.urls import path
 
 from urmusic_api.views import AccountRegistration, AuthByPassword, AllRestaurants, OneRestaurant, \
-    GetProfile, AuthByVK, LinkVK, CreateOrder, DeleteOrder, AllTracks
+    GetProfile, AuthByVK, LinkVK, CreateOrder, DeleteOrder, AllTracks, FavouriteRestaurants
 
 urlpatterns = [
                   path('admin/', admin.site.urls),
@@ -30,6 +30,7 @@ urlpatterns = [
                   path('api/account/profile/', GetProfile.as_view()),
                   path('api/restaurants/all/', AllRestaurants.as_view()),
                   path('api/restaurants/get/', OneRestaurant.as_view()),
+                  path('api/restaurants/Favourites/', FavouriteRestaurants.as_view()),
                   path('api/tracks/all/', AllTracks.as_view()),
                   path('api/tracks/create/', CreateOrder.as_view()),
                   path('api/tracks/delete/', DeleteOrder.as_view())
