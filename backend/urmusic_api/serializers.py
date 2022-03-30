@@ -130,19 +130,17 @@ class FavouriteRestaurantSerializer(serializers.ModelSerializer):
         fields = ['restaurant', 'user']
 
 
-class AddFavoriteRestaurantSerializer(serializers.ModelSerializer):
+class AddFavouriteRestaurantSerializer(serializers.ModelSerializer):
     restaurant = serializers.IntegerField(write_only=True)
 
     def validate(self, attrs):
         restaurant = attrs.get('restaurant')
         if not restaurant:
-            msg = _(
-                'Должно содержать параметр "restaurant".')
+            msg = _('Должно содержать параметр "restaurant".')
             raise serializers.ValidationError(msg, code='validation')
         restaurant = attrs.get('restaurant')
         if not Restaurant.objects.filter(id=restaurant).count():
-            msg = _(
-                'Ресторана с таким ID не существует.')
+            msg = _('Ресторана с таким ID не существует.')
             raise serializers.ValidationError(msg, code='validation')
         attrs["restaurant"] = Restaurant.objects.filter(
             id=restaurant).first()
@@ -156,6 +154,27 @@ class AddFavoriteRestaurantSerializer(serializers.ModelSerializer):
     class Meta:
         model = FavouriteRestaurant
         fields = ['restaurant', 'user']
+
+
+class RemoveFavouriteRestaurantSerializer(serializers.Serializer):
+    restaurant = serializers.IntegerField(write_only=True)
+
+    def validate(self, attrs):
+        restaurant = attrs.get("restaurant")
+        if not restaurant:
+            msg = _('Должен содержать параметр "restaurant".')
+            raise serializers.ValidationError(msg, code='validation')
+        if not FavouriteRestaurant.objects.filter(id=restaurant).count():
+            msg = _('Такой записи не существует.')
+            raise serializers.ValidationError(msg, code='validation')
+        _restaurant = FavouriteRestaurant.objects.filter(restaurant=restaurant,
+                                                         user=self.context[
+                                                             'request'].user).first()
+        attrs["restaurant"] = _restaurant
+        return attrs
+
+    def delete(self, validated_data):
+        validated_data["restaurant"].delete()
 
 
 class TrackSerializer(serializers.ModelSerializer):

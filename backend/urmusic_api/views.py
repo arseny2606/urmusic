@@ -19,7 +19,8 @@ from .serializers import RegistrationSerializer, AuthTokenSerializer, \
     RestaurantSerializer, \
     TrackOrderSerializer, UserSerializer, LinkVKSerializer, \
     CreateOrderSerializer, DeleteOrderSerializer, TrackSerializer, \
-    FavouriteRestaurantSerializer, AddFavoriteRestaurantSerializer
+    FavouriteRestaurantSerializer, AddFavouriteRestaurantSerializer, \
+    RemoveFavouriteRestaurantSerializer
 
 
 class AccountRegistration(APIView):
@@ -137,17 +138,31 @@ class FavouriteRestaurants(APIView):
         return self.get(request)
 
 
-class AddFavoriteRestaurant(APIView):
+class AddFavouriteRestaurant(APIView):
     authentication_classes = [SessionAuthentication, BasicAuthentication,
                               TokenAuthentication]
     permission_classes = [IsAuthenticated]
-    serializer_class = AddFavoriteRestaurantSerializer
+    serializer_class = AddFavouriteRestaurantSerializer
 
     def post(self, request):
         serializer = self.serializer_class(data=request.data,
                                            context={'request': request})
         serializer.is_valid(raise_exception=True)
         serializer.save()
+        return Response({'status': 'success'})
+
+
+class RemoveFavouriteRestaurant(APIView):
+    authentication_classes = [SessionAuthentication, BasicAuthentication,
+                              TokenAuthentication]
+    permission_classes = [IsAuthenticated]
+    serializer_class = RemoveFavouriteRestaurantSerializer
+
+    def post(self, request):
+        serializer = self.serializer_class(data=request.data,
+                                           context={'request': request})
+        serializer.is_valid(raise_exception=True)
+        serializer.delete(serializer.validated_data)
         return Response({'status': 'success'})
 
 
