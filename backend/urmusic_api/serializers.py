@@ -253,7 +253,8 @@ class CreateOrderSerializer(serializers.Serializer):
                 raise OurThrottled(detail=msg)
 
         attrs["restaurant"] = Restaurant.objects.filter(id=restaraunt_id).first()
-        if  Restaurant.objects.filter(~Q(id = restaraunt_id), user = self.context['request'].user).count():
+        if TrackOrder.objects.filter(~Q(id = restaraunt_id), owner = self.context['request'].user).count():
+            print(TrackOrder.objects.filter(~Q(id = restaraunt_id), owner = self.context['request'].user))
             msg = 'Вы не можете добавлять треки в очередь другого ресторана.'
             raise OurThrottled(detail=msg)
         return attrs
