@@ -162,14 +162,13 @@ class RemoveFavouriteRestaurantSerializer(serializers.Serializer):
     def validate(self, attrs):
         restaurant = attrs.get("restaurant")
         if not restaurant:
-            msg = _('Должен содержать параметр "restaurant".')
+            msg = _('Должен содержать параметр "restaurant"')
             raise serializers.ValidationError(msg, code='validation')
-        if not FavouriteRestaurant.objects.filter(id=restaurant).count():
+        if not FavouriteRestaurant.objects.filter(restaurant=restaurant).count():
             msg = _('Такой записи не существует.')
             raise serializers.ValidationError(msg, code='validation')
         _restaurant = FavouriteRestaurant.objects.filter(restaurant=restaurant,
-                                                         user=self.context[
-                                                             'request'].user).first()
+                                    user=self.context['request'].user).first()
         attrs["restaurant"] = _restaurant
         return attrs
 
