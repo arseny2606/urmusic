@@ -1,6 +1,6 @@
 import datetime
 import urllib.request
-
+from django.db.models import Q
 import mutagen as mutagen
 import pytz
 from django.conf import settings
@@ -251,7 +251,11 @@ class CreateOrderSerializer(serializers.Serializer):
             if time_array.count() >= 3:
                 msg = _('Вы добавили слишком много треков.')
                 raise OurThrottled(detail=msg)
+
         attrs["restaurant"] = Restaurant.objects.filter(id=restaraunt_id).first()
+        if  Restaurant.objects.filter(~Q(id = restaraunt_id), user = self.context['request'].user).count():
+            msg = 'Вы не можете добавлять треки в очередь другого ресторана.'
+            raise OurThrottled(detail=msg)
         return attrs
 
     def create(self, validated_data):
