@@ -297,9 +297,3 @@ class DeleteOrderSerializer(serializers.Serializer):
 
     def delete(self, validated_data):
         validated_data["order"].delete()
-
-
-'''{
-    "track_id":1,
-    "restaurant_id": 1
-}'''
