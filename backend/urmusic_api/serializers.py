@@ -255,14 +255,15 @@ class CreateOrderSerializer(serializers.Serializer):
                 msg = _('Вы добавили слишком много треков.')
                 raise OurThrottled(detail=msg)
         attrs["restaurant"] = Restaurant.objects.filter(id=restaraunt_id).first()
-        if TrackOrder.objects.filter(~Q(restaurant = attrs['restaurant']), owner = self.context['request'].user).count():
+        if TrackOrder.objects.filter(~Q(restaurant=attrs['restaurant']),
+                                     owner=self.context['request'].user).count():
             if force:
-                order_list = TrackOrder.objects.filter(~Q(id = restaraunt_id), owner = self.context['request'].user).all()
+                order_list = TrackOrder.objects.filter(~Q(id=restaraunt_id),
+                                                       owner=self.context['request'].user).all()
                 order_list.delete()
             else:
-                print(TrackOrder.objects.filter(~Q(restaurant = attrs['restaurant']), owner = self.context['request'].user))
                 msg = 'Вы не можете добавлять треки в очередь другого ресторана.'
-                raise OurThrottled(detail=msg)
+                raise serializers.ValidationError(msg, code='validation')
         return attrs
 
     def create(self, validated_data):
@@ -296,6 +297,7 @@ class DeleteOrderSerializer(serializers.Serializer):
 
     def delete(self, validated_data):
         validated_data["order"].delete()
+
 
 '''{
     "track_id":1,
