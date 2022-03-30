@@ -1,12 +1,13 @@
 import datetime
 import urllib.request
-from django.db.models import Q
+
 import mutagen as mutagen
 import pytz
 from django.conf import settings
 from django.contrib.auth import authenticate
 from django.core.files import File
 from django.core.files.temp import NamedTemporaryFile
+from django.db.models import Q
 from django.utils.translation import gettext_lazy as _
 from rest_framework import serializers
 
@@ -253,7 +254,6 @@ class CreateOrderSerializer(serializers.Serializer):
             if time_array.count() >= 3:
                 msg = _('Вы добавили слишком много треков.')
                 raise OurThrottled(detail=msg)
-
         attrs["restaurant"] = Restaurant.objects.filter(id=restaraunt_id).first()
         if TrackOrder.objects.filter(~Q(restaurant = attrs['restaurant']), owner = self.context['request'].user).count():
             if force:
