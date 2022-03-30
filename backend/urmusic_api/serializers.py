@@ -7,6 +7,7 @@ from django.conf import settings
 from django.contrib.auth import authenticate
 from django.core.files import File
 from django.core.files.temp import NamedTemporaryFile
+from django.db.models import Q
 from django.utils.translation import gettext_lazy as _
 from rest_framework import serializers
 
@@ -224,10 +225,12 @@ class LinkVKSerializer(serializers.Serializer):
 class CreateOrderSerializer(serializers.Serializer):
     restaurant_id = serializers.IntegerField(write_only=True)
     track_id = serializers.IntegerField(write_only=True)
+    force = serializers.BooleanField(default=False, write_only=True, required=False)
 
     def validate(self, attrs):
         restaraunt_id = attrs.get('restaurant_id')
         track_id = attrs.get('track_id')
+        force = attrs.get('force')
         if not track_id or not restaraunt_id:
             msg = _(
                 'Должно содержать параметры "restaraunt_id", "track_id".')
@@ -245,13 +248,22 @@ class CreateOrderSerializer(serializers.Serializer):
         if time_array.count():
             time = time_array.last().creation_time.timestamp()
             now = datetime.datetime.now(tz=pytz.timezone(settings.TIME_ZONE)).timestamp()
-            if now - time < 60 * 5:
+            if now - time < 0 * 5:
                 msg = 'Вы слишком быстро добавляете треки.'
                 raise OurThrottled(wait=60 * 5 - int(now - time), detail=msg)
             if time_array.count() >= 3:
                 msg = _('Вы добавили слишком много треков.')
                 raise OurThrottled(detail=msg)
         attrs["restaurant"] = Restaurant.objects.filter(id=restaraunt_id).first()
+        if TrackOrder.objects.filter(~Q(restaurant=attrs['restaurant']),
+                                     owner=self.context['request'].user).count():
+            if force:
+                order_list = TrackOrder.objects.filter(~Q(id=restaraunt_id),
+                                                       owner=self.context['request'].user).all()
+                order_list.delete()
+            else:
+                msg = 'Вы не можете добавлять треки в очередь другого ресторана.'
+                raise serializers.ValidationError(msg, code='validation')
         return attrs
 
     def create(self, validated_data):
@@ -285,3 +297,9 @@ class DeleteOrderSerializer(serializers.Serializer):
 
     def delete(self, validated_data):
         validated_data["order"].delete()
+
+
+'''{
+    "track_id":1,
+    "restaurant_id": 1
+}'''
