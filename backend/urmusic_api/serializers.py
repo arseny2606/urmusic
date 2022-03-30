@@ -224,6 +224,7 @@ class LinkVKSerializer(serializers.Serializer):
 class CreateOrderSerializer(serializers.Serializer):
     restaurant_id = serializers.IntegerField(write_only=True)
     track_id = serializers.IntegerField(write_only=True)
+    force = serializers.BooleanField(default=False)
 
     def validate(self, attrs):
         restaraunt_id = attrs.get('restaurant_id')
@@ -254,9 +255,13 @@ class CreateOrderSerializer(serializers.Serializer):
 
         attrs["restaurant"] = Restaurant.objects.filter(id=restaraunt_id).first()
         if TrackOrder.objects.filter(~Q(id = restaraunt_id), owner = self.context['request'].user).count():
-            print(TrackOrder.objects.filter(~Q(id = restaraunt_id), owner = self.context['request'].user))
-            msg = 'Вы не можете добавлять треки в очередь другого ресторана.'
-            raise OurThrottled(detail=msg)
+            if self.force:
+                order_list = TrackOrder.objects.filter(~Q(id = restaraunt_id), owner = self.context['request'].user).all()
+
+            else:
+                print(TrackOrder.objects.filter(~Q(id = restaraunt_id), owner = self.context['request'].user))
+                msg = 'Вы не можете добавлять треки в очередь другого ресторана.'
+                raise OurThrottled(detail=msg)
         return attrs
 
     def create(self, validated_data):
