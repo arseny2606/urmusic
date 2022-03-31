@@ -300,11 +300,11 @@ class CreateOrderSerializer(serializers.Serializer):
             if time_array.count() >= 3:
                 msg = _('Вы добавили слишком много треков.')
                 raise OurThrottled(detail=msg)
-        attrs["restaurant"] = Restaurant.objects.filter(id=restaraunt_id).first()
+        attrs["restaurant"] = Restaurant.objects.filter(id=restaurant_id).first()
         if TrackOrder.objects.filter(~Q(restaurant=attrs['restaurant']),
                                      owner=self.context['request'].user).count():
             if force:
-                order_list = TrackOrder.objects.filter(~Q(id=restaraunt_id),
+                order_list = TrackOrder.objects.filter(~Q(id=restaurant_id),
                                                        owner=self.context['request'].user).all()
                 order_list.delete()
             else:
