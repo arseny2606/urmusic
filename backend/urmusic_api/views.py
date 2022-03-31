@@ -19,7 +19,7 @@ from .serializers import RegistrationSerializer, AuthTokenSerializer, \
     RestaurantSerializer, \
     TrackOrderSerializer, UserSerializer, LinkVKSerializer, \
     CreateOrderSerializer, DeleteOrderSerializer, TrackSerializer, \
-    FavouriteRestaurantSerializer, AddFavouriteRestaurantSerializer, \
+    AddFavouriteRestaurantSerializer, \
     RemoveFavouriteRestaurantSerializer
 
 
@@ -129,7 +129,7 @@ class FavouriteRestaurants(APIView):
     def get(self, request):
         favrestaurants = FavouriteRestaurant.objects.all()
         response = {
-            "data": [FavouriteRestaurantSerializer(favrestaurant).data for
+            "data": [RestaurantSerializer(favrestaurant.restaurant).data for
                      favrestaurant in favrestaurants if
                      favrestaurant.user == request.user]}
         return Response(response)

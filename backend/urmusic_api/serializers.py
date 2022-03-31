@@ -124,13 +124,7 @@ class RestaurantSerializer(serializers.ModelSerializer):
                   'image_url', 'owner']
 
 
-class FavouriteRestaurantSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = FavouriteRestaurant
-        fields = ['restaurant', 'user']
-
-
-class AddFavouriteRestaurantSerializer(serializers.ModelSerializer):
+class AddFavouriteRestaurantSerializer(serializers.Serializer):
     restaurant = serializers.IntegerField(write_only=True)
 
     def validate(self, attrs):
@@ -148,12 +142,9 @@ class AddFavouriteRestaurantSerializer(serializers.ModelSerializer):
 
     def create(self, validated_data):
         instance, _ = FavouriteRestaurant.objects.get_or_create(
-            **validated_data)
+            restaurant=validated_data["restaurant"],
+            user=self.context["request"].user)
         return instance
-
-    class Meta:
-        model = FavouriteRestaurant
-        fields = ['restaurant', 'user']
 
 
 class RemoveFavouriteRestaurantSerializer(serializers.Serializer):
@@ -164,11 +155,12 @@ class RemoveFavouriteRestaurantSerializer(serializers.Serializer):
         if not restaurant:
             msg = _('Должен содержать параметр "restaurant"')
             raise serializers.ValidationError(msg, code='validation')
-        if not FavouriteRestaurant.objects.filter(restaurant=restaurant).count():
+        if not FavouriteRestaurant.objects.filter(restaurant=restaurant,
+                                                  user=self.context['request'].user).count():
             msg = _('Такой записи не существует.')
             raise serializers.ValidationError(msg, code='validation')
         _restaurant = FavouriteRestaurant.objects.filter(restaurant=restaurant,
-                                    user=self.context['request'].user).first()
+                                                         user=self.context['request'].user).first()
         attrs["restaurant"] = _restaurant
         return attrs
 
