@@ -341,10 +341,3 @@ class EditRestaurant(serializers.Serializer):
         restaurant.image = validated_data['image']
         restaurant.name = validated_data['name']
         restaurant.save()
-
-'''
-{
-"restaurant_id":1,
-"description":"edited"
-}
-'''
