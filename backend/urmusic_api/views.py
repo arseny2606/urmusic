@@ -18,7 +18,7 @@ from rest_framework.views import APIView
 from .models import Restaurant, TrackOrder, User, Track
 from .serializers import RegistrationSerializer, AuthTokenSerializer, RestaurantSerializer, \
     TrackOrderSerializer, UserSerializer, LinkVKSerializer, CreateOrderSerializer, \
-    DeleteOrderSerializer, TrackSerializer
+    DeleteOrderSerializer, TrackSerializer, EditRestaurant
 
 
 class AccountRegistration(APIView):
@@ -170,3 +170,20 @@ class AllTracks(APIView):
 
     def post(self, request):
         return self.get(request)
+
+class RestaurantEdit(APIView):
+    authentication_classes = [SessionAuthentication, BasicAuthentication, TokenAuthentication]
+    permission_classes = [IsAuthenticated]
+    serializer_class = EditRestaurant
+    serializer_out = RestaurantSerializer
+
+    def post(self, request):
+        serializer = self.serializer_class(data=request.data, context={'request': request})
+        serializer.is_valid(raise_exception=True)
+        serializer.update(serializer.validated_data)
+        restaurant = Restaurant.objects.filter(id= request.data['restaurant_id']).first()
+        tracks = TrackOrder.objects.filter(restaurant=restaurant).all()
+        response = {"data": RestaurantSerializer(restaurant).data,
+                    "tracks":
+                        [TrackOrderSerializer(track).data for track in tracks]}
+        return Response(response)
