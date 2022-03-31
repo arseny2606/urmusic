@@ -12,7 +12,7 @@ from django.utils.translation import gettext_lazy as _
 from rest_framework import serializers
 
 from .exceptions import OurThrottled
-from .models import User, TrackOrder, Restaurant, Track
+from .models import User, TrackOrder, Restaurant, Track, FavouriteRestaurant
 
 
 class RegistrationSerializer(serializers.Serializer):
@@ -123,7 +123,52 @@ class RestaurantSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Restaurant
-        fields = ['id', 'name', 'address', 'description', 'tracks_count', 'image_url', 'owner']
+        fields = ['id', 'name', 'address', 'description', 'tracks_count',
+                  'image_url', 'owner']
+
+
+class AddFavouriteRestaurantSerializer(serializers.Serializer):
+    restaurant = serializers.IntegerField(write_only=True)
+
+    def validate(self, attrs):
+        restaurant = attrs.get('restaurant')
+        if not restaurant:
+            msg = _('Должно содержать параметр "restaurant".')
+            raise serializers.ValidationError(msg, code='validation')
+        restaurant = attrs.get('restaurant')
+        if not Restaurant.objects.filter(id=restaurant).count():
+            msg = _('Ресторана с таким ID не существует.')
+            raise serializers.ValidationError(msg, code='validation')
+        attrs["restaurant"] = Restaurant.objects.filter(
+            id=restaurant).first()
+        return attrs
+
+    def create(self, validated_data):
+        instance, _ = FavouriteRestaurant.objects.get_or_create(
+            restaurant=validated_data["restaurant"],
+            user=self.context["request"].user)
+        return instance
+
+
+class RemoveFavouriteRestaurantSerializer(serializers.Serializer):
+    restaurant = serializers.IntegerField(write_only=True)
+
+    def validate(self, attrs):
+        restaurant = attrs.get("restaurant")
+        if not restaurant:
+            msg = _('Должен содержать параметр "restaurant"')
+            raise serializers.ValidationError(msg, code='validation')
+        if not FavouriteRestaurant.objects.filter(restaurant=restaurant,
+                                                  user=self.context['request'].user).count():
+            msg = _('Такой записи не существует.')
+            raise serializers.ValidationError(msg, code='validation')
+        _restaurant = FavouriteRestaurant.objects.filter(restaurant=restaurant,
+                                                         user=self.context['request'].user).first()
+        attrs["restaurant"] = _restaurant
+        return attrs
+
+    def delete(self, validated_data):
+        validated_data["restaurant"].delete()
 
 
 class TrackSerializer(serializers.ModelSerializer):
@@ -215,7 +260,8 @@ class LinkVKSerializer(serializers.Serializer):
         user.last_name = validated_data["last_name"]
         user.city = validated_data["city"]
         img_temp = NamedTemporaryFile()
-        img_temp.write(urllib.request.urlopen(validated_data["photo_url"]).read())
+        img_temp.write(
+            urllib.request.urlopen(validated_data["photo_url"]).read())
         img_temp.flush()
         user.avatar.save(f"avatar_{user.id}.jpg", File(img_temp), save=True)
         user.save()
@@ -228,19 +274,19 @@ class CreateOrderSerializer(serializers.Serializer):
     force = serializers.BooleanField(default=False, write_only=True, required=False)
 
     def validate(self, attrs):
-        restaraunt_id = attrs.get('restaurant_id')
+        restaurant_id = attrs.get('restaurant_id')
         track_id = attrs.get('track_id')
         force = attrs.get('force')
-        if not track_id or not restaraunt_id:
+        if not track_id or not restaurant_id:
             msg = _(
-                'Должно содержать параметры "restaraunt_id", "track_id".')
+                'Должно содержать параметры "restaurant_id", "track_id".')
             raise serializers.ValidationError(msg, code='validation')
         if not Track.objects.filter(id=track_id).count():
             msg = _(
                 'Трека с таким ID не существует.')
             raise serializers.ValidationError(msg, code='validation')
         attrs["track"] = Track.objects.filter(id=track_id).first()
-        if not Restaurant.objects.filter(id=restaraunt_id).count():
+        if not Restaurant.objects.filter(id=restaurant_id).count():
             msg = _(
                 'Ресторана с таким ID не существует.')
             raise serializers.ValidationError(msg, code='validation')
@@ -264,11 +310,14 @@ class CreateOrderSerializer(serializers.Serializer):
             else:
                 msg = 'Вы не можете добавлять треки в очередь другого ресторана.'
                 raise serializers.ValidationError(msg, code='validation')
+        attrs["restaurant"] = Restaurant.objects.filter(
+            id=restaurant_id).first()
         return attrs
 
     def create(self, validated_data):
         order = TrackOrder(restaurant=validated_data['restaurant'],
-                           track=validated_data['track'], owner=self.context['request'].user)
+                           track=validated_data['track'],
+                           owner=self.context['request'].user)
         order.save()
         return order
 
@@ -287,7 +336,8 @@ class DeleteOrderSerializer(serializers.Serializer):
                 'Такой записи в очереди не существует.')
             raise serializers.ValidationError(msg, code='validation')
         track_order = TrackOrder.objects.filter(id=order_id).first()
-        if track_order.owner != self.context["request"].user and track_order.restaurant.owner != \
+        if track_order.owner != self.context[
+            "request"].user and track_order.restaurant.owner != \
                 self.context["request"].user:
             msg = _(
                 'Вы не являетесь владельцем этой записи в очереди.')

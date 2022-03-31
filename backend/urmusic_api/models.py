@@ -13,8 +13,9 @@ class User(AbstractUser):
     email = models.EmailField(unique=True)
     avatar = models.ImageField(upload_to="avatars/", blank=True, null=True)
     city = models.CharField(max_length=200)
-    vk_id = models.IntegerField(unique=True,  blank=True, null=True)
-    account_type = models.ForeignKey(AccountType, on_delete=models.SET_DEFAULT, default=1)
+    vk_id = models.IntegerField(unique=True, blank=True, null=True)
+    account_type = models.ForeignKey(AccountType, on_delete=models.SET_DEFAULT,
+                                     default=1)
     is_staff = models.BooleanField(default=False)
     is_superuser = models.BooleanField(default=False)
     USERNAME_FIELD = 'email'
@@ -24,7 +25,8 @@ class User(AbstractUser):
 
     @staticmethod
     def create_super_user():
-        self = User.objects.create(id=1, email="admin@test.com", account_type_id=3, is_staff=True,
+        self = User.objects.create(id=1, email="admin@test.com",
+                                   account_type_id=3, is_staff=True,
                                    is_superuser=True)
         self.set_password("admin")
         self.save()
@@ -44,6 +46,11 @@ class Restaurant(models.Model):
     description = models.TextField()
     image = models.ImageField(upload_to="restaurant_images/")
     owner = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
+
+
+class FavouriteRestaurant(models.Model):
+    restaurant = models.ForeignKey(Restaurant, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
 
 
 class Track(models.Model):

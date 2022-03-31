@@ -8,17 +8,21 @@ from urllib.parse import urlencode
 import pytz
 from django.conf import settings
 from rest_framework import status
-from rest_framework.authentication import TokenAuthentication, BasicAuthentication, \
+from rest_framework.authentication import TokenAuthentication, \
+    BasicAuthentication, \
     SessionAuthentication
 from rest_framework.authtoken.models import Token
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
-from .models import Restaurant, TrackOrder, User, Track
-from .serializers import RegistrationSerializer, AuthTokenSerializer, RestaurantSerializer, \
-    TrackOrderSerializer, UserSerializer, LinkVKSerializer, CreateOrderSerializer, \
-    DeleteOrderSerializer, TrackSerializer
+from .models import Restaurant, TrackOrder, User, Track, FavouriteRestaurant
+from .serializers import RegistrationSerializer, AuthTokenSerializer, \
+    RestaurantSerializer, \
+    TrackOrderSerializer, UserSerializer, LinkVKSerializer, \
+    CreateOrderSerializer, DeleteOrderSerializer, TrackSerializer, \
+    AddFavouriteRestaurantSerializer, \
+    RemoveFavouriteRestaurantSerializer
 
 
 class AccountRegistration(APIView):
@@ -51,11 +55,14 @@ class AuthByPassword(APIView):
 
 class AuthByVK(APIView):
     def get(self, request):
-        vk_subset = OrderedDict(sorted(x for x in request.GET.items() if x[0][:3] == "vk_"))
+        vk_subset = OrderedDict(
+            sorted(x for x in request.GET.items() if x[0][:3] == "vk_"))
         hash_code = b64encode(
-            HMAC(settings.APP_SECRET_KEY.encode(), urlencode(vk_subset, doseq=True).encode(),
+            HMAC(settings.APP_SECRET_KEY.encode(),
+                 urlencode(vk_subset, doseq=True).encode(),
                  sha256).digest())
-        decoded_hash_code = hash_code.decode('utf-8')[:-1].replace('+', '-').replace('/', '_')
+        decoded_hash_code = hash_code.decode('utf-8')[:-1].replace('+', '-') \
+            .replace('/', '_')
         if request.GET["sign"] != decoded_hash_code:
             return Response({
                 "error": "Отправлены неверные данные.",
@@ -78,12 +85,15 @@ class AuthByVK(APIView):
 
 
 class AllRestaurants(APIView):
-    authentication_classes = [SessionAuthentication, BasicAuthentication, TokenAuthentication]
+    authentication_classes = [SessionAuthentication, BasicAuthentication,
+                              TokenAuthentication]
     permission_classes = [IsAuthenticated]
 
     def get(self, request):
         restaurants = Restaurant.objects.all()
-        response = {"data": [RestaurantSerializer(restaurant).data for restaurant in restaurants]}
+        response = {
+            "data": [RestaurantSerializer(restaurant).data for restaurant in
+                     restaurants]}
         return Response(response)
 
     def post(self, request):
@@ -91,27 +101,76 @@ class AllRestaurants(APIView):
 
 
 class OneRestaurant(APIView):
-    authentication_classes = [SessionAuthentication, BasicAuthentication, TokenAuthentication]
+    authentication_classes = [SessionAuthentication, BasicAuthentication,
+                              TokenAuthentication]
     permission_classes = [IsAuthenticated]
 
     def get(self, request):
         restaurant_id = request.GET.get("id")
         if Restaurant.objects.filter(id=restaurant_id).count() == 0:
             return Response(
-                {"error": f"Ресторан с id {restaurant_id} не найден!", "status_code": 404},
+                {"error": f"Ресторан с id {restaurant_id} не найден!",
+                 "status_code": 404},
                 status.HTTP_404_NOT_FOUND)
         restaurant = Restaurant.objects.filter(id=restaurant_id).first()
         tracks = TrackOrder.objects.filter(restaurant=restaurant).all()
         response = {"data": RestaurantSerializer(restaurant).data,
-                    "tracks": [TrackOrderSerializer(track).data for track in tracks]}
+                    "tracks":
+                        [TrackOrderSerializer(track).data for track in tracks]}
         return Response(response)
 
     def post(self, request):
         return self.get(request)
 
 
+class FavouriteRestaurants(APIView):
+    authentication_classes = [SessionAuthentication, BasicAuthentication,
+                              TokenAuthentication]
+    permission_classes = [IsAuthenticated]
+
+    def get(self, request):
+        favrestaurants = FavouriteRestaurant.objects.all()
+        response = {
+            "data": [RestaurantSerializer(favrestaurant.restaurant).data for
+                     favrestaurant in favrestaurants if
+                     favrestaurant.user == request.user]}
+        return Response(response)
+
+    def post(self, request):
+        return self.get(request)
+
+
+class AddFavouriteRestaurant(APIView):
+    authentication_classes = [SessionAuthentication, BasicAuthentication,
+                              TokenAuthentication]
+    permission_classes = [IsAuthenticated]
+    serializer_class = AddFavouriteRestaurantSerializer
+
+    def post(self, request):
+        serializer = self.serializer_class(data=request.data,
+                                           context={'request': request})
+        serializer.is_valid(raise_exception=True)
+        serializer.save()
+        return Response({'status': 'success'})
+
+
+class RemoveFavouriteRestaurant(APIView):
+    authentication_classes = [SessionAuthentication, BasicAuthentication,
+                              TokenAuthentication]
+    permission_classes = [IsAuthenticated]
+    serializer_class = RemoveFavouriteRestaurantSerializer
+
+    def post(self, request):
+        serializer = self.serializer_class(data=request.data,
+                                           context={'request': request})
+        serializer.is_valid(raise_exception=True)
+        serializer.delete(serializer.validated_data)
+        return Response({'status': 'success'})
+
+
 class GetProfile(APIView):
-    authentication_classes = [SessionAuthentication, BasicAuthentication, TokenAuthentication]
+    authentication_classes = [SessionAuthentication, BasicAuthentication,
+                              TokenAuthentication]
     permission_classes = [IsAuthenticated]
 
     def get(self, request):
@@ -122,7 +181,8 @@ class GetProfile(APIView):
 
 
 class LinkVK(APIView):
-    authentication_classes = [SessionAuthentication, BasicAuthentication, TokenAuthentication]
+    authentication_classes = [SessionAuthentication, BasicAuthentication,
+                              TokenAuthentication]
     permission_classes = [IsAuthenticated]
     serializer_class = LinkVKSerializer
 
@@ -136,31 +196,36 @@ class LinkVK(APIView):
 
 
 class CreateOrder(APIView):
-    authentication_classes = [SessionAuthentication, BasicAuthentication, TokenAuthentication]
+    authentication_classes = [SessionAuthentication, BasicAuthentication,
+                              TokenAuthentication]
     permission_classes = [IsAuthenticated]
     serializer_class = CreateOrderSerializer
 
     def post(self, request):
-        serializer = self.serializer_class(data=request.data, context={'request': request})
+        serializer = self.serializer_class(data=request.data,
+                                           context={'request': request})
         serializer.is_valid(raise_exception=True)
         serializer.save()
         return Response({'status': 'success'})
 
 
 class DeleteOrder(APIView):
-    authentication_classes = [SessionAuthentication, BasicAuthentication, TokenAuthentication]
+    authentication_classes = [SessionAuthentication, BasicAuthentication,
+                              TokenAuthentication]
     permission_classes = [IsAuthenticated]
     serializer_class = DeleteOrderSerializer
 
     def post(self, request):
-        serializer = self.serializer_class(data=request.data, context={'request': request})
+        serializer = self.serializer_class(data=request.data,
+                                           context={'request': request})
         serializer.is_valid(raise_exception=True)
         serializer.delete(serializer.validated_data)
         return Response({'status': 'success'})
 
 
 class AllTracks(APIView):
-    authentication_classes = [SessionAuthentication, BasicAuthentication, TokenAuthentication]
+    authentication_classes = [SessionAuthentication, BasicAuthentication,
+                              TokenAuthentication]
     permission_classes = [IsAuthenticated]
 
     def get(self, request):
