@@ -392,3 +392,29 @@ class RestaurantEditSerializer(serializers.Serializer):
         restaurant.image = validated_data['image']
         restaurant.name = validated_data['name']
         restaurant.save()
+
+
+class ProfileEditSerializer(serializers.Serializer):
+    first_name = serializers.CharField(write_only=True, required=False)
+    last_name = serializers.CharField(write_only=True, required=False)
+    city = serializers.CharField(max_length=200, write_only=True, required=False)
+
+    def validate(self, attrs):
+        first_name = attrs.get("first_name")
+        last_name = attrs.get("last_name")
+        city = attrs.get("city")
+        attrs['user'] = self.context['request'].user
+        if not first_name:
+            attrs['first_name'] = attrs['user'].first_name
+        if not last_name:
+            attrs['last_name'] = attrs['user'].last_name
+        if not city:
+            attrs['city'] = attrs['user'].city
+        return attrs
+
+    def update(self, instance, validated_data):
+        user = validated_data['user']
+        user.first_name = validated_data['first_name']
+        user.last_name = validated_data['last_name']
+        user.city = validated_data['city']
+        user.save()

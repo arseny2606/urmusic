@@ -20,7 +20,7 @@ from .serializers import RegistrationSerializer, AuthTokenSerializer, \
     TrackOrderSerializer, UserSerializer, LinkVKSerializer, \
     CreateOrderSerializer, DeleteOrderSerializer, TrackSerializer, \
     AddFavouriteRestaurantSerializer, \
-    RemoveFavouriteRestaurantSerializer, RestaurantEditSerializer
+    RemoveFavouriteRestaurantSerializer, RestaurantEditSerializer, ProfileEditSerializer
 
 
 class AccountRegistration(APIView):
@@ -250,3 +250,15 @@ class RestaurantEdit(APIView):
                     "tracks":
                         [TrackOrderSerializer(track).data for track in tracks]}
         return Response(response)
+
+
+class ProfileEdit(APIView):
+    authentication_classes = [SessionAuthentication, BasicAuthentication, TokenAuthentication]
+    permission_classes = [IsAuthenticated]
+    serializer_class = ProfileEditSerializer
+
+    def post(self, request):
+        serializer = self.serializer_class(data=request.data, context={'request': request})
+        serializer.is_valid(raise_exception=True)
+        serializer.update(request.user, serializer.validated_data)
+        return Response(UserSerializer(request.user).data)
