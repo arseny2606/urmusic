@@ -298,6 +298,7 @@ class DeleteOrderSerializer(serializers.Serializer):
     def delete(self, validated_data):
         validated_data["order"].delete()
 
+
 class RestaurantEditSerializer(serializers.Serializer):
     restaurant_id = serializers.IntegerField(write_only=True)
     address = serializers.CharField(write_only=True, required=False)
@@ -314,7 +315,7 @@ class RestaurantEditSerializer(serializers.Serializer):
         attrs['restaurant'] = Restaurant.objects.filter(id=restaurant_id).first()
         if not restaurant_id:
             msg = _(
-                'Должно содержать параметры "restaraunt_id"')
+                'Должно содержать параметр "restaraunt_id"')
             raise serializers.ValidationError(msg, code='validation')
         if not Restaurant.objects.filter(id=restaurant_id).count():
             msg = _(
@@ -334,7 +335,7 @@ class RestaurantEditSerializer(serializers.Serializer):
             attrs['name'] = attrs['restaurant'].name
         return attrs
 
-    def update(self, validated_data):
+    def update(self, instance, validated_data):
         restaurant = validated_data['restaurant']
         restaurant.address = validated_data['address']
         restaurant.description = validated_data['description']

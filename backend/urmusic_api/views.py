@@ -171,6 +171,7 @@ class AllTracks(APIView):
     def post(self, request):
         return self.get(request)
 
+
 class RestaurantEdit(APIView):
     authentication_classes = [SessionAuthentication, BasicAuthentication, TokenAuthentication]
     permission_classes = [IsAuthenticated]
@@ -179,7 +180,7 @@ class RestaurantEdit(APIView):
     def post(self, request):
         serializer = self.serializer_class(data=request.data, context={'request': request})
         serializer.is_valid(raise_exception=True)
-        serializer.update(serializer.validated_data)
+        serializer.update(serializer.validated_data['restaurant'], serializer.validated_data)
         restaurant = serializer.validated_data['restaurant']
         tracks = TrackOrder.objects.filter(restaurant=restaurant).all()
         response = {"data": RestaurantSerializer(restaurant).data,
