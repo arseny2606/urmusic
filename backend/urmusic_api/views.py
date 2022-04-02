@@ -177,11 +177,10 @@ class RestaurantEdit(APIView):
     serializer_class = RestaurantEditSerializer
 
     def post(self, request):
-        restaurant = Restaurant.objects.filter(id=request.data['restaurant_id']).first()
-        serializer = self.serializer_class(data=request.data,\
-                                context={'request': request, 'restaurant': restaurant})
+        serializer = self.serializer_class(data=request.data, context={'request': request})
         serializer.is_valid(raise_exception=True)
         serializer.update(serializer.validated_data)
+        restaurant = serializer.validated_data['restaurant']
         tracks = TrackOrder.objects.filter(restaurant=restaurant).all()
         response = {"data": RestaurantSerializer(restaurant).data,
                     "tracks":

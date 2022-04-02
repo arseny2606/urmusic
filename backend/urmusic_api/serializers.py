@@ -311,7 +311,7 @@ class RestaurantEditSerializer(serializers.Serializer):
         description = attrs.get("description")
         image = attrs.get("image")
         name = attrs.get("name")
-        attrs['restaurant'] = self.context['restaurant']
+        attrs['restaurant'] = Restaurant.objects.filter(id=restaurant_id).first()
         if not restaurant_id:
             msg = _(
                 'Должно содержать параметры "restaraunt_id"')
