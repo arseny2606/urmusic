@@ -348,6 +348,7 @@ class DeleteOrderSerializer(serializers.Serializer):
     def delete(self, validated_data):
         validated_data["order"].delete()
 
+
 class ProfileEditSerializer(serializers.Serializer):
     first_name = serializers.CharField(write_only=True, required=False)
     last_name = serializers.CharField(write_only=True, required=False)
@@ -366,7 +367,7 @@ class ProfileEditSerializer(serializers.Serializer):
             attrs['city'] = attrs['user'].city
         return attrs
 
-    def update(self, validated_data):
+    def update(self, instance, validated_data):
         user = validated_data['user']
         user.first_name = validated_data['first_name']
         user.last_name = validated_data['last_name']

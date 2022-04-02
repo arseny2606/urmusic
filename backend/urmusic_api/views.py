@@ -1,11 +1,9 @@
-import datetime
 from base64 import b64encode
 from collections import OrderedDict
 from hashlib import sha256
 from hmac import HMAC
 from urllib.parse import urlencode
 
-import pytz
 from django.conf import settings
 from rest_framework import status
 from rest_framework.authentication import TokenAuthentication, \
@@ -236,6 +234,7 @@ class AllTracks(APIView):
     def post(self, request):
         return self.get(request)
 
+
 class ProfileEdit(APIView):
     authentication_classes = [SessionAuthentication, BasicAuthentication, TokenAuthentication]
     permission_classes = [IsAuthenticated]
@@ -244,6 +243,5 @@ class ProfileEdit(APIView):
     def post(self, request):
         serializer = self.serializer_class(data=request.data, context={'request': request})
         serializer.is_valid(raise_exception=True)
-        serializer.update(serializer.validated_data)
-        response = {"data": UserSerializer(request.user).data,}
-        return Response(response)
+        serializer.update(request.user, serializer.validated_data)
+        return Response(UserSerializer(request.user).data)
