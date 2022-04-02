@@ -298,7 +298,7 @@ class DeleteOrderSerializer(serializers.Serializer):
     def delete(self, validated_data):
         validated_data["order"].delete()
 
-class EditRestaurant(serializers.Serializer):
+class RestaurantEditSerializer(serializers.Serializer):
     restaurant_id = serializers.IntegerField(write_only=True)
     address = serializers.CharField(write_only=True, required=False)
     description = serializers.CharField(write_only=True, required=False)
@@ -311,7 +311,7 @@ class EditRestaurant(serializers.Serializer):
         description = attrs.get("description")
         image = attrs.get("image")
         name = attrs.get("name")
-        attrs['restaurant'] = Restaurant.objects.filter(id= restaurant_id).first()
+        attrs['restaurant'] = self.context['restaurant']
         if not restaurant_id:
             msg = _(
                 'Должно содержать параметры "restaraunt_id"')
@@ -319,6 +319,10 @@ class EditRestaurant(serializers.Serializer):
         if not Restaurant.objects.filter(id=restaurant_id).count():
             msg = _(
                 'Такого ресторана не существует.')
+            raise serializers.ValidationError(msg, code='validation')
+        if attrs['restaurant'].owner != self.context['request'].user:
+            msg = _(
+                'Вы не являетесь владельцем этого ресторана.')
             raise serializers.ValidationError(msg, code='validation')
         if not address:
             attrs['address'] = attrs['restaurant'].address
@@ -328,10 +332,6 @@ class EditRestaurant(serializers.Serializer):
             attrs['image'] = attrs['restaurant'].image
         if not name:
             attrs['name'] = attrs['restaurant'].name
-        if attrs['restaurant'].owner != self.context['request'].user:
-            msg = _(
-                'Вы не являетесь владельцем этого ресторана.')
-            raise serializers.ValidationError(msg, code='validation')
         return attrs
 
     def update(self, validated_data):
