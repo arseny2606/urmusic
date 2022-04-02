@@ -1,11 +1,9 @@
-import datetime
 from base64 import b64encode
 from collections import OrderedDict
 from hashlib import sha256
 from hmac import HMAC
 from urllib.parse import urlencode
 
-import pytz
 from django.conf import settings
 from rest_framework import status
 from rest_framework.authentication import TokenAuthentication, \
