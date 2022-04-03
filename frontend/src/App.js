@@ -37,6 +37,7 @@ import VkRegister from "./panels/VkRegister";
 import RestaurantLayout from "./panels/RestaurantLayout";
 import {WebviewType} from "@vkontakte/vkui/dist/components/ConfigProvider/ConfigProviderContext";
 import AudioPlayer from "./panels/AudioPlayer";
+import LandingPage from "./panels/LandingPage";
 
 const App = () => {
     const platform = usePlatform();
@@ -63,8 +64,6 @@ const App = () => {
                     else {
                         setActiveStory(document.location.hash.substring(2));
                     }
-                } else {
-                    replace("/login");
                 }
             }
             if (type === 'VKWebAppUpdateConfig') {
@@ -301,6 +300,9 @@ const App = () => {
                             </SplitLayout>
                             <RestaurantLayout nav={"/restaurant"} id={"restaurant"} apiRequest={apiRequest}
                                               token={token} popout={popout}/>
+                            <SplitLayout nav={"/landing"} popout={popout}>
+                                <LandingPage nav={"/landing"} id={"landing"} apiRequest={apiRequest}/>
+                            </SplitLayout>
                         </Root>
                     </Match>
                 </AppRoot>
