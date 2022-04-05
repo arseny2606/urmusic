@@ -1,4 +1,5 @@
 import {
+    Alert,
     Button,
     Card,
     CardGrid,
@@ -9,7 +10,8 @@ import {
     Footer,
     FormItem,
     Group,
-    Header, IconButton,
+    Header,
+    IconButton,
     ModalCard,
     Panel,
     PanelHeader,
@@ -18,17 +20,22 @@ import {
     SplitLayout,
     Text
 } from "@vkontakte/vkui";
-import {useEffect, useState} from "react";
+import React, {useEffect, useState} from "react";
 import {back, ModalRoot, push, replace, useParams} from "@itznevikat/router";
 import {Icon24Add, Icon24ExternalLinkOutline, Icon56AddCircleOutline} from "@vkontakte/icons";
+import bridge from "@vkontakte/vk-bridge";
+import {TextTooltip} from "@vkontakte/vkui/unstable";
+import "@vkontakte/vkui/dist/unstable.css";
 
-const RestaurantLayout = ({id, nav, token, apiRequest, popout}) => {
+const RestaurantLayout = ({id, nav, token, apiRequest, popout, setPopout, isVK}) => {
     const [restaurantData, setRestaurantData] = useState(undefined);
     const [profile, setProfile] = useState(undefined);
     const [tracks, setTracks] = useState(undefined);
     const [selectedTrack, setSelectedTrack] = useState(0);
     const {restaurant_id} = useParams();
     const [restaurantId, setRestaurantId] = useState(restaurant_id);
+    const [position, setPosition] = useState({});
+    const [addingAllowed, setAddingAllowed] = useState(false);
 
     const getNoun = (number, one, two, five) => {
         let n = Math.abs(number);
@@ -67,10 +74,48 @@ const RestaurantLayout = ({id, nav, token, apiRequest, popout}) => {
                 apiRequest('tracks/all/').then(response => {
                     setTracks(response.data);
                 });
+                if (!isVK) {
+                    navigator.geolocation.getCurrentPosition((e) => {
+                        setPosition({lat: e.coords.latitude, lon: e.coords.longitude});
+                    }, () => {
+                        setPopout(<Alert
+                            actions={[{
+                                title: 'Хорошо',
+                                mode: 'default',
+                                action: () => setPopout(null)
+                            }]}
+                            actionsLayout="vertical"
+                            header="Ошибка"
+                            text="Вы не предоставили доступ к геолокации. Добавление треков невозможно, пока вы не подтвердите нахождение в заведении."
+                            onClose={() => setPopout(null)}
+                        />);
+                    });
+                } else {
+                    const data = await bridge.send("VKWebAppGetGeodata").catch(e => {
+                        setPopout(<Alert
+                            actions={[{
+                                title: 'Хорошо',
+                                mode: 'default',
+                                action: () => setPopout(null)
+                            }]}
+                            actionsLayout="vertical"
+                            header="Ошибка"
+                            text="Вы не предоставили доступ к геолокации. Добавление треков невозможно, пока вы не подтвердите нахождение в заведении."
+                            onClose={() => setPopout(null)}
+                        />);
+                        return {};
+                    });
+                    if (data) {
+                        setPosition({lat: data.lat, lon: data.long});
+                    }
+                }
+                if (!addingAllowed){
+                    // apirequest
+                }
             }
 
             await fetchData();
-        }, [token]
+        }, [token, isVK]
     )
 
     const deleteTrack = (id) => {
@@ -119,13 +164,28 @@ const RestaurantLayout = ({id, nav, token, apiRequest, popout}) => {
                     header="Добавить трек в очередь"
                     subheader="Новый трек сыграет сразу после того, как доиграют уже добавленные."
                     actions={
-                        <Button
-                            size="l"
-                            mode="primary"
-                            onClick={() => addTrack()}
-                        >
-                            Добавить
-                        </Button>
+                        <>
+                            {
+                                addingAllowed ? <Button
+                                        size="l"
+                                        mode="primary"
+                                        onClick={() => addTrack()}
+                                        disabled={!addingAllowed || !selectedTrack}
+                                    >
+                                        Добавить
+                                    </Button> :
+                                    <TextTooltip text="Вы не подтвердили нахождение в заведении." placement={"top"}>
+                                        <Button
+                                            size="l"
+                                            mode="primary"
+                                            onClick={() => addTrack()}
+                                            disabled={!addingAllowed || !selectedTrack}
+                                        >
+                                            Добавить
+                                        </Button>
+                                    </TextTooltip>
+                            }
+                        </>
                     }
                 >
                     <Group>
@@ -154,7 +214,9 @@ const RestaurantLayout = ({id, nav, token, apiRequest, popout}) => {
         }>
             <Panel id={id} nav={nav}>
                 {restaurantData && <>
-                    <PanelHeader left={<PanelHeaderBack onClick={() => replace("/catalogue")}/>} right={restaurantData.data.owner === profile.id && <IconButton onClick={() => push(`/audioplayer?restaurant_id=${restaurant_id}`)}><Icon24ExternalLinkOutline/></IconButton>}>Ресторан
+                    <PanelHeader left={<PanelHeaderBack onClick={() => replace("/catalogue")}/>}
+                                 right={restaurantData.data.owner === profile.id && <IconButton
+                                     onClick={() => push(`/audioplayer?restaurant_id=${restaurant_id}`)}><Icon24ExternalLinkOutline/></IconButton>}>Ресторан
                         «{restaurantData.data.name}»</PanelHeader>
                     <Group>
                         <CardGrid size="l">

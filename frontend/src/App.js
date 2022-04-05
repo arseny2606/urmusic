@@ -82,7 +82,6 @@ const App = () => {
                 setFetchedUser(user);
                 replace("/vklogin", {params: window.location.search.slice(1), hash: document.location.hash});
             });
-            setPopout(null);
         }
 
         fetchData();
@@ -272,7 +271,7 @@ const App = () => {
                                         }
                                     >
                                         <Catalogue id={"catalogue"} nav={"/catalogue"} token={token}
-                                                   apiRequest={apiRequest}/>
+                                                   apiRequest={apiRequest} isVK={isVK}/>
                                         <Favourites id={"favourites"} nav={"/favourites"} token={token}/>
                                         <Profile id={"profile"} nav={"/profile"} token={token} apiRequest={apiRequest}/>
                                     </Epic>
@@ -299,7 +298,7 @@ const App = () => {
                                              token={token}/>
                             </SplitLayout>
                             <RestaurantLayout nav={"/restaurant"} id={"restaurant"} apiRequest={apiRequest}
-                                              token={token} popout={popout}/>
+                                              token={token} popout={popout} setPopout={setPopout} isVK={isVK}/>
                             <SplitLayout nav={"/landing"} popout={popout}>
                                 <LandingPage nav={"/landing"} id={"landing"} apiRequest={apiRequest}/>
                             </SplitLayout>

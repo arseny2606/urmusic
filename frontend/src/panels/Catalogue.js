@@ -6,15 +6,10 @@ import {
     IconButton,
     Panel,
     PanelHeader,
-    PanelHeaderButton,
     Search,
     Text
 } from "@vkontakte/vkui";
-import {
-    Icon24ChevronRight,
-    Icon24Filter,
-    Icon24Search
-} from "@vkontakte/icons";
+import {Icon24ChevronRight, Icon24Filter, Icon24Search} from "@vkontakte/icons";
 import {useEffect, useState} from "react";
 import {push, replace} from "@itznevikat/router";
 
@@ -71,7 +66,7 @@ const Catalogue = ({id, nav, token, apiRequest}) => {
     return (
         <Panel id={id} nav={nav}>
             <PanelHeader
-            left={<IconButton><Icon24Filter/></IconButton>}>Каталог</PanelHeader>
+                left={<IconButton><Icon24Filter/></IconButton>}>Каталог</PanelHeader>
             {objects.length > 0 &&
                 <Group>
                     <Search
@@ -85,10 +80,10 @@ const Catalogue = ({id, nav, token, apiRequest}) => {
                                   after={<Icon24ChevronRight/>} description={
                                 <Text>{object.address}<br/>{object.tracks_count} {getNoun(object.tracks_count, 'трек', 'трека', 'треков')} в
                                     очереди</Text>} onClick={goToRestaurant} data-to={object.id}><Text weight="medium"
-                                                          style={{fontSize: 16}}>{object.name}</Text></Cell>
+                                                                                                       style={{fontSize: 16}}>{object.name}</Text></Cell>
                         ))}
                         <Footer>{getObjects().length} {getNoun(getObjects().length, "ресторан", "ресторана", "ресторанов")}</Footer>
-                        </>
+                    </>
                     }
                     {getObjects().length === 0 && <Footer>Ничего не найдено</Footer>}
                 </Group>
