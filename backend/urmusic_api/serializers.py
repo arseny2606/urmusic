@@ -11,6 +11,7 @@ from django.db.models import Q
 from django.utils.translation import gettext_lazy as _
 from rest_framework import serializers
 import math
+
 from .exceptions import OurThrottled
 from .models import User, TrackOrder, Restaurant, Track, FavouriteRestaurant
 
@@ -277,16 +278,13 @@ class CreateOrderSerializer(serializers.Serializer):
 
     def distance(self, user, rest):
         degree_to_meters_factor = 111 * 1000
-        user_lon, user_lat = user
+        user_lon, user_lat = map(float, user)
         rest_lon, rest_lat = map(float, rest)
         radians_lattitude = math.radians((user_lat + rest_lat) / 2.)
         lat_lon_factor = math.cos(radians_lattitude)
         dx = abs(user_lon - rest_lon) * degree_to_meters_factor * lat_lon_factor
         dy = abs(user_lat - rest_lat) * degree_to_meters_factor
         distance = math.sqrt(dx * dx + dy * dy)
-        print(user)
-        print(rest)
-        print(distance, distance > 100)
         return distance > 100
 
     def validate(self, attrs):
@@ -328,13 +326,13 @@ class CreateOrderSerializer(serializers.Serializer):
             else:
                 msg = 'Вы не можете добавлять треки в очередь другого ресторана.'
                 raise serializers.ValidationError(msg, code='validation')
-
-        token = "..."
-        dadata = Dadata(token)
-        result = dadata.suggest("address", attrs['restaurant'].address)[0]
-
-        if True and \
-            self.distance((lon, lat), (result['data']['geo_lon'], result['data']['geo_lat'])):
+        dadata = Dadata(settings.DADATA_TOKEN)
+        try:
+            result = dadata.suggest("address", attrs['restaurant'].address)[0]
+        except:
+            msg = _('Адрес ресторана задан неверно. Обратитесь к его владельцу.')
+            raise serializers.ValidationError(msg, code='validation')
+        if self.distance((lon, lat), (result['data']['geo_lon'], result['data']['geo_lat'])):
             msg = _('Вы находитесь далеко от ресторана')
             raise serializers.ValidationError(msg, code='validation')
         return attrs
@@ -345,6 +343,7 @@ class CreateOrderSerializer(serializers.Serializer):
                            owner=self.context['request'].user)
         order.save()
         return order
+
 
 class DeleteOrderSerializer(serializers.Serializer):
     order_id = serializers.IntegerField(write_only=True)
