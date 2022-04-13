@@ -276,7 +276,7 @@ class DeleteOrderSerializer(serializers.Serializer):
             raise serializers.ValidationError(msg, code='validation')
         track_order = TrackOrder.objects.filter(id=order_id).first()
         if (track_order.owner != self.context["request"].user and track_order.restaurant.owner !=
-            self.context["request"].user) or not (track_order.owner == track_order.restaurant.owner):
+            self.context["request"].user) or not (track_order.owner ==  track_order.restaurant.owner):
             msg = _(
                 'Вы не являетесь владельцем этой записи в очереди.')
             raise serializers.ValidationError(msg, code='validation')
