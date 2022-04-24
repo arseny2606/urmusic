@@ -69,6 +69,7 @@ const RestaurantLayout = ({id, nav, token, apiRequest, popout, setPopout, isVK})
                         replace("/catalogue");
                         return;
                     }
+                    console.log(response);
                     setRestaurantData(response);
                 });
                 apiRequest('tracks/all/').then(response => {
@@ -238,7 +239,7 @@ const RestaurantLayout = ({id, nav, token, apiRequest, popout, setPopout, isVK})
                                     {restaurantData.tracks.length > 0 && <>{
                                         restaurantData.tracks.map((track) => (
                                             <Cell key={track.id} disabled
-                                                  mode={track.owner === profile.id ? "removable" : ""}
+                                                  mode={track.restaurant_owner_id === profile.id || track ? "removable" : ""}
                                                   onRemove={() => deleteTrack(track.id)}
                                                 // before={<Avatar mode="image" src={object.image_url} size={72}/>}
                                                   after={<Text>{track.track_data.duration}</Text>}

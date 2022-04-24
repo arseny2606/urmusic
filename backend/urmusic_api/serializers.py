@@ -192,13 +192,17 @@ class TrackSerializer(serializers.ModelSerializer):
 
 class TrackOrderSerializer(serializers.ModelSerializer):
     track_data = serializers.SerializerMethodField('get_track_data')
+    restaurant_owner_id = serializers.SerializerMethodField('get_restaurant_owner_id')
 
     def get_track_data(self, track_order):
         return TrackSerializer(track_order.track).data
+    
+    def get_restaurant_owner_id(self, track_order):
+        return track_order.restaurant.owner.id
 
     class Meta:
         model = TrackOrder
-        fields = ['id', 'track_data', 'creation_time', 'owner']
+        fields = ['id', 'track_data', 'creation_time', 'owner', 'restaurant_owner_id']
 
 
 class UserSerializer(serializers.ModelSerializer):
