@@ -1,0 +1,48 @@
+image: python:latest
+
+cache:
+  paths:
+  - ~/.cache/pip/
+
+before_script:
+  - python -V
+
+stages:
+  - test
+  - style
+
+pep8:
+  stage: style
+  before_script:
+  - pip install -r ci/pycodestyle_requirements.txt
+  script:
+  - ./ci/pycodestyle_runner.sh
+  artifacts:
+    paths:
+      - public/pycodestyle.txt
+
+pylint:
+  stage: style
+  before_script:
+  - pip install -r ci/pylint_requirements.txt
+  script:
+  - ./ci/pylint_runner.sh
+  artifacts:
+    paths:
+      - public/pylint.svg
+      - public/pylint.html
+
+test:
+  stage: test
+  before_script:
+  - cd backend
+  - pip install -r requirements.txt
+  script:
+  - coverage run manage.py test
+  - coverage report --omit=manage.py
+  - coverage html --omit=manage.py
+  - mkdir public
+  - mv htmlcov public/coverage
+  artifacts:
+    paths:
+      - public/coverage
