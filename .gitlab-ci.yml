@@ -20,7 +20,7 @@ pep8:
   - ./ci/pycodestyle_runner.sh
   artifacts:
     paths:
-      - public/pycodestyle.txt
+      - backend/public/pycodestyle.txt
 
 pylint:
   stage: style
@@ -31,8 +31,8 @@ pylint:
   - ./ci/pylint_runner.sh
   artifacts:
     paths:
-      - public/pylint.svg
-      - public/pylint.html
+      - backend/public/pylint.svg
+      - backend/public/pylint.html
 
 test:
   stage: test
