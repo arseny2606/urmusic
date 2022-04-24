@@ -2,6 +2,7 @@
 
 # run pylint
 cd backend
+pip install -r requirements.txt
 pylint $(ls -d */) | tee pylint.txt
 
 # get badge
