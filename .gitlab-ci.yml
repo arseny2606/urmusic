@@ -4,7 +4,6 @@ before_script:
     - python3 -V
 
 stages:
-    - hello
     - test
     - lint
 
@@ -36,12 +35,3 @@ pylint-job:
     
     script:
         - find . -type f -name "*.py" | xargs pylint 
-
-hello-job:
-    stage: hello
-
-    before_script:
-        - echo "starting"
-    
-    script:
-        - echo "ending"
