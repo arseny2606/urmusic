@@ -35,7 +35,7 @@ pylint-job:
         - python3 -m pip install pylint
     
     script:
-        - pylint .
+        - find . -type f -name "*.py" | xargs pylint 
 
 hello-job:
     stage: hello
