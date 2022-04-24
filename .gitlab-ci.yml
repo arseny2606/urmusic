@@ -17,7 +17,7 @@ test-job:
         - python3 -m pip install coverage
     
     script:
-        - converage run manage.py test
+        - coverage run manage.py test
         - coverage report > report.txt
         - mkdir public
         - mv report.txt ./public
