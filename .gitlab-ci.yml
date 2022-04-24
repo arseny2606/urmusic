@@ -1,0 +1,46 @@
+image: python-latest
+
+before_script:
+    - python3 -V
+
+stages:
+    - hello
+    - test
+    - lint
+
+test-job:
+    stage: test
+    
+    before_script: 
+        - cd backend
+        - python3 -m pip install -r requirements.txt
+        - python3 -m pip install coverage
+    
+    script:
+        - converage run manage.py test
+        - coverage report > report.txt
+        - mkdir public
+        - mv report.txt ./public
+    
+    actifacts:
+        paths:
+            - ./public
+
+pylint-job:
+    stage: lint
+
+    before_script:
+        - cd backend
+        - python3 -m pip install -r requirements.txt
+    
+    script:
+        - pylint .
+
+hello-job:
+    stage: hello
+
+    before_script:
+        - echo "starting"
+    
+    script:
+        - echo "ending"
