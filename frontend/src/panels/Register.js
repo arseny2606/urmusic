@@ -8,6 +8,7 @@ import {
     Link,
     Panel,
     PanelHeader,
+    PanelHeaderButton,
     Placeholder
 } from "@vkontakte/vkui";
 import {useEffect, useState} from "react";
@@ -64,6 +65,10 @@ const Register = ({id, nav, apiRequest, isVK}) => {
         replace("/login");
     }
 
+    const goToMain = e => {
+        replace("/landing")
+    }
+
     useEffect(() => {
         function checkLogin() {
             if (localStorage.getItem("token")) replace("/catalogue");
@@ -75,7 +80,11 @@ const Register = ({id, nav, apiRequest, isVK}) => {
 
     return (
         <Panel id={id} nav={nav}>
-            <PanelHeader>Регистрация нового аккаунта</PanelHeader>
+            <PanelHeader right={
+                <PanelHeaderButton onClick={goToMain}>
+                    На главную
+                </PanelHeaderButton>
+            }>Регистрация нового аккаунта</PanelHeader>
             <Placeholder width={100} height={100} stretched>
                 <Group width={100} height={100}>
                     <FormLayout onSubmit={onSubmit}>

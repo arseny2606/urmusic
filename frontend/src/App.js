@@ -37,6 +37,7 @@ import VkRegister from "./panels/VkRegister";
 import RestaurantLayout from "./panels/RestaurantLayout";
 import {WebviewType} from "@vkontakte/vkui/dist/components/ConfigProvider/ConfigProviderContext";
 import AudioPlayer from "./panels/AudioPlayer";
+import LandingPage from "./panels/LandingPage";
 
 const App = () => {
     const platform = usePlatform();
@@ -63,8 +64,6 @@ const App = () => {
                     else {
                         setActiveStory(document.location.hash.substring(2));
                     }
-                } else {
-                    replace("/login");
                 }
             }
             if (type === 'VKWebAppUpdateConfig') {
@@ -83,7 +82,6 @@ const App = () => {
                 setFetchedUser(user);
                 replace("/vklogin", {params: window.location.search.slice(1), hash: document.location.hash});
             });
-            setPopout(null);
         }
 
         fetchData();
@@ -135,17 +133,55 @@ const App = () => {
                     onClose={() => exitApp()}
                 />);
             } else if (e.response.status === 429 || e.response.status === 400) {
-                setPopout(<Alert
-                    actions={[{
-                        title: 'Хорошо',
-                        mode: 'default',
-                        action: () => setPopout(null)
-                    }]}
-                    actionsLayout="vertical"
-                    header="Ошибка"
-                    text={e.response.data.error}
-                    onClose={() => setPopout(null)}
-                />);
+                if (e.response.data.error === "Вы не можете добавлять треки в очередь другого ресторана.") {
+                    setPopout(<Alert
+                        actions={[{
+                            title: 'Удалить треки из другого ресторана',
+                            mode: 'default',
+                            action: async () => {
+                                const paramsURL = new URLSearchParams();
+                                for (const i of params.split("&")) {
+                                    if (i.split("=")[0]) paramsURL.append(i.split("=")[0], i.split("=")[1]);
+                                }
+                                for (const i in additionalData) {
+                                    paramsURL.append(i, additionalData[i]);
+                                }
+                                paramsURL.append("force", true);
+                                const config = {
+                                    headers: {
+                                        Authorization: `Token ${tokend ? tokend : token}`,
+                                    }
+                                }
+                                await axios.post(`${apiURL}/api/${method}`, paramsURL, config).then(response => {
+                                    setPopout(null);
+                                    window.location.reload();
+                                    return response.data;
+                                })
+                            }
+                        },
+                            {
+                                title: 'Хорошо',
+                                mode: 'default',
+                                action: () => setPopout(null)
+                            }]}
+                        actionsLayout="vertical"
+                        header="Ошибка"
+                        text={e.response.data.error}
+                        onClose={() => setPopout(null)}
+                    />);
+                } else {
+                    setPopout(<Alert
+                        actions={[{
+                            title: 'Хорошо',
+                            mode: 'default',
+                            action: () => setPopout(null)
+                        }]}
+                        actionsLayout="vertical"
+                        header="Ошибка"
+                        text={e.response.data.error}
+                        onClose={() => setPopout(null)}
+                    />);
+                }
             } else {
                 return e.response.data;
             }
@@ -228,7 +264,7 @@ const App = () => {
                                                     <Cell
                                                         data-story="profile"
                                                         onClick={logout}
-                                                        before={<Icon28DoorArrowRightOutline />}
+                                                        before={<Icon28DoorArrowRightOutline/>}
                                                     >
                                                         Выход
                                                     </Cell>}
@@ -273,7 +309,7 @@ const App = () => {
                                         }
                                     >
                                         <Catalogue id={"catalogue"} nav={"/catalogue"} token={token}
-                                                   apiRequest={apiRequest}/>
+                                                   apiRequest={apiRequest} isVK={isVK}/>
                                         <Favourites id={"favourites"} nav={"/favourites"} token={token}/>
                                         <Profile id={"profile"} nav={"/profile"} token={token} apiRequest={apiRequest}/>
                                     </Epic>
@@ -300,7 +336,10 @@ const App = () => {
                                              token={token}/>
                             </SplitLayout>
                             <RestaurantLayout nav={"/restaurant"} id={"restaurant"} apiRequest={apiRequest}
-                                              token={token} popout={popout}/>
+                                              token={token} popout={popout} setPopout={setPopout} isVK={isVK}/>
+                            <SplitLayout nav={"/landing"} popout={popout}>
+                                <LandingPage nav={"/landing"} id={"landing"} apiRequest={apiRequest}/>
+                            </SplitLayout>
                         </Root>
                     </Match>
                 </AppRoot>
