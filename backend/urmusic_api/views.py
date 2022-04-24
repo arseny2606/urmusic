@@ -45,7 +45,7 @@ class AuthByPassword(APIView):
                                            context={'request': request})
         serializer.is_valid(raise_exception=True)
         user = serializer.validated_data['user']
-        token, created = Token.objects.get_or_create(user=user)
+        token, _ = Token.objects.get_or_create(user=user)
         return Response({
             'token': token.key,
             'email': user.email
@@ -73,7 +73,7 @@ class AuthByVK(APIView):
                 "status_code": 404
             }, status.HTTP_404_NOT_FOUND)
         user = User.objects.filter(vk_id=request.GET["vk_user_id"]).first()
-        token, created = Token.objects.get_or_create(user=user)
+        token, _ = Token.objects.get_or_create(user=user)
         return Response({
             'token': token.key,
             'vk_id': user.vk_id
@@ -264,12 +264,13 @@ class ProfileEdit(APIView):
         serializer.update(request.user, serializer.validated_data)
         return Response(UserSerializer(request.user).data)
 
+
 class CheckGeoData(APIView):
     authentication_classes = [SessionAuthentication, BasicAuthentication, TokenAuthentication]
     permission_classes = [IsAuthenticated]
     serializer_class = CheckGeoDataSerializer
 
     def post(self, request):
-        serializer = self.serializer_class(data = request.data)
-        response  ={'response': serializer.distance()}
+        serializer = self.serializer_class(data=request.data)
+        response = {'response': serializer.distance()}
         return Response(response)

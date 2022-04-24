@@ -2,7 +2,7 @@ import datetime
 import math
 import urllib.request
 
-import mutagen as mutagen
+import mutagen
 import pytz
 from dadata import Dadata
 from django.conf import settings
@@ -62,7 +62,8 @@ class RegistrationSerializer(serializers.Serializer):
                 raise serializers.ValidationError(msg, code='authorization')
         else:
             msg = _(
-                'Должно содержать параметры "email", "password", "password2", "city", "first_name", "last_name".')
+                'Должно содержать параметры "email", "password", "password2", "city", '
+                '"first_name", "last_name".')
             raise serializers.ValidationError(msg, code='authorization')
         if password != password2:
             msg = _('Пароли не совпадают.')
@@ -250,8 +251,8 @@ class LinkVKSerializer(serializers.Serializer):
         photo_url = attrs.get('photo_url')
 
         if not vk_id or not first_name or not last_name or not city or not photo_url:
-            msg = _(
-                'Должно содержать параметры "vk_id", "first_name", "last_name", "city", "photo_url".')
+            msg = _('Должно содержать параметры "vk_id", "first_name", "last_name",'
+                    ' "city", "photo_url".')
             raise serializers.ValidationError(msg, code='validation')
         return attrs
 
@@ -441,6 +442,7 @@ class ProfileEditSerializer(serializers.Serializer):
         user.last_name = validated_data['last_name']
         user.city = validated_data['city']
         user.save()
+
 
 class CheckGeoDataSerializer(serializers.Serializer):
     lat = serializers.FloatField(write_only=True)
