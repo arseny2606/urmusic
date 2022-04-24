@@ -20,7 +20,8 @@ from .serializers import RegistrationSerializer, AuthTokenSerializer, \
     TrackOrderSerializer, UserSerializer, LinkVKSerializer, \
     CreateOrderSerializer, DeleteOrderSerializer, TrackSerializer, \
     AddFavouriteRestaurantSerializer, \
-    RemoveFavouriteRestaurantSerializer, RestaurantEditSerializer, ProfileEditSerializer
+    RemoveFavouriteRestaurantSerializer, RestaurantEditSerializer, \
+    ProfileEditSerializer, CheckGeoDataSerializer
 
 
 class AccountRegistration(APIView):
@@ -262,3 +263,13 @@ class ProfileEdit(APIView):
         serializer.is_valid(raise_exception=True)
         serializer.update(request.user, serializer.validated_data)
         return Response(UserSerializer(request.user).data)
+
+class CheckGeoData(APIView):
+    authentication_classes = [SessionAuthentication, BasicAuthentication, TokenAuthentication]
+    permission_classes = [IsAuthenticated]
+    serializer_class = CheckGeoDataSerializer
+
+    def post(self, request):
+        serializer = self.serializer_class(data = request.data)
+        response  ={'response': serializer.distance()}
+        return Response(response)
