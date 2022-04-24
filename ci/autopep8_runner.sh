@@ -13,4 +13,4 @@ git config --global user.name "CI Job"
 git config --global user.email "ci@.example.com"
 git remote set-url --push origin "${CI_PUSH_REPO}"
 git commit -am "CI: autopep8"
-git push origin CI_COMMIT_BRANCH:${CI_BUILD_REF_NAME} || true
+git push origin ${CI_COMMIT_BRANCH}:${CI_BUILD_REF_NAME} || true
