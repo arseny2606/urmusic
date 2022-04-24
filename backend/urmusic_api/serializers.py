@@ -306,16 +306,6 @@ class CreateOrderSerializer(serializers.Serializer):
             msg = _(
                 'Ресторана с таким ID не существует.')
             raise serializers.ValidationError(msg, code='validation')
-        time_array = TrackOrder.objects.filter(owner=self.context['request'].user).all()
-        if time_array.count():
-            time = time_array.last().creation_time.timestamp()
-            now = datetime.datetime.now(tz=pytz.timezone(settings.TIME_ZONE)).timestamp()
-            if now - time < 0 * 5:
-                msg = 'Вы слишком быстро добавляете треки.'
-                raise OurThrottled(wait=60 * 5 - int(now - time), detail=msg)
-            if time_array.count() >= 3:
-                msg = _('Вы добавили слишком много треков.')
-                raise OurThrottled(detail=msg)
         attrs["restaurant"] = Restaurant.objects.filter(id=restaurant_id).first()
         if TrackOrder.objects.filter(~Q(restaurant=attrs['restaurant']),
                                      owner=self.context['request'].user).count():
@@ -326,6 +316,16 @@ class CreateOrderSerializer(serializers.Serializer):
             else:
                 msg = 'Вы не можете добавлять треки в очередь другого ресторана.'
                 raise serializers.ValidationError(msg, code='validation')
+        time_array = TrackOrder.objects.filter(owner=self.context['request'].user).all()
+        if time_array.count():
+            time = time_array.last().creation_time.timestamp()
+            now = datetime.datetime.now(tz=pytz.timezone(settings.TIME_ZONE)).timestamp()
+            if now - time < 60 * 5:
+                msg = 'Вы слишком быстро добавляете треки.'
+                raise OurThrottled(wait=60 * 5 - int(now - time), detail=msg)
+            if time_array.count() >= 3:
+                msg = _('Вы добавили слишком много треков.')
+                raise OurThrottled(detail=msg)
         dadata = Dadata(settings.DADATA_TOKEN)
         try:
             result = dadata.suggest("address", attrs['restaurant'].address)[0]
