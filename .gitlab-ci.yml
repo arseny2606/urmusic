@@ -9,16 +9,7 @@ before_script:
 
 stages:
   - test
-  - autopep8
   - lint
-
-autopep8-job:
-  stage: autopep8
-  before_script:
-  - pip install -r ci/autopep8_requirements.txt
-  script:
-  - chmod +x ./ci/autopep8_runner.sh
-  - ./ci/autopep8_runner.sh
 
 pylint:
   stage: lint
