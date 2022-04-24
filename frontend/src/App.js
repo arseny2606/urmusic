@@ -236,7 +236,7 @@ const App = () => {
                                     </SplitCol>
                                 )}
 
-                                <SplitCol>
+                                <SplitCol style={{marginLeft: '1rem', marginRight: '1rem'}}>
                                     <Epic
                                         nav={"/"}
                                         activeStory={activeStory}
@@ -273,7 +273,7 @@ const App = () => {
                                     >
                                         <Catalogue id={"catalogue"} nav={"/catalogue"} token={token}
                                                    apiRequest={apiRequest}/>
-                                        <Favourites id={"favourites"} nav={"/favourites"} token={token}/>
+                                        <Favourites id={"favourites"} nav={"/favourites"} token={token} apiRequest={apiRequest}/>
                                         <Profile id={"profile"} nav={"/profile"} token={token} apiRequest={apiRequest}/>
                                     </Epic>
                                 </SplitCol>

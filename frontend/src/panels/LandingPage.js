@@ -53,7 +53,7 @@ const LandingPage = ({id, nav, apiRequest}) => {
         </>
             <Container className="center">
                 <Row className="justify-content-center">
-                    <Card style={{width: '75rem', marginTop: '5rem', marginBottom: '5rem'}}>
+                    <Card style={{marginTop: '5rem', marginBottom: '5rem'}}>
                         <Card.Body>
                             <Card.Title as='h1'>UrMusic</Card.Title>
                             <Card.Subtitle className="mb-2 text-muted" as='h4'>О сайте</Card.Subtitle>

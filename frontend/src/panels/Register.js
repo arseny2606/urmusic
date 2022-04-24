@@ -8,8 +8,8 @@ import {
     Link,
     Panel,
     PanelHeader,
-    PanelHeaderButton,
-    Placeholder
+    Placeholder,
+    SimpleCell
 } from "@vkontakte/vkui";
 import {useEffect, useState} from "react";
 import {Icon16View, Icon24Hide} from "@vkontakte/icons";
@@ -80,11 +80,7 @@ const Register = ({id, nav, apiRequest, isVK}) => {
 
     return (
         <Panel id={id} nav={nav}>
-            <PanelHeader right={
-                <PanelHeaderButton onClick={goToMain}>
-                    На главную
-                </PanelHeaderButton>
-            }>Регистрация нового аккаунта</PanelHeader>
+            <PanelHeader>Регистрация нового аккаунта</PanelHeader>
             <Placeholder width={100} height={100} stretched>
                 <Group width={100} height={100}>
                     <FormLayout onSubmit={onSubmit}>
@@ -133,7 +129,12 @@ const Register = ({id, nav, apiRequest, isVK}) => {
                                 Зарегистрироваться
                             </Button>
                         </FormItem>
-                        <Link onClick={goToLogin}>Вход</Link>
+                        <SimpleCell onClick={goToLogin}>
+                            <Link>Войти</Link>
+                        </SimpleCell>
+                        <SimpleCell onClick={goToMain}>
+                            <Link>На главную</Link>
+                        </SimpleCell>
                     </FormLayout>
                 </Group>
             </Placeholder>
