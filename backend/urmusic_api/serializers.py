@@ -441,3 +441,18 @@ class ProfileEditSerializer(serializers.Serializer):
         user.last_name = validated_data['last_name']
         user.city = validated_data['city']
         user.save()
+
+class CheckGeoDataSerializer(serializers.Serializer):
+    lat = serializers.FloatField(write_only=True)
+    lon = serializers.FloatField(write_only=True)
+
+    def distance(self, user, rest):
+        degree_to_meters_factor = 111 * 1000
+        user_lon, user_lat = map(float, user)
+        rest_lon, rest_lat = map(float, rest)
+        radians_lattitude = math.radians((user_lat + rest_lat) / 2.)
+        lat_lon_factor = math.cos(radians_lattitude)
+        dx = abs(user_lon - rest_lon) * degree_to_meters_factor * lat_lon_factor
+        dy = abs(user_lat - rest_lat) * degree_to_meters_factor
+        distance = math.sqrt(dx * dx + dy * dy)
+        return distance <= 100
