@@ -1,8 +1,10 @@
 import datetime
+import math
 import urllib.request
-from dadata import Dadata
+
 import mutagen as mutagen
 import pytz
+from dadata import Dadata
 from django.conf import settings
 from django.contrib.auth import authenticate
 from django.core.files import File
@@ -10,7 +12,6 @@ from django.core.files.temp import NamedTemporaryFile
 from django.db.models import Q
 from django.utils.translation import gettext_lazy as _
 from rest_framework import serializers
-import math
 
 from .exceptions import OurThrottled
 from .models import User, TrackOrder, Restaurant, Track, FavouriteRestaurant
@@ -359,9 +360,8 @@ class DeleteOrderSerializer(serializers.Serializer):
                 'Такой записи в очереди не существует.')
             raise serializers.ValidationError(msg, code='validation')
         track_order = TrackOrder.objects.filter(id=order_id).first()
-        if track_order.owner != self.context[
-            "request"].user and track_order.restaurant.owner != \
-                self.context["request"].user:
+        if track_order.owner != self.context["request"].user and \
+                track_order.restaurant.owner != self.context["request"].user:
             msg = _(
                 'Вы не являетесь владельцем этой записи в очереди.')
             raise serializers.ValidationError(msg, code='validation')
