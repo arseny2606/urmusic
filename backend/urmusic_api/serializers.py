@@ -1,8 +1,10 @@
 import datetime
+import math
 import urllib.request
 
 import mutagen as mutagen
 import pytz
+from dadata import Dadata
 from django.conf import settings
 from django.contrib.auth import authenticate
 from django.core.files import File
@@ -272,11 +274,26 @@ class CreateOrderSerializer(serializers.Serializer):
     restaurant_id = serializers.IntegerField(write_only=True)
     track_id = serializers.IntegerField(write_only=True)
     force = serializers.BooleanField(default=False, write_only=True, required=False)
+    lat = serializers.FloatField(write_only=True)
+    lon = serializers.FloatField(write_only=True)
+
+    def distance(self, user, rest):
+        degree_to_meters_factor = 111 * 1000
+        user_lon, user_lat = map(float, user)
+        rest_lon, rest_lat = map(float, rest)
+        radians_lattitude = math.radians((user_lat + rest_lat) / 2.)
+        lat_lon_factor = math.cos(radians_lattitude)
+        dx = abs(user_lon - rest_lon) * degree_to_meters_factor * lat_lon_factor
+        dy = abs(user_lat - rest_lat) * degree_to_meters_factor
+        distance = math.sqrt(dx * dx + dy * dy)
+        return distance > 100
 
     def validate(self, attrs):
         restaurant_id = attrs.get('restaurant_id')
         track_id = attrs.get('track_id')
         force = attrs.get('force')
+        lon = attrs.get('lon')
+        lat = attrs.get('lat')
         if not track_id or not restaurant_id:
             msg = _(
                 'Должно содержать параметры "restaurant_id", "track_id".')
@@ -310,8 +327,15 @@ class CreateOrderSerializer(serializers.Serializer):
             else:
                 msg = 'Вы не можете добавлять треки в очередь другого ресторана.'
                 raise serializers.ValidationError(msg, code='validation')
-        attrs["restaurant"] = Restaurant.objects.filter(
-            id=restaurant_id).first()
+        dadata = Dadata(settings.DADATA_TOKEN)
+        try:
+            result = dadata.suggest("address", attrs['restaurant'].address)[0]
+        except:
+            msg = _('Адрес ресторана задан неверно. Обратитесь к его владельцу.')
+            raise serializers.ValidationError(msg, code='validation')
+        if self.distance((lon, lat), (result['data']['geo_lon'], result['data']['geo_lat'])):
+            msg = _('Вы находитесь далеко от ресторана')
+            raise serializers.ValidationError(msg, code='validation')
         return attrs
 
     def create(self, validated_data):
@@ -336,9 +360,8 @@ class DeleteOrderSerializer(serializers.Serializer):
                 'Такой записи в очереди не существует.')
             raise serializers.ValidationError(msg, code='validation')
         track_order = TrackOrder.objects.filter(id=order_id).first()
-        if track_order.owner != self.context[
-            "request"].user and track_order.restaurant.owner != \
-                self.context["request"].user:
+        if track_order.owner != self.context["request"].user and \
+                track_order.restaurant.owner != self.context["request"].user:
             msg = _(
                 'Вы не являетесь владельцем этой записи в очереди.')
             raise serializers.ValidationError(msg, code='validation')
