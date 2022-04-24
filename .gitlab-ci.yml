@@ -22,7 +22,7 @@ test-job:
         - mkdir public
         - mv report.txt ./public
     
-    actifacts:
+    artifacts:
         paths:
             - ./public
 
