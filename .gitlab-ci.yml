@@ -16,6 +16,7 @@ pep8:
   before_script:
   - pip install -r ci/pycodestyle_requirements.txt
   script:
+  - chmod +x ./ci/pycodestyle_runner.sh
   - ./ci/pycodestyle_runner.sh
   artifacts:
     paths:
@@ -26,6 +27,7 @@ pylint:
   before_script:
   - pip install -r ci/pylint_requirements.txt
   script:
+  - chmod +x ./ci/pylint_runner.sh
   - ./ci/pylint_runner.sh
   artifacts:
     paths:
