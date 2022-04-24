@@ -3,12 +3,12 @@
 # run autopep8
 cd backend
 pip install -r requirements.txt
-autopep8 --in-place --recursive --agressive --agressive .
+autopep8 --in-place --recursive --aggressive --aggressive .
 
 #commit changes
 cd ../
 export CI_PUSH_REPO=`echo $CI_REPOSITORY_URL | perl -pe 's#.*@(.+?(\:\d+)?)/#git@\1:#'`
-git checkout CI_COMMIT_BRANCH
+git checkout ${CI_COMMIT_BRANCH}
 git config --global user.name "CI Job"
 git config --global user.email "ci@.example.com"
 git remote set-url --push origin "${CI_PUSH_REPO}"
