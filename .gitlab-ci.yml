@@ -9,21 +9,10 @@ before_script:
 
 stages:
   - test
-  - style
-
-pep8:
-  stage: style
-  before_script:
-  - pip install -r ci/pycodestyle_requirements.txt
-  script:
-  - chmod +x ./ci/pycodestyle_runner.sh
-  - ./ci/pycodestyle_runner.sh
-  artifacts:
-    paths:
-      - backend/public/pycodestyle.txt
+  - lint
 
 pylint:
-  stage: style
+  stage: lint
   before_script:
   - pip install -r ci/pylint_requirements.txt
   script:
