@@ -44,6 +44,6 @@ urlpatterns = [
                   path('api/restaurants/edit/', RestaurantEdit.as_view()),
                   path('api/tracks/all/', AllTracks.as_view()),
                   path('api/tracks/create/', CreateOrder.as_view()),
-                  path('api/restaurant/checkgeodata', CheckGeoData.as_view()),
+                  path('api/restaurants/checkgeodata', CheckGeoData.as_view()),
                   path('api/tracks/delete/', DeleteOrder.as_view())
               ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

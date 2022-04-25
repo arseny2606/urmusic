@@ -272,5 +272,7 @@ class CheckGeoData(APIView):
 
     def post(self, request):
         serializer = self.serializer_class(data=request.data)
-        response = {'response': serializer.distance()}
+        serializer.is_valid(raise_exception=True)
+        print(serializer.validated_data)
+        response = {'response': serializer.validated_data['distance']}
         return Response(response)

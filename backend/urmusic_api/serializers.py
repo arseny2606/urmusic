@@ -386,7 +386,6 @@ class RestaurantEditSerializer(serializers.Serializer):
         description = attrs.get("description")
         image = attrs.get("image")
         name = attrs.get("name")
-        attrs['restaurant'] = Restaurant.objects.filter(id=restaurant_id).first()
         if not restaurant_id:
             msg = _(
                 'Должно содержать параметр "restaraunt_id"')
@@ -399,6 +398,7 @@ class RestaurantEditSerializer(serializers.Serializer):
             msg = _(
                 'Вы не являетесь владельцем этого ресторана.')
             raise serializers.ValidationError(msg, code='validation')
+        attrs['restaurant'] = Restaurant.objects.filter(id=restaurant_id).first()
         if not address:
             attrs['address'] = attrs['restaurant'].address
         if not description:
@@ -447,6 +447,7 @@ class ProfileEditSerializer(serializers.Serializer):
 class CheckGeoDataSerializer(serializers.Serializer):
     lat = serializers.FloatField(write_only=True)
     lon = serializers.FloatField(write_only=True)
+    restaurant_id = serializers.IntegerField(write_only=True)
 
     def distance(self, user, rest):
         degree_to_meters_factor = 111 * 1000
@@ -458,3 +459,25 @@ class CheckGeoDataSerializer(serializers.Serializer):
         dy = abs(user_lat - rest_lat) * degree_to_meters_factor
         distance = math.sqrt(dx * dx + dy * dy)
         return distance <= 100
+
+    def validate(self, attrs):
+        restaurant_id = attrs.get("restaurant_id")
+        lat = attrs.get("lat")
+        lon = attrs.get("lon")
+        if not restaurant_id:
+            msg = _(
+                'Должно содержать параметр "restaraunt_id"')
+            raise serializers.ValidationError(msg, code='validation')
+        if not Restaurant.objects.filter(id=restaurant_id).count():
+            msg = _(
+                'Такого ресторана не существует.')
+            raise serializers.ValidationError(msg, code='validation')
+        attrs['restaurant'] = Restaurant.objects.filter(id=restaurant_id).first()
+        dadata = Dadata(settings.DADATA_TOKEN)
+        try:
+            result = dadata.suggest("address", attrs['restaurant'].address)[0]
+        except:
+            msg = _('Адрес ресторана задан неверно. Обратитесь к его владельцу.')
+            raise serializers.ValidationError(msg, code='validation')
+        attrs['distance'] = self.distance((lon, lat), (result['data']['geo_lon'], result['data']['geo_lat']))
+        return attrs
