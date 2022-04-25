@@ -24,7 +24,7 @@ pylint:
       - backend/public/pylint.svg
       - backend/public/pylint.html
     reports:
-      junit: pylint.txt
+      junit: backend/junit.xml
 
 test:
   stage: test
