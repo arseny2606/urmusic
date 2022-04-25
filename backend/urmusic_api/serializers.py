@@ -464,9 +464,9 @@ class CheckGeoDataSerializer(serializers.Serializer):
         restaurant_id = attrs.get("restaurant_id")
         lat = attrs.get("lat")
         lon = attrs.get("lon")
-        if not restaurant_id:
+        if not restaurant_id or not lat or not lon:
             msg = _(
-                'Должно содержать параметр "restaraunt_id"')
+                'Должно содержать параметры "restaraunt_id", "lat", "lon"')
             raise serializers.ValidationError(msg, code='validation')
         if not Restaurant.objects.filter(id=restaurant_id).count():
             msg = _(
@@ -479,5 +479,6 @@ class CheckGeoDataSerializer(serializers.Serializer):
         except:
             msg = _('Адрес ресторана задан неверно. Обратитесь к его владельцу.')
             raise serializers.ValidationError(msg, code='validation')
-        attrs['distance'] = self.distance((lon, lat), (result['data']['geo_lon'], result['data']['geo_lat']))
+        attrs['distance'] = self.distance((lon, lat), (result['data']['geo_lon'],
+                                                       result['data']['geo_lat']))
         return attrs
