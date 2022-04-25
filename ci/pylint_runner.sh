@@ -14,9 +14,7 @@ echo "Pylint score was $score"
 # get html
 pylint --load-plugins=pylint_json2html $(ls -d */) --output-format=jsonextended > pylint.json
 pylint-json2html -f jsonextended -o public/pylint.html pylint.json
-
 #cleanup
-rm pylint.txt pylint.json
 
 exit 0
 

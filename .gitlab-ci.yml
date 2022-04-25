@@ -19,9 +19,12 @@ pylint:
   - chmod +x ./ci/pylint_runner.sh
   - ./ci/pylint_runner.sh
   artifacts:
+    when: always
     paths:
       - backend/public/pylint.svg
       - backend/public/pylint.html
+    reports:
+      junit: pylint.txt
 
 test:
   stage: test
