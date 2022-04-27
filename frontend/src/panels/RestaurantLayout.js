@@ -20,7 +20,7 @@ import {
 } from "@vkontakte/vkui";
 import {useEffect, useState} from "react";
 import {back, ModalRoot, push, replace, useParams} from "@itznevikat/router";
-import {Icon24Add, Icon24ExternalLinkOutline, Icon56AddCircleOutline} from "@vkontakte/icons";
+import {Icon24Add, Icon24MinusOutline, Icon24ExternalLinkOutline, Icon56AddCircleOutline} from "@vkontakte/icons";
 
 const RestaurantLayout = ({id, nav, token, apiRequest, popout}) => {
     const [restaurantData, setRestaurantData] = useState(undefined);
@@ -29,6 +29,8 @@ const RestaurantLayout = ({id, nav, token, apiRequest, popout}) => {
     const [selectedTrack, setSelectedTrack] = useState(0);
     const {restaurant_id} = useParams();
     const [restaurantId, setRestaurantId] = useState(restaurant_id);
+    const [favouriteObjects, setFavouriteObjects] = useState([]);
+    const [favouriteObjectsId, setFavouriteObjectsId] = useState([]);
 
     const getNoun = (number, one, two, five) => {
         let n = Math.abs(number);
@@ -67,6 +69,9 @@ const RestaurantLayout = ({id, nav, token, apiRequest, popout}) => {
                 apiRequest('tracks/all/').then(response => {
                     setTracks(response.data);
                 });
+                apiRequest("restaurants/favourites/").then(response => {
+                    setFavouriteObjects(response.data);
+                })
             }
 
             await fetchData();
@@ -94,6 +99,32 @@ const RestaurantLayout = ({id, nav, token, apiRequest, popout}) => {
 
     const changeSelectedTrack = (e) => {
         setSelectedTrack(e.currentTarget.value);
+    }
+
+    const addToFavourites = () => {
+        apiRequest('restaurants/addfavourites/', `restaurant=${restaurantId}&`).then(() => {
+            if (response.error) {
+                replace("/catalogue")
+                return
+            }
+        })
+    }
+
+    const removeFromFavourites = () => {
+        apiRequest('restaurants/removefavourites/', `restaurant=${restaurantId}&`).then(() => {
+            if (response.error) {
+                replace("/catalogue")
+                return
+            }
+        })
+    }
+
+    const getFavouriteObjectsId = (response) => {
+        for (let i = 0; i < favouriteObjects.length; i++) {
+            favouriteObjectsId[i] = favouriteObjects[i].id
+        }
+
+        return favouriteObjectsId
     }
 
     const addTrack = () => {
@@ -169,8 +200,23 @@ const RestaurantLayout = ({id, nav, token, apiRequest, popout}) => {
                                 subtitle={restaurantData.data.address}
                                 header={restaurantData.data.name}
                                 text={restaurantData.data.description}
-                                maxHeight={500}
+                                maxHeight={500}                                
                             />
+
+                            {Boolean(getFavouriteObjectsId().includes(Number(restaurantId))) && 
+                                <Card>
+                                    <CellButton centered before={<Icon24MinusOutline />} onClick={() => removeFromFavourites()}>
+                                        Убрать из избранных
+                                    </CellButton>
+                                </Card>
+                            }
+                            {Boolean(!getFavouriteObjectsId().includes(Number(restaurantId))) &&
+                                <Card>
+                                    <CellButton centered before={<Icon24Add />} onClick={() => addToFavourites()}>
+                                        Добавить в избранное
+                                    </CellButton>
+                                </Card>}
+
                             <Card mode="shadow">
                                 <Group header={<Header>Очередь треков</Header>} mode={"plain"}>
                                     {restaurantData.tracks.length > 0 && <>{
