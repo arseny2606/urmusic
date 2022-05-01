@@ -29,8 +29,7 @@ const RestaurantLayout = ({id, nav, token, apiRequest, popout}) => {
     const [selectedTrack, setSelectedTrack] = useState(0);
     const {restaurant_id} = useParams();
     const [restaurantId, setRestaurantId] = useState(restaurant_id);
-    const [favouriteObjects, setFavouriteObjects] = useState([]);
-    const [favouriteObjectsId, setFavouriteObjectsId] = useState([]);
+    const [isFavourite, setIsFavourite] = useState(false);
 
     const getNoun = (number, one, two, five) => {
         let n = Math.abs(number);
@@ -70,13 +69,38 @@ const RestaurantLayout = ({id, nav, token, apiRequest, popout}) => {
                     setTracks(response.data);
                 });
                 apiRequest("restaurants/favourites/").then(response => {
-                    setFavouriteObjects(response.data);
+                    setIsFavourite(response.data.filter(obj => obj.id === Number(restaurant_id)).length > 0);
                 })
             }
 
             await fetchData();
         }, [token]
     )
+
+    async function fetchData() {
+        if (!token) {
+            if (!localStorage.getItem("token")) {
+                replace("/login");
+                return;
+            }
+        }
+        apiRequest("account/profile").then(response => {
+            setProfile(response);
+        });
+        apiRequest(`restaurants/get/?id=${restaurant_id}&`).then(async response => {
+            if (response.error) {
+                replace("/catalogue");
+                return;
+            }
+            setRestaurantData(response);
+        });
+        apiRequest('tracks/all/').then(response => {
+            setTracks(response.data);
+        });
+        apiRequest("restaurants/favourites/").then(response => {
+            setIsFavourite(response.data.filter(obj => obj.id === Number(restaurant_id)).length > 0);
+        });
+    }
 
     const deleteTrack = (id) => {
         apiRequest("tracks/delete", `order_id=${id}`).then(() => {
@@ -102,29 +126,23 @@ const RestaurantLayout = ({id, nav, token, apiRequest, popout}) => {
     }
 
     const addToFavourites = () => {
-        apiRequest('restaurants/addfavourites/', `restaurant=${restaurantId}&`).then(() => {
+        apiRequest('restaurants/addfavourites/', `restaurant=${restaurantId}&`).then((response) => {
             if (response.error) {
                 replace("/catalogue")
                 return
             }
+            fetchData();
         })
     }
 
     const removeFromFavourites = () => {
-        apiRequest('restaurants/removefavourites/', `restaurant=${restaurantId}&`).then(() => {
+        apiRequest('restaurants/removefavourites/', `restaurant=${restaurantId}&`).then((response) => {
             if (response.error) {
                 replace("/catalogue")
                 return
             }
+            fetchData();
         })
-    }
-
-    const getFavouriteObjectsId = (response) => {
-        for (let i = 0; i < favouriteObjects.length; i++) {
-            favouriteObjectsId[i] = favouriteObjects[i].id
-        }
-
-        return favouriteObjectsId
     }
 
     const addTrack = () => {
@@ -185,7 +203,9 @@ const RestaurantLayout = ({id, nav, token, apiRequest, popout}) => {
         }>
             <Panel id={id} nav={nav}>
                 {restaurantData && <>
-                    <PanelHeader left={<PanelHeaderBack onClick={() => replace("/catalogue")}/>} right={restaurantData.data.owner === profile.id && <IconButton onClick={() => push(`/audioplayer?restaurant_id=${restaurant_id}`)}><Icon24ExternalLinkOutline/></IconButton>}>Ресторан
+                    <PanelHeader left={<PanelHeaderBack onClick={() => {back()}}/>}
+                                 right={restaurantData.data.owner === profile.id && <IconButton
+                                     onClick={() => push(`/audioplayer?restaurant_id=${restaurant_id}`)}><Icon24ExternalLinkOutline/></IconButton>}>Ресторан
                         «{restaurantData.data.name}»</PanelHeader>
                     <Group>
                         <CardGrid size="l">
@@ -200,19 +220,20 @@ const RestaurantLayout = ({id, nav, token, apiRequest, popout}) => {
                                 subtitle={restaurantData.data.address}
                                 header={restaurantData.data.name}
                                 text={restaurantData.data.description}
-                                maxHeight={500}                                
+                                maxHeight={500}
                             />
 
-                            {Boolean(getFavouriteObjectsId().includes(Number(restaurantId))) && 
+                            {isFavourite &&
                                 <Card>
-                                    <CellButton centered before={<Icon24MinusOutline />} onClick={() => removeFromFavourites()}>
+                                    <CellButton centered before={<Icon24MinusOutline/>}
+                                                onClick={() => removeFromFavourites()}>
                                         Убрать из избранных
                                     </CellButton>
                                 </Card>
                             }
-                            {Boolean(!getFavouriteObjectsId().includes(Number(restaurantId))) &&
+                            {!isFavourite &&
                                 <Card>
-                                    <CellButton centered before={<Icon24Add />} onClick={() => addToFavourites()}>
+                                    <CellButton centered before={<Icon24Add/>} onClick={() => addToFavourites()}>
                                         Добавить в избранное
                                     </CellButton>
                                 </Card>}
