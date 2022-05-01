@@ -33,11 +33,11 @@ eslint:
     - npm install
     - npm install -g eslint@latest
     - npm install eslint-junit@latest eslint-plugin-react@latest
-    - eslint -f ./node_modules/eslint-junit/index.js src/
+    - eslint -f junit src/ > junit.xml | true
   artifacts:
     when: always
     reports:
-      junit: frontend/eslint-junit.xml
+      junit: frontend/junit.xml
 
 test:
   image: python:latest
