@@ -31,13 +31,14 @@ eslint:
   script:
     - cd frontend
     - npm install
-    - npm install -g eslint@latest
+    - npm install -g eslint@latest cross-env@latest
     - npm install eslint-junit@latest eslint-plugin-react@latest
-    - eslint -f junit src/ > junit.xml | true
+    - cross-env ESLINT_SUITE_NAME="ESLint" ESLINT_JUNIT_TITLE="On line '{line}:' {source}" eslint -f./node_modules/eslint-junit/index.js src/
+    - /bin/true
   artifacts:
     when: always
     reports:
-      junit: frontend/junit.xml
+      junit: frontend/eslint-junit.xml
 
 test:
   image: python:latest
