@@ -31,9 +31,9 @@ eslint:
   script:
     - cd frontend
     - npm install
-    - npm install -g eslint@latest cross-env@latest
-    - npm install eslint-junit@latest eslint-plugin-react@latest
-    - cross-env ESLINT_SUITE_NAME="ESLint" ESLINT_JUNIT_TITLE="{filePath} {line}:{column}:\t{message}" eslint -f ./node_modules/eslint-junit/index.js src/ || /bin/true
+    - npm install -g eslint@latest eslint-plugin-react@latest
+    - eslint -f junit src/ > eslint-junit.xml || /bin/true
+    - python3 ../ci/junit_replace.py
   artifacts:
     when: always
     reports:
