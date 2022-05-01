@@ -31,7 +31,7 @@ eslint:
   script:
     - cd frontend
     - npm install
-    - npm install eslint eslint-junit
+    - npm install -g eslint eslint-junit
     - eslint --init
     - ESLINT_JUNIT_OUTPUT="./junit.xml" eslint -- --ext .jsx,.js src/
   artifacts:
