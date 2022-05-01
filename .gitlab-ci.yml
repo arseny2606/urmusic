@@ -31,13 +31,13 @@ eslint:
   script:
     - cd frontend
     - npm install
-    - npm install -g eslint-plugin-react@latest eslint@latest eslint-junit@latest
-    - eslint --init
-    - ESLINT_JUNIT_OUTPUT="./junit.xml" eslint -- --ext .jsx,.js src/
+    - npm install -g eslint@latest
+    - npm install eslint-junit@latest eslint-plugin-react@latest
+    - eslint -f ./node_modules/eslint-junit/index.js src/
   artifacts:
     when: always
     reports:
-      junit: frontend/junit.xml
+      junit: frontend/eslint-junit.xml
 
 test:
   image: python:latest
