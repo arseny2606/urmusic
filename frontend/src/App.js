@@ -133,17 +133,55 @@ const App = () => {
                     onClose={() => exitApp()}
                 />);
             } else if (e.response.status === 429 || e.response.status === 400) {
-                setPopout(<Alert
-                    actions={[{
-                        title: 'Хорошо',
-                        mode: 'default',
-                        action: () => setPopout(null)
-                    }]}
-                    actionsLayout="vertical"
-                    header="Ошибка"
-                    text={e.response.data.error}
-                    onClose={() => setPopout(null)}
-                />);
+                if (e.response.data.error === "Вы не можете добавлять треки в очередь другого ресторана.") {
+                    setPopout(<Alert
+                        actions={[{
+                            title: 'Удалить треки из другого ресторана',
+                            mode: 'default',
+                            action: async () => {
+                                const paramsURL = new URLSearchParams();
+                                for (const i of params.split("&")) {
+                                    if (i.split("=")[0]) paramsURL.append(i.split("=")[0], i.split("=")[1]);
+                                }
+                                for (const i in additionalData) {
+                                    paramsURL.append(i, additionalData[i]);
+                                }
+                                paramsURL.append("force", true);
+                                const config = {
+                                    headers: {
+                                        Authorization: `Token ${tokend ? tokend : token}`,
+                                    }
+                                }
+                                await axios.post(`${apiURL}/api/${method}`, paramsURL, config).then(response => {
+                                    setPopout(null);
+                                    window.location.reload();
+                                    return response.data;
+                                })
+                            }
+                        },
+                            {
+                                title: 'Хорошо',
+                                mode: 'default',
+                                action: () => setPopout(null)
+                            }]}
+                        actionsLayout="vertical"
+                        header="Ошибка"
+                        text={e.response.data.error}
+                        onClose={() => setPopout(null)}
+                    />);
+                } else {
+                    setPopout(<Alert
+                        actions={[{
+                            title: 'Хорошо',
+                            mode: 'default',
+                            action: () => setPopout(null)
+                        }]}
+                        actionsLayout="vertical"
+                        header="Ошибка"
+                        text={e.response.data.error}
+                        onClose={() => setPopout(null)}
+                    />);
+                }
             } else {
                 return e.response.data;
             }
@@ -226,7 +264,7 @@ const App = () => {
                                                     <Cell
                                                         data-story="profile"
                                                         onClick={logout}
-                                                        before={<Icon28DoorArrowRightOutline />}
+                                                        before={<Icon28DoorArrowRightOutline/>}
                                                     >
                                                         Выход
                                                     </Cell>}

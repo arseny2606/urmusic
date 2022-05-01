@@ -2,7 +2,7 @@ import datetime
 import math
 import urllib.request
 
-import mutagen as mutagen
+import mutagen
 import pytz
 from dadata import Dadata
 from django.conf import settings
@@ -62,7 +62,8 @@ class RegistrationSerializer(serializers.Serializer):
                 raise serializers.ValidationError(msg, code='authorization')
         else:
             msg = _(
-                'Должно содержать параметры "email", "password", "password2", "city", "first_name", "last_name".')
+                'Должно содержать параметры "email", "password", "password2", "city", '
+                '"first_name", "last_name".')
             raise serializers.ValidationError(msg, code='authorization')
         if password != password2:
             msg = _('Пароли не совпадают.')
@@ -250,8 +251,8 @@ class LinkVKSerializer(serializers.Serializer):
         photo_url = attrs.get('photo_url')
 
         if not vk_id or not first_name or not last_name or not city or not photo_url:
-            msg = _(
-                'Должно содержать параметры "vk_id", "first_name", "last_name", "city", "photo_url".')
+            msg = _('Должно содержать параметры "vk_id", "first_name", "last_name",'
+                    ' "city", "photo_url".')
             raise serializers.ValidationError(msg, code='validation')
         return attrs
 
@@ -307,16 +308,6 @@ class CreateOrderSerializer(serializers.Serializer):
             msg = _(
                 'Ресторана с таким ID не существует.')
             raise serializers.ValidationError(msg, code='validation')
-        time_array = TrackOrder.objects.filter(owner=self.context['request'].user).all()
-        if time_array.count():
-            time = time_array.last().creation_time.timestamp()
-            now = datetime.datetime.now(tz=pytz.timezone(settings.TIME_ZONE)).timestamp()
-            if now - time < 0 * 5:
-                msg = 'Вы слишком быстро добавляете треки.'
-                raise OurThrottled(wait=60 * 5 - int(now - time), detail=msg)
-            if time_array.count() >= 3:
-                msg = _('Вы добавили слишком много треков.')
-                raise OurThrottled(detail=msg)
         attrs["restaurant"] = Restaurant.objects.filter(id=restaurant_id).first()
         if TrackOrder.objects.filter(~Q(restaurant=attrs['restaurant']),
                                      owner=self.context['request'].user).count():
@@ -327,6 +318,16 @@ class CreateOrderSerializer(serializers.Serializer):
             else:
                 msg = 'Вы не можете добавлять треки в очередь другого ресторана.'
                 raise serializers.ValidationError(msg, code='validation')
+        time_array = TrackOrder.objects.filter(owner=self.context['request'].user).all()
+        if time_array.count():
+            time = time_array.last().creation_time.timestamp()
+            now = datetime.datetime.now(tz=pytz.timezone(settings.TIME_ZONE)).timestamp()
+            if now - time < 60 * 5:
+                msg = 'Вы слишком быстро добавляете треки.'
+                raise OurThrottled(wait=60 * 5 - int(now - time), detail=msg)
+            if time_array.count() >= 3:
+                msg = _('Вы добавили слишком много треков.')
+                raise OurThrottled(detail=msg)
         dadata = Dadata(settings.DADATA_TOKEN)
         try:
             result = dadata.suggest("address", attrs['restaurant'].address)[0]
@@ -385,7 +386,6 @@ class RestaurantEditSerializer(serializers.Serializer):
         description = attrs.get("description")
         image = attrs.get("image")
         name = attrs.get("name")
-        attrs['restaurant'] = Restaurant.objects.filter(id=restaurant_id).first()
         if not restaurant_id:
             msg = _(
                 'Должно содержать параметр "restaraunt_id"')
@@ -398,6 +398,7 @@ class RestaurantEditSerializer(serializers.Serializer):
             msg = _(
                 'Вы не являетесь владельцем этого ресторана.')
             raise serializers.ValidationError(msg, code='validation')
+        attrs['restaurant'] = Restaurant.objects.filter(id=restaurant_id).first()
         if not address:
             attrs['address'] = attrs['restaurant'].address
         if not description:
@@ -441,3 +442,43 @@ class ProfileEditSerializer(serializers.Serializer):
         user.last_name = validated_data['last_name']
         user.city = validated_data['city']
         user.save()
+
+
+class CheckGeoDataSerializer(serializers.Serializer):
+    lat = serializers.FloatField(write_only=True)
+    lon = serializers.FloatField(write_only=True)
+    restaurant_id = serializers.IntegerField(write_only=True)
+
+    def distance(self, user, rest):
+        degree_to_meters_factor = 111 * 1000
+        user_lon, user_lat = map(float, user)
+        rest_lon, rest_lat = map(float, rest)
+        radians_lattitude = math.radians((user_lat + rest_lat) / 2.)
+        lat_lon_factor = math.cos(radians_lattitude)
+        dx = abs(user_lon - rest_lon) * degree_to_meters_factor * lat_lon_factor
+        dy = abs(user_lat - rest_lat) * degree_to_meters_factor
+        distance = math.sqrt(dx * dx + dy * dy)
+        return distance <= 100
+
+    def validate(self, attrs):
+        restaurant_id = attrs.get("restaurant_id")
+        lat = attrs.get("lat")
+        lon = attrs.get("lon")
+        if not restaurant_id or not lat or not lon:
+            msg = _(
+                'Должно содержать параметры "restaraunt_id", "lat", "lon"')
+            raise serializers.ValidationError(msg, code='validation')
+        if not Restaurant.objects.filter(id=restaurant_id).count():
+            msg = _(
+                'Такого ресторана не существует.')
+            raise serializers.ValidationError(msg, code='validation')
+        attrs['restaurant'] = Restaurant.objects.filter(id=restaurant_id).first()
+        dadata = Dadata(settings.DADATA_TOKEN)
+        try:
+            result = dadata.suggest("address", attrs['restaurant'].address)[0]
+        except:
+            msg = _('Адрес ресторана задан неверно. Обратитесь к его владельцу.')
+            raise serializers.ValidationError(msg, code='validation')
+        attrs['distance'] = self.distance((lon, lat), (result['data']['geo_lon'],
+                                                       result['data']['geo_lat']))
+        return attrs

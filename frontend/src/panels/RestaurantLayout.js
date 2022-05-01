@@ -35,7 +35,7 @@ const RestaurantLayout = ({id, nav, token, apiRequest, popout, setPopout, isVK})
     const {restaurant_id} = useParams();
     const [restaurantId, setRestaurantId] = useState(restaurant_id);
     const [position, setPosition] = useState({});
-    const [addingAllowed, setAddingAllowed] = useState(false);
+    const [addingAllowed, setAddingAllowed] = useState(true);
 
     const getNoun = (number, one, two, five) => {
         let n = Math.abs(number);
@@ -144,7 +144,7 @@ const RestaurantLayout = ({id, nav, token, apiRequest, popout, setPopout, isVK})
     const addTrack = () => {
         back();
         if (!selectedTrack) return;
-        apiRequest('tracks/create/', `restaurant_id=${restaurantId}&track_id=${selectedTrack}&`).then(() => {
+        apiRequest('tracks/create/', `restaurant_id=${restaurantId}&track_id=${selectedTrack}&lon=${position.lon}&lat=${position.lat}&`).then(() => {
             apiRequest(`restaurants/get/?id=${restaurantId}&`).then(async response => {
                 if (response.error) {
                     replace("/catalogue");

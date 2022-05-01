@@ -2,6 +2,7 @@
 
 # run pylint
 cd backend
+pip install -r requirements.txt
 pylint $(ls -d */) | tee pylint.txt
 
 # get badge
@@ -12,8 +13,8 @@ echo "Pylint score was $score"
 
 # get html
 pylint --load-plugins=pylint_json2html $(ls -d */) --output-format=jsonextended > pylint.json
+pylint --load-plugins=pylint_junit $(ls -d */) --output-format=pylint_junit.JUnitReporter > junit.xml
 pylint-json2html -f jsonextended -o public/pylint.html pylint.json
-
 #cleanup
 rm pylint.txt pylint.json
 
