@@ -1,23 +1,19 @@
-image: python:latest
-
 cache:
   paths:
-  - ~/.cache/pip/
-
-before_script:
-  - python -V
+    - ~/.cache/pip/
 
 stages:
   - test
   - lint
 
 pylint:
+  image: python:latest
   stage: lint
   before_script:
-  - pip install -r ci/pylint_requirements.txt
+    - pip install -r ci/pylint_requirements.txt
   script:
-  - chmod +x ./ci/pylint_runner.sh
-  - ./ci/pylint_runner.sh
+    - chmod +x ./ci/pylint_runner.sh
+    - ./ci/pylint_runner.sh
   artifacts:
     when: always
     paths:
@@ -26,18 +22,36 @@ pylint:
     reports:
       junit: backend/junit.xml
 
+
+eslint:
+  image: node:latest
+  stage: lint
+  before_script:
+    - node --version
+  script:
+    - cd frontend
+    - npm install
+    - npm install eslint
+    - eslint --init
+    - ESLINT_JUNIT_OUTPUT="./junit.xml" eslint -- --ext .jsx,.js src/
+  artifacts:
+    when: always
+    reports:
+      junit: frontend/junit.xml
+
 test:
+  image: python:latest
   stage: test
   before_script:
-  - cd backend
-  - pip install coverage
-  - pip install -r requirements.txt
+    - cd backend
+    - pip install coverage
+    - pip install -r requirements.txt
   script:
-  - coverage run manage.py test
-  - coverage report --omit=manage.py
-  - coverage html --omit=manage.py
-  - mkdir public
-  - mv htmlcov public/coverage
+    - coverage run manage.py test
+    - coverage report --omit=manage.py
+    - coverage html --omit=manage.py
+    - mkdir public
+    - mv htmlcov public/coverage
   artifacts:
     paths:
       - public/coverage
