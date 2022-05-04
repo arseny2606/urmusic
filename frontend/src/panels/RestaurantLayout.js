@@ -35,7 +35,7 @@ const RestaurantLayout = ({id, nav, token, apiRequest, popout, setPopout, isVK})
     const {restaurant_id} = useParams();
     const [restaurantId, setRestaurantId] = useState(restaurant_id);
     const [position, setPosition] = useState({});
-    const [addingAllowed, setAddingAllowed] = useState(true);
+    const [addingAllowed, setAddingAllowed] = useState({checked: false, allowed: false});
 
     const getNoun = (number, one, two, five) => {
         let n = Math.abs(number);
@@ -109,13 +109,31 @@ const RestaurantLayout = ({id, nav, token, apiRequest, popout, setPopout, isVK})
                         setPosition({lat: data.lat, lon: data.long});
                     }
                 }
-                if (!addingAllowed){
-                    // apirequest
+                if (!addingAllowed.checked){
+                    if (Object.keys(position).length === 0) {
+                        return;
+                    }
+                    apiRequest('restaurants/checkgeodata/', `restaurant_id=${restaurant_id}&lat=${position.lat}&lon=${position.lon}`).then(response => {
+                        setAddingAllowed({checked: true, allowed: response.response});
+                        if (!response.response){
+                            setPopout(<Alert
+                                actions={[{
+                                    title: 'Хорошо',
+                                    mode: 'default',
+                                    action: () => setPopout(null)
+                                }]}
+                                actionsLayout="vertical"
+                                header="Информация"
+                                text="Вы не находитесь в данном заведении. Вам доступен только просмотр очереди треков."
+                                onClose={() => setPopout(null)}
+                            />);
+                        }
+                    })
                 }
             }
 
             await fetchData();
-        }, [token, isVK]
+        }, [token, isVK, position]
     )
 
     const deleteTrack = (id) => {
@@ -166,11 +184,11 @@ const RestaurantLayout = ({id, nav, token, apiRequest, popout, setPopout, isVK})
                     actions={
                         <>
                             {
-                                addingAllowed ? <Button
+                                addingAllowed.allowed ? <Button
                                         size="l"
                                         mode="primary"
                                         onClick={() => addTrack()}
-                                        disabled={!addingAllowed || !selectedTrack}
+                                        disabled={!addingAllowed.allowed || !selectedTrack}
                                     >
                                         Добавить
                                     </Button> :
@@ -179,7 +197,7 @@ const RestaurantLayout = ({id, nav, token, apiRequest, popout, setPopout, isVK})
                                             size="l"
                                             mode="primary"
                                             onClick={() => addTrack()}
-                                            disabled={!addingAllowed || !selectedTrack}
+                                            disabled={!addingAllowed.allowed || !selectedTrack}
                                         >
                                             Добавить
                                         </Button>

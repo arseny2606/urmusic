@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "cross-env PORT=10888 HTTPS=false NODE_OPTIONS=--openssl-legacy-provider react-scripts start",
+    "start": "cross-env DISABLE_ESLINT_PLUGIN=true PORT=10888 HTTPS=false NODE_OPTIONS=--openssl-legacy-provider react-scripts start",
     "build": "cross-env NODE_OPTIONS=--openssl-legacy-provider react-scripts build",
     "predeploy": "cross-env NODE_OPTIONS=--openssl-legacy-provider npm run build",
     "deploy": "cross-env NODE_OPTIONS=--openssl-legacy-provider vk-miniapps-deploy",
