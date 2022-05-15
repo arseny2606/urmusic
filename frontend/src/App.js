@@ -311,7 +311,7 @@ const App = () => {
                                     >
                                         <Catalogue id={"catalogue"} nav={"/catalogue"} token={token}
                                                    apiRequest={apiRequest} isVK={isVK}/>
-                                        <Favourites id={"favourites"} nav={"/favourites"} token={token}/>
+                                        <Favourites id={"favourites"} nav={"/favourites"} token={token} apiRequest={apiRequest}/>
                                         <Profile id={"profile"} nav={"/profile"} token={token} apiRequest={apiRequest}/>
                                     </Epic>
                                 </SplitCol>

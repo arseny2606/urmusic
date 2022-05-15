@@ -1,4 +1,5 @@
 import {
+    Alert,
     Button,
     Card,
     CardGrid,
@@ -26,7 +27,7 @@ import bridge from "@vkontakte/vk-bridge";
 import {TextTooltip} from "@vkontakte/vkui/unstable";
 import "@vkontakte/vkui/dist/unstable.css";
 
-const RestaurantLayout = ({id, nav, token, apiRequest, popout}) => {
+const RestaurantLayout = ({id, nav, token, apiRequest, popout, setPopout, isVK}) => {
     const [restaurantData, setRestaurantData] = useState(undefined);
     const [profile, setProfile] = useState(undefined);
     const [tracks, setTracks] = useState(undefined);
@@ -34,6 +35,8 @@ const RestaurantLayout = ({id, nav, token, apiRequest, popout}) => {
     const {restaurant_id} = useParams();
     const [restaurantId, setRestaurantId] = useState(restaurant_id);
     const [isFavourite, setIsFavourite] = useState(false);
+    const [addingAllowed, setAddingAllowed] = useState({checked: false, allowed: false});
+    const [position, setPosition] = useState({});
 
     const getNoun = (number, one, two, five) => {
         let n = Math.abs(number);
@@ -75,7 +78,8 @@ const RestaurantLayout = ({id, nav, token, apiRequest, popout}) => {
                 if (!isVK) {
                     navigator.geolocation.getCurrentPosition((e) => {
                         setPosition({lat: e.coords.latitude, lon: e.coords.longitude});
-                    }, () => {
+                    }, (e) => {
+                        console.log(e);
                         setPopout(<Alert
                             actions={[{
                                 title: 'Хорошо',
@@ -107,6 +111,9 @@ const RestaurantLayout = ({id, nav, token, apiRequest, popout}) => {
                         setPosition({lat: data.lat, lon: data.long});
                     }
                 }
+                apiRequest("restaurants/favourites/").then(response => {
+                    setIsFavourite(response.data.filter(obj => obj.id === Number(restaurant_id)).length > 0);
+                })
                 if (!addingAllowed.checked){
                     if (Object.keys(position).length === 0) {
                         return;
@@ -128,9 +135,6 @@ const RestaurantLayout = ({id, nav, token, apiRequest, popout}) => {
                         }
                     })
                 }
-                apiRequest("restaurants/favourites/").then(response => {
-                    setIsFavourite(response.data.filter(obj => obj.id === Number(restaurant_id)).length > 0);
-                })
             }
 
             await fetchData();
@@ -278,7 +282,7 @@ const RestaurantLayout = ({id, nav, token, apiRequest, popout}) => {
         }>
             <Panel id={id} nav={nav}>
                 {restaurantData && <>
-                    <PanelHeader left={<PanelHeaderBack onClick={() => {back()}}/>}
+                    <PanelHeader left={<PanelHeaderBack onClick={() => {replace("/catalogue")}}/>}
                                  right={restaurantData.data.owner === profile.id && <IconButton
                                      onClick={() => push(`/audioplayer?restaurant_id=${restaurant_id}`)}><Icon24ExternalLinkOutline/></IconButton>}>Ресторан
                         «{restaurantData.data.name}»</PanelHeader>
