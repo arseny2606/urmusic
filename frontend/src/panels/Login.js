@@ -8,8 +8,8 @@ import {
     Link,
     Panel,
     PanelHeader,
-    PanelHeaderButton,
-    Placeholder
+    Placeholder,
+    SimpleCell
 } from "@vkontakte/vkui";
 import {useEffect, useState} from "react";
 import {Icon16View, Icon24Hide} from "@vkontakte/icons";
@@ -62,11 +62,7 @@ const Login = ({id, nav, apiRequest, setToken, isVK}) => {
 
     return (
         <Panel id={id} nav={nav}>
-            <PanelHeader right={
-                <PanelHeaderButton onClick={goToMain}>
-                    На главную
-                </PanelHeaderButton>
-            }>Вход в аккаунт</PanelHeader>
+            <PanelHeader>Вход в аккаунт</PanelHeader>
             <Placeholder width={100} height={100} stretched>
                 <Group width={100} height={100}>
                     <FormLayout onSubmit={onSubmit}>
@@ -91,7 +87,12 @@ const Login = ({id, nav, apiRequest, setToken, isVK}) => {
                                 Войти
                             </Button>
                         </FormItem>
-                        <Link onClick={goToRegister}>Регистрация</Link>
+                        <SimpleCell onClick={goToRegister}>
+                            <Link>Регистрация</Link>
+                        </SimpleCell>
+                        <SimpleCell onClick={goToMain}>
+                            <Link>На главную</Link>
+                        </SimpleCell>
                     </FormLayout>
                 </Group>
             </Placeholder>

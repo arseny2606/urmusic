@@ -1,5 +1,4 @@
 import {
-    Alert,
     Button,
     Card,
     CardGrid,
@@ -22,20 +21,19 @@ import {
 } from "@vkontakte/vkui";
 import React, {useEffect, useState} from "react";
 import {back, ModalRoot, push, replace, useParams} from "@itznevikat/router";
-import {Icon24Add, Icon24ExternalLinkOutline, Icon56AddCircleOutline} from "@vkontakte/icons";
+import {Icon24Add, Icon24MinusOutline, Icon24ExternalLinkOutline, Icon56AddCircleOutline} from "@vkontakte/icons";
 import bridge from "@vkontakte/vk-bridge";
 import {TextTooltip} from "@vkontakte/vkui/unstable";
 import "@vkontakte/vkui/dist/unstable.css";
 
-const RestaurantLayout = ({id, nav, token, apiRequest, popout, setPopout, isVK}) => {
+const RestaurantLayout = ({id, nav, token, apiRequest, popout}) => {
     const [restaurantData, setRestaurantData] = useState(undefined);
     const [profile, setProfile] = useState(undefined);
     const [tracks, setTracks] = useState(undefined);
     const [selectedTrack, setSelectedTrack] = useState(0);
     const {restaurant_id} = useParams();
     const [restaurantId, setRestaurantId] = useState(restaurant_id);
-    const [position, setPosition] = useState({});
-    const [addingAllowed, setAddingAllowed] = useState({checked: false, allowed: false});
+    const [isFavourite, setIsFavourite] = useState(false);
 
     const getNoun = (number, one, two, five) => {
         let n = Math.abs(number);
@@ -130,11 +128,39 @@ const RestaurantLayout = ({id, nav, token, apiRequest, popout, setPopout, isVK})
                         }
                     })
                 }
+                apiRequest("restaurants/favourites/").then(response => {
+                    setIsFavourite(response.data.filter(obj => obj.id === Number(restaurant_id)).length > 0);
+                })
             }
 
             await fetchData();
         }, [token, isVK, position]
     )
+
+    async function fetchData() {
+        if (!token) {
+            if (!localStorage.getItem("token")) {
+                replace("/login");
+                return;
+            }
+        }
+        apiRequest("account/profile").then(response => {
+            setProfile(response);
+        });
+        apiRequest(`restaurants/get/?id=${restaurant_id}&`).then(async response => {
+            if (response.error) {
+                replace("/catalogue");
+                return;
+            }
+            setRestaurantData(response);
+        });
+        apiRequest('tracks/all/').then(response => {
+            setTracks(response.data);
+        });
+        apiRequest("restaurants/favourites/").then(response => {
+            setIsFavourite(response.data.filter(obj => obj.id === Number(restaurant_id)).length > 0);
+        });
+    }
 
     const deleteTrack = (id) => {
         apiRequest("tracks/delete", `order_id=${id}`).then(() => {
@@ -157,6 +183,26 @@ const RestaurantLayout = ({id, nav, token, apiRequest, popout, setPopout, isVK})
 
     const changeSelectedTrack = (e) => {
         setSelectedTrack(e.currentTarget.value);
+    }
+
+    const addToFavourites = () => {
+        apiRequest('restaurants/addfavourites/', `restaurant=${restaurantId}&`).then((response) => {
+            if (response.error) {
+                replace("/catalogue")
+                return
+            }
+            fetchData();
+        })
+    }
+
+    const removeFromFavourites = () => {
+        apiRequest('restaurants/removefavourites/', `restaurant=${restaurantId}&`).then((response) => {
+            if (response.error) {
+                replace("/catalogue")
+                return
+            }
+            fetchData();
+        })
     }
 
     const addTrack = () => {
@@ -232,7 +278,7 @@ const RestaurantLayout = ({id, nav, token, apiRequest, popout, setPopout, isVK})
         }>
             <Panel id={id} nav={nav}>
                 {restaurantData && <>
-                    <PanelHeader left={<PanelHeaderBack onClick={() => replace("/catalogue")}/>}
+                    <PanelHeader left={<PanelHeaderBack onClick={() => {back()}}/>}
                                  right={restaurantData.data.owner === profile.id && <IconButton
                                      onClick={() => push(`/audioplayer?restaurant_id=${restaurant_id}`)}><Icon24ExternalLinkOutline/></IconButton>}>Ресторан
                         «{restaurantData.data.name}»</PanelHeader>
@@ -251,6 +297,21 @@ const RestaurantLayout = ({id, nav, token, apiRequest, popout, setPopout, isVK})
                                 text={restaurantData.data.description}
                                 maxHeight={500}
                             />
+                            {isFavourite &&
+                                <Card mode="shadow">
+                                    <CellButton centered before={<Icon24MinusOutline/>}
+                                                onClick={() => removeFromFavourites()}>
+                                        Убрать из избранных
+                                    </CellButton>
+                                </Card>
+                            }
+                            {!isFavourite &&
+                                <Card mode="shadow">
+                                    <CellButton centered before={<Icon24Add/>} onClick={() => addToFavourites()}>
+                                            Добавить в избранное
+                                    </CellButton>
+                                </Card>}
+
                             <Card mode="shadow">
                                 <Group header={<Header>Очередь треков</Header>} mode={"plain"}>
                                     {restaurantData.tracks.length > 0 && <>{

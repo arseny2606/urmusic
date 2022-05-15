@@ -82,6 +82,7 @@ const App = () => {
                 setFetchedUser(user);
                 replace("/vklogin", {params: window.location.search.slice(1), hash: document.location.hash});
             });
+            setPopout(null);
         }
 
         fetchData();

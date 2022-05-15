@@ -5,14 +5,13 @@ import {
     Group,
     Panel,
     PanelHeader,
-    PanelHeaderButton,
     Text
 } from "@vkontakte/vkui";
 import {Icon24ChevronRight} from "@vkontakte/icons";
 import {useEffect, useState} from "react";
-import {replace} from "@itznevikat/router";
+import {push, replace} from "@itznevikat/router";
 
-const Favourites = ({id, nav, token}) => {
+const Favourites = ({id, nav, token, apiRequest}) => {
     const [favouriteObjects, setFavouriteObjects] = useState([]);
 
     const getNoun = (number, one, two, five) => {
@@ -39,33 +38,39 @@ const Favourites = ({id, nav, token}) => {
                         return;
                     }
                 }
-                const obj = [];
-                for (let i = 0; i < 10; ++i) obj.push({
-                    id: i + 1,
-                    name: "Беляши у Ашота",
-                    address: "Проспект Мира, дом 228",
-                    tracks: 15,
-                    imageUrl: "https://img-s3.onedio.com/id-58b42ae7b05db4070f77f174/rev-0/raw/s-249a5edb2c4739ffd306edf36e3d702b6bae5b67.jpg"
-                });
-                setFavouriteObjects(obj);
+                apiRequest("restaurants/favourites/").then(response => {
+                    setFavouriteObjects(response.data);
+                })
             }
 
             fetchData();
         }, [token]
     )
 
+    const getFavouriteObjects = () => {
+        return favouriteObjects
+    }
+
+    const goToRestaurant = (e) => {
+        push(`/restaurant?restaurant_id=${e.currentTarget.dataset.to}`);
+    }
+
     return (
         <Panel id={id} nav={nav}>
             <PanelHeader>Избранное</PanelHeader>
             <Group>
-                {favouriteObjects.length > 0 &&
-                    favouriteObjects.map((object) => (
-                        <Cell key={object.id} before={<Avatar mode="image" src={object.imageUrl} size={72}/>}
+                {getFavouriteObjects().length > 0 && <> {
+                    getFavouriteObjects().map((object) => (
+                        <Cell key={object.id} before={<Avatar mode="image" src={object.image_url} size={72}/>}
                               after={<Icon24ChevronRight/>} description={
-                            <Text>{object.address}<br/>{object.tracks} {getNoun(object.tracks, 'трек', 'трека', 'треков')} в
-                                очереди</Text>}><Text weight="medium" style={{fontSize: 16}}>{object.name}</Text></Cell>
+                            <Text>{object.address}<br/>{object.tracks_count} {getNoun(object.tracks_count, 'трек', 'трека', 'треков')} в
+                                очереди</Text>} onClick={goToRestaurant} data-to={object.id}><Text weight="medium"
+                                                                                                   style={{fontSize: 16}}>{object.name}</Text></Cell>
                     ))}
-                {favouriteObjects.length === 0 && <Footer>Здесь пока пусто.</Footer>}
+                    <Footer>{getFavouriteObjects().length} {getNoun(getFavouriteObjects().length, "ресторан", "ресторана", "ресторанов")}</Footer>
+                </>
+                }
+                {getFavouriteObjects().length === 0 && <Footer>Здесь пока пусто.</Footer>}
             </Group>
         </Panel>);
 };
