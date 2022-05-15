@@ -207,7 +207,7 @@ const RestaurantLayout = ({id, nav, token, apiRequest, popout}) => {
                                  right={restaurantData.data.owner === profile.id && <IconButton
                                      onClick={() => push(`/audioplayer?restaurant_id=${restaurant_id}`)}><Icon24ExternalLinkOutline/></IconButton>}>Ресторан
                         «{restaurantData.data.name}»</PanelHeader>
-                    <Group>
+                    <Group style={{marginLeft: '1rem', marginRight: '1rem'}}>
                         <CardGrid size="l">
                             <ContentCard
                                 onClick={() => {
@@ -224,7 +224,7 @@ const RestaurantLayout = ({id, nav, token, apiRequest, popout}) => {
                             />
 
                             {isFavourite &&
-                                <Card>
+                                <Card mode="shadow">
                                     <CellButton centered before={<Icon24MinusOutline/>}
                                                 onClick={() => removeFromFavourites()}>
                                         Убрать из избранных
@@ -232,9 +232,9 @@ const RestaurantLayout = ({id, nav, token, apiRequest, popout}) => {
                                 </Card>
                             }
                             {!isFavourite &&
-                                <Card>
+                                <Card mode="shadow">
                                     <CellButton centered before={<Icon24Add/>} onClick={() => addToFavourites()}>
-                                        Добавить в избранное
+                                            Добавить в избранное
                                     </CellButton>
                                 </Card>}
 
