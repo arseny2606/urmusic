@@ -78,6 +78,22 @@ const RestaurantLayout = ({id, nav, token, apiRequest, popout, setPopout, isVK})
                 if (!isVK && !addingAllowed.checked) {
                     navigator.geolocation.getCurrentPosition((e) => {
                         setPosition({lat: e.coords.latitude, lon: e.coords.longitude});
+                        apiRequest('restaurants/checkgeodata/', `restaurant_id=${restaurant_id}&lat=${e.coords.latitude}&lon=${e.coords.longitude}`).then(response => {
+                            setAddingAllowed({checked: true, allowed: response.response});
+                            if (!response.response) {
+                                setPopout(<Alert
+                                    actions={[{
+                                        title: 'Хорошо',
+                                        mode: 'default',
+                                        action: () => setPopout(null)
+                                    }]}
+                                    actionsLayout="vertical"
+                                    header="Информация"
+                                    text="Вы не находитесь в данном заведении. Вам доступен только просмотр очереди треков."
+                                    onClose={() => setPopout(null)}
+                                />);
+                            }
+                        })
                     }, (e) => {
                         console.log(e);
                         setPopout(<Alert
@@ -107,34 +123,42 @@ const RestaurantLayout = ({id, nav, token, apiRequest, popout, setPopout, isVK})
                         />);
                         return {};
                     });
-                    if (data) {
+                    if (data && data.available) {
                         setPosition({lat: data.lat, lon: data.long});
+                        apiRequest('restaurants/checkgeodata/', `restaurant_id=${restaurant_id}&lat=${data.lat}&lon=${data.long}`).then(response => {
+                            setAddingAllowed({checked: true, allowed: response.response});
+                            if (!response.response) {
+                                setPopout(<Alert
+                                    actions={[{
+                                        title: 'Хорошо',
+                                        mode: 'default',
+                                        action: () => setPopout(null)
+                                    }]}
+                                    actionsLayout="vertical"
+                                    header="Информация"
+                                    text="Вы не находитесь в данном заведении. Вам доступен только просмотр очереди треков."
+                                    onClose={() => setPopout(null)}
+                                />);
+                            }
+                        })
+                    }
+                    else{
+                        setPopout(<Alert
+                            actions={[{
+                                title: 'Хорошо',
+                                mode: 'default',
+                                action: () => setPopout(null)
+                            }]}
+                            actionsLayout="vertical"
+                            header="Ошибка"
+                            text="Вы не предоставили доступ к геолокации приложению ВКонтакте. Добавление треков невозможно, пока вы не подтвердите нахождение в заведении."
+                            onClose={() => setPopout(null)}
+                        />);
                     }
                 }
                 apiRequest("restaurants/favourites/").then(response => {
                     setIsFavourite(response.data.filter(obj => obj.id === Number(restaurant_id)).length > 0);
                 })
-                if (!addingAllowed.checked) {
-                    if (Object.keys(position).length === 0) {
-                        return;
-                    }
-                    apiRequest('restaurants/checkgeodata/', `restaurant_id=${restaurant_id}&lat=${position.lat}&lon=${position.lon}`).then(response => {
-                        setAddingAllowed({checked: true, allowed: response.response});
-                        if (!response.response) {
-                            setPopout(<Alert
-                                actions={[{
-                                    title: 'Хорошо',
-                                    mode: 'default',
-                                    action: () => setPopout(null)
-                                }]}
-                                actionsLayout="vertical"
-                                header="Информация"
-                                text="Вы не находитесь в данном заведении. Вам доступен только просмотр очереди треков."
-                                onClose={() => setPopout(null)}
-                            />);
-                        }
-                    })
-                }
             }
 
             await fetchData();
