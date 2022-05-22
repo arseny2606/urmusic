@@ -146,17 +146,12 @@ const AudioPlayer = ({id, nav, token, apiRequest}) => {
                                 </Card.Title>
                                 {currentTrack && <><Card.Subtitle>Сейчас играет:</Card.Subtitle>
                                     <Card.Text>
-                                        {currentTrack.artist} - {currentTrack.name}
+                                        {currentTrack.track_data.artist} - {currentTrack.track_data.title}
                                     </Card.Text></>}
                                 <div className="d-grid gap-1">
                                     {!started && <Button variant="primary" size="lg"
                                                          onClick={() => setStarted(true)}>start</Button>}
                                 </div>
-                                {playing && <>
-                                    <div>
-                                        <p>Playing</p>
-                                    </div>
-                                </>}
                             </Card.Body>
                         </Card>
                     </Row>

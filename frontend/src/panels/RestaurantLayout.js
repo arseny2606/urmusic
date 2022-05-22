@@ -204,7 +204,8 @@ const RestaurantLayout = ({id, nav, token, apiRequest, popout, setPopout, isVK})
     const showTracksModal = () => {
         apiRequest('tracks/all/').then(response => {
             setTracks(response.data);
-            push("?modal=addtrack");
+            push(`?modal=addtrack&restaurant_id=${restaurant_id}`);
+            setRestaurantId(restaurant_id);
         });
     }
 
