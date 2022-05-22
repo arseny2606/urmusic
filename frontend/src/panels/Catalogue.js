@@ -78,9 +78,9 @@ const Catalogue = ({id, nav, token, apiRequest}) => {
                         getObjects().map((object) => (
                             <Cell key={object.id} before={<Avatar mode="image" src={object.image_url} size={72}/>}
                                   after={<Icon24ChevronRight/>} description={
-                                <Text>{object.address}<br/>{object.tracks_count} {getNoun(object.tracks_count, 'трек', 'трека', 'треков')} в
+                                <Text weight="regular" style={{whiteSpace: "pre-wrap"}}>{object.address}<br/>{object.tracks_count} {getNoun(object.tracks_count, 'трек', 'трека', 'треков')} в
                                     очереди</Text>} onClick={goToRestaurant} data-to={object.id}><Text weight="medium"
-                                                                                                       style={{fontSize: 16}}>{object.name}</Text></Cell>
+                                                                                                       style={{fontSize: 16, whiteSpace: "pre-wrap"}}>{object.name}</Text></Cell>
                         ))}
                         <Footer>{getObjects().length} {getNoun(getObjects().length, "ресторан", "ресторана", "ресторанов")}</Footer>
                     </>

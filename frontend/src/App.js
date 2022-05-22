@@ -274,7 +274,7 @@ const App = () => {
                                     </SplitCol>
                                 )}
 
-                                <SplitCol>
+                                <SplitCol width={isVK ? "100%": "50%"} maxWidth={isVK ? "100%": "50%"} spaced>
                                     <Epic
                                         nav={"/"}
                                         activeStory={activeStory}

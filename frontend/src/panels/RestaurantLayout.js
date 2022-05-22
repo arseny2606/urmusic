@@ -22,7 +22,7 @@ import {
 } from "@vkontakte/vkui";
 import React, {useEffect, useState} from "react";
 import {back, ModalRoot, push, replace, useParams} from "@itznevikat/router";
-import {Icon24Add, Icon24MinusOutline, Icon24ExternalLinkOutline, Icon56AddCircleOutline} from "@vkontakte/icons";
+import {Icon24Add, Icon24ExternalLinkOutline, Icon24MinusOutline, Icon56AddCircleOutline} from "@vkontakte/icons";
 import bridge from "@vkontakte/vk-bridge";
 import {TextTooltip} from "@vkontakte/vkui/unstable";
 import "@vkontakte/vkui/dist/unstable.css";
@@ -114,13 +114,13 @@ const RestaurantLayout = ({id, nav, token, apiRequest, popout, setPopout, isVK})
                 apiRequest("restaurants/favourites/").then(response => {
                     setIsFavourite(response.data.filter(obj => obj.id === Number(restaurant_id)).length > 0);
                 })
-                if (!addingAllowed.checked){
+                if (!addingAllowed.checked) {
                     if (Object.keys(position).length === 0) {
                         return;
                     }
                     apiRequest('restaurants/checkgeodata/', `restaurant_id=${restaurant_id}&lat=${position.lat}&lon=${position.lon}`).then(response => {
                         setAddingAllowed({checked: true, allowed: response.response});
-                        if (!response.response){
+                        if (!response.response) {
                             setPopout(<Alert
                                 actions={[{
                                     title: 'Хорошо',
@@ -282,11 +282,13 @@ const RestaurantLayout = ({id, nav, token, apiRequest, popout, setPopout, isVK})
         }>
             <Panel id={id} nav={nav}>
                 {restaurantData && <>
-                    <PanelHeader left={<PanelHeaderBack onClick={() => {replace("/catalogue")}}/>}
+                    <PanelHeader left={<PanelHeaderBack onClick={() => {
+                        replace("/catalogue")
+                    }}/>}
                                  right={restaurantData.data.owner === profile.id && <IconButton
-                                     onClick={() => push(`/audioplayer?restaurant_id=${restaurant_id}`)}><Icon24ExternalLinkOutline/></IconButton>}>Ресторан
+                                     onClick={() => window.open(`#/audioplayer?restaurant_id=${restaurant_id}`, '_blank').focus()}><Icon24ExternalLinkOutline/></IconButton>}>Ресторан
                         «{restaurantData.data.name}»</PanelHeader>
-                    <Group>
+                    <Group style={{margin: "1rem"}}>
                         <CardGrid size="l">
                             <ContentCard
                                 onClick={() => {
@@ -312,7 +314,7 @@ const RestaurantLayout = ({id, nav, token, apiRequest, popout, setPopout, isVK})
                             {!isFavourite &&
                                 <Card mode="shadow">
                                     <CellButton centered before={<Icon24Add/>} onClick={() => addToFavourites()}>
-                                            Добавить в избранное
+                                        Добавить в избранное
                                     </CellButton>
                                 </Card>}
 
