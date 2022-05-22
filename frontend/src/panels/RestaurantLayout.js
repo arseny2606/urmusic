@@ -75,7 +75,7 @@ const RestaurantLayout = ({id, nav, token, apiRequest, popout, setPopout, isVK})
                 apiRequest('tracks/all/').then(response => {
                     setTracks(response.data);
                 });
-                if (!isVK) {
+                if (!isVK && !addingAllowed.checked) {
                     navigator.geolocation.getCurrentPosition((e) => {
                         setPosition({lat: e.coords.latitude, lon: e.coords.longitude});
                     }, (e) => {
@@ -92,7 +92,7 @@ const RestaurantLayout = ({id, nav, token, apiRequest, popout, setPopout, isVK})
                             onClose={() => setPopout(null)}
                         />);
                     });
-                } else {
+                } else if (!addingAllowed.checked) {
                     const data = await bridge.send("VKWebAppGetGeodata").catch(e => {
                         setPopout(<Alert
                             actions={[{
@@ -138,7 +138,7 @@ const RestaurantLayout = ({id, nav, token, apiRequest, popout, setPopout, isVK})
             }
 
             await fetchData();
-        }, [token, isVK, position]
+        }, [token, isVK]
     )
 
     async function fetchData() {
