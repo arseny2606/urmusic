@@ -141,8 +141,7 @@ const RestaurantLayout = ({id, nav, token, apiRequest, popout, setPopout, isVK})
                                 />);
                             }
                         })
-                    }
-                    else{
+                    } else {
                         setPopout(<Alert
                             actions={[{
                                 title: 'Хорошо',
