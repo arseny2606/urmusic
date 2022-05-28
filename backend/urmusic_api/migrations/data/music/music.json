@@ -1,0 +1,32 @@
+[
+    {
+        "artist": "ABBA",
+        "title": "Lay All Your Love On Me",
+        "file": "ABBA-Lay All Your Love On Me.mp3"
+    },
+    {
+        "artist": "Capital Cities",
+        "title": "Safe And Sound",
+        "file": "Capital Cities-Safe And Sound.mp3"
+    },
+    {
+        "artist": "Daft Punk",
+        "title": "Get Lucky",
+        "file": "Daft Punk-Get Lucky.mp3"
+    },
+    {
+        "artist": "MODERN TALKING",
+        "title": "Cheri Cheri Lady",
+        "file": "MODERN TALKING-Cheri Cheri Lady.mp3"
+    },
+    {
+        "artist": "OneRepublic",
+        "title": "Counting Stars",
+        "file": "OneRepublic-Counting Stars.mp3"
+    },
+    {
+        "artist": "Kwabs",
+        "title": "Walk",
+        "file": "Kwabs-Walk.mp3"
+    }
+]

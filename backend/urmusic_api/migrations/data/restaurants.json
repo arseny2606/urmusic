@@ -1,0 +1,5408 @@
+[
+    {
+        "ID": "00340681",
+        "Name": "Бистро&Шаверма&Выпечка «КУЛЧА »",
+        "global_id": 2359758604,
+        "IsNetObject": "нет",
+        "OperatingCompany": "",
+        "TypeObject": "закусочная",
+        "AdmArea": "Южный административный округ",
+        "District": "район Братеево",
+        "Address": "Российская Федерация, город Москва, внутригородская территория муниципальный округ Братеево, Паромная улица, дом 9, корпус 4",
+        "PublicPhone": [
+            {
+                "PublicPhone": "(916) 202-66-88"
+            }
+        ],
+        "SeatsCount": 12,
+        "SocialPrivileges": "нет",
+        "Longitude_WGS84": "37.7635629999999980",
+        "Latitude_WGS84": "55.6362917228416260",
+        "geoData": {
+            "coordinates": [
+                37.763563,
+                55.6362917228416
+            ],
+            "type": "Point"
+        }
+    },
+    {
+        "ID": "00162883",
+        "Name": "Грязные танцы",
+        "global_id": 832187373,
+        "IsNetObject": "нет",
+        "OperatingCompany": "",
+        "TypeObject": "бар",
+        "AdmArea": "Северо-Восточный административный округ",
+        "District": "район Южное Медведково",
+        "Address": "город Москва, проезд Дежнёва, дом 13",
+        "PublicPhone": [
+            {
+                "PublicPhone": "(909) 152-51-42"
+            }
+        ],
+        "SeatsCount": 25,
+        "SocialPrivileges": "нет",
+        "Longitude_WGS84": "37.6411972548462610",
+        "Latitude_WGS84": "55.8706635940518200",
+        "geoData": {
+            "coordinates": [
+                37.6411972548463,
+                55.8706635940518
+            ],
+            "type": "Point"
+        }
+    },
+    {
+        "ID": "00318501",
+        "Name": "ВАБИСАБИ",
+        "global_id": 1146056689,
+        "IsNetObject": "нет",
+        "OperatingCompany": "",
+        "TypeObject": "кафе",
+        "AdmArea": "Северный административный округ",
+        "District": "район Аэропорт",
+        "Address": "город Москва, Ленинградский проспект, дом 36",
+        "PublicPhone": [
+            {
+                "PublicPhone": "(495) 122-42-22"
+            }
+        ],
+        "SeatsCount": 11,
+        "SocialPrivileges": "нет",
+        "Longitude_WGS84": "37.5589180000000130",
+        "Latitude_WGS84": "55.7907867675277980",
+        "geoData": {
+            "coordinates": [
+                37.558918,
+                55.7907867675278
+            ],
+            "type": "Point"
+        }
+    },
+    {
+        "ID": "00176968",
+        "Name": "Кафе мороженного «Tutti Frutti»",
+        "global_id": 905404539,
+        "IsNetObject": "да",
+        "OperatingCompany": "Tutti frutti",
+        "TypeObject": "магазин (отдел кулинарии)",
+        "AdmArea": "Южный административный округ",
+        "District": "Даниловский район",
+        "Address": "город Москва, Автозаводская улица, дом 18",
+        "PublicPhone": [
+            {
+                "PublicPhone": "(495) 780-09-66"
+            }
+        ],
+        "SeatsCount": 12,
+        "SocialPrivileges": "нет",
+        "Longitude_WGS84": "37.6374086250133570",
+        "Latitude_WGS84": "55.7049168564264220",
+        "geoData": {
+            "coordinates": [
+                37.6374086250134,
+                55.7049168564264
+            ],
+            "type": "Point"
+        }
+    },
+    {
+        "ID": "00319122",
+        "Name": "Кофикс",
+        "global_id": 1146141723,
+        "IsNetObject": "нет",
+        "OperatingCompany": "",
+        "TypeObject": "кафетерий",
+        "AdmArea": "Северо-Западный административный округ",
+        "District": "район Митино",
+        "Address": "город Москва, Дубравная улица, дом 34/29",
+        "PublicPhone": [
+            {
+                "PublicPhone": "(495) 258-94-19"
+            }
+        ],
+        "SeatsCount": 0,
+        "SocialPrivileges": "нет",
+        "Longitude_WGS84": "37.3578529999999990",
+        "Latitude_WGS84": "55.8461477836899860",
+        "geoData": {
+            "coordinates": [
+                37.357853,
+                55.84614778369
+            ],
+            "type": "Point"
+        }
+    },
+    {
+        "ID": "00319623",
+        "Name": "PASTA PESTO",
+        "global_id": 1146141656,
+        "IsNetObject": "нет",
+        "OperatingCompany": "",
+        "TypeObject": "кафе",
+        "AdmArea": "Юго-Восточный административный округ",
+        "District": "район Марьино",
+        "Address": "город Москва, Поречная улица, дом 10",
+        "PublicPhone": [
+            {
+                "PublicPhone": "нет телефона"
+            }
+        ],
+        "SeatsCount": 4,
+        "SocialPrivileges": "нет",
+        "Longitude_WGS84": "37.7701189504750520",
+        "Latitude_WGS84": "55.6497174876047250",
+        "geoData": {
+            "coordinates": [
+                37.7701189504751,
+                55.6497174876047
+            ],
+            "type": "Point"
+        }
+    },
+    {
+        "ID": "00200194",
+        "Name": "Веранда 6.1 КРАБЫКУТАБЫ",
+        "global_id": 918057936,
+        "IsNetObject": "нет",
+        "OperatingCompany": "",
+        "TypeObject": "кафе",
+        "AdmArea": "Центральный административный округ",
+        "District": "Тверской район",
+        "Address": "город Москва, Лесная улица, дом 20, строение 4",
+        "PublicPhone": [
+            {
+                "PublicPhone": "(905) 720-40-42"
+            }
+        ],
+        "SeatsCount": 49,
+        "SocialPrivileges": "нет",
+        "Longitude_WGS84": "37.5916849999999840",
+        "Latitude_WGS84": "55.7794707642338710",
+        "geoData": {
+            "coordinates": [
+                37.591685,
+                55.7794707642339
+            ],
+            "type": "Point"
+        }
+    },
+    {
+        "ID": "00084294",
+        "Name": "Бургер Кинг",
+        "global_id": 637542301,
+        "IsNetObject": "да",
+        "OperatingCompany": "Бургер Кинг",
+        "TypeObject": "предприятие быстрого обслуживания",
+        "AdmArea": "Северный административный округ",
+        "District": "район Левобережный",
+        "Address": "город Москва, Правобережная улица, дом 1Б",
+        "PublicPhone": [
+            {
+                "PublicPhone": "(495) 544-50-00"
+            }
+        ],
+        "SeatsCount": 35,
+        "SocialPrivileges": "нет",
+        "Longitude_WGS84": "37.4497018407297730",
+        "Latitude_WGS84": "55.8809137825573220",
+        "geoData": {
+            "coordinates": [
+                37.4497018407298,
+                55.8809137825573
+            ],
+            "type": "Point"
+        }
+    },
+    {
+        "ID": "00244893",
+        "Name": "Чихо",
+        "global_id": 1026872110,
+        "IsNetObject": "нет",
+        "OperatingCompany": "",
+        "TypeObject": "кафе",
+        "AdmArea": "Южный административный округ",
+        "District": "Даниловский район",
+        "Address": "город Москва, улица Ленинская Слобода, дом 26",
+        "PublicPhone": [
+            {
+                "PublicPhone": "(925) 125-30-30"
+            }
+        ],
+        "SeatsCount": 10,
+        "SocialPrivileges": "нет",
+        "Longitude_WGS84": "37.6542893440981320",
+        "Latitude_WGS84": "55.7099490354763200",
+        "geoData": {
+            "coordinates": [
+                37.6542893440981,
+                55.7099490354763
+            ],
+            "type": "Point"
+        }
+    },
+    {
+        "ID": "00233257",
+        "Name": "KFC",
+        "global_id": 1026862377,
+        "IsNetObject": "да",
+        "OperatingCompany": "KFC",
+        "TypeObject": "предприятие быстрого обслуживания",
+        "AdmArea": "Восточный административный округ",
+        "District": "район Измайлово",
+        "Address": "город Москва, Измайловское шоссе, дом 71А",
+        "PublicPhone": [
+            {
+                "PublicPhone": "нет телефона"
+            }
+        ],
+        "SeatsCount": 15,
+        "SocialPrivileges": "нет",
+        "Longitude_WGS84": "37.7524795989339100",
+        "Latitude_WGS84": "55.7895553100875930",
+        "geoData": {
+            "coordinates": [
+                37.7524795989339,
+                55.7895553100876
+            ],
+            "type": "Point"
+        }
+    },
+    {
+        "ID": "00208244",
+        "Name": "Старый Стамбул",
+        "global_id": 930778309,
+        "IsNetObject": "нет",
+        "OperatingCompany": "",
+        "TypeObject": "кафе",
+        "AdmArea": "Центральный административный округ",
+        "District": "район Замоскворечье",
+        "Address": "город Москва, Большой Овчинниковский переулок, дом 16",
+        "PublicPhone": [
+            {
+                "PublicPhone": "(495) 620-28-61"
+            }
+        ],
+        "SeatsCount": 50,
+        "SocialPrivileges": "нет",
+        "Longitude_WGS84": "37.6300429999999930",
+        "Latitude_WGS84": "55.7444907540726080",
+        "geoData": {
+            "coordinates": [
+                37.630043,
+                55.7444907540726
+            ],
+            "type": "Point"
+        }
+    },
+    {
+        "ID": "00305695",
+        "Name": "Mission",
+        "global_id": 1125492435,
+        "IsNetObject": "нет",
+        "OperatingCompany": "",
+        "TypeObject": "бар",
+        "AdmArea": "Центральный административный округ",
+        "District": "Басманный район",
+        "Address": "город Москва, Спартаковская улица, дом 3, строение 3",
+        "PublicPhone": [
+            {
+                "PublicPhone": "(926) 158-78-20"
+            }
+        ],
+        "SeatsCount": 40,
+        "SocialPrivileges": "нет",
+        "Longitude_WGS84": "37.6706809999999950",
+        "Latitude_WGS84": "55.7705717616458470",
+        "geoData": {
+            "coordinates": [
+                37.670681,
+                55.7705717616458
+            ],
+            "type": "Point"
+        }
+    },
+    {
+        "ID": "00159012",
+        "Name": "Тирольские пироги",
+        "global_id": 645581776,
+        "IsNetObject": "да",
+        "OperatingCompany": "Тирольские пироги",
+        "TypeObject": "кафе",
+        "AdmArea": "Центральный административный округ",
+        "District": "район Якиманка",
+        "Address": "город Москва, улица Шаболовка, дом 25, корпус 2",
+        "PublicPhone": [
+            {
+                "PublicPhone": "(499) 236-36-48"
+            }
+        ],
+        "SeatsCount": 20,
+        "SocialPrivileges": "нет",
+        "Longitude_WGS84": "37.6109628910426960",
+        "Latitude_WGS84": "55.7223745230944020",
+        "geoData": {
+            "coordinates": [
+                37.6109628910427,
+                55.7223745230944
+            ],
+            "type": "Point"
+        }
+    },
+    {
+        "ID": "00326938",
+        "Name": "Вкус Индии",
+        "global_id": 1266027253,
+        "IsNetObject": "нет",
+        "OperatingCompany": "",
+        "TypeObject": "предприятие быстрого обслуживания",
+        "AdmArea": "Центральный административный округ",
+        "District": "район Арбат",
+        "Address": "город Москва, Смоленская площадь, дом 5",
+        "PublicPhone": [
+            {
+                "PublicPhone": "(964) 642-69-68"
+            }
+        ],
+        "SeatsCount": 8,
+        "SocialPrivileges": "нет",
+        "Longitude_WGS84": "37.5811229999999910",
+        "Latitude_WGS84": "55.7482277551566630",
+        "geoData": {
+            "coordinates": [
+                37.581123,
+                55.7482277551567
+            ],
+            "type": "Point"
+        }
+    },
+    {
+        "ID": "00264555",
+        "Name": "Милос",
+        "global_id": 1034727391,
+        "IsNetObject": "нет",
+        "OperatingCompany": "",
+        "TypeObject": "кафе",
+        "AdmArea": "Центральный административный округ",
+        "District": "Басманный район",
+        "Address": "город Москва, улица Маросейка, дом 4/2, строение 1",
+        "PublicPhone": [
+            {
+                "PublicPhone": "(926) 939-84-11"
+            }
+        ],
+        "SeatsCount": 1,
+        "SocialPrivileges": "нет",
+        "Longitude_WGS84": "37.6339779999999920",
+        "Latitude_WGS84": "55.7573907578162530",
+        "geoData": {
+            "coordinates": [
+                37.633978,
+                55.7573907578163
+            ],
+            "type": "Point"
+        }
+    },
+    {
+        "ID": "00189480",
+        "Name": "Кафе Бистро Халяль",
+        "global_id": 905405903,
+        "IsNetObject": "нет",
+        "OperatingCompany": "",
+        "TypeObject": "кафе",
+        "AdmArea": "Новомосковский административный округ",
+        "District": "поселение Московский",
+        "Address": "город Москва, город Московский, улица Хабарова, дом 1, строение 1",
+        "PublicPhone": [
+            {
+                "PublicPhone": "(926) 153-36-70"
+            }
+        ],
+        "SeatsCount": 20,
+        "SocialPrivileges": "нет",
+        "Longitude_WGS84": "37.3561630000000090",
+        "Latitude_WGS84": "55.5977517117901950",
+        "geoData": {
+            "coordinates": [
+                37.356163,
+                55.5977517117902
+            ],
+            "type": "Point"
+        }
+    },
+    {
+        "ID": "00172445",
+        "Name": "Лотос",
+        "global_id": 1146056720,
+        "IsNetObject": "нет",
+        "OperatingCompany": "",
+        "TypeObject": "кафе",
+        "AdmArea": "Северо-Восточный административный округ",
+        "District": "Алтуфьевский район",
+        "Address": "город Москва, Инженерная улица, дом 1А",
+        "PublicPhone": [
+            {
+                "PublicPhone": "(495) 799-85-33"
+            }
+        ],
+        "SeatsCount": 45,
+        "SocialPrivileges": "нет",
+        "Longitude_WGS84": "37.5827788523638160",
+        "Latitude_WGS84": "55.8782176387353500",
+        "geoData": {
+            "coordinates": [
+                37.5827788523638,
+                55.8782176387354
+            ],
+            "type": "Point"
+        }
+    },
+    {
+        "ID": "00326647",
+        "Name": "ТАТСМАК",
+        "global_id": 1266027211,
+        "IsNetObject": "нет",
+        "OperatingCompany": "",
+        "TypeObject": "кафе",
+        "AdmArea": "Новомосковский административный округ",
+        "District": "поселение Рязановское",
+        "Address": "город Москва, поселение Рязановское, посёлок Знамя Октября, Рязановское шоссе, владение 21",
+        "PublicPhone": [
+            {
+                "PublicPhone": "(893) 782-16-09"
+            }
+        ],
+        "SeatsCount": 19,
+        "SocialPrivileges": "нет",
+        "Longitude_WGS84": "37.5455230000000170",
+        "Latitude_WGS84": "55.4728366762340240",
+        "geoData": {
+            "coordinates": [
+                37.545523,
+                55.472836676234
+            ],
+            "type": "Point"
+        }
+    },
+    {
+        "ID": "00200593",
+        "Name": "Грузинские каникулы",
+        "global_id": 918058343,
+        "IsNetObject": "нет",
+        "OperatingCompany": "",
+        "TypeObject": "кафе",
+        "AdmArea": "Юго-Западный административный округ",
+        "District": "район Черёмушки",
+        "Address": "город Москва, Профсоюзная улица, дом 61А",
+        "PublicPhone": [
+            {
+                "PublicPhone": "(903) 969-58-54"
+            }
+        ],
+        "SeatsCount": 0,
+        "SocialPrivileges": "нет",
+        "Longitude_WGS84": "37.5418910000000000",
+        "Latitude_WGS84": "55.6558327284597000",
+        "geoData": {
+            "coordinates": [
+                37.541891,
+                55.6558327284597
+            ],
+            "type": "Point"
+        }
+    },
+    {
+        "ID": "00318455",
+        "Name": "Camera Obscura",
+        "global_id": 1146056639,
+        "IsNetObject": "нет",
+        "OperatingCompany": "",
+        "TypeObject": "кафетерий",
+        "AdmArea": "Восточный административный округ",
+        "District": "район Соколиная Гора",
+        "Address": "город Москва, Малая Семёновская улица, дом 30, строение 8",
+        "PublicPhone": [
+            {
+                "PublicPhone": "нет телефона"
+            }
+        ],
+        "SeatsCount": 0,
+        "SocialPrivileges": "нет",
+        "Longitude_WGS84": "37.7174930000000050",
+        "Latitude_WGS84": "55.7848617658027020",
+        "geoData": {
+            "coordinates": [
+                37.717493,
+                55.7848617658027
+            ],
+            "type": "Point"
+        }
+    },
+    {
+        "ID": "00172232",
+        "Name": "Шоколадница",
+        "global_id": 918059249,
+        "IsNetObject": "да",
+        "OperatingCompany": "Шоколадница",
+        "TypeObject": "кафе",
+        "AdmArea": "Северный административный округ",
+        "District": "район Западное Дегунино",
+        "Address": "город Москва, Дмитровское шоссе, дом 89",
+        "PublicPhone": [
+            {
+                "PublicPhone": "(985) 310-40-32"
+            }
+        ],
+        "SeatsCount": 40,
+        "SocialPrivileges": "нет",
+        "Longitude_WGS84": "37.5455504776871290",
+        "Latitude_WGS84": "55.8637268468016330",
+        "geoData": {
+            "coordinates": [
+                37.5455504776871,
+                55.8637268468016
+            ],
+            "type": "Point"
+        }
+    },
+    {
+        "ID": "00273946",
+        "Name": "Шаурма",
+        "global_id": 1061824566,
+        "IsNetObject": "нет",
+        "OperatingCompany": "",
+        "TypeObject": "предприятие быстрого обслуживания",
+        "AdmArea": "Новомосковский административный округ",
+        "District": "поселение Московский",
+        "Address": "город Москва, поселение Московский, улица Адмирала Корнилова, владение 63",
+        "PublicPhone": [
+            {
+                "PublicPhone": "(910) 472-22-03"
+            }
+        ],
+        "SeatsCount": 0,
+        "SocialPrivileges": "нет",
+        "Longitude_WGS84": "37.4450050000000020",
+        "Latitude_WGS84": "55.6197717180997980",
+        "geoData": {
+            "coordinates": [
+                37.445005,
+                55.6197717180998
+            ],
+            "type": "Point"
+        }
+    },
+    {
+        "ID": "00184732",
+        "Name": "Кофеин Крю",
+        "global_id": 905403587,
+        "IsNetObject": "нет",
+        "OperatingCompany": "",
+        "TypeObject": "кафетерий",
+        "AdmArea": "Северный административный округ",
+        "District": "Войковский район",
+        "Address": "город Москва, Старопетровский проезд, дом 1",
+        "PublicPhone": [
+            {
+                "PublicPhone": "(915) 269-80-00"
+            }
+        ],
+        "SeatsCount": 6,
+        "SocialPrivileges": "нет",
+        "Longitude_WGS84": "37.5008139908275520",
+        "Latitude_WGS84": "55.8231570070696040",
+        "geoData": {
+            "coordinates": [
+                37.5008139908276,
+                55.8231570070696
+            ],
+            "type": "Point"
+        }
+    },
+    {
+        "ID": "00153478",
+        "Name": "Кафе «У Гены»",
+        "global_id": 639249940,
+        "IsNetObject": "нет",
+        "OperatingCompany": "",
+        "TypeObject": "кафе",
+        "AdmArea": "Новомосковский административный округ",
+        "District": "поселение Марушкинское",
+        "Address": "город Москва, поселение Марушкинское, деревня Марушкино, Агрохимическая улица, дом 12, строение 1",
+        "PublicPhone": [
+            {
+                "PublicPhone": "(968) 968-44-55"
+            }
+        ],
+        "SeatsCount": 40,
+        "SocialPrivileges": "нет",
+        "Longitude_WGS84": "37.2052290000000030",
+        "Latitude_WGS84": "55.5877037089152140",
+        "geoData": {
+            "coordinates": [
+                37.205229,
+                55.5877037089152
+            ],
+            "type": "Point"
+        }
+    },
+    {
+        "ID": "00311519",
+        "Name": "Кафе Баффало",
+        "global_id": 1133074576,
+        "IsNetObject": "нет",
+        "OperatingCompany": "",
+        "TypeObject": "кафе",
+        "AdmArea": "Южный административный округ",
+        "District": "Нагорный район",
+        "Address": "город Москва, Артековская улица, дом 1А",
+        "PublicPhone": [
+            {
+                "PublicPhone": "нет телефона"
+            }
+        ],
+        "SeatsCount": 47,
+        "SocialPrivileges": "нет",
+        "Longitude_WGS84": "37.6136009999999890",
+        "Latitude_WGS84": "55.6526667275487840",
+        "geoData": {
+            "coordinates": [
+                37.613601,
+                55.6526667275488
+            ],
+            "type": "Point"
+        }
+    },
+    {
+        "ID": "000021393",
+        "Name": "Буфет «ГОУ Гимназия 1579 КДП »",
+        "global_id": 637533328,
+        "IsNetObject": "нет",
+        "OperatingCompany": "",
+        "TypeObject": "буфет",
+        "AdmArea": "Южный административный округ",
+        "District": "район Москворечье-Сабурово",
+        "Address": "город Москва, Пролетарский проспект, дом 7, корпус 3",
+        "PublicPhone": [
+            {
+                "PublicPhone": "(495) 324-78-51"
+            }
+        ],
+        "SeatsCount": 90,
+        "SocialPrivileges": "нет",
+        "Longitude_WGS84": "37.6593575063705470",
+        "Latitude_WGS84": "55.6465668828679160",
+        "geoData": {
+            "coordinates": [
+                37.6593575063705,
+                55.6465668828679
+            ],
+            "type": "Point"
+        }
+    },
+    {
+        "ID": "000026260",
+        "Name": "Макдоналдс",
+        "global_id": 637547299,
+        "IsNetObject": "да",
+        "OperatingCompany": "Макдоналдс",
+        "TypeObject": "предприятие быстрого обслуживания",
+        "AdmArea": "Южный административный округ",
+        "District": "район Нагатино-Садовники",
+        "Address": "город Москва, Каширское шоссе, дом 12А",
+        "PublicPhone": [
+            {
+                "PublicPhone": "(499) 553-81-44"
+            }
+        ],
+        "SeatsCount": 102,
+        "SocialPrivileges": "нет",
+        "Longitude_WGS84": "37.6289209352556000",
+        "Latitude_WGS84": "55.6657813537922000",
+        "geoData": {
+            "coordinates": [
+                37.6289209352556,
+                55.6657813537922
+            ],
+            "type": "Point"
+        }
+    },
+    {
+        "ID": "00317595",
+        "Name": "Горячая выпечка. Тандыр.",
+        "global_id": 1146056551,
+        "IsNetObject": "нет",
+        "OperatingCompany": "",
+        "TypeObject": "закусочная",
+        "AdmArea": "Северо-Западный административный округ",
+        "District": "район Северное Тушино",
+        "Address": "город Москва, Планерная улица, дом 12, корпус 1",
+        "PublicPhone": [
+            {
+                "PublicPhone": "нет телефона"
+            }
+        ],
+        "SeatsCount": 0,
+        "SocialPrivileges": "нет",
+        "Longitude_WGS84": "37.4366679999999900",
+        "Latitude_WGS84": "55.8621047883631410",
+        "geoData": {
+            "coordinates": [
+                37.436668,
+                55.8621047883631
+            ],
+            "type": "Point"
+        }
+    },
+    {
+        "ID": "00340298",
+        "Name": "Грядка",
+        "global_id": 2359758538,
+        "IsNetObject": "нет",
+        "OperatingCompany": "",
+        "TypeObject": "кафе",
+        "AdmArea": "Новомосковский административный округ",
+        "District": "поселение Сосенское",
+        "Address": "город Москва, поселение Сосенское, бульвар Веласкеса, дом 1, корпус 3",
+        "PublicPhone": [
+            {
+                "PublicPhone": "(985) 100-11-11"
+            }
+        ],
+        "SeatsCount": 12,
+        "SocialPrivileges": "нет",
+        "Longitude_WGS84": "37.4555939999999980",
+        "Latitude_WGS84": "55.5925887103126190",
+        "geoData": {
+            "coordinates": [
+                37.455594,
+                55.5925887103126
+            ],
+            "type": "Point"
+        }
+    },
+    {
+        "ID": "00322147",
+        "Name": "Кафе-бильярд «Витязь»",
+        "global_id": 1146541809,
+        "IsNetObject": "нет",
+        "OperatingCompany": "",
+        "TypeObject": "кафе",
+        "AdmArea": "Западный административный округ",
+        "District": "район Филёвский Парк",
+        "Address": "город Москва, Большая Филёвская улица, дом 35",
+        "PublicPhone": [
+            {
+                "PublicPhone": "нет телефона"
+            }
+        ],
+        "SeatsCount": 15,
+        "SocialPrivileges": "нет",
+        "Longitude_WGS84": "37.4813449999999970",
+        "Latitude_WGS84": "55.7430157536448260",
+        "geoData": {
+            "coordinates": [
+                37.481345,
+                55.7430157536448
+            ],
+            "type": "Point"
+        }
+    },
+    {
+        "ID": "00212002",
+        "Name": "Грузинская кухня (шаурма)",
+        "global_id": 930776871,
+        "IsNetObject": "нет",
+        "OperatingCompany": "",
+        "TypeObject": "предприятие быстрого обслуживания",
+        "AdmArea": "Юго-Западный административный округ",
+        "District": "район Зюзино",
+        "Address": "город Москва, Азовская улица, дом 21",
+        "PublicPhone": [
+            {
+                "PublicPhone": "(968) 830-21-21"
+            }
+        ],
+        "SeatsCount": 0,
+        "SocialPrivileges": "да",
+        "Longitude_WGS84": "37.5991349999999900",
+        "Latitude_WGS84": "55.6538567278911390",
+        "geoData": {
+            "coordinates": [
+                37.599135,
+                55.6538567278911
+            ],
+            "type": "Point"
+        }
+    },
+    {
+        "ID": "00268588",
+        "Name": "O.G. Lounge Cafe",
+        "global_id": 1034727248,
+        "IsNetObject": "нет",
+        "OperatingCompany": "",
+        "TypeObject": "кафе",
+        "AdmArea": "Северный административный округ",
+        "District": "Войковский район",
+        "Address": "город Москва, Головинское шоссе, дом 12",
+        "PublicPhone": [
+            {
+                "PublicPhone": "(925) 125-25-24"
+            }
+        ],
+        "SeatsCount": 20,
+        "SocialPrivileges": "нет",
+        "Longitude_WGS84": "37.5012740000000020",
+        "Latitude_WGS84": "55.8371947810708780",
+        "geoData": {
+            "coordinates": [
+                37.501274,
+                55.8371947810709
+            ],
+            "type": "Point"
+        }
+    },
+    {
+        "ID": "00288637",
+        "Name": "Буханка",
+        "global_id": 1075022951,
+        "IsNetObject": "да",
+        "OperatingCompany": "Буханка",
+        "TypeObject": "кафетерий",
+        "AdmArea": "Новомосковский административный округ",
+        "District": "поселение Московский",
+        "Address": "город Москва, поселение Московский, улица Татьянин Парк, дом 19, корпус 1",
+        "PublicPhone": [
+            {
+                "PublicPhone": "(925) 054-07-72"
+            }
+        ],
+        "SeatsCount": 14,
+        "SocialPrivileges": "нет",
+        "Longitude_WGS84": "37.4261430000000030",
+        "Latitude_WGS84": "55.6573067288838810",
+        "geoData": {
+            "coordinates": [
+                37.426143,
+                55.6573067288839
+            ],
+            "type": "Point"
+        }
+    },
+    {
+        "ID": "000024572",
+        "Name": "Макдоналдс",
+        "global_id": 637547337,
+        "IsNetObject": "да",
+        "OperatingCompany": "Макдоналдс",
+        "TypeObject": "предприятие быстрого обслуживания",
+        "AdmArea": "Южный административный округ",
+        "District": "район Чертаново Северное",
+        "Address": "город Москва, Кировоградская улица, дом 9, корпус 4, строение 3",
+        "PublicPhone": [
+            {
+                "PublicPhone": "(495) 785-92-75"
+            }
+        ],
+        "SeatsCount": 48,
+        "SocialPrivileges": "нет",
+        "Longitude_WGS84": "37.6135163159198000",
+        "Latitude_WGS84": "55.6221250479889000",
+        "geoData": {
+            "coordinates": [
+                37.6135163159198,
+                55.6221250479889
+            ],
+            "type": "Point"
+        }
+    },
+    {
+        "ID": "00126948",
+        "Name": "Hunters",
+        "global_id": 637548646,
+        "IsNetObject": "нет",
+        "OperatingCompany": "",
+        "TypeObject": "бар",
+        "AdmArea": "Центральный административный округ",
+        "District": "район Хамовники",
+        "Address": "город Москва, Большой Саввинский переулок, дом 12, строение 7",
+        "PublicPhone": [
+            {
+                "PublicPhone": "(926) 535-50-56"
+            }
+        ],
+        "SeatsCount": 116,
+        "SocialPrivileges": "нет",
+        "Longitude_WGS84": "37.5628087718764120",
+        "Latitude_WGS84": "55.7332081262138890",
+        "geoData": {
+            "coordinates": [
+                37.5628087718764,
+                55.7332081262139
+            ],
+            "type": "Point"
+        }
+    },
+    {
+        "ID": "00254237",
+        "Name": "Кафе Svoiassy",
+        "global_id": 1026830699,
+        "IsNetObject": "нет",
+        "OperatingCompany": "",
+        "TypeObject": "кафе",
+        "AdmArea": "Восточный административный округ",
+        "District": "район Северное Измайлово",
+        "Address": "город Москва, 11-я Парковая улица, дом 49",
+        "PublicPhone": [
+            {
+                "PublicPhone": "(495) 661-68-48"
+            }
+        ],
+        "SeatsCount": 42,
+        "SocialPrivileges": "нет",
+        "Longitude_WGS84": "37.8036579999999920",
+        "Latitude_WGS84": "55.8062147720239350",
+        "geoData": {
+            "coordinates": [
+                37.803658,
+                55.8062147720239
+            ],
+            "type": "Point"
+        }
+    },
+    {
+        "ID": "00281333",
+        "Name": "Light Room Lounge Bar",
+        "global_id": 1061825579,
+        "IsNetObject": "нет",
+        "OperatingCompany": "",
+        "TypeObject": "кафе",
+        "AdmArea": "Северный административный округ",
+        "District": "Головинский район",
+        "Address": "город Москва, Ленинградское шоссе, дом 84, строение 1",
+        "PublicPhone": [
+            {
+                "PublicPhone": "(495) 203-63-73"
+            }
+        ],
+        "SeatsCount": 35,
+        "SocialPrivileges": "нет",
+        "Longitude_WGS84": "37.4760030000000060",
+        "Latitude_WGS84": "55.8482327843002220",
+        "geoData": {
+            "coordinates": [
+                37.476003,
+                55.8482327843002
+            ],
+            "type": "Point"
+        }
+    },
+    {
+        "ID": "00141488",
+        "Name": "Алло пицца",
+        "global_id": 637540517,
+        "IsNetObject": "да",
+        "OperatingCompany": "Алло Пицца",
+        "TypeObject": "кафе",
+        "AdmArea": "Юго-Западный административный округ",
+        "District": "район Северное Бутово",
+        "Address": "город Москва, внутригородская территория муниципальный округ Северное Бутово, Старокачаловская улица, дом 5А",
+        "PublicPhone": [
+            {
+                "PublicPhone": "(915) 492-13-58"
+            }
+        ],
+        "SeatsCount": 66,
+        "SocialPrivileges": "нет",
+        "Longitude_WGS84": "37.5790440000000000",
+        "Latitude_WGS84": "55.5698460000000000",
+        "geoData": {
+            "coordinates": [
+                37.579044,
+                55.569846
+            ],
+            "type": "Point"
+        }
+    },
+    {
+        "ID": "00210815",
+        "Name": "Милти",
+        "global_id": 930779207,
+        "IsNetObject": "да",
+        "OperatingCompany": "Милти",
+        "TypeObject": "предприятие быстрого обслуживания",
+        "AdmArea": "Новомосковский административный округ",
+        "District": "поселение Московский",
+        "Address": "город Москва, город Московский, улица Хабарова, дом 2",
+        "PublicPhone": [
+            {
+                "PublicPhone": "(926) 731-04-14"
+            }
+        ],
+        "SeatsCount": 0,
+        "SocialPrivileges": "нет",
+        "Longitude_WGS84": "37.3530349999999980",
+        "Latitude_WGS84": "55.5949607109913590",
+        "geoData": {
+            "coordinates": [
+                37.353035,
+                55.5949607109914
+            ],
+            "type": "Point"
+        }
+    },
+    {
+        "ID": "00121102",
+        "Name": "Друзья",
+        "global_id": 637548189,
+        "IsNetObject": "нет",
+        "OperatingCompany": "",
+        "TypeObject": "ресторан",
+        "AdmArea": "Южный административный округ",
+        "District": "Даниловский район",
+        "Address": "город Москва, улица Ленинская Слобода, дом 26",
+        "PublicPhone": [
+            {
+                "PublicPhone": "(495) 803-43-03"
+            }
+        ],
+        "SeatsCount": 120,
+        "SocialPrivileges": "нет",
+        "Longitude_WGS84": "37.6542893440981320",
+        "Latitude_WGS84": "55.7099490354763200",
+        "geoData": {
+            "coordinates": [
+                37.6542893440981,
+                55.7099490354763
+            ],
+            "type": "Point"
+        }
+    },
+    {
+        "ID": "00281624",
+        "Name": "La Margherita pizzeria",
+        "global_id": 1061825629,
+        "IsNetObject": "нет",
+        "OperatingCompany": "",
+        "TypeObject": "кафе",
+        "AdmArea": "Центральный административный округ",
+        "District": "Пресненский район",
+        "Address": "город Москва, Тишинская площадь, дом 1, строение 1",
+        "PublicPhone": [
+            {
+                "PublicPhone": "нет телефона"
+            }
+        ],
+        "SeatsCount": 10,
+        "SocialPrivileges": "нет",
+        "Longitude_WGS84": "37.5833400000000070",
+        "Latitude_WGS84": "55.7691587612350970",
+        "geoData": {
+            "coordinates": [
+                37.58334,
+                55.7691587612351
+            ],
+            "type": "Point"
+        }
+    },
+    {
+        "ID": "00162583",
+        "Name": "ТАНУКИ",
+        "global_id": 832187481,
+        "IsNetObject": "да",
+        "OperatingCompany": "Тануки",
+        "TypeObject": "ресторан",
+        "AdmArea": "Северо-Восточный административный округ",
+        "District": "Ярославский район",
+        "Address": "город Москва, Ярославское шоссе, дом 10",
+        "PublicPhone": [
+            {
+                "PublicPhone": "нет телефона"
+            }
+        ],
+        "SeatsCount": 80,
+        "SocialPrivileges": "нет",
+        "Longitude_WGS84": "37.6815625263654680",
+        "Latitude_WGS84": "55.8534660457328160",
+        "geoData": {
+            "coordinates": [
+                37.6815625263655,
+                55.8534660457328
+            ],
+            "type": "Point"
+        }
+    },
+    {
+        "ID": "00183477",
+        "Name": "Эко Пицца",
+        "global_id": 905405679,
+        "IsNetObject": "нет",
+        "OperatingCompany": "",
+        "TypeObject": "закусочная",
+        "AdmArea": "Новомосковский административный округ",
+        "District": "поселение Сосенское",
+        "Address": "город Москва, поселение Сосенское, посёлок Коммунарка, улица Липовый Парк, дом 11",
+        "PublicPhone": [
+            {
+                "PublicPhone": "нет телефона"
+            }
+        ],
+        "SeatsCount": 15,
+        "SocialPrivileges": "нет",
+        "Longitude_WGS84": "37.4856370000000000",
+        "Latitude_WGS84": "55.5665670000000000",
+        "geoData": {
+            "coordinates": [
+                37.485637,
+                55.566567
+            ],
+            "type": "Point"
+        }
+    },
+    {
+        "ID": "000020503",
+        "Name": "Сим-сити Home",
+        "global_id": 637474606,
+        "IsNetObject": "нет",
+        "OperatingCompany": "",
+        "TypeObject": "кафе",
+        "AdmArea": "Юго-Восточный административный округ",
+        "District": "район Марьино",
+        "Address": "город Москва, Братиславская улица, дом 13, корпус 1",
+        "PublicPhone": [
+            {
+                "PublicPhone": "(499) 722-48-97"
+            }
+        ],
+        "SeatsCount": 35,
+        "SocialPrivileges": "нет",
+        "Longitude_WGS84": "37.7602095590815000",
+        "Latitude_WGS84": "55.6612129389090000",
+        "geoData": {
+            "coordinates": [
+                37.7602095590815,
+                55.661212938909
+            ],
+            "type": "Point"
+        }
+    },
+    {
+        "ID": "00308163",
+        "Name": "Крошка-картошка",
+        "global_id": 1129529835,
+        "IsNetObject": "нет",
+        "OperatingCompany": "",
+        "TypeObject": "предприятие быстрого обслуживания",
+        "AdmArea": "Центральный административный округ",
+        "District": "район Хамовники",
+        "Address": "Российская Федерация, город Москва, внутригородская территория муниципальный округ Хамовники, Гоголевский бульвар, дом 3",
+        "PublicPhone": [
+            {
+                "PublicPhone": "(903) 961-84-69"
+            }
+        ],
+        "SeatsCount": 9,
+        "SocialPrivileges": "нет",
+        "Longitude_WGS84": "37.6006690000000030",
+        "Latitude_WGS84": "55.7448487541764520",
+        "geoData": {
+            "coordinates": [
+                37.600669,
+                55.7448487541765
+            ],
+            "type": "Point"
+        }
+    },
+    {
+        "ID": "00284796",
+        "Name": "Донер",
+        "global_id": 1075020305,
+        "IsNetObject": "нет",
+        "OperatingCompany": "",
+        "TypeObject": "предприятие быстрого обслуживания",
+        "AdmArea": "Северный административный округ",
+        "District": "Головинский район",
+        "Address": "город Москва, Кронштадтский бульвар, дом 3, строение 1",
+        "PublicPhone": [
+            {
+                "PublicPhone": "нет телефона"
+            }
+        ],
+        "SeatsCount": 5,
+        "SocialPrivileges": "нет",
+        "Longitude_WGS84": "37.4863289999999980",
+        "Latitude_WGS84": "55.8394847817405950",
+        "geoData": {
+            "coordinates": [
+                37.486329,
+                55.8394847817406
+            ],
+            "type": "Point"
+        }
+    },
+    {
+        "ID": "00238317",
+        "Name": "Секция кофе",
+        "global_id": 1146951853,
+        "IsNetObject": "нет",
+        "OperatingCompany": "",
+        "TypeObject": "буфет",
+        "AdmArea": "Северный административный округ",
+        "District": "район Западное Дегунино",
+        "Address": "город Москва, Пяловская улица, дом 7, строение 3",
+        "PublicPhone": [
+            {
+                "PublicPhone": "(903) 549-12-31"
+            }
+        ],
+        "SeatsCount": 12,
+        "SocialPrivileges": "нет",
+        "Longitude_WGS84": "37.5408339999999970",
+        "Latitude_WGS84": "55.8626047885096780",
+        "geoData": {
+            "coordinates": [
+                37.540834,
+                55.8626047885097
+            ],
+            "type": "Point"
+        }
+    },
+    {
+        "ID": "00301436",
+        "Name": "Michelada",
+        "global_id": 1110976050,
+        "IsNetObject": "нет",
+        "OperatingCompany": "",
+        "TypeObject": "кафе",
+        "AdmArea": "Центральный административный округ",
+        "District": "Басманный район",
+        "Address": "Российская Федерация, город Москва, внутригородская территория муниципальный округ Басманный, улица Маросейка, дом 4/2, строение 3",
+        "PublicPhone": [
+            {
+                "PublicPhone": "(909) 947-72-53"
+            }
+        ],
+        "SeatsCount": 75,
+        "SocialPrivileges": "нет",
+        "Longitude_WGS84": "37.6340750000000100",
+        "Latitude_WGS84": "55.7572187577663030",
+        "geoData": {
+            "coordinates": [
+                37.634075,
+                55.7572187577663
+            ],
+            "type": "Point"
+        }
+    },
+    {
+        "ID": "00304592",
+        "Name": "RYBA",
+        "global_id": 1125104516,
+        "IsNetObject": "нет",
+        "OperatingCompany": "",
+        "TypeObject": "ресторан",
+        "AdmArea": "Северный административный округ",
+        "District": "Хорошёвский район",
+        "Address": "Российская Федерация, город Москва, внутригородская территория муниципальный округ Хорошевский, Ходынский бульвар, дом 20А",
+        "PublicPhone": [
+            {
+                "PublicPhone": "(925) 550-83-33"
+            }
+        ],
+        "SeatsCount": 16,
+        "SocialPrivileges": "нет",
+        "Longitude_WGS84": "37.5244179999999830",
+        "Latitude_WGS84": "55.7911837676434100",
+        "geoData": {
+            "coordinates": [
+                37.524418,
+                55.7911837676434
+            ],
+            "type": "Point"
+        }
+    },
+    {
+        "ID": "00284027",
+        "Name": "The Best Burgers Бургеры и кофе",
+        "global_id": 1075020127,
+        "IsNetObject": "нет",
+        "OperatingCompany": "",
+        "TypeObject": "кафе",
+        "AdmArea": "Южный административный округ",
+        "District": "Донской район",
+        "Address": "Российская Федерация, город Москва, внутригородская территория муниципальный округ Донской, Варшавское шоссе, дом 33, строение 12",
+        "PublicPhone": [
+            {
+                "PublicPhone": "(991) 194-94-94"
+            }
+        ],
+        "SeatsCount": 20,
+        "SocialPrivileges": "нет",
+        "Longitude_WGS84": "37.6224509999999980",
+        "Latitude_WGS84": "55.6913517386966600",
+        "geoData": {
+            "coordinates": [
+                37.622451,
+                55.6913517386967
+            ],
+            "type": "Point"
+        }
+    },
+    {
+        "ID": "00172137",
+        "Name": "Донер",
+        "global_id": 878848154,
+        "IsNetObject": "нет",
+        "OperatingCompany": "",
+        "TypeObject": "кафетерий",
+        "AdmArea": "Северный административный округ",
+        "District": "Головинский район",
+        "Address": "город Москва, Солнечногорская улица, дом 15, корпус 1",
+        "PublicPhone": [
+            {
+                "PublicPhone": "нет телефона"
+            }
+        ],
+        "SeatsCount": 0,
+        "SocialPrivileges": "нет",
+        "Longitude_WGS84": "37.5191962770751320",
+        "Latitude_WGS84": "55.8606401385398360",
+        "geoData": {
+            "coordinates": [
+                37.5191962770751,
+                55.8606401385398
+            ],
+            "type": "Point"
+        }
+    },
+    {
+        "ID": "000059357",
+        "Name": "Чайхона № 1 Тамерлан",
+        "global_id": 637520052,
+        "IsNetObject": "нет",
+        "OperatingCompany": "",
+        "TypeObject": "ресторан",
+        "AdmArea": "Центральный административный округ",
+        "District": "Тверской район",
+        "Address": "Российская Федерация, город Москва, внутригородская территория муниципальный округ Тверской, улица Петровские Линии, дом 2",
+        "PublicPhone": [
+            {
+                "PublicPhone": "(495) 790-00-32"
+            }
+        ],
+        "SeatsCount": 132,
+        "SocialPrivileges": "нет",
+        "Longitude_WGS84": "37.6184815605151430",
+        "Latitude_WGS84": "55.7638999909895010",
+        "geoData": {
+            "coordinates": [
+                37.6184815605151,
+                55.7638999909895
+            ],
+            "type": "Point"
+        }
+    },
+    {
+        "ID": "00346999",
+        "Name": "Два зерна",
+        "global_id": 2366184863,
+        "IsNetObject": "нет",
+        "OperatingCompany": "",
+        "TypeObject": "кафетерий",
+        "AdmArea": "Северо-Восточный административный округ",
+        "District": "Лосиноостровский район",
+        "Address": "Российская Федерация, город Москва, внутригородская территория муниципальный округ Лосиноостровский, улица Коминтерна, дом 15",
+        "PublicPhone": [
+            {
+                "PublicPhone": "(903) 129-19-01"
+            }
+        ],
+        "SeatsCount": 15,
+        "SocialPrivileges": "нет",
+        "Longitude_WGS84": "37.6874409999999930",
+        "Latitude_WGS84": "55.8698487906333770",
+        "geoData": {
+            "coordinates": [
+                37.687441,
+                55.8698487906334
+            ],
+            "type": "Point"
+        }
+    },
+    {
+        "ID": "00142307",
+        "Name": "Tuscany courtyard",
+        "global_id": 637552809,
+        "IsNetObject": "нет",
+        "OperatingCompany": "",
+        "TypeObject": "ресторан",
+        "AdmArea": "Северо-Западный административный округ",
+        "District": "район Строгино",
+        "Address": "город Москва, улица Кулакова, дом 20, корпус 1",
+        "PublicPhone": [
+            {
+                "PublicPhone": "(495) 617-19-44"
+            }
+        ],
+        "SeatsCount": 90,
+        "SocialPrivileges": "нет",
+        "Longitude_WGS84": "37.3906650000000000",
+        "Latitude_WGS84": "55.8034280000000000",
+        "geoData": {
+            "coordinates": [
+                37.390665,
+                55.803428
+            ],
+            "type": "Point"
+        }
+    },
+    {
+        "ID": "00308977",
+        "Name": "EdaGreek",
+        "global_id": 1133072128,
+        "IsNetObject": "нет",
+        "OperatingCompany": "",
+        "TypeObject": "кафе",
+        "AdmArea": "Восточный административный округ",
+        "District": "район Ивановское",
+        "Address": "город Москва, 87-й километр Московской Кольцевой Автодороги, дом 8",
+        "PublicPhone": [
+            {
+                "PublicPhone": "(323) 232-32-32"
+            }
+        ],
+        "SeatsCount": 0,
+        "SocialPrivileges": "нет",
+        "Longitude_WGS84": "37.8327039999999930",
+        "Latitude_WGS84": "55.7719417620441360",
+        "geoData": {
+            "coordinates": [
+                37.832704,
+                55.7719417620441
+            ],
+            "type": "Point"
+        }
+    },
+    {
+        "ID": "00171536",
+        "Name": "Stoneside",
+        "global_id": 878847888,
+        "IsNetObject": "нет",
+        "OperatingCompany": "",
+        "TypeObject": "кафе",
+        "AdmArea": "Центральный административный округ",
+        "District": "Таганский район",
+        "Address": "Российская Федерация, город Москва, внутригородская территория муниципальный округ Таганский, Наставнический переулок, дом 17, строение 1",
+        "PublicPhone": [
+            {
+                "PublicPhone": "(495) 912-16-73"
+            }
+        ],
+        "SeatsCount": 35,
+        "SocialPrivileges": "нет",
+        "Longitude_WGS84": "37.6655517058306590",
+        "Latitude_WGS84": "55.7492161277865610",
+        "geoData": {
+            "coordinates": [
+                37.6655517058307,
+                55.7492161277866
+            ],
+            "type": "Point"
+        }
+    },
+    {
+        "ID": "00328093",
+        "Name": "Кальянная Квази Лоунж",
+        "global_id": 1266784541,
+        "IsNetObject": "нет",
+        "OperatingCompany": "",
+        "TypeObject": "бар",
+        "AdmArea": "Юго-Западный административный округ",
+        "District": "район Ясенево",
+        "Address": "город Москва, улица Паустовского, дом 4Б",
+        "PublicPhone": [
+            {
+                "PublicPhone": "(903) 725-88-15"
+            }
+        ],
+        "SeatsCount": 22,
+        "SocialPrivileges": "нет",
+        "Longitude_WGS84": "37.5398479999999850",
+        "Latitude_WGS84": "55.6006467126190100",
+        "geoData": {
+            "coordinates": [
+                37.539848,
+                55.600646712619
+            ],
+            "type": "Point"
+        }
+    },
+    {
+        "ID": "00290549",
+        "Name": "ДоДо Пицца",
+        "global_id": 1082609552,
+        "IsNetObject": "да",
+        "OperatingCompany": "Додо Пицца",
+        "TypeObject": "предприятие быстрого обслуживания",
+        "AdmArea": "Восточный административный округ",
+        "District": "район Соколиная Гора",
+        "Address": "город Москва, Большая Семёновская улица, дом 32, строение 13",
+        "PublicPhone": [
+            {
+                "PublicPhone": "(987) 393-90-74"
+            }
+        ],
+        "SeatsCount": 4,
+        "SocialPrivileges": "нет",
+        "Longitude_WGS84": "37.7078359999999860",
+        "Latitude_WGS84": "55.7818957649394630",
+        "geoData": {
+            "coordinates": [
+                37.707836,
+                55.7818957649395
+            ],
+            "type": "Point"
+        }
+    },
+    {
+        "ID": "000071353",
+        "Name": "СОК",
+        "global_id": 637525815,
+        "IsNetObject": "нет",
+        "OperatingCompany": "",
+        "TypeObject": "кафе",
+        "AdmArea": "Центральный административный округ",
+        "District": "район Якиманка",
+        "Address": "город Москва, Лаврушинский переулок, дом 15, строение 1",
+        "PublicPhone": [
+            {
+                "PublicPhone": "(495) 953-79-63"
+            }
+        ],
+        "SeatsCount": 35,
+        "SocialPrivileges": "нет",
+        "Longitude_WGS84": "37.6215339475661000",
+        "Latitude_WGS84": "55.7415014091048000",
+        "geoData": {
+            "coordinates": [
+                37.6215339475661,
+                55.7415014091048
+            ],
+            "type": "Point"
+        }
+    },
+    {
+        "ID": "00254244",
+        "Name": "Две Бери",
+        "global_id": 1026892993,
+        "IsNetObject": "нет",
+        "OperatingCompany": "",
+        "TypeObject": "бар",
+        "AdmArea": "Новомосковский административный округ",
+        "District": "поселение Московский",
+        "Address": "город Москва, поселение Московский, Саларьевская улица, дом 8, корпус 1",
+        "PublicPhone": [
+            {
+                "PublicPhone": "(977) 356-26-90"
+            }
+        ],
+        "SeatsCount": 15,
+        "SocialPrivileges": "нет",
+        "Longitude_WGS84": "37.4170700000000170",
+        "Latitude_WGS84": "55.6195347180318360",
+        "geoData": {
+            "coordinates": [
+                37.41707,
+                55.6195347180318
+            ],
+            "type": "Point"
+        }
+    },
+    {
+        "ID": "00206283",
+        "Name": "Мясо на гриле",
+        "global_id": 2365642848,
+        "IsNetObject": "нет",
+        "OperatingCompany": "",
+        "TypeObject": "предприятие быстрого обслуживания",
+        "AdmArea": "Юго-Восточный административный округ",
+        "District": "район Кузьминки",
+        "Address": "Российская Федерация, город Москва, внутригородская территория муниципальный округ Кузьминки, Волгоградский проспект, дом 133",
+        "PublicPhone": [
+            {
+                "PublicPhone": "нет телефона"
+            }
+        ],
+        "SeatsCount": 0,
+        "SocialPrivileges": "нет",
+        "Longitude_WGS84": "37.7723360000000030",
+        "Latitude_WGS84": "55.7050907426651210",
+        "geoData": {
+            "coordinates": [
+                37.772336,
+                55.7050907426651
+            ],
+            "type": "Point"
+        }
+    },
+    {
+        "ID": "00316578",
+        "Name": "Куры-гриль",
+        "global_id": 1139257096,
+        "IsNetObject": "нет",
+        "OperatingCompany": "",
+        "TypeObject": "предприятие быстрого обслуживания",
+        "AdmArea": "Южный административный округ",
+        "District": "район Чертаново Центральное",
+        "Address": "город Москва, Кировоградская улица, владение 15А",
+        "PublicPhone": [
+            {
+                "PublicPhone": "(495) 387-06-67"
+            }
+        ],
+        "SeatsCount": 0,
+        "SocialPrivileges": "нет",
+        "Longitude_WGS84": "37.6035430000000160",
+        "Latitude_WGS84": "55.6099527152847200",
+        "geoData": {
+            "coordinates": [
+                37.603543,
+                55.6099527152847
+            ],
+            "type": "Point"
+        }
+    },
+    {
+        "ID": "00114474",
+        "Name": "Sure",
+        "global_id": 637542569,
+        "IsNetObject": "нет",
+        "OperatingCompany": "",
+        "TypeObject": "бар",
+        "AdmArea": "Северный административный округ",
+        "District": "район Беговой",
+        "Address": "город Москва, 3-я улица Ямского Поля, дом 26А",
+        "PublicPhone": [
+            {
+                "PublicPhone": "(495) 660-49-00"
+            }
+        ],
+        "SeatsCount": 45,
+        "SocialPrivileges": "нет",
+        "Longitude_WGS84": "37.5793220000000000",
+        "Latitude_WGS84": "55.7830430000000000",
+        "geoData": {
+            "coordinates": [
+                37.579322,
+                55.783043
+            ],
+            "type": "Point"
+        }
+    },
+    {
+        "ID": "00186345",
+        "Name": "Шаурма LIVE",
+        "global_id": 905400055,
+        "IsNetObject": "нет",
+        "OperatingCompany": "",
+        "TypeObject": "предприятие быстрого обслуживания",
+        "AdmArea": "Зеленоградский административный округ",
+        "District": "район Савёлки",
+        "Address": "город Москва, город Зеленоград, корпус 607",
+        "PublicPhone": [
+            {
+                "PublicPhone": "(499) 490-27-92"
+            }
+        ],
+        "SeatsCount": 4,
+        "SocialPrivileges": "нет",
+        "Longitude_WGS84": "37.2288660000000000",
+        "Latitude_WGS84": "55.9887700000000000",
+        "geoData": {
+            "coordinates": [
+                37.228866,
+                55.98877
+            ],
+            "type": "Point"
+        }
+    },
+    {
+        "ID": "00125437",
+        "Name": "Домино'с Пицца",
+        "global_id": 637544965,
+        "IsNetObject": "да",
+        "OperatingCompany": "Домино'с Пицца",
+        "TypeObject": "кафе",
+        "AdmArea": "Южный административный округ",
+        "District": "район Зябликово",
+        "Address": "город Москва, Ореховый бульвар, дом 45, корпус 1",
+        "PublicPhone": [
+            {
+                "PublicPhone": "(495) 478-88-17"
+            }
+        ],
+        "SeatsCount": 19,
+        "SocialPrivileges": "нет",
+        "Longitude_WGS84": "37.7435893661993730",
+        "Latitude_WGS84": "55.6145281069304290",
+        "geoData": {
+            "coordinates": [
+                37.7435893661994,
+                55.6145281069304
+            ],
+            "type": "Point"
+        }
+    },
+    {
+        "ID": "00188467",
+        "Name": "Пекарня «Хлебное место» Шаурма",
+        "global_id": 905401631,
+        "IsNetObject": "нет",
+        "OperatingCompany": "",
+        "TypeObject": "предприятие быстрого обслуживания",
+        "AdmArea": "Восточный административный округ",
+        "District": "район Вешняки",
+        "Address": "город Москва, Вешняковская улица, дом 17Б",
+        "PublicPhone": [
+            {
+                "PublicPhone": "нет телефона"
+            }
+        ],
+        "SeatsCount": 0,
+        "SocialPrivileges": "нет",
+        "Longitude_WGS84": "37.8319399999999960",
+        "Latitude_WGS84": "55.7346077512074270",
+        "geoData": {
+            "coordinates": [
+                37.83194,
+                55.7346077512074
+            ],
+            "type": "Point"
+        }
+    },
+    {
+        "ID": "00273501",
+        "Name": "Донер & плов хаус",
+        "global_id": 1046153428,
+        "IsNetObject": "нет",
+        "OperatingCompany": "",
+        "TypeObject": "предприятие быстрого обслуживания",
+        "AdmArea": "Восточный административный округ",
+        "District": "район Соколиная Гора",
+        "Address": "город Москва, шоссе Энтузиастов, дом 31",
+        "PublicPhone": [
+            {
+                "PublicPhone": "нет телефона"
+            }
+        ],
+        "SeatsCount": 0,
+        "SocialPrivileges": "нет",
+        "Longitude_WGS84": "37.7492380000000050",
+        "Latitude_WGS84": "55.7585777581609180",
+        "geoData": {
+            "coordinates": [
+                37.749238,
+                55.7585777581609
+            ],
+            "type": "Point"
+        }
+    },
+    {
+        "ID": "00328835",
+        "Name": "Донер&Выпечка",
+        "global_id": 1272681047,
+        "IsNetObject": "нет",
+        "OperatingCompany": "",
+        "TypeObject": "предприятие быстрого обслуживания",
+        "AdmArea": "Центральный административный округ",
+        "District": "Красносельский район",
+        "Address": "Российская Федерация, город Москва, внутригородская территория муниципальный округ Красносельский, Краснопрудная улица, дом 22-24",
+        "PublicPhone": [
+            {
+                "PublicPhone": "нет телефона"
+            }
+        ],
+        "SeatsCount": 0,
+        "SocialPrivileges": "нет",
+        "Longitude_WGS84": "37.6661340000000070",
+        "Latitude_WGS84": "55.7790417641090810",
+        "geoData": {
+            "coordinates": [
+                37.666134,
+                55.7790417641091
+            ],
+            "type": "Point"
+        }
+    },
+    {
+        "ID": "00289823",
+        "Name": "Cofix",
+        "global_id": 1080933548,
+        "IsNetObject": "да",
+        "OperatingCompany": "Cofix",
+        "TypeObject": "кафе",
+        "AdmArea": "Центральный административный округ",
+        "District": "Пресненский район",
+        "Address": "город Москва, Тестовская улица, дом 1",
+        "PublicPhone": [
+            {
+                "PublicPhone": "нет телефона"
+            }
+        ],
+        "SeatsCount": 0,
+        "SocialPrivileges": "нет",
+        "Longitude_WGS84": "37.5330700000000090",
+        "Latitude_WGS84": "55.7479287550699280",
+        "geoData": {
+            "coordinates": [
+                37.53307,
+                55.7479287550699
+            ],
+            "type": "Point"
+        }
+    },
+    {
+        "ID": "00241032",
+        "Name": "Кофейня",
+        "global_id": 1026862379,
+        "IsNetObject": "нет",
+        "OperatingCompany": "",
+        "TypeObject": "кафе",
+        "AdmArea": "Восточный административный округ",
+        "District": "район Перово",
+        "Address": "город Москва, шоссе Энтузиастов, дом 50А, строение 6",
+        "PublicPhone": [
+            {
+                "PublicPhone": "(965) 183-99-58"
+            }
+        ],
+        "SeatsCount": 3,
+        "SocialPrivileges": "нет",
+        "Longitude_WGS84": "37.7583890000000080",
+        "Latitude_WGS84": "55.7584207581153420",
+        "geoData": {
+            "coordinates": [
+                37.758389,
+                55.7584207581153
+            ],
+            "type": "Point"
+        }
+    },
+    {
+        "ID": "000052481",
+        "Name": "Friends end Family",
+        "global_id": 637437365,
+        "IsNetObject": "нет",
+        "OperatingCompany": "",
+        "TypeObject": "кафе",
+        "AdmArea": "Западный административный округ",
+        "District": "район Крылатское",
+        "Address": "город Москва, Осенний бульвар, дом 7, корпус 2",
+        "PublicPhone": [
+            {
+                "PublicPhone": "(495) 412-10-01"
+            }
+        ],
+        "SeatsCount": 80,
+        "SocialPrivileges": "нет",
+        "Longitude_WGS84": "37.4058380000000000",
+        "Latitude_WGS84": "55.7576430000000000",
+        "geoData": {
+            "coordinates": [
+                37.405838,
+                55.757643
+            ],
+            "type": "Point"
+        }
+    },
+    {
+        "ID": "00254382",
+        "Name": "Ресторан «Ариана»",
+        "global_id": 1026869021,
+        "IsNetObject": "нет",
+        "OperatingCompany": "",
+        "TypeObject": "ресторан",
+        "AdmArea": "Южный административный округ",
+        "District": "район Зябликово",
+        "Address": "город Москва, Шипиловская улица, владение 39А",
+        "PublicPhone": [
+            {
+                "PublicPhone": "(499) 725-43-29"
+            }
+        ],
+        "SeatsCount": 150,
+        "SocialPrivileges": "нет",
+        "Longitude_WGS84": "37.7356760000000050",
+        "Latitude_WGS84": "55.6223777188473460",
+        "geoData": {
+            "coordinates": [
+                37.735676,
+                55.6223777188473
+            ],
+            "type": "Point"
+        }
+    },
+    {
+        "ID": "00097526",
+        "Name": "Бургер Кинг",
+        "global_id": 1124223585,
+        "IsNetObject": "да",
+        "OperatingCompany": "Бургер Кинг",
+        "TypeObject": "ресторан",
+        "AdmArea": "Юго-Восточный административный округ",
+        "District": "район Лефортово",
+        "Address": "Российская Федерация, город Москва, внутригородская территория муниципальный округ Лефортово, Авиамоторная улица, дом 41Б",
+        "PublicPhone": [
+            {
+                "PublicPhone": "(499) 579-88-40"
+            }
+        ],
+        "SeatsCount": 59,
+        "SocialPrivileges": "нет",
+        "Longitude_WGS84": "37.7165371684537550",
+        "Latitude_WGS84": "55.7534500983626980",
+        "geoData": {
+            "coordinates": [
+                37.7165371684538,
+                55.7534500983627
+            ],
+            "type": "Point"
+        }
+    },
+    {
+        "ID": "000069546",
+        "Name": "MY BIG LOVE",
+        "global_id": 1034728486,
+        "IsNetObject": "нет",
+        "OperatingCompany": "",
+        "TypeObject": "бар",
+        "AdmArea": "Центральный административный округ",
+        "District": "Мещанский район",
+        "Address": "город Москва, Нижний Кисельный переулок, дом 4",
+        "PublicPhone": [
+            {
+                "PublicPhone": "(999) 988-88-88"
+            }
+        ],
+        "SeatsCount": 35,
+        "SocialPrivileges": "нет",
+        "Longitude_WGS84": "37.6212245476170000",
+        "Latitude_WGS84": "55.7651463730682000",
+        "geoData": {
+            "coordinates": [
+                37.621224547617,
+                55.7651463730682
+            ],
+            "type": "Point"
+        }
+    },
+    {
+        "ID": "00221782",
+        "Name": "Кухня Полли",
+        "global_id": 930777019,
+        "IsNetObject": "нет",
+        "OperatingCompany": "",
+        "TypeObject": "ресторан",
+        "AdmArea": "Северо-Западный административный округ",
+        "District": "район Строгино",
+        "Address": "город Москва, улица Маршала Катукова, дом 20",
+        "PublicPhone": [
+            {
+                "PublicPhone": "(967) 157-33-57"
+            }
+        ],
+        "SeatsCount": 65,
+        "SocialPrivileges": "нет",
+        "Longitude_WGS84": "37.4076139999999950",
+        "Latitude_WGS84": "55.8065507721219380",
+        "geoData": {
+            "coordinates": [
+                37.407614,
+                55.8065507721219
+            ],
+            "type": "Point"
+        }
+    },
+    {
+        "ID": "00144529",
+        "Name": "Сабвей",
+        "global_id": 637541637,
+        "IsNetObject": "да",
+        "OperatingCompany": "Сабвей",
+        "TypeObject": "кафе",
+        "AdmArea": "Северо-Западный административный округ",
+        "District": "район Куркино",
+        "Address": "город Москва, 74-й километр Московской Кольцевой Автодороги, владение 4",
+        "PublicPhone": [
+            {
+                "PublicPhone": "нет телефона"
+            }
+        ],
+        "SeatsCount": 8,
+        "SocialPrivileges": "нет",
+        "Longitude_WGS84": "37.4242890629226470",
+        "Latitude_WGS84": "55.8760300135726520",
+        "geoData": {
+            "coordinates": [
+                37.4242890629226,
+                55.8760300135727
+            ],
+            "type": "Point"
+        }
+    },
+    {
+        "ID": "00284549",
+        "Name": "Cofix",
+        "global_id": 1075023167,
+        "IsNetObject": "да",
+        "OperatingCompany": "Cofix",
+        "TypeObject": "кафе",
+        "AdmArea": "Северный административный округ",
+        "District": "район Аэропорт",
+        "Address": "город Москва, Ленинградский проспект, дом 62А",
+        "PublicPhone": [
+            {
+                "PublicPhone": "(925) 209-32-00"
+            }
+        ],
+        "SeatsCount": 4,
+        "SocialPrivileges": "нет",
+        "Longitude_WGS84": "37.5320270000000060",
+        "Latitude_WGS84": "55.8021037708252760",
+        "geoData": {
+            "coordinates": [
+                37.532027,
+                55.8021037708253
+            ],
+            "type": "Point"
+        }
+    },
+    {
+        "ID": "00089378",
+        "Name": "Blanco",
+        "global_id": 1146542047,
+        "IsNetObject": "нет",
+        "OperatingCompany": "",
+        "TypeObject": "бар",
+        "AdmArea": "Центральный административный округ",
+        "District": "Тверской район",
+        "Address": "Российская Федерация, город Москва, внутригородская территория муниципальный округ Тверской, Столешников переулок, дом 6, строение 5",
+        "PublicPhone": [
+            {
+                "PublicPhone": "(964) 793-79-33"
+            }
+        ],
+        "SeatsCount": 42,
+        "SocialPrivileges": "нет",
+        "Longitude_WGS84": "37.6121832252774200",
+        "Latitude_WGS84": "55.7620156529880480",
+        "geoData": {
+            "coordinates": [
+                37.6121832252774,
+                55.762015652988
+            ],
+            "type": "Point"
+        }
+    },
+    {
+        "ID": "00187216",
+        "Name": "Шаурма",
+        "global_id": 905398985,
+        "IsNetObject": "нет",
+        "OperatingCompany": "",
+        "TypeObject": "предприятие быстрого обслуживания",
+        "AdmArea": "Северо-Восточный административный округ",
+        "District": "район Свиблово",
+        "Address": "город Москва, улица Амундсена, дом 14",
+        "PublicPhone": [
+            {
+                "PublicPhone": "(916) 969-14-04"
+            }
+        ],
+        "SeatsCount": 0,
+        "SocialPrivileges": "нет",
+        "Longitude_WGS84": "37.6564439999999930",
+        "Latitude_WGS84": "55.8543637860952910",
+        "geoData": {
+            "coordinates": [
+                37.656444,
+                55.8543637860953
+            ],
+            "type": "Point"
+        }
+    },
+    {
+        "ID": "00344152",
+        "Name": "Лагман Хаус",
+        "global_id": 2363391895,
+        "IsNetObject": "нет",
+        "OperatingCompany": "",
+        "TypeObject": "кафе",
+        "AdmArea": "Юго-Восточный административный округ",
+        "District": "Южнопортовый район",
+        "Address": "город Москва, 7-я Кожуховская улица, дом 18",
+        "PublicPhone": [
+            {
+                "PublicPhone": "(926) 713-01-56"
+            }
+        ],
+        "SeatsCount": 30,
+        "SocialPrivileges": "нет",
+        "Longitude_WGS84": "37.6772730000000000",
+        "Latitude_WGS84": "55.7098057440281380",
+        "geoData": {
+            "coordinates": [
+                37.677273,
+                55.7098057440281
+            ],
+            "type": "Point"
+        }
+    },
+    {
+        "ID": "00278191",
+        "Name": "Coffe way",
+        "global_id": 1061825006,
+        "IsNetObject": "нет",
+        "OperatingCompany": "",
+        "TypeObject": "кафетерий",
+        "AdmArea": "Западный административный округ",
+        "District": "район Проспект Вернадского",
+        "Address": "город Москва, проспект Вернадского, дом 14А",
+        "PublicPhone": [
+            {
+                "PublicPhone": "нет телефона"
+            }
+        ],
+        "SeatsCount": 6,
+        "SocialPrivileges": "нет",
+        "Longitude_WGS84": "37.5070109999999990",
+        "Latitude_WGS84": "55.6782707349227910",
+        "geoData": {
+            "coordinates": [
+                37.507011,
+                55.6782707349228
+            ],
+            "type": "Point"
+        }
+    },
+    {
+        "ID": "00183229",
+        "Name": "Pho Viet",
+        "global_id": 905402139,
+        "IsNetObject": "нет",
+        "OperatingCompany": "",
+        "TypeObject": "кафе",
+        "AdmArea": "Северо-Восточный административный округ",
+        "District": "район Марьина Роща",
+        "Address": "город Москва, Шереметьевская улица, дом 20",
+        "PublicPhone": [
+            {
+                "PublicPhone": "(977) 712-26-29"
+            }
+        ],
+        "SeatsCount": 35,
+        "SocialPrivileges": "нет",
+        "Longitude_WGS84": "37.6188480000000000",
+        "Latitude_WGS84": "55.8034690000000000",
+        "geoData": {
+            "coordinates": [
+                37.618848,
+                55.803469
+            ],
+            "type": "Point"
+        }
+    },
+    {
+        "ID": "00273613",
+        "Name": "Хвоя",
+        "global_id": 1046153700,
+        "IsNetObject": "нет",
+        "OperatingCompany": "",
+        "TypeObject": "кафе",
+        "AdmArea": "Центральный административный округ",
+        "District": "Басманный район",
+        "Address": "город Москва, Старая Басманная улица, дом 17, строение 3",
+        "PublicPhone": [
+            {
+                "PublicPhone": "(495) 006-05-04"
+            }
+        ],
+        "SeatsCount": 30,
+        "SocialPrivileges": "нет",
+        "Longitude_WGS84": "37.6609129999999940",
+        "Latitude_WGS84": "55.7667107605236080",
+        "geoData": {
+            "coordinates": [
+                37.660913,
+                55.7667107605236
+            ],
+            "type": "Point"
+        }
+    },
+    {
+        "ID": "00105236",
+        "Name": "Movenpick",
+        "global_id": 637540731,
+        "IsNetObject": "да",
+        "OperatingCompany": "Movenpick",
+        "TypeObject": "кафе",
+        "AdmArea": "Центральный административный округ",
+        "District": "Тверской район",
+        "Address": "город Москва, Манежная площадь, дом 1, строение 2",
+        "PublicPhone": [
+            {
+                "PublicPhone": "(916) 071-77-77"
+            }
+        ],
+        "SeatsCount": 2,
+        "SocialPrivileges": "нет",
+        "Longitude_WGS84": "37.6146257177811950",
+        "Latitude_WGS84": "55.7557913293247580",
+        "geoData": {
+            "coordinates": [
+                37.6146257177812,
+                55.7557913293248
+            ],
+            "type": "Point"
+        }
+    },
+    {
+        "ID": "00319167",
+        "Name": "ВкусВилл",
+        "global_id": 1146141914,
+        "IsNetObject": "да",
+        "OperatingCompany": "ВкусВилл",
+        "TypeObject": "кафетерий",
+        "AdmArea": "Юго-Западный административный округ",
+        "District": "район Ясенево",
+        "Address": "город Москва, Новоясеневский проспект, дом 1, корпус 2",
+        "PublicPhone": [
+            {
+                "PublicPhone": "(916) 087-52-55"
+            }
+        ],
+        "SeatsCount": 6,
+        "SocialPrivileges": "нет",
+        "Longitude_WGS84": "37.5072859999999930",
+        "Latitude_WGS84": "55.6198537181233090",
+        "geoData": {
+            "coordinates": [
+                37.507286,
+                55.6198537181233
+            ],
+            "type": "Point"
+        }
+    },
+    {
+        "ID": "000068359",
+        "Name": "Subway",
+        "global_id": 1125493960,
+        "IsNetObject": "да",
+        "OperatingCompany": "Subway",
+        "TypeObject": "предприятие быстрого обслуживания",
+        "AdmArea": "Северо-Восточный административный округ",
+        "District": "район Марьина Роща",
+        "Address": "город Москва, улица Сущёвский Вал, дом 5, строение 8",
+        "PublicPhone": [
+            {
+                "PublicPhone": "(916) 051-03-29"
+            }
+        ],
+        "SeatsCount": 32,
+        "SocialPrivileges": "нет",
+        "Longitude_WGS84": "37.5921379724664750",
+        "Latitude_WGS84": "55.7956821860991140",
+        "geoData": {
+            "coordinates": [
+                37.5921379724665,
+                55.7956821860991
+            ],
+            "type": "Point"
+        }
+    },
+    {
+        "ID": "00222931",
+        "Name": "Кафе «Южный дворик»",
+        "global_id": 930778140,
+        "IsNetObject": "нет",
+        "OperatingCompany": "",
+        "TypeObject": "кафе",
+        "AdmArea": "Южный административный округ",
+        "District": "район Братеево",
+        "Address": "Российская Федерация, город Москва, внутригородская территория муниципальный округ Братеево, улица Борисовские Пруды, дом 26",
+        "PublicPhone": [
+            {
+                "PublicPhone": "(916) 202-66-88"
+            }
+        ],
+        "SeatsCount": 0,
+        "SocialPrivileges": "нет",
+        "Longitude_WGS84": "37.7581877208842730",
+        "Latitude_WGS84": "55.6399827269794190",
+        "geoData": {
+            "coordinates": [
+                37.7581877208843,
+                55.6399827269794
+            ],
+            "type": "Point"
+        }
+    },
+    {
+        "ID": "00201719",
+        "Name": "Самарканд",
+        "global_id": 918058426,
+        "IsNetObject": "нет",
+        "OperatingCompany": "",
+        "TypeObject": "кафе",
+        "AdmArea": "Западный административный округ",
+        "District": "район Солнцево",
+        "Address": "город Москва, Производственная улица, дом 1, корпус 1, строение 1",
+        "PublicPhone": [
+            {
+                "PublicPhone": "(965) 160-53-23"
+            }
+        ],
+        "SeatsCount": 24,
+        "SocialPrivileges": "нет",
+        "Longitude_WGS84": "37.3810550000000030",
+        "Latitude_WGS84": "55.6496947266939590",
+        "geoData": {
+            "coordinates": [
+                37.381055,
+                55.649694726694
+            ],
+            "type": "Point"
+        }
+    },
+    {
+        "ID": "00289551",
+        "Name": "Буркина Фасоль",
+        "global_id": 1078558808,
+        "IsNetObject": "нет",
+        "OperatingCompany": "",
+        "TypeObject": "кафетерий",
+        "AdmArea": "Западный административный округ",
+        "District": "район Солнцево",
+        "Address": "город Москва, Боровское шоссе, дом 2, корпус 5",
+        "PublicPhone": [
+            {
+                "PublicPhone": "(903) 715-89-05"
+            }
+        ],
+        "SeatsCount": 12,
+        "SocialPrivileges": "нет",
+        "Longitude_WGS84": "37.4189750000000100",
+        "Latitude_WGS84": "55.6622277303004010",
+        "geoData": {
+            "coordinates": [
+                37.418975,
+                55.6622277303004
+            ],
+            "type": "Point"
+        }
+    },
+    {
+        "ID": "00214896",
+        "Name": "Cinnabon",
+        "global_id": 930778497,
+        "IsNetObject": "нет",
+        "OperatingCompany": "",
+        "TypeObject": "кафе",
+        "AdmArea": "Западный административный округ",
+        "District": "район Фили-Давыдково",
+        "Address": "город Москва, Кутузовский проспект, дом 57",
+        "PublicPhone": [
+            {
+                "PublicPhone": "(749) 522-72-16"
+            }
+        ],
+        "SeatsCount": 30,
+        "SocialPrivileges": "нет",
+        "Longitude_WGS84": "37.4771050000000020",
+        "Latitude_WGS84": "55.7279467492777560",
+        "geoData": {
+            "coordinates": [
+                37.477105,
+                55.7279467492778
+            ],
+            "type": "Point"
+        }
+    },
+    {
+        "ID": "00311210",
+        "Name": "Тхали",
+        "global_id": 1133074163,
+        "IsNetObject": "нет",
+        "OperatingCompany": "",
+        "TypeObject": "кафе",
+        "AdmArea": "Восточный административный округ",
+        "District": "район Измайлово",
+        "Address": "город Москва, Измайловское шоссе, дом 73Ж, строение 9",
+        "PublicPhone": [
+            {
+                "PublicPhone": "нет телефона"
+            }
+        ],
+        "SeatsCount": 30,
+        "SocialPrivileges": "нет",
+        "Longitude_WGS84": "37.7531350000000000",
+        "Latitude_WGS84": "55.7943247685583260",
+        "geoData": {
+            "coordinates": [
+                37.753135,
+                55.7943247685583
+            ],
+            "type": "Point"
+        }
+    },
+    {
+        "ID": "00343227",
+        "Name": "Лечо",
+        "global_id": 2362412533,
+        "IsNetObject": "нет",
+        "OperatingCompany": "",
+        "TypeObject": "кафе",
+        "AdmArea": "Центральный административный округ",
+        "District": "Мещанский район",
+        "Address": "город Москва, улица Сретенка, дом 27, строение 1",
+        "PublicPhone": [
+            {
+                "PublicPhone": "нет телефона"
+            }
+        ],
+        "SeatsCount": 120,
+        "SocialPrivileges": "нет",
+        "Longitude_WGS84": "37.6321749999999890",
+        "Latitude_WGS84": "55.7713087618600980",
+        "geoData": {
+            "coordinates": [
+                37.632175,
+                55.7713087618601
+            ],
+            "type": "Point"
+        }
+    },
+    {
+        "ID": "00292748",
+        "Name": "Настоишная",
+        "global_id": 1089379200,
+        "IsNetObject": "нет",
+        "OperatingCompany": "",
+        "TypeObject": "бар",
+        "AdmArea": "Центральный административный округ",
+        "District": "Басманный район",
+        "Address": "город Москва, Нижний Сусальный переулок, дом 4, строение 3",
+        "PublicPhone": [
+            {
+                "PublicPhone": "нет телефона"
+            }
+        ],
+        "SeatsCount": 36,
+        "SocialPrivileges": "нет",
+        "Longitude_WGS84": "37.6627560000000090",
+        "Latitude_WGS84": "55.7616887590645050",
+        "geoData": {
+            "coordinates": [
+                37.662756,
+                55.7616887590645
+            ],
+            "type": "Point"
+        }
+    },
+    {
+        "ID": "00282263",
+        "Name": "Иль Патио",
+        "global_id": 1061827473,
+        "IsNetObject": "да",
+        "OperatingCompany": "Иль Патио",
+        "TypeObject": "ресторан",
+        "AdmArea": "Северо-Западный административный округ",
+        "District": "район Митино",
+        "Address": "город Москва, Митинская улица, дом 16",
+        "PublicPhone": [
+            {
+                "PublicPhone": "(495) 105-93-77"
+            }
+        ],
+        "SeatsCount": 174,
+        "SocialPrivileges": "нет",
+        "Longitude_WGS84": "37.3726829311664020",
+        "Latitude_WGS84": "55.8422759268141680",
+        "geoData": {
+            "coordinates": [
+                37.3726829311664,
+                55.8422759268142
+            ],
+            "type": "Point"
+        }
+    },
+    {
+        "ID": "000022552",
+        "Name": "Courvoisier",
+        "global_id": 637396577,
+        "IsNetObject": "нет",
+        "OperatingCompany": "",
+        "TypeObject": "ресторан",
+        "AdmArea": "Центральный административный округ",
+        "District": "Мещанский район",
+        "Address": "Российская Федерация, город Москва, внутригородская территория муниципальный округ Мещанский, Малая Сухаревская площадь, дом 8",
+        "PublicPhone": [
+            {
+                "PublicPhone": "(495) 632-99-95"
+            }
+        ],
+        "SeatsCount": 80,
+        "SocialPrivileges": "нет",
+        "Longitude_WGS84": "37.6299979067608000",
+        "Latitude_WGS84": "55.7727374623038000",
+        "geoData": {
+            "coordinates": [
+                37.6299979067608,
+                55.7727374623038
+            ],
+            "type": "Point"
+        }
+    },
+    {
+        "ID": "00199438",
+        "Name": "Теремок",
+        "global_id": 918059161,
+        "IsNetObject": "да",
+        "OperatingCompany": "Теремок",
+        "TypeObject": "кафе",
+        "AdmArea": "Северный административный округ",
+        "District": "Войковский район",
+        "Address": "город Москва, Ленинградское шоссе, дом 16А, строение 4",
+        "PublicPhone": [
+            {
+                "PublicPhone": "нет телефона"
+            }
+        ],
+        "SeatsCount": 50,
+        "SocialPrivileges": "нет",
+        "Longitude_WGS84": "37.4970569999999980",
+        "Latitude_WGS84": "55.8230777769452900",
+        "geoData": {
+            "coordinates": [
+                37.497057,
+                55.8230777769453
+            ],
+            "type": "Point"
+        }
+    },
+    {
+        "ID": "00338406",
+        "Name": "Cristal Room Baccarat",
+        "global_id": 2302689660,
+        "IsNetObject": "нет",
+        "OperatingCompany": "",
+        "TypeObject": "ресторан",
+        "AdmArea": "Центральный административный округ",
+        "District": "Тверской район",
+        "Address": "Российская Федерация, город Москва, внутригородская территория муниципальный округ Тверской, Никольская улица, дом 19-21/1",
+        "PublicPhone": [
+            {
+                "PublicPhone": "нет телефона"
+            }
+        ],
+        "SeatsCount": 25,
+        "SocialPrivileges": "нет",
+        "Longitude_WGS84": "37.6241549999999950",
+        "Latitude_WGS84": "55.7585577581551140",
+        "geoData": {
+            "coordinates": [
+                37.624155,
+                55.7585577581551
+            ],
+            "type": "Point"
+        }
+    },
+    {
+        "ID": "00288590",
+        "Name": "Эль кафе",
+        "global_id": 1075021367,
+        "IsNetObject": "нет",
+        "OperatingCompany": "",
+        "TypeObject": "кафе",
+        "AdmArea": "Северный административный округ",
+        "District": "район Сокол",
+        "Address": "город Москва, Волоколамское шоссе, дом 2",
+        "PublicPhone": [
+            {
+                "PublicPhone": "нет телефона"
+            }
+        ],
+        "SeatsCount": 0,
+        "SocialPrivileges": "нет",
+        "Longitude_WGS84": "37.5060440000000030",
+        "Latitude_WGS84": "55.8074497723841250",
+        "geoData": {
+            "coordinates": [
+                37.506044,
+                55.8074497723841
+            ],
+            "type": "Point"
+        }
+    },
+    {
+        "ID": "00271839",
+        "Name": "Мята Lounge",
+        "global_id": 1124855595,
+        "IsNetObject": "да",
+        "OperatingCompany": "Мята Lounge",
+        "TypeObject": "бар",
+        "AdmArea": "Центральный административный округ",
+        "District": "Таганский район",
+        "Address": "город Москва, Волгоградский проспект, дом 15",
+        "PublicPhone": [
+            {
+                "PublicPhone": "(906) 009-00-99"
+            }
+        ],
+        "SeatsCount": 53,
+        "SocialPrivileges": "нет",
+        "Longitude_WGS84": "37.6774530000000140",
+        "Latitude_WGS84": "55.7292737496620840",
+        "geoData": {
+            "coordinates": [
+                37.677453,
+                55.7292737496621
+            ],
+            "type": "Point"
+        }
+    },
+    {
+        "ID": "000025182",
+        "Name": "ФРЕСКО",
+        "global_id": 637438265,
+        "IsNetObject": "нет",
+        "OperatingCompany": "",
+        "TypeObject": "ресторан",
+        "AdmArea": "Центральный административный округ",
+        "District": "район Хамовники",
+        "Address": "город Москва, 1-я Фрунзенская улица, дом 8",
+        "PublicPhone": [
+            {
+                "PublicPhone": "(499) 242-05-62"
+            }
+        ],
+        "SeatsCount": 70,
+        "SocialPrivileges": "нет",
+        "Longitude_WGS84": "37.5849685932217000",
+        "Latitude_WGS84": "55.7279126110363000",
+        "geoData": {
+            "coordinates": [
+                37.5849685932217,
+                55.7279126110363
+            ],
+            "type": "Point"
+        }
+    },
+    {
+        "ID": "000021414",
+        "Name": "Буфет школы № 1575",
+        "global_id": 637532288,
+        "IsNetObject": "нет",
+        "OperatingCompany": "",
+        "TypeObject": "буфет",
+        "AdmArea": "Северный административный округ",
+        "District": "район Аэропорт",
+        "Address": "город Москва, улица Усиевича, дом 6",
+        "PublicPhone": [
+            {
+                "PublicPhone": "(499) 152-73-11"
+            }
+        ],
+        "SeatsCount": 45,
+        "SocialPrivileges": "нет",
+        "Longitude_WGS84": "37.5318309759024940",
+        "Latitude_WGS84": "55.8048469636359030",
+        "geoData": {
+            "coordinates": [
+                37.5318309759025,
+                55.8048469636359
+            ],
+            "type": "Point"
+        }
+    },
+    {
+        "ID": "00314271",
+        "Name": "Ресторан «KFC»",
+        "global_id": 1137247108,
+        "IsNetObject": "да",
+        "OperatingCompany": "KFC",
+        "TypeObject": "кафе",
+        "AdmArea": "Западный административный округ",
+        "District": "район Филёвский Парк",
+        "Address": "город Москва, Багратионовский проезд, дом 7, корпус 2",
+        "PublicPhone": [
+            {
+                "PublicPhone": "нет телефона"
+            }
+        ],
+        "SeatsCount": 70,
+        "SocialPrivileges": "нет",
+        "Longitude_WGS84": "37.5010030000000040",
+        "Latitude_WGS84": "55.7419727533423810",
+        "geoData": {
+            "coordinates": [
+                37.501003,
+                55.7419727533424
+            ],
+            "type": "Point"
+        }
+    },
+    {
+        "ID": "00086325",
+        "Name": "Суши маркет",
+        "global_id": 637549475,
+        "IsNetObject": "нет",
+        "OperatingCompany": "",
+        "TypeObject": "кафе",
+        "AdmArea": "Центральный административный округ",
+        "District": "Красносельский район",
+        "Address": "город Москва, Верхняя Красносельская улица, дом 3А",
+        "PublicPhone": [
+            {
+                "PublicPhone": "(916) 411-01-96"
+            }
+        ],
+        "SeatsCount": 5,
+        "SocialPrivileges": "нет",
+        "Longitude_WGS84": "37.6654657551224900",
+        "Latitude_WGS84": "55.7855164559100700",
+        "geoData": {
+            "coordinates": [
+                37.6654657551225,
+                55.7855164559101
+            ],
+            "type": "Point"
+        }
+    },
+    {
+        "ID": "00289264",
+        "Name": "Evo Кофе с собой",
+        "global_id": 1078558682,
+        "IsNetObject": "нет",
+        "OperatingCompany": "",
+        "TypeObject": "кафетерий",
+        "AdmArea": "Южный административный округ",
+        "District": "Даниловский район",
+        "Address": "город Москва, улица Симоновский Вал, дом 18",
+        "PublicPhone": [
+            {
+                "PublicPhone": "(919) 424-39-92"
+            }
+        ],
+        "SeatsCount": 0,
+        "SocialPrivileges": "нет",
+        "Longitude_WGS84": "37.6629410000000040",
+        "Latitude_WGS84": "55.7216687474600720",
+        "geoData": {
+            "coordinates": [
+                37.662941,
+                55.7216687474601
+            ],
+            "type": "Point"
+        }
+    },
+    {
+        "ID": "00276300",
+        "Name": "Чайхана",
+        "global_id": 1061824614,
+        "IsNetObject": "нет",
+        "OperatingCompany": "",
+        "TypeObject": "предприятие быстрого обслуживания",
+        "AdmArea": "Юго-Западный административный округ",
+        "District": "район Черёмушки",
+        "Address": "город Москва, улица Гарибальди, дом 23, корпус 2",
+        "PublicPhone": [
+            {
+                "PublicPhone": "нет телефона"
+            }
+        ],
+        "SeatsCount": 0,
+        "SocialPrivileges": "нет",
+        "Longitude_WGS84": "37.5534760000000110",
+        "Latitude_WGS84": "55.6721357331543700",
+        "geoData": {
+            "coordinates": [
+                37.553476,
+                55.6721357331544
+            ],
+            "type": "Point"
+        }
+    },
+    {
+        "ID": "00343333",
+        "Name": "Шикари",
+        "global_id": 2363080807,
+        "IsNetObject": "нет",
+        "OperatingCompany": "",
+        "TypeObject": "ресторан",
+        "AdmArea": "Северный административный округ",
+        "District": "Хорошёвский район",
+        "Address": "город Москва, Хорошёвское шоссе, дом 27",
+        "PublicPhone": [
+            {
+                "PublicPhone": "(495) 105-93-24"
+            }
+        ],
+        "SeatsCount": 45,
+        "SocialPrivileges": "нет",
+        "Longitude_WGS84": "37.5236579999999900",
+        "Latitude_WGS84": "55.7770907635415160",
+        "geoData": {
+            "coordinates": [
+                37.523658,
+                55.7770907635415
+            ],
+            "type": "Point"
+        }
+    },
+    {
+        "ID": "00325267",
+        "Name": "Пицца",
+        "global_id": 1149149387,
+        "IsNetObject": "нет",
+        "OperatingCompany": "",
+        "TypeObject": "закусочная",
+        "AdmArea": "Западный административный округ",
+        "District": "район Кунцево",
+        "Address": "Российская Федерация, город Москва, внутригородская территория муниципальный округ Кунцево, Ярцевская улица, дом 25А",
+        "PublicPhone": [
+            {
+                "PublicPhone": "(495) 962-16-51"
+            }
+        ],
+        "SeatsCount": 0,
+        "SocialPrivileges": "нет",
+        "Longitude_WGS84": "37.4151710000000080",
+        "Latitude_WGS84": "55.7411877531147650",
+        "geoData": {
+            "coordinates": [
+                37.415171,
+                55.7411877531148
+            ],
+            "type": "Point"
+        }
+    },
+    {
+        "ID": "00276321",
+        "Name": "Буханка",
+        "global_id": 1061827210,
+        "IsNetObject": "да",
+        "OperatingCompany": "Буханка",
+        "TypeObject": "кафетерий",
+        "AdmArea": "Новомосковский административный округ",
+        "District": "поселение Сосенское",
+        "Address": "город Москва, поселение Сосенское, бульвар Веласкеса, дом 6",
+        "PublicPhone": [
+            {
+                "PublicPhone": "(925) 054-07-72"
+            }
+        ],
+        "SeatsCount": 12,
+        "SocialPrivileges": "нет",
+        "Longitude_WGS84": "37.4597040000000090",
+        "Latitude_WGS84": "55.5923207102359310",
+        "geoData": {
+            "coordinates": [
+                37.459704,
+                55.5923207102359
+            ],
+            "type": "Point"
+        }
+    },
+    {
+        "ID": "00220525",
+        "Name": "Фэнтази парк",
+        "global_id": 1026862610,
+        "IsNetObject": "нет",
+        "OperatingCompany": "",
+        "TypeObject": "ресторан",
+        "AdmArea": "Юго-Восточный административный округ",
+        "District": "район Марьино",
+        "Address": "город Москва, Люблинская улица, дом 100, корпус 2",
+        "PublicPhone": [
+            {
+                "PublicPhone": "(495) 641-34-51"
+            }
+        ],
+        "SeatsCount": 50,
+        "SocialPrivileges": "нет",
+        "Longitude_WGS84": "37.7397749999999950",
+        "Latitude_WGS84": "55.6548157281670730",
+        "geoData": {
+            "coordinates": [
+                37.739775,
+                55.6548157281671
+            ],
+            "type": "Point"
+        }
+    },
+    {
+        "ID": "00127607",
+        "Name": "Upside Down Cake",
+        "global_id": 637551458,
+        "IsNetObject": "да",
+        "OperatingCompany": "Upside Down",
+        "TypeObject": "кафе",
+        "AdmArea": "Западный административный округ",
+        "District": "район Кунцево",
+        "Address": "город Москва, Ярцевская улица, дом 19",
+        "PublicPhone": [
+            {
+                "PublicPhone": "(499) 391-41-46"
+            },
+            {
+                "PublicPhone": "(499) 391-41-46"
+            }
+        ],
+        "SeatsCount": 40,
+        "SocialPrivileges": "нет",
+        "Longitude_WGS84": "37.4106406432027750",
+        "Latitude_WGS84": "55.7383375870942570",
+        "geoData": {
+            "coordinates": [
+                37.4106406432028,
+                55.7383375870943
+            ],
+            "type": "Point"
+        }
+    },
+    {
+        "ID": "000026714",
+        "Name": "Макдоналдс",
+        "global_id": 637439076,
+        "IsNetObject": "да",
+        "OperatingCompany": "Макдоналдс",
+        "TypeObject": "кафе",
+        "AdmArea": "Центральный административный округ",
+        "District": "Басманный район",
+        "Address": "город Москва, улица Маросейка, дом 9/2, строение 1",
+        "PublicPhone": [
+            {
+                "PublicPhone": "(495) 755-88-61"
+            }
+        ],
+        "SeatsCount": 150,
+        "SocialPrivileges": "нет",
+        "Longitude_WGS84": "37.6345428453511000",
+        "Latitude_WGS84": "55.7577160133928000",
+        "geoData": {
+            "coordinates": [
+                37.6345428453511,
+                55.7577160133928
+            ],
+            "type": "Point"
+        }
+    },
+    {
+        "ID": "00344756",
+        "Name": "БУОНАМИЧИ",
+        "global_id": 2363391869,
+        "IsNetObject": "нет",
+        "OperatingCompany": "",
+        "TypeObject": "ресторан",
+        "AdmArea": "Северо-Западный административный округ",
+        "District": "район Хорошёво-Мнёвники",
+        "Address": "город Москва, улица Маршала Тухачевского, дом 41, корпус 1, помещение 1П",
+        "PublicPhone": [
+            {
+                "PublicPhone": "(495) 925-07-45"
+            }
+        ],
+        "SeatsCount": 80,
+        "SocialPrivileges": "нет",
+        "Longitude_WGS84": "37.4691690000000080",
+        "Latitude_WGS84": "55.7842987656388300",
+        "geoData": {
+            "coordinates": [
+                37.469169,
+                55.7842987656388
+            ],
+            "type": "Point"
+        }
+    },
+    {
+        "ID": "00326868",
+        "Name": "Шаурма",
+        "global_id": 1266027260,
+        "IsNetObject": "нет",
+        "OperatingCompany": "",
+        "TypeObject": "предприятие быстрого обслуживания",
+        "AdmArea": "Южный административный округ",
+        "District": "район Нагатино-Садовники",
+        "Address": "город Москва, Каширское шоссе, дом 3, корпус 1, строение 4",
+        "PublicPhone": [
+            {
+                "PublicPhone": "нет телефона"
+            }
+        ],
+        "SeatsCount": 0,
+        "SocialPrivileges": "нет",
+        "Longitude_WGS84": "37.6284079999999930",
+        "Latitude_WGS84": "55.6720857331399590",
+        "geoData": {
+            "coordinates": [
+                37.628408,
+                55.67208573314
+            ],
+            "type": "Point"
+        }
+    },
+    {
+        "ID": "00320051",
+        "Name": "Кофе",
+        "global_id": 1146358615,
+        "IsNetObject": "нет",
+        "OperatingCompany": "",
+        "TypeObject": "кафетерий",
+        "AdmArea": "Юго-Западный административный округ",
+        "District": "район Ясенево",
+        "Address": "город Москва, проезд Одоевского, дом 11, корпус 7",
+        "PublicPhone": [
+            {
+                "PublicPhone": "(903) 582-55-99"
+            }
+        ],
+        "SeatsCount": 0,
+        "SocialPrivileges": "нет",
+        "Longitude_WGS84": "37.5128929999999980",
+        "Latitude_WGS84": "55.5982267119261660",
+        "geoData": {
+            "coordinates": [
+                37.512893,
+                55.5982267119262
+            ],
+            "type": "Point"
+        }
+    },
+    {
+        "ID": "00173231",
+        "Name": "Кафе бар Гнездо",
+        "global_id": 905400442,
+        "IsNetObject": "нет",
+        "OperatingCompany": "",
+        "TypeObject": "ресторан",
+        "AdmArea": "Новомосковский административный округ",
+        "District": "поселение Щербинка",
+        "Address": "город Москва, город Щербинка, улица 40 лет Октября, дом 14А",
+        "PublicPhone": [
+            {
+                "PublicPhone": "нет телефона"
+            }
+        ],
+        "SeatsCount": 45,
+        "SocialPrivileges": "нет",
+        "Longitude_WGS84": "37.5740219999999990",
+        "Latitude_WGS84": "55.5113146871435750",
+        "geoData": {
+            "coordinates": [
+                37.574022,
+                55.5113146871436
+            ],
+            "type": "Point"
+        }
+    },
+    {
+        "ID": "00213500",
+        "Name": "Милти",
+        "global_id": 930779120,
+        "IsNetObject": "да",
+        "OperatingCompany": "Милти",
+        "TypeObject": "магазин (отдел кулинарии)",
+        "AdmArea": "Южный административный округ",
+        "District": "Даниловский район",
+        "Address": "город Москва, проспект Андропова, дом 8",
+        "PublicPhone": [
+            {
+                "PublicPhone": "нет телефона"
+            }
+        ],
+        "SeatsCount": 0,
+        "SocialPrivileges": "нет",
+        "Longitude_WGS84": "37.6654530000000070",
+        "Latitude_WGS84": "55.6958967400089340",
+        "geoData": {
+            "coordinates": [
+                37.665453,
+                55.6958967400089
+            ],
+            "type": "Point"
+        }
+    },
+    {
+        "ID": "00284437",
+        "Name": "BF cafe",
+        "global_id": 1075020243,
+        "IsNetObject": "нет",
+        "OperatingCompany": "",
+        "TypeObject": "кафетерий",
+        "AdmArea": "Зеленоградский административный округ",
+        "District": "район Крюково",
+        "Address": "город Москва, город Зеленоград, Георгиевский проспект, дом 33, корпус 6",
+        "PublicPhone": [
+            {
+                "PublicPhone": "нет телефона"
+            }
+        ],
+        "SeatsCount": 8,
+        "SocialPrivileges": "нет",
+        "Longitude_WGS84": "37.1561680000000150",
+        "Latitude_WGS84": "55.9651558187001680",
+        "geoData": {
+            "coordinates": [
+                37.156168,
+                55.9651558187002
+            ],
+            "type": "Point"
+        }
+    },
+    {
+        "ID": "00345963",
+        "Name": "Sumaq",
+        "global_id": 2365642632,
+        "IsNetObject": "нет",
+        "OperatingCompany": "",
+        "TypeObject": "предприятие быстрого обслуживания",
+        "AdmArea": "Центральный административный округ",
+        "District": "район Арбат",
+        "Address": "город Москва, Смоленская площадь, дом 5",
+        "PublicPhone": [
+            {
+                "PublicPhone": "нет телефона"
+            }
+        ],
+        "SeatsCount": 10,
+        "SocialPrivileges": "нет",
+        "Longitude_WGS84": "37.5810859999999990",
+        "Latitude_WGS84": "55.7482267551563740",
+        "geoData": {
+            "coordinates": [
+                37.581086,
+                55.7482267551564
+            ],
+            "type": "Point"
+        }
+    },
+    {
+        "ID": "00321232",
+        "Name": "Кофе для тебя",
+        "global_id": 1146358624,
+        "IsNetObject": "нет",
+        "OperatingCompany": "",
+        "TypeObject": "кафетерий",
+        "AdmArea": "Северо-Западный административный округ",
+        "District": "район Северное Тушино",
+        "Address": "Российская Федерация, город Москва, внутригородская территория муниципальный округ Северное Тушино, Планерная улица, дом 7",
+        "PublicPhone": [
+            {
+                "PublicPhone": "нет телефона"
+            }
+        ],
+        "SeatsCount": 0,
+        "SocialPrivileges": "нет",
+        "Longitude_WGS84": "37.4351210000000090",
+        "Latitude_WGS84": "55.8625257884865080",
+        "geoData": {
+            "coordinates": [
+                37.435121,
+                55.8625257884865
+            ],
+            "type": "Point"
+        }
+    },
+    {
+        "ID": "00323573",
+        "Name": "Кутята",
+        "global_id": 1146541966,
+        "IsNetObject": "нет",
+        "OperatingCompany": "",
+        "TypeObject": "кафетерий",
+        "AdmArea": "Центральный административный округ",
+        "District": "Тверской район",
+        "Address": "город Москва, Весковский переулок, дом 3",
+        "PublicPhone": [
+            {
+                "PublicPhone": "(999) 613-78-79"
+            }
+        ],
+        "SeatsCount": 14,
+        "SocialPrivileges": "нет",
+        "Longitude_WGS84": "37.5985530000000100",
+        "Latitude_WGS84": "55.7789757640898860",
+        "geoData": {
+            "coordinates": [
+                37.598553,
+                55.7789757640899
+            ],
+            "type": "Point"
+        }
+    },
+    {
+        "ID": "00341901",
+        "Name": "Бургер Кинг",
+        "global_id": 2361492702,
+        "IsNetObject": "да",
+        "OperatingCompany": "Бургер Кинг",
+        "TypeObject": "кафе",
+        "AdmArea": "Юго-Западный административный округ",
+        "District": "район Коньково",
+        "Address": "город Москва, улица Миклухо-Маклая, дом 32А",
+        "PublicPhone": [
+            {
+                "PublicPhone": "нет телефона"
+            }
+        ],
+        "SeatsCount": 0,
+        "SocialPrivileges": "нет",
+        "Longitude_WGS84": "37.5310060000000050",
+        "Latitude_WGS84": "55.6407897241339380",
+        "geoData": {
+            "coordinates": [
+                37.531006,
+                55.6407897241339
+            ],
+            "type": "Point"
+        }
+    },
+    {
+        "ID": "00341562",
+        "Name": "ПАБ НЕОН (ФУДМАРКЕТ)",
+        "global_id": 2361442832,
+        "IsNetObject": "нет",
+        "OperatingCompany": "",
+        "TypeObject": "предприятие быстрого обслуживания",
+        "AdmArea": "Южный административный округ",
+        "District": "район Нагатино-Садовники",
+        "Address": "Российская Федерация, город Москва, внутригородская территория муниципальный округ Нагатино-Садовники, Нагатинская улица, дом 16",
+        "PublicPhone": [
+            {
+                "PublicPhone": "нет телефона"
+            }
+        ],
+        "SeatsCount": 0,
+        "SocialPrivileges": "нет",
+        "Longitude_WGS84": "37.6417450000000070",
+        "Latitude_WGS84": "55.6788527350906080",
+        "geoData": {
+            "coordinates": [
+                37.641745,
+                55.6788527350906
+            ],
+            "type": "Point"
+        }
+    },
+    {
+        "ID": "00307454",
+        "Name": "ЛАГМАН ХАУС восточная кухня",
+        "global_id": 1129529340,
+        "IsNetObject": "нет",
+        "OperatingCompany": "",
+        "TypeObject": "кафе",
+        "AdmArea": "Юго-Восточный административный округ",
+        "District": "Южнопортовый район",
+        "Address": "Российская Федерация, город Москва, внутригородская территория муниципальный округ Южнопортовый, Южнопортовая улица, дом 18",
+        "PublicPhone": [
+            {
+                "PublicPhone": "(926) 389-97-67"
+            }
+        ],
+        "SeatsCount": 12,
+        "SocialPrivileges": "нет",
+        "Longitude_WGS84": "37.6848140000000030",
+        "Latitude_WGS84": "55.7062187429911620",
+        "geoData": {
+            "coordinates": [
+                37.684814,
+                55.7062187429912
+            ],
+            "type": "Point"
+        }
+    },
+    {
+        "ID": "00318492",
+        "Name": "БУХАНКА",
+        "global_id": 1146056890,
+        "IsNetObject": "да",
+        "OperatingCompany": "Буханка",
+        "TypeObject": "магазин (отдел кулинарии)",
+        "AdmArea": "Западный административный округ",
+        "District": "Можайский район",
+        "Address": "город Москва, Гжатская улица, дом 5, корпус 2",
+        "PublicPhone": [
+            {
+                "PublicPhone": "нет телефона"
+            }
+        ],
+        "SeatsCount": 6,
+        "SocialPrivileges": "нет",
+        "Longitude_WGS84": "37.4352189999999890",
+        "Latitude_WGS84": "55.7137557451704740",
+        "geoData": {
+            "coordinates": [
+                37.435219,
+                55.7137557451705
+            ],
+            "type": "Point"
+        }
+    },
+    {
+        "ID": "00322944",
+        "Name": "Хлеб&Co",
+        "global_id": 1146542149,
+        "IsNetObject": "да",
+        "OperatingCompany": "Хлеб&Co",
+        "TypeObject": "кафе",
+        "AdmArea": "Западный административный округ",
+        "District": "район Дорогомилово",
+        "Address": "город Москва, Студенческая улица, дом 26",
+        "PublicPhone": [
+            {
+                "PublicPhone": "(499) 766-16-02"
+            }
+        ],
+        "SeatsCount": 8,
+        "SocialPrivileges": "нет",
+        "Longitude_WGS84": "37.5460000000000060",
+        "Latitude_WGS84": "55.7427947535807390",
+        "geoData": {
+            "coordinates": [
+                37.546,
+                55.7427947535807
+            ],
+            "type": "Point"
+        }
+    },
+    {
+        "ID": "00247620",
+        "Name": "Горячий лаваш",
+        "global_id": 1026837856,
+        "IsNetObject": "нет",
+        "OperatingCompany": "",
+        "TypeObject": "закусочная",
+        "AdmArea": "Западный административный округ",
+        "District": "район Ново-Переделкино",
+        "Address": "город Москва, Боровское шоссе, дом 27",
+        "PublicPhone": [
+            {
+                "PublicPhone": "(495) 733-54-01"
+            }
+        ],
+        "SeatsCount": 14,
+        "SocialPrivileges": "нет",
+        "Longitude_WGS84": "37.3657510000000240",
+        "Latitude_WGS84": "55.6447877252830380",
+        "geoData": {
+            "coordinates": [
+                37.365751,
+                55.644787725283
+            ],
+            "type": "Point"
+        }
+    },
+    {
+        "ID": "00242778",
+        "Name": "Пекарня МаМан",
+        "global_id": 1026817662,
+        "IsNetObject": "нет",
+        "OperatingCompany": "",
+        "TypeObject": "закусочная",
+        "AdmArea": "Юго-Восточный административный округ",
+        "District": "район Лефортово",
+        "Address": "город Москва, шоссе Энтузиастов, дом 10/2",
+        "PublicPhone": [
+            {
+                "PublicPhone": "нет телефона"
+            }
+        ],
+        "SeatsCount": 8,
+        "SocialPrivileges": "нет",
+        "Longitude_WGS84": "37.7037140000000120",
+        "Latitude_WGS84": "55.7484227552132480",
+        "geoData": {
+            "coordinates": [
+                37.703714,
+                55.7484227552132
+            ],
+            "type": "Point"
+        }
+    },
+    {
+        "ID": "00189502",
+        "Name": "Кафе Хинкальная",
+        "global_id": 905403162,
+        "IsNetObject": "нет",
+        "OperatingCompany": "",
+        "TypeObject": "кафе",
+        "AdmArea": "Юго-Восточный административный округ",
+        "District": "район Печатники",
+        "Address": "город Москва, Южнопортовая улица, дом 15, строение 2",
+        "PublicPhone": [
+            {
+                "PublicPhone": "(925) 128-73-23"
+            }
+        ],
+        "SeatsCount": 30,
+        "SocialPrivileges": "нет",
+        "Longitude_WGS84": "37.7005589999999910",
+        "Latitude_WGS84": "55.7079737434984780",
+        "geoData": {
+            "coordinates": [
+                37.700559,
+                55.7079737434985
+            ],
+            "type": "Point"
+        }
+    },
+    {
+        "ID": "00347136",
+        "Name": "Правда кофе",
+        "global_id": 2366184878,
+        "IsNetObject": "нет",
+        "OperatingCompany": "",
+        "TypeObject": "кафетерий",
+        "AdmArea": "Северный административный округ",
+        "District": "район Западное Дегунино",
+        "Address": "город Москва, Дмитровское шоссе, дом 73, строение 1",
+        "PublicPhone": [
+            {
+                "PublicPhone": "(800) 555-19-66"
+            }
+        ],
+        "SeatsCount": 8,
+        "SocialPrivileges": "нет",
+        "Longitude_WGS84": "37.5590860000000010",
+        "Latitude_WGS84": "55.8568847868336890",
+        "geoData": {
+            "coordinates": [
+                37.559086,
+                55.8568847868337
+            ],
+            "type": "Point"
+        }
+    },
+    {
+        "ID": "00228569",
+        "Name": "Пицца 24",
+        "global_id": 1026817676,
+        "IsNetObject": "нет",
+        "OperatingCompany": "",
+        "TypeObject": "предприятие быстрого обслуживания",
+        "AdmArea": "Юго-Восточный административный округ",
+        "District": "район Текстильщики",
+        "Address": "город Москва, улица Юных Ленинцев, дом 10/15, корпус 1",
+        "PublicPhone": [
+            {
+                "PublicPhone": "нет телефона"
+            }
+        ],
+        "SeatsCount": 8,
+        "SocialPrivileges": "нет",
+        "Longitude_WGS84": "37.7393020000000090",
+        "Latitude_WGS84": "55.6986977408179200",
+        "geoData": {
+            "coordinates": [
+                37.739302,
+                55.6986977408179
+            ],
+            "type": "Point"
+        }
+    },
+    {
+        "ID": "00179570",
+        "Name": "Выпечка",
+        "global_id": 905402115,
+        "IsNetObject": "нет",
+        "OperatingCompany": "",
+        "TypeObject": "предприятие быстрого обслуживания",
+        "AdmArea": "Северо-Восточный административный округ",
+        "District": "район Лианозово",
+        "Address": "город Москва, Псковская улица, дом 2А",
+        "PublicPhone": [
+            {
+                "PublicPhone": "(910) 453-36-66"
+            }
+        ],
+        "SeatsCount": 7,
+        "SocialPrivileges": "нет",
+        "Longitude_WGS84": "37.5546602578254390",
+        "Latitude_WGS84": "55.9020971775109960",
+        "geoData": {
+            "coordinates": [
+                37.5546602578254,
+                55.902097177511
+            ],
+            "type": "Point"
+        }
+    },
+    {
+        "ID": "00229638",
+        "Name": "ONE BUCKS COFFEE",
+        "global_id": 1026863111,
+        "IsNetObject": "нет",
+        "OperatingCompany": "",
+        "TypeObject": "кафетерий",
+        "AdmArea": "Центральный административный округ",
+        "District": "Тверской район",
+        "Address": "город Москва, Цветной бульвар, дом 17",
+        "PublicPhone": [
+            {
+                "PublicPhone": "(495) 005-54-39"
+            }
+        ],
+        "SeatsCount": 0,
+        "SocialPrivileges": "нет",
+        "Longitude_WGS84": "37.6061590000000050",
+        "Latitude_WGS84": "55.7638167596826760",
+        "geoData": {
+            "coordinates": [
+                37.606159,
+                55.7638167596827
+            ],
+            "type": "Point"
+        }
+    },
+    {
+        "ID": "00200498",
+        "Name": "Сити Пицца",
+        "global_id": 918059045,
+        "IsNetObject": "да",
+        "OperatingCompany": "Сити Пицца",
+        "TypeObject": "кафе",
+        "AdmArea": "Северо-Восточный административный округ",
+        "District": "Бабушкинский район",
+        "Address": "город Москва, Енисейская улица, дом 5",
+        "PublicPhone": [
+            {
+                "PublicPhone": "(495) 925-33-33"
+            }
+        ],
+        "SeatsCount": 12,
+        "SocialPrivileges": "нет",
+        "Longitude_WGS84": "37.6598959999999960",
+        "Latitude_WGS84": "55.8587687873856140",
+        "geoData": {
+            "coordinates": [
+                37.659896,
+                55.8587687873856
+            ],
+            "type": "Point"
+        }
+    },
+    {
+        "ID": "000077504",
+        "Name": "Макдоналдс",
+        "global_id": 637550225,
+        "IsNetObject": "да",
+        "OperatingCompany": "Макдоналдс",
+        "TypeObject": "ресторан",
+        "AdmArea": "Новомосковский административный округ",
+        "District": "поселение Сосенское",
+        "Address": "город Москва, поселение Сосенское, ж/к \"Дубровка\", Сосновая улица, дом 15",
+        "PublicPhone": [
+            {
+                "PublicPhone": "(495) 225-37-83"
+            }
+        ],
+        "SeatsCount": 45,
+        "SocialPrivileges": "нет",
+        "Longitude_WGS84": "37.4495250000000000",
+        "Latitude_WGS84": "55.5702630000000000",
+        "geoData": {
+            "coordinates": [
+                37.449525,
+                55.570263
+            ],
+            "type": "Point"
+        }
+    },
+    {
+        "ID": "000026172",
+        "Name": "ЭКЛЕ",
+        "global_id": 637417914,
+        "IsNetObject": "нет",
+        "OperatingCompany": "",
+        "TypeObject": "ресторан",
+        "AdmArea": "Западный административный округ",
+        "District": "район Внуково",
+        "Address": "город Москва, Октябрьская улица, дом 5",
+        "PublicPhone": [
+            {
+                "PublicPhone": "(495) 688-85-73"
+            }
+        ],
+        "SeatsCount": 30,
+        "SocialPrivileges": "нет",
+        "Longitude_WGS84": "37.2125532243228320",
+        "Latitude_WGS84": "55.6115409467235580",
+        "geoData": {
+            "coordinates": [
+                37.2125532243228,
+                55.6115409467236
+            ],
+            "type": "Point"
+        }
+    },
+    {
+        "ID": "00312340",
+        "Name": "Пекарня «Малина»",
+        "global_id": 1136381012,
+        "IsNetObject": "нет",
+        "OperatingCompany": "",
+        "TypeObject": "кафетерий",
+        "AdmArea": "Южный административный округ",
+        "District": "район Орехово-Борисово Северное",
+        "Address": "город Москва, улица Маршала Захарова, дом 3",
+        "PublicPhone": [
+            {
+                "PublicPhone": "(916) 483-02-80"
+            }
+        ],
+        "SeatsCount": 15,
+        "SocialPrivileges": "нет",
+        "Longitude_WGS84": "37.7066090000000000",
+        "Latitude_WGS84": "55.6227207189457500",
+        "geoData": {
+            "coordinates": [
+                37.706609,
+                55.6227207189458
+            ],
+            "type": "Point"
+        }
+    },
+    {
+        "ID": "00160646",
+        "Name": "Пекарня Хлебобулочная Шаурма на углях",
+        "global_id": 832187457,
+        "IsNetObject": "нет",
+        "OperatingCompany": "",
+        "TypeObject": "предприятие быстрого обслуживания",
+        "AdmArea": "Южный административный округ",
+        "District": "район Орехово-Борисово Южное",
+        "Address": "город Москва, Воронежская улица, дом 16",
+        "PublicPhone": [
+            {
+                "PublicPhone": "нет телефона"
+            }
+        ],
+        "SeatsCount": 0,
+        "SocialPrivileges": "нет",
+        "Longitude_WGS84": "37.7325314621321370",
+        "Latitude_WGS84": "55.6099302691440730",
+        "geoData": {
+            "coordinates": [
+                37.7325314621321,
+                55.6099302691441
+            ],
+            "type": "Point"
+        }
+    },
+    {
+        "ID": "00185567",
+        "Name": "Metafora Bar",
+        "global_id": 905401384,
+        "IsNetObject": "нет",
+        "OperatingCompany": "",
+        "TypeObject": "бар",
+        "AdmArea": "Центральный административный округ",
+        "District": "Басманный район",
+        "Address": "город Москва, улица Маросейка, дом 6-8, строение 1",
+        "PublicPhone": [
+            {
+                "PublicPhone": "(926) 074-61-90"
+            }
+        ],
+        "SeatsCount": 75,
+        "SocialPrivileges": "нет",
+        "Longitude_WGS84": "37.6346020000000150",
+        "Latitude_WGS84": "55.7572007577610830",
+        "geoData": {
+            "coordinates": [
+                37.634602,
+                55.7572007577611
+            ],
+            "type": "Point"
+        }
+    },
+    {
+        "ID": "00188860",
+        "Name": "Кафе",
+        "global_id": 905400384,
+        "IsNetObject": "нет",
+        "OperatingCompany": "",
+        "TypeObject": "кафе",
+        "AdmArea": "Троицкий административный округ",
+        "District": "поселение Роговское",
+        "Address": "город Москва, поселение Роговское, деревня Каменка, Центральная улица, дом 25, строение 2",
+        "PublicPhone": [
+            {
+                "PublicPhone": "(960) 519-61-53"
+            }
+        ],
+        "SeatsCount": 12,
+        "SocialPrivileges": "нет",
+        "Longitude_WGS84": "36.9852729999999920",
+        "Latitude_WGS84": "55.2169996046710240",
+        "geoData": {
+            "coordinates": [
+                36.985273,
+                55.216999604671
+            ],
+            "type": "Point"
+        }
+    },
+    {
+        "ID": "00293020",
+        "Name": "Coffee Way",
+        "global_id": 1089379221,
+        "IsNetObject": "нет",
+        "OperatingCompany": "",
+        "TypeObject": "кафетерий",
+        "AdmArea": "Южный административный округ",
+        "District": "район Чертаново Центральное",
+        "Address": "город Москва, Варшавское шоссе, дом 129, корпус 2",
+        "PublicPhone": [
+            {
+                "PublicPhone": "(495) 318-55-99"
+            }
+        ],
+        "SeatsCount": 2,
+        "SocialPrivileges": "нет",
+        "Longitude_WGS84": "37.6119480000000050",
+        "Latitude_WGS84": "55.6123167159622650",
+        "geoData": {
+            "coordinates": [
+                37.611948,
+                55.6123167159623
+            ],
+            "type": "Point"
+        }
+    },
+    {
+        "ID": "00306541",
+        "Name": "Масала Хаус",
+        "global_id": 1125493020,
+        "IsNetObject": "нет",
+        "OperatingCompany": "",
+        "TypeObject": "закусочная",
+        "AdmArea": "Центральный административный округ",
+        "District": "Тверской район",
+        "Address": "город Москва, Новослободская улица, дом 4",
+        "PublicPhone": [
+            {
+                "PublicPhone": "(495) 989-49-98"
+            }
+        ],
+        "SeatsCount": 8,
+        "SocialPrivileges": "нет",
+        "Longitude_WGS84": "37.6013670000000030",
+        "Latitude_WGS84": "55.7800307643968130",
+        "geoData": {
+            "coordinates": [
+                37.601367,
+                55.7800307643968
+            ],
+            "type": "Point"
+        }
+    },
+    {
+        "ID": "00306468",
+        "Name": "One Price Coffee",
+        "global_id": 1125492960,
+        "IsNetObject": "нет",
+        "OperatingCompany": "",
+        "TypeObject": "кафетерий",
+        "AdmArea": "Центральный административный округ",
+        "District": "Басманный район",
+        "Address": "город Москва, Верхний Сусальный переулок, дом 4/6, строение 3",
+        "PublicPhone": [
+            {
+                "PublicPhone": "(495) 015-31-50"
+            }
+        ],
+        "SeatsCount": 0,
+        "SocialPrivileges": "нет",
+        "Longitude_WGS84": "37.6606060000000010",
+        "Latitude_WGS84": "55.7553317572184350",
+        "geoData": {
+            "coordinates": [
+                37.660606,
+                55.7553317572184
+            ],
+            "type": "Point"
+        }
+    },
+    {
+        "ID": "000079931",
+        "Name": "Ресторан «Мичуринский»",
+        "global_id": 637550117,
+        "IsNetObject": "нет",
+        "OperatingCompany": "",
+        "TypeObject": "кафе",
+        "AdmArea": "Новомосковский административный округ",
+        "District": "поселение Внуковское",
+        "Address": "поселение Внуковское, посёлок ДСК \"Мичуринец\", улица Энгельса, дом 10А",
+        "PublicPhone": [
+            {
+                "PublicPhone": "(905) 567-89-75"
+            }
+        ],
+        "SeatsCount": 30,
+        "SocialPrivileges": "нет",
+        "Longitude_WGS84": "37.3292311700000000",
+        "Latitude_WGS84": "55.6475723400000000",
+        "geoData": {
+            "coordinates": [
+                37.32923117,
+                55.64757234
+            ],
+            "type": "Point"
+        }
+    },
+    {
+        "ID": "00310043",
+        "Name": "Coffeebrain",
+        "global_id": 1133073268,
+        "IsNetObject": "нет",
+        "OperatingCompany": "",
+        "TypeObject": "кафетерий",
+        "AdmArea": "Центральный административный округ",
+        "District": "район Замоскворечье",
+        "Address": "город Москва, улица Бахрушина, дом 28",
+        "PublicPhone": [
+            {
+                "PublicPhone": "(916) 651-20-50"
+            }
+        ],
+        "SeatsCount": 12,
+        "SocialPrivileges": "нет",
+        "Longitude_WGS84": "37.6368900000000010",
+        "Latitude_WGS84": "55.7324397505792530",
+        "geoData": {
+            "coordinates": [
+                37.63689,
+                55.7324397505793
+            ],
+            "type": "Point"
+        }
+    },
+    {
+        "ID": "00140542",
+        "Name": "Пекарня-Бистро",
+        "global_id": 637416645,
+        "IsNetObject": "нет",
+        "OperatingCompany": "",
+        "TypeObject": "кафе",
+        "AdmArea": "Центральный административный округ",
+        "District": "район Замоскворечье",
+        "Address": "город Москва, Новокузнецкая улица, дом 13, строение 1",
+        "PublicPhone": [
+            {
+                "PublicPhone": "(925) 514-86-06"
+            }
+        ],
+        "SeatsCount": 20,
+        "SocialPrivileges": "нет",
+        "Longitude_WGS84": "37.6317846297368490",
+        "Latitude_WGS84": "55.7374168366783640",
+        "geoData": {
+            "coordinates": [
+                37.6317846297368,
+                55.7374168366784
+            ],
+            "type": "Point"
+        }
+    },
+    {
+        "ID": "00304472",
+        "Name": "Кафе Тбилисоба",
+        "global_id": 1124855239,
+        "IsNetObject": "нет",
+        "OperatingCompany": "",
+        "TypeObject": "кафе",
+        "AdmArea": "Новомосковский административный округ",
+        "District": "поселение Сосенское",
+        "Address": "Российская Федерация, город Москва, внутригородская территория поселение Сосенское, посёлок Коммунарка, улица Александры Монаховой, дом 88, корпус 3",
+        "PublicPhone": [
+            {
+                "PublicPhone": "(991) 745-54-62"
+            }
+        ],
+        "SeatsCount": 16,
+        "SocialPrivileges": "нет",
+        "Longitude_WGS84": "37.4846080000000090",
+        "Latitude_WGS84": "55.5437386963663330",
+        "geoData": {
+            "coordinates": [
+                37.484608,
+                55.5437386963663
+            ],
+            "type": "Point"
+        }
+    },
+    {
+        "ID": "00342676",
+        "Name": "ТОПЧИК",
+        "global_id": 2362412557,
+        "IsNetObject": "нет",
+        "OperatingCompany": "",
+        "TypeObject": "кафе",
+        "AdmArea": "Центральный административный округ",
+        "District": "район Хамовники",
+        "Address": "город Москва, Большой Саввинский переулок, дом 11",
+        "PublicPhone": [
+            {
+                "PublicPhone": "(926) 700-07-30"
+            }
+        ],
+        "SeatsCount": 20,
+        "SocialPrivileges": "нет",
+        "Longitude_WGS84": "37.5678130000000080",
+        "Latitude_WGS84": "55.7341667510796480",
+        "geoData": {
+            "coordinates": [
+                37.567813,
+                55.7341667510796
+            ],
+            "type": "Point"
+        }
+    },
+    {
+        "ID": "00186691",
+        "Name": "Данкин Донатс Dunkin Donuts",
+        "global_id": 905407584,
+        "IsNetObject": "да",
+        "OperatingCompany": "Данкин Донатс",
+        "TypeObject": "кафе",
+        "AdmArea": "Центральный административный округ",
+        "District": "Пресненский район",
+        "Address": "город Москва, Пресненская набережная, дом 2",
+        "PublicPhone": [
+            {
+                "PublicPhone": "нет телефона"
+            },
+            {
+                "PublicPhone": "нет телефона"
+            }
+        ],
+        "SeatsCount": 10,
+        "SocialPrivileges": "нет",
+        "Longitude_WGS84": "37.5400060000000050",
+        "Latitude_WGS84": "55.7491977554381040",
+        "geoData": {
+            "coordinates": [
+                37.540006,
+                55.7491977554381
+            ],
+            "type": "Point"
+        }
+    },
+    {
+        "ID": "00338429",
+        "Name": "Буфет",
+        "global_id": 2302692394,
+        "IsNetObject": "нет",
+        "OperatingCompany": "",
+        "TypeObject": "буфет",
+        "AdmArea": "Северо-Западный административный округ",
+        "District": "район Митино",
+        "Address": "город Москва, Пятницкое шоссе, дом 18",
+        "PublicPhone": [
+            {
+                "PublicPhone": "(495) 794-45-50"
+            }
+        ],
+        "SeatsCount": 4,
+        "SocialPrivileges": "нет",
+        "Longitude_WGS84": "37.3828919999999840",
+        "Latitude_WGS84": "55.8442977831486120",
+        "geoData": {
+            "coordinates": [
+                37.382892,
+                55.8442977831486
+            ],
+            "type": "Point"
+        }
+    },
+    {
+        "ID": "00208286",
+        "Name": "Кафе «Plaza Garden»",
+        "global_id": 930778370,
+        "IsNetObject": "нет",
+        "OperatingCompany": "",
+        "TypeObject": "кафе",
+        "AdmArea": "Центральный административный округ",
+        "District": "Пресненский район",
+        "Address": "город Москва, Краснопресненская набережная, дом 12",
+        "PublicPhone": [
+            {
+                "PublicPhone": "(495) 258-13-11"
+            }
+        ],
+        "SeatsCount": 53,
+        "SocialPrivileges": "нет",
+        "Longitude_WGS84": "37.5575210000000010",
+        "Latitude_WGS84": "55.7547067570369780",
+        "geoData": {
+            "coordinates": [
+                37.557521,
+                55.754706757037
+            ],
+            "type": "Point"
+        }
+    },
+    {
+        "ID": "00296382",
+        "Name": "МОРЕКОФЕОКЕАН BY ERWIN",
+        "global_id": 1102957708,
+        "IsNetObject": "нет",
+        "OperatingCompany": "",
+        "TypeObject": "ресторан",
+        "AdmArea": "Западный административный округ",
+        "District": "район Дорогомилово",
+        "Address": "город Москва, площадь Киевского Вокзала, дом 2",
+        "PublicPhone": [
+            {
+                "PublicPhone": "(925) 099-22-32"
+            }
+        ],
+        "SeatsCount": 25,
+        "SocialPrivileges": "нет",
+        "Longitude_WGS84": "37.5655769999999980",
+        "Latitude_WGS84": "55.7445977541036510",
+        "geoData": {
+            "coordinates": [
+                37.565577,
+                55.7445977541037
+            ],
+            "type": "Point"
+        }
+    },
+    {
+        "ID": "00323221",
+        "Name": "МСК Кальян",
+        "global_id": 1146541924,
+        "IsNetObject": "нет",
+        "OperatingCompany": "",
+        "TypeObject": "кафе",
+        "AdmArea": "Западный административный округ",
+        "District": "район Дорогомилово",
+        "Address": "город Москва, Бережковская набережная, дом 36",
+        "PublicPhone": [
+            {
+                "PublicPhone": "нет телефона"
+            }
+        ],
+        "SeatsCount": 35,
+        "SocialPrivileges": "нет",
+        "Longitude_WGS84": "37.5436500000000000",
+        "Latitude_WGS84": "55.7342547511051480",
+        "geoData": {
+            "coordinates": [
+                37.54365,
+                55.7342547511051
+            ],
+            "type": "Point"
+        }
+    },
+    {
+        "ID": "00209095",
+        "Name": "YOKOSO",
+        "global_id": 930777643,
+        "IsNetObject": "нет",
+        "OperatingCompany": "",
+        "TypeObject": "предприятие быстрого обслуживания",
+        "AdmArea": "Юго-Восточный административный округ",
+        "District": "район Марьино",
+        "Address": "город Москва, улица Перерва, дом 43, корпус 1",
+        "PublicPhone": [
+            {
+                "PublicPhone": "нет телефона"
+            }
+        ],
+        "SeatsCount": 0,
+        "SocialPrivileges": "нет",
+        "Longitude_WGS84": "37.7497249999999980",
+        "Latitude_WGS84": "55.6596997295726230",
+        "geoData": {
+            "coordinates": [
+                37.749725,
+                55.6596997295726
+            ],
+            "type": "Point"
+        }
+    },
+    {
+        "ID": "00338649",
+        "Name": "Coffee",
+        "global_id": 2302707155,
+        "IsNetObject": "нет",
+        "OperatingCompany": "",
+        "TypeObject": "кафетерий",
+        "AdmArea": "Северо-Восточный административный округ",
+        "District": "район Северный",
+        "Address": "город Москва, Дмитровское шоссе, дом 169, корпус 6",
+        "PublicPhone": [
+            {
+                "PublicPhone": "нет телефона"
+            }
+        ],
+        "SeatsCount": 0,
+        "SocialPrivileges": "нет",
+        "Longitude_WGS84": "37.5403689999999840",
+        "Latitude_WGS84": "55.9292988081133230",
+        "geoData": {
+            "coordinates": [
+                37.540369,
+                55.9292988081133
+            ],
+            "type": "Point"
+        }
+    },
+    {
+        "ID": "00266876",
+        "Name": "Vibes",
+        "global_id": 1034727957,
+        "IsNetObject": "нет",
+        "OperatingCompany": "",
+        "TypeObject": "кафе",
+        "AdmArea": "Юго-Западный административный округ",
+        "District": "Обручевский район",
+        "Address": "город Москва, улица Миклухо-Маклая, дом 6",
+        "PublicPhone": [
+            {
+                "PublicPhone": "(964) 642-90-45"
+            }
+        ],
+        "SeatsCount": 10,
+        "SocialPrivileges": "нет",
+        "Longitude_WGS84": "37.4991190000000070",
+        "Latitude_WGS84": "55.6522247274216540",
+        "geoData": {
+            "coordinates": [
+                37.499119,
+                55.6522247274217
+            ],
+            "type": "Point"
+        }
+    },
+    {
+        "ID": "000019711",
+        "Name": "КАФЕ",
+        "global_id": 637540839,
+        "IsNetObject": "нет",
+        "OperatingCompany": "",
+        "TypeObject": "кафе",
+        "AdmArea": "Западный административный округ",
+        "District": "район Тропарёво-Никулино",
+        "Address": "город Москва, проспект Вернадского, дом 88",
+        "PublicPhone": [
+            {
+                "PublicPhone": "(495) 430-14-29"
+            }
+        ],
+        "SeatsCount": 10,
+        "SocialPrivileges": "нет",
+        "Longitude_WGS84": "37.4760340000000000",
+        "Latitude_WGS84": "55.6580240000000000",
+        "geoData": {
+            "coordinates": [
+                37.476034,
+                55.658024
+            ],
+            "type": "Point"
+        }
+    },
+    {
+        "ID": "00342566",
+        "Name": "Right Hops",
+        "global_id": 2361492746,
+        "IsNetObject": "нет",
+        "OperatingCompany": "",
+        "TypeObject": "бар",
+        "AdmArea": "Северный административный округ",
+        "District": "Хорошёвский район",
+        "Address": "Российская Федерация, город Москва, внутригородская территория муниципальный округ Хорошевский, Ходынский бульвар, дом 4",
+        "PublicPhone": [
+            {
+                "PublicPhone": "нет телефона"
+            }
+        ],
+        "SeatsCount": 0,
+        "SocialPrivileges": "нет",
+        "Longitude_WGS84": "37.5298950000000030",
+        "Latitude_WGS84": "55.7904517674302270",
+        "geoData": {
+            "coordinates": [
+                37.529895,
+                55.7904517674302
+            ],
+            "type": "Point"
+        }
+    },
+    {
+        "ID": "00278440",
+        "Name": "Суши Шоп",
+        "global_id": 1061825057,
+        "IsNetObject": "нет",
+        "OperatingCompany": "",
+        "TypeObject": "кафе",
+        "AdmArea": "Юго-Восточный административный округ",
+        "District": "район Марьино",
+        "Address": "город Москва, Мячковский бульвар, дом 3",
+        "PublicPhone": [
+            {
+                "PublicPhone": "(495) 933-34-35"
+            }
+        ],
+        "SeatsCount": 10,
+        "SocialPrivileges": "нет",
+        "Longitude_WGS84": "37.7534920000000230",
+        "Latitude_WGS84": "55.6581867291371570",
+        "geoData": {
+            "coordinates": [
+                37.753492,
+                55.6581867291372
+            ],
+            "type": "Point"
+        }
+    },
+    {
+        "ID": "00245750",
+        "Name": "ВИОЛИНО",
+        "global_id": 1026821625,
+        "IsNetObject": "нет",
+        "OperatingCompany": "",
+        "TypeObject": "кафе",
+        "AdmArea": "Западный административный округ",
+        "District": "район Раменки",
+        "Address": "город Москва, улица Столетова, дом 7",
+        "PublicPhone": [
+            {
+                "PublicPhone": "(495) 766-46-00"
+            }
+        ],
+        "SeatsCount": 15,
+        "SocialPrivileges": "нет",
+        "Longitude_WGS84": "37.5028599999999910",
+        "Latitude_WGS84": "55.7039777423434540",
+        "geoData": {
+            "coordinates": [
+                37.50286,
+                55.7039777423435
+            ],
+            "type": "Point"
+        }
+    },
+    {
+        "ID": "00340136",
+        "Name": "Max Бургер бар",
+        "global_id": 2345311194,
+        "IsNetObject": "нет",
+        "OperatingCompany": "",
+        "TypeObject": "кафе",
+        "AdmArea": "Новомосковский административный округ",
+        "District": "поселение Сосенское",
+        "Address": "Российская Федерация, город Москва, внутригородская территория поселение Сосенское, Скандинавский бульвар, дом 6",
+        "PublicPhone": [
+            {
+                "PublicPhone": "(926) 555-02-89"
+            }
+        ],
+        "SeatsCount": 10,
+        "SocialPrivileges": "нет",
+        "Longitude_WGS84": "37.4971319999999930",
+        "Latitude_WGS84": "55.5656317026089890",
+        "geoData": {
+            "coordinates": [
+                37.497132,
+                55.565631702609
+            ],
+            "type": "Point"
+        }
+    },
+    {
+        "ID": "000026623",
+        "Name": "Meat and More",
+        "global_id": 637549372,
+        "IsNetObject": "нет",
+        "OperatingCompany": "",
+        "TypeObject": "ресторан",
+        "AdmArea": "Центральный административный округ",
+        "District": "Басманный район",
+        "Address": "город Москва, улица Покровка, дом 40, строение 2",
+        "PublicPhone": [
+            {
+                "PublicPhone": "(495) 229-57-78"
+            }
+        ],
+        "SeatsCount": 90,
+        "SocialPrivileges": "нет",
+        "Longitude_WGS84": "37.6531573759137000",
+        "Latitude_WGS84": "55.7619417176562000",
+        "geoData": {
+            "coordinates": [
+                37.6531573759137,
+                55.7619417176562
+            ],
+            "type": "Point"
+        }
+    },
+    {
+        "ID": "00311503",
+        "Name": "Кулинарная лавка братьев Караваевых",
+        "global_id": 1836408361,
+        "IsNetObject": "да",
+        "OperatingCompany": "Кулинарная лавка братьев Караваевых",
+        "TypeObject": "кафетерий",
+        "AdmArea": "Центральный административный округ",
+        "District": "Тверской район",
+        "Address": "Российская Федерация, город Москва, внутригородская территория муниципальный округ Тверской, Сущёвская улица, дом 27, строение 1",
+        "PublicPhone": [
+            {
+                "PublicPhone": "(495) 967-67-94"
+            }
+        ],
+        "SeatsCount": 2,
+        "SocialPrivileges": "нет",
+        "Longitude_WGS84": "37.6012430000000110",
+        "Latitude_WGS84": "55.7833467653617560",
+        "geoData": {
+            "coordinates": [
+                37.601243,
+                55.7833467653618
+            ],
+            "type": "Point"
+        }
+    },
+    {
+        "ID": "00310350",
+        "Name": "White Star 360",
+        "global_id": 1133073444,
+        "IsNetObject": "нет",
+        "OperatingCompany": "",
+        "TypeObject": "бар",
+        "AdmArea": "Восточный административный округ",
+        "District": "район Косино-Ухтомский",
+        "Address": "город Москва, Салтыковская улица, дом 8Б",
+        "PublicPhone": [
+            {
+                "PublicPhone": "(958) 100-92-59"
+            }
+        ],
+        "SeatsCount": 30,
+        "SocialPrivileges": "нет",
+        "Longitude_WGS84": "37.8623590000000050",
+        "Latitude_WGS84": "55.7312687502399770",
+        "geoData": {
+            "coordinates": [
+                37.862359,
+                55.73126875024
+            ],
+            "type": "Point"
+        }
+    },
+    {
+        "ID": "00289643",
+        "Name": "Рыбное место",
+        "global_id": 1080933518,
+        "IsNetObject": "нет",
+        "OperatingCompany": "",
+        "TypeObject": "ресторан",
+        "AdmArea": "Центральный административный округ",
+        "District": "Басманный район",
+        "Address": "город Москва, Нижняя Сыромятническая улица, дом 11, строение 52",
+        "PublicPhone": [
+            {
+                "PublicPhone": "нет телефона"
+            }
+        ],
+        "SeatsCount": 36,
+        "SocialPrivileges": "нет",
+        "Longitude_WGS84": "37.6694019999999980",
+        "Latitude_WGS84": "55.7531987565992400",
+        "geoData": {
+            "coordinates": [
+                37.669402,
+                55.7531987565992
+            ],
+            "type": "Point"
+        }
+    },
+    {
+        "ID": "00218385",
+        "Name": "Coffee moments",
+        "global_id": 930778590,
+        "IsNetObject": "нет",
+        "OperatingCompany": "",
+        "TypeObject": "кафетерий",
+        "AdmArea": "Северный административный округ",
+        "District": "Войковский район",
+        "Address": "город Москва, Ленинградское шоссе, дом 16А, строение 8",
+        "PublicPhone": [
+            {
+                "PublicPhone": "(916) 185-36-63"
+            }
+        ],
+        "SeatsCount": 0,
+        "SocialPrivileges": "нет",
+        "Longitude_WGS84": "37.4970569999999980",
+        "Latitude_WGS84": "55.8230777769452900",
+        "geoData": {
+            "coordinates": [
+                37.497057,
+                55.8230777769453
+            ],
+            "type": "Point"
+        }
+    },
+    {
+        "ID": "00226899",
+        "Name": "Farsi",
+        "global_id": 1026851782,
+        "IsNetObject": "нет",
+        "OperatingCompany": "",
+        "TypeObject": "ресторан",
+        "AdmArea": "Западный административный округ",
+        "District": "район Дорогомилово",
+        "Address": "город Москва, Кутузовский проспект, дом 2/1, строение 1",
+        "PublicPhone": [
+            {
+                "PublicPhone": "(499) 243-20-20"
+            }
+        ],
+        "SeatsCount": 90,
+        "SocialPrivileges": "нет",
+        "Longitude_WGS84": "37.5658240000000060",
+        "Latitude_WGS84": "55.7512147560234230",
+        "geoData": {
+            "coordinates": [
+                37.565824,
+                55.7512147560234
+            ],
+            "type": "Point"
+        }
+    },
+    {
+        "ID": "00275935",
+        "Name": "Шаурма",
+        "global_id": 1046154492,
+        "IsNetObject": "нет",
+        "OperatingCompany": "",
+        "TypeObject": "магазин (отдел кулинарии)",
+        "AdmArea": "Восточный административный округ",
+        "District": "район Богородское",
+        "Address": "город Москва, Ивантеевская улица, дом 23, строение 2",
+        "PublicPhone": [
+            {
+                "PublicPhone": "нет телефона"
+            }
+        ],
+        "SeatsCount": 0,
+        "SocialPrivileges": "нет",
+        "Longitude_WGS84": "37.7312330000000100",
+        "Latitude_WGS84": "55.8158957748483860",
+        "geoData": {
+            "coordinates": [
+                37.731233,
+                55.8158957748484
+            ],
+            "type": "Point"
+        }
+    },
+    {
+        "ID": "000020043",
+        "Name": "Якитория",
+        "global_id": 637535561,
+        "IsNetObject": "да",
+        "OperatingCompany": "Якитория",
+        "TypeObject": "кафе",
+        "AdmArea": "Западный административный округ",
+        "District": "район Филёвский Парк",
+        "Address": "город Москва, Багратионовский проезд, дом 7, корпус 20А",
+        "PublicPhone": [
+            {
+                "PublicPhone": "(495) 737-49-26"
+            }
+        ],
+        "SeatsCount": 80,
+        "SocialPrivileges": "нет",
+        "Longitude_WGS84": "37.5028629999999980",
+        "Latitude_WGS84": "55.7427210000000030",
+        "geoData": {
+            "coordinates": [
+                37.502863,
+                55.742721
+            ],
+            "type": "Point"
+        }
+    },
+    {
+        "ID": "00242845",
+        "Name": "Кофейня",
+        "global_id": 1026862968,
+        "IsNetObject": "нет",
+        "OperatingCompany": "",
+        "TypeObject": "кафе",
+        "AdmArea": "Западный административный округ",
+        "District": "район Фили-Давыдково",
+        "Address": "город Москва, улица Ивана Франко, дом 8",
+        "PublicPhone": [
+            {
+                "PublicPhone": "(499) 146-23-64"
+            }
+        ],
+        "SeatsCount": 20,
+        "SocialPrivileges": "нет",
+        "Longitude_WGS84": "37.4494240000000000",
+        "Latitude_WGS84": "55.7276457491905790",
+        "geoData": {
+            "coordinates": [
+                37.449424,
+                55.7276457491906
+            ],
+            "type": "Point"
+        }
+    },
+    {
+        "ID": "00338330",
+        "Name": "Север Метрополь",
+        "global_id": 2302684658,
+        "IsNetObject": "нет",
+        "OperatingCompany": "",
+        "TypeObject": "кафетерий",
+        "AdmArea": "Северный административный округ",
+        "District": "район Сокол",
+        "Address": "город Москва, Ленинградский проспект, дом 75, корпус 1",
+        "PublicPhone": [
+            {
+                "PublicPhone": "(812) 603-41-90"
+            }
+        ],
+        "SeatsCount": 10,
+        "SocialPrivileges": "нет",
+        "Longitude_WGS84": "37.5123099999999920",
+        "Latitude_WGS84": "55.8049627716588500",
+        "geoData": {
+            "coordinates": [
+                37.51231,
+                55.8049627716589
+            ],
+            "type": "Point"
+        }
+    },
+    {
+        "ID": "00278830",
+        "Name": "Веранда 14.1",
+        "global_id": 2361346999,
+        "IsNetObject": "нет",
+        "OperatingCompany": "",
+        "TypeObject": "кафе",
+        "AdmArea": "Центральный административный округ",
+        "District": "Тверской район",
+        "Address": "Российская Федерация, город Москва, внутригородская территория муниципальный округ Тверской, Лесная улица, дом 20, строение 6",
+        "PublicPhone": [
+            {
+                "PublicPhone": "(905) 720-42-40"
+            }
+        ],
+        "SeatsCount": 42,
+        "SocialPrivileges": "нет",
+        "Longitude_WGS84": "37.5909920000000070",
+        "Latitude_WGS84": "55.7797337643104070",
+        "geoData": {
+            "coordinates": [
+                37.590992,
+                55.7797337643104
+            ],
+            "type": "Point"
+        }
+    },
+    {
+        "ID": "00346863",
+        "Name": "Донер Гирос Try'D",
+        "global_id": 2365642774,
+        "IsNetObject": "нет",
+        "OperatingCompany": "",
+        "TypeObject": "предприятие быстрого обслуживания",
+        "AdmArea": "Восточный административный округ",
+        "District": "район Соколиная Гора",
+        "Address": "город Москва, 2-й Вольный переулок, дом 11",
+        "PublicPhone": [
+            {
+                "PublicPhone": "нет телефона"
+            }
+        ],
+        "SeatsCount": 2,
+        "SocialPrivileges": "нет",
+        "Longitude_WGS84": "37.7393439999999960",
+        "Latitude_WGS84": "55.7738897626105440",
+        "geoData": {
+            "coordinates": [
+                37.739344,
+                55.7738897626105
+            ],
+            "type": "Point"
+        }
+    },
+    {
+        "ID": "00129804",
+        "Name": "Лора Крафт",
+        "global_id": 637504217,
+        "IsNetObject": "нет",
+        "OperatingCompany": "",
+        "TypeObject": "бар",
+        "AdmArea": "Центральный административный округ",
+        "District": "Басманный район",
+        "Address": "город Москва, улица Покровка, дом 1/13/6, строение 2",
+        "PublicPhone": [
+            {
+                "PublicPhone": "(929) 681-58-78"
+            }
+        ],
+        "SeatsCount": 50,
+        "SocialPrivileges": "нет",
+        "Longitude_WGS84": "37.6390240000000000",
+        "Latitude_WGS84": "55.7586150000000000",
+        "geoData": {
+            "coordinates": [
+                37.639024,
+                55.758615
+            ],
+            "type": "Point"
+        }
+    },
+    {
+        "ID": "00257137",
+        "Name": "Буханка",
+        "global_id": 1026894405,
+        "IsNetObject": "да",
+        "OperatingCompany": "Буханка",
+        "TypeObject": "буфет",
+        "AdmArea": "Западный административный округ",
+        "District": "район Солнцево",
+        "Address": "город Москва, Боровское шоссе, дом 2, корпус 4",
+        "PublicPhone": [
+            {
+                "PublicPhone": "нет телефона"
+            }
+        ],
+        "SeatsCount": 12,
+        "SocialPrivileges": "нет",
+        "Longitude_WGS84": "37.4213480000000020",
+        "Latitude_WGS84": "55.6619627302241110",
+        "geoData": {
+            "coordinates": [
+                37.421348,
+                55.6619627302241
+            ],
+            "type": "Point"
+        }
+    },
+    {
+        "ID": "00346824",
+        "Name": "Больше чем кофе",
+        "global_id": 2365642762,
+        "IsNetObject": "нет",
+        "OperatingCompany": "",
+        "TypeObject": "кафе",
+        "AdmArea": "Центральный административный округ",
+        "District": "район Якиманка",
+        "Address": "Российская Федерация, город Москва, внутригородская территория муниципальный округ Якиманка, Донская улица, дом 8",
+        "PublicPhone": [
+            {
+                "PublicPhone": "(909) 974-88-79"
+            }
+        ],
+        "SeatsCount": 2,
+        "SocialPrivileges": "нет",
+        "Longitude_WGS84": "37.6071329999999900",
+        "Latitude_WGS84": "55.7238427480893960",
+        "geoData": {
+            "coordinates": [
+                37.607133,
+                55.7238427480894
+            ],
+            "type": "Point"
+        }
+    },
+    {
+        "ID": "00331330",
+        "Name": "Кофейня Jeffrey's",
+        "global_id": 1836408130,
+        "IsNetObject": "нет",
+        "OperatingCompany": "",
+        "TypeObject": "кафе",
+        "AdmArea": "Южный административный округ",
+        "District": "Даниловский район",
+        "Address": "город Москва, Автозаводская улица, дом 23А, корпус 2",
+        "PublicPhone": [
+            {
+                "PublicPhone": "(905) 787-42-74"
+            }
+        ],
+        "SeatsCount": 10,
+        "SocialPrivileges": "нет",
+        "Longitude_WGS84": "37.6496629999999900",
+        "Latitude_WGS84": "55.7027457419874420",
+        "geoData": {
+            "coordinates": [
+                37.649663,
+                55.7027457419874
+            ],
+            "type": "Point"
+        }
+    },
+    {
+        "ID": "000022220",
+        "Name": "Ухтомская усадьба",
+        "global_id": 637497143,
+        "IsNetObject": "нет",
+        "OperatingCompany": "",
+        "TypeObject": "ресторан",
+        "AdmArea": "Восточный административный округ",
+        "District": "район Косино-Ухтомский",
+        "Address": "город Москва, Лениногорская улица, дом 32, строение 4",
+        "PublicPhone": [
+            {
+                "PublicPhone": "(499) 700-57-04"
+            }
+        ],
+        "SeatsCount": 42,
+        "SocialPrivileges": "нет",
+        "Longitude_WGS84": "37.8652160000000040",
+        "Latitude_WGS84": "55.6991297409427160",
+        "geoData": {
+            "coordinates": [
+                37.865216,
+                55.6991297409427
+            ],
+            "type": "Point"
+        }
+    },
+    {
+        "ID": "000024446",
+        "Name": "Ресторан Ночной дворик",
+        "global_id": 637548474,
+        "IsNetObject": "нет",
+        "OperatingCompany": "",
+        "TypeObject": "ресторан",
+        "AdmArea": "Восточный административный округ",
+        "District": "район Ивановское",
+        "Address": "город Москва, Свободный проспект, дом 2А",
+        "PublicPhone": [
+            {
+                "PublicPhone": "(495) 508-66-20"
+            }
+        ],
+        "SeatsCount": 250,
+        "SocialPrivileges": "нет",
+        "Longitude_WGS84": "37.8218930000000030",
+        "Latitude_WGS84": "55.7660607603347170",
+        "geoData": {
+            "coordinates": [
+                37.821893,
+                55.7660607603347
+            ],
+            "type": "Point"
+        }
+    },
+    {
+        "ID": "00326022",
+        "Name": "Ресторан «Леман»",
+        "global_id": 1266027128,
+        "IsNetObject": "нет",
+        "OperatingCompany": "",
+        "TypeObject": "ресторан",
+        "AdmArea": "Южный административный округ",
+        "District": "район Чертаново Северное",
+        "Address": "город Москва, микрорайон Северное Чертаново, дом 4",
+        "PublicPhone": [
+            {
+                "PublicPhone": "нет телефона"
+            }
+        ],
+        "SeatsCount": 42,
+        "SocialPrivileges": "нет",
+        "Longitude_WGS84": "37.5923045123273810",
+        "Latitude_WGS84": "55.6403886575265570",
+        "geoData": {
+            "coordinates": [
+                37.5923045123274,
+                55.6403886575266
+            ],
+            "type": "Point"
+        }
+    },
+    {
+        "ID": "00331204",
+        "Name": "Пицца Хат",
+        "global_id": 1836408378,
+        "IsNetObject": "да",
+        "OperatingCompany": "Пицца Хат",
+        "TypeObject": "предприятие быстрого обслуживания",
+        "AdmArea": "Северо-Западный административный округ",
+        "District": "район Митино",
+        "Address": "город Москва, Митинская улица, дом 51",
+        "PublicPhone": [
+            {
+                "PublicPhone": "(495) 754-05-05"
+            }
+        ],
+        "SeatsCount": 18,
+        "SocialPrivileges": "нет",
+        "Longitude_WGS84": "37.3518495849811100",
+        "Latitude_WGS84": "55.8525807810755380",
+        "geoData": {
+            "coordinates": [
+                37.3518495849811,
+                55.8525807810755
+            ],
+            "type": "Point"
+        }
+    },
+    {
+        "ID": "00254372",
+        "Name": "Гастробар Wine Zone",
+        "global_id": 1026894368,
+        "IsNetObject": "нет",
+        "OperatingCompany": "",
+        "TypeObject": "бар",
+        "AdmArea": "Западный административный округ",
+        "District": "район Солнцево",
+        "Address": "город Москва, Боровское шоссе, дом 2, корпус 4",
+        "PublicPhone": [
+            {
+                "PublicPhone": "(965) 825-63-52"
+            }
+        ],
+        "SeatsCount": 25,
+        "SocialPrivileges": "нет",
+        "Longitude_WGS84": "37.4169909999999960",
+        "Latitude_WGS84": "55.6614687300818790",
+        "geoData": {
+            "coordinates": [
+                37.416991,
+                55.6614687300819
+            ],
+            "type": "Point"
+        }
+    },
+    {
+        "ID": "00262947",
+        "Name": "Starbucks",
+        "global_id": 1034729074,
+        "IsNetObject": "да",
+        "OperatingCompany": "Starbucks",
+        "TypeObject": "кафе",
+        "AdmArea": "Северный административный округ",
+        "District": "Войковский район",
+        "Address": "город Москва, Ленинградское шоссе, дом 16А, строение 4",
+        "PublicPhone": [
+            {
+                "PublicPhone": "(495) 648-95-84"
+            }
+        ],
+        "SeatsCount": 20,
+        "SocialPrivileges": "нет",
+        "Longitude_WGS84": "37.4972020000000010",
+        "Latitude_WGS84": "55.8234127770431460",
+        "geoData": {
+            "coordinates": [
+                37.497202,
+                55.8234127770431
+            ],
+            "type": "Point"
+        }
+    },
+    {
+        "ID": "00327987",
+        "Name": "Винный Рынок",
+        "global_id": 1266784534,
+        "IsNetObject": "нет",
+        "OperatingCompany": "",
+        "TypeObject": "ресторан",
+        "AdmArea": "Центральный административный округ",
+        "District": "Красносельский район",
+        "Address": "Российская Федерация, город Москва, внутригородская территория муниципальный округ Красносельский, Каланчёвская улица, дом 14, строение 1",
+        "PublicPhone": [
+            {
+                "PublicPhone": "(926) 728-91-53"
+            }
+        ],
+        "SeatsCount": 40,
+        "SocialPrivileges": "нет",
+        "Longitude_WGS84": "37.6491369999999960",
+        "Latitude_WGS84": "55.7769917635127260",
+        "geoData": {
+            "coordinates": [
+                37.649137,
+                55.7769917635127
+            ],
+            "type": "Point"
+        }
+    },
+    {
+        "ID": "000058937",
+        "Name": "Ресторан Ла Делициа",
+        "global_id": 637510756,
+        "IsNetObject": "нет",
+        "OperatingCompany": "",
+        "TypeObject": "ресторан",
+        "AdmArea": "Юго-Западный административный округ",
+        "District": "район Коньково",
+        "Address": "город Москва, Севастопольский проспект, дом 56А",
+        "PublicPhone": [
+            {
+                "PublicPhone": "(495) 330-25-55"
+            }
+        ],
+        "SeatsCount": 157,
+        "SocialPrivileges": "нет",
+        "Longitude_WGS84": "37.5486140000000000",
+        "Latitude_WGS84": "55.6411260000000000",
+        "geoData": {
+            "coordinates": [
+                37.548614,
+                55.641126
+            ],
+            "type": "Point"
+        }
+    },
+    {
+        "ID": "00296417",
+        "Name": "Poke Bowl",
+        "global_id": 1102957721,
+        "IsNetObject": "нет",
+        "OperatingCompany": "",
+        "TypeObject": "кафе",
+        "AdmArea": "Северный административный округ",
+        "District": "Войковский район",
+        "Address": "город Москва, Ленинградское шоссе, дом 16А, строение 4",
+        "PublicPhone": [
+            {
+                "PublicPhone": "(926) 433-93-99"
+            }
+        ],
+        "SeatsCount": 10,
+        "SocialPrivileges": "нет",
+        "Longitude_WGS84": "37.4972020000000010",
+        "Latitude_WGS84": "55.8234127770431460",
+        "geoData": {
+            "coordinates": [
+                37.497202,
+                55.8234127770431
+            ],
+            "type": "Point"
+        }
+    },
+    {
+        "ID": "00298660",
+        "Name": "Винный бар Навина",
+        "global_id": 1104139304,
+        "IsNetObject": "нет",
+        "OperatingCompany": "",
+        "TypeObject": "бар",
+        "AdmArea": "Центральный административный округ",
+        "District": "район Хамовники",
+        "Address": "город Москва, улица Тимура Фрунзе, дом 11, строение 44",
+        "PublicPhone": [
+            {
+                "PublicPhone": "(925) 103-33-77"
+            }
+        ],
+        "SeatsCount": 20,
+        "SocialPrivileges": "нет",
+        "Longitude_WGS84": "37.5856489999999970",
+        "Latitude_WGS84": "55.7350387513323260",
+        "geoData": {
+            "coordinates": [
+                37.585649,
+                55.7350387513323
+            ],
+            "type": "Point"
+        }
+    },
+    {
+        "ID": "00256404",
+        "Name": "Бар Кабинет психолога",
+        "global_id": 1026844089,
+        "IsNetObject": "нет",
+        "OperatingCompany": "",
+        "TypeObject": "бар",
+        "AdmArea": "Центральный административный округ",
+        "District": "район Замоскворечье",
+        "Address": "Российская Федерация, город Москва, внутригородская территория муниципальный округ Замоскворечье, Пятницкая улица, дом 30, строение 1",
+        "PublicPhone": [
+            {
+                "PublicPhone": "(925) 882-48-71"
+            }
+        ],
+        "SeatsCount": 35,
+        "SocialPrivileges": "нет",
+        "Longitude_WGS84": "37.6282060000000060",
+        "Latitude_WGS84": "55.7403387528685950",
+        "geoData": {
+            "coordinates": [
+                37.628206,
+                55.7403387528686
+            ],
+            "type": "Point"
+        }
+    },
+    {
+        "ID": "00152945",
+        "Name": "Восемь градусов",
+        "global_id": 1075022274,
+        "IsNetObject": "нет",
+        "OperatingCompany": "",
+        "TypeObject": "бар",
+        "AdmArea": "Центральный административный округ",
+        "District": "Тверской район",
+        "Address": "город Москва, Страстной бульвар, дом 4, строение 3",
+        "PublicPhone": [
+            {
+                "PublicPhone": "(926) 914-58-88"
+            }
+        ],
+        "SeatsCount": 30,
+        "SocialPrivileges": "нет",
+        "Longitude_WGS84": "37.6082595616309730",
+        "Latitude_WGS84": "55.7650171843744220",
+        "geoData": {
+            "coordinates": [
+                37.608259561631,
+                55.7650171843744
+            ],
+            "type": "Point"
+        }
+    },
+    {
+        "ID": "00281456",
+        "Name": "Андерсон",
+        "global_id": 1061827249,
+        "IsNetObject": "да",
+        "OperatingCompany": "Андерсон",
+        "TypeObject": "кафе",
+        "AdmArea": "Северо-Восточный административный округ",
+        "District": "Лосиноостровский район",
+        "Address": "город Москва, Стартовая улица, дом 9, корпус 2",
+        "PublicPhone": [
+            {
+                "PublicPhone": "нет телефона"
+            }
+        ],
+        "SeatsCount": 46,
+        "SocialPrivileges": "нет",
+        "Longitude_WGS84": "37.7015829999999990",
+        "Latitude_WGS84": "55.8859597953614940",
+        "geoData": {
+            "coordinates": [
+                37.701583,
+                55.8859597953615
+            ],
+            "type": "Point"
+        }
+    },
+    {
+        "ID": "00140293",
+        "Name": "Чебуречная «Советские времена»",
+        "global_id": 637549880,
+        "IsNetObject": "нет",
+        "OperatingCompany": "",
+        "TypeObject": "кафе",
+        "AdmArea": "Центральный административный округ",
+        "District": "Красносельский район",
+        "Address": "город Москва, Верхняя Красносельская улица, дом 2/1, строение 4",
+        "PublicPhone": [
+            {
+                "PublicPhone": "(495) 391-61-70"
+            }
+        ],
+        "SeatsCount": 50,
+        "SocialPrivileges": "нет",
+        "Longitude_WGS84": "37.6590406218625450",
+        "Latitude_WGS84": "55.7858576056019260",
+        "geoData": {
+            "coordinates": [
+                37.6590406218625,
+                55.7858576056019
+            ],
+            "type": "Point"
+        }
+    },
+    {
+        "ID": "000025805",
+        "Name": "Папа Джонс",
+        "global_id": 637539587,
+        "IsNetObject": "да",
+        "OperatingCompany": "Папа Джонс",
+        "TypeObject": "кафе",
+        "AdmArea": "Юго-Восточный административный округ",
+        "District": "Рязанский район",
+        "Address": "город Москва, 1-я Новокузьминская улица, дом 19, корпус 2",
+        "PublicPhone": [
+            {
+                "PublicPhone": "(495) 995-10-72"
+            }
+        ],
+        "SeatsCount": 25,
+        "SocialPrivileges": "нет",
+        "Longitude_WGS84": "37.7912564682018580",
+        "Latitude_WGS84": "55.7145342155699620",
+        "geoData": {
+            "coordinates": [
+                37.7912564682019,
+                55.71453421557
+            ],
+            "type": "Point"
+        }
+    },
+    {
+        "ID": "00288136",
+        "Name": "Узбечка",
+        "global_id": 1075020924,
+        "IsNetObject": "нет",
+        "OperatingCompany": "",
+        "TypeObject": "кафе",
+        "AdmArea": "Южный административный округ",
+        "District": "Даниловский район",
+        "Address": "город Москва, улица Ленинская Слобода, дом 26",
+        "PublicPhone": [
+            {
+                "PublicPhone": "нет телефона"
+            }
+        ],
+        "SeatsCount": 10,
+        "SocialPrivileges": "нет",
+        "Longitude_WGS84": "37.6542893440981320",
+        "Latitude_WGS84": "55.7099490354763200",
+        "geoData": {
+            "coordinates": [
+                37.6542893440981,
+                55.7099490354763
+            ],
+            "type": "Point"
+        }
+    },
+    {
+        "ID": "00289118",
+        "Name": "Мята Lounge",
+        "global_id": 1078559193,
+        "IsNetObject": "да",
+        "OperatingCompany": "Мята Lounge",
+        "TypeObject": "кафе",
+        "AdmArea": "Центральный административный округ",
+        "District": "Басманный район",
+        "Address": "город Москва, Большая Почтовая улица, дом 30, строение 1",
+        "PublicPhone": [
+            {
+                "PublicPhone": "нет телефона"
+            }
+        ],
+        "SeatsCount": 25,
+        "SocialPrivileges": "нет",
+        "Longitude_WGS84": "37.7014279999999930",
+        "Latitude_WGS84": "55.7789787640907450",
+        "geoData": {
+            "coordinates": [
+                37.701428,
+                55.7789787640907
+            ],
+            "type": "Point"
+        }
+    },
+    {
+        "ID": "00170315",
+        "Name": "Арма Craft",
+        "global_id": 878846758,
+        "IsNetObject": "нет",
+        "OperatingCompany": "",
+        "TypeObject": "кафе",
+        "AdmArea": "Центральный административный округ",
+        "District": "Басманный район",
+        "Address": "город Москва, Нижний Сусальный переулок, дом 5, строение 9",
+        "PublicPhone": [
+            {
+                "PublicPhone": "(966) 121-70-00"
+            }
+        ],
+        "SeatsCount": 30,
+        "SocialPrivileges": "нет",
+        "Longitude_WGS84": "37.6636455899648870",
+        "Latitude_WGS84": "55.7607590038881970",
+        "geoData": {
+            "coordinates": [
+                37.6636455899649,
+                55.7607590038882
+            ],
+            "type": "Point"
+        }
+    },
+    {
+        "ID": "00309372",
+        "Name": "Токийский рынок",
+        "global_id": 1133072383,
+        "IsNetObject": "нет",
+        "OperatingCompany": "",
+        "TypeObject": "кафе",
+        "AdmArea": "Центральный административный округ",
+        "District": "Тверской район",
+        "Address": "город Москва, Никольская улица, дом 10",
+        "PublicPhone": [
+            {
+                "PublicPhone": "нет телефона"
+            }
+        ],
+        "SeatsCount": 5,
+        "SocialPrivileges": "нет",
+        "Longitude_WGS84": "37.6244779999999960",
+        "Latitude_WGS84": "55.7578667579544670",
+        "geoData": {
+            "coordinates": [
+                37.624478,
+                55.7578667579545
+            ],
+            "type": "Point"
+        }
+    },
+    {
+        "ID": "00279561",
+        "Name": "Наш бульвар",
+        "global_id": 1061825245,
+        "IsNetObject": "нет",
+        "OperatingCompany": "",
+        "TypeObject": "кафе",
+        "AdmArea": "Новомосковский административный округ",
+        "District": "поселение Сосенское",
+        "Address": "город Москва, поселение Сосенское, бульвар Веласкеса, дом 1, корпус 1",
+        "PublicPhone": [
+            {
+                "PublicPhone": "нет телефона"
+            }
+        ],
+        "SeatsCount": 8,
+        "SocialPrivileges": "нет",
+        "Longitude_WGS84": "37.4544199999999990",
+        "Latitude_WGS84": "55.5917997100868530",
+        "geoData": {
+            "coordinates": [
+                37.45442,
+                55.5917997100869
+            ],
+            "type": "Point"
+        }
+    },
+    {
+        "ID": "00313537",
+        "Name": "Воккер",
+        "global_id": 1137247111,
+        "IsNetObject": "да",
+        "OperatingCompany": "Воккер",
+        "TypeObject": "кафе",
+        "AdmArea": "Северо-Западный административный округ",
+        "District": "район Южное Тушино",
+        "Address": "город Москва, Сходненская улица, дом 56",
+        "PublicPhone": [
+            {
+                "PublicPhone": "нет телефона"
+            }
+        ],
+        "SeatsCount": 0,
+        "SocialPrivileges": "нет",
+        "Longitude_WGS84": "37.4439620000000060",
+        "Latitude_WGS84": "55.8503007849055920",
+        "geoData": {
+            "coordinates": [
+                37.443962,
+                55.8503007849056
+            ],
+            "type": "Point"
+        }
+    },
+    {
+        "ID": "00343266",
+        "Name": "Al PARKO",
+        "global_id": 2363080708,
+        "IsNetObject": "нет",
+        "OperatingCompany": "",
+        "TypeObject": "кафе",
+        "AdmArea": "Новомосковский административный округ",
+        "District": "поселение Сосенское",
+        "Address": "город Москва, поселение Сосенское, посёлок Коммунарка, улица Липовый Парк, дом 10А",
+        "PublicPhone": [
+            {
+                "PublicPhone": "(915) 423-77-34"
+            }
+        ],
+        "SeatsCount": 35,
+        "SocialPrivileges": "нет",
+        "Longitude_WGS84": "37.4894439999999990",
+        "Latitude_WGS84": "55.5692487036415410",
+        "geoData": {
+            "coordinates": [
+                37.489444,
+                55.5692487036415
+            ],
+            "type": "Point"
+        }
+    },
+    {
+        "ID": "00145354",
+        "Name": "Кафе Карпов",
+        "global_id": 637550095,
+        "IsNetObject": "нет",
+        "OperatingCompany": "",
+        "TypeObject": "кафе",
+        "AdmArea": "Новомосковский административный округ",
+        "District": "поселение Марушкинское",
+        "Address": "город Москва, поселение Марушкинское, Киевское шоссе, 32-й километр, владение 3, строение 1",
+        "PublicPhone": [
+            {
+                "PublicPhone": "нет телефона"
+            }
+        ],
+        "SeatsCount": 1,
+        "SocialPrivileges": "нет",
+        "Longitude_WGS84": "37.2373300000000000",
+        "Latitude_WGS84": "55.5791050000000000",
+        "geoData": {
+            "coordinates": [
+                37.23733,
+                55.579105
+            ],
+            "type": "Point"
+        }
+    },
+    {
+        "ID": "00325313",
+        "Name": "Домино'с Пицца",
+        "global_id": 1149149584,
+        "IsNetObject": "да",
+        "OperatingCompany": "Домино'с Пицца",
+        "TypeObject": "ресторан",
+        "AdmArea": "Северо-Западный административный округ",
+        "District": "район Щукино",
+        "Address": "город Москва, улица Маршала Бирюзова, дом 34, корпус 2",
+        "PublicPhone": [
+            {
+                "PublicPhone": "(963) 686-13-22"
+            }
+        ],
+        "SeatsCount": 30,
+        "SocialPrivileges": "нет",
+        "Longitude_WGS84": "37.4815567208434080",
+        "Latitude_WGS84": "55.8001713003851660",
+        "geoData": {
+            "coordinates": [
+                37.4815567208434,
+                55.8001713003852
+            ],
+            "type": "Point"
+        }
+    }
+]

@@ -1,2 +1,7 @@
-django==3.2.9
+django~=3.2.12
 djangorestframework==3.13.1
+django-cors-headers
+pillow
+mutagen~=1.45.1
+pytz~=2021.1
+dadata~=21.10.1
