@@ -44,8 +44,13 @@ class Restaurant(models.Model):
     name = models.CharField(max_length=100)
     address = models.CharField(max_length=150)
     description = models.TextField()
-    image = models.ImageField(upload_to="restaurant_images/")
+    image = models.ImageField(upload_to="restaurant_images/", blank=True, null=True)
     owner = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
+
+    def get_image(self):
+        if not self.image:
+            return "/media/restaurant_placeholder.jpg"
+        return self.image.url
 
 
 class FavouriteRestaurant(models.Model):
