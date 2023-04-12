@@ -1,0 +1,57 @@
+cache:
+  paths:
+    - ~/.cache/pip/
+
+stages:
+  - test
+  - lint
+
+pylint:
+  image: python:latest
+  stage: lint
+  before_script:
+    - pip install -r ci/pylint_requirements.txt
+  script:
+    - chmod +x ./ci/pylint_runner.sh
+    - ./ci/pylint_runner.sh
+  artifacts:
+    when: always
+    paths:
+      - backend/public/pylint.svg
+      - backend/public/pylint.html
+    reports:
+      junit: backend/junit.xml
+
+
+eslint:
+  image: node:latest
+  stage: lint
+  before_script:
+    - node --version
+  script:
+    - cd frontend
+    - npm install
+    - npm install -g eslint@latest eslint-plugin-react@latest
+    - eslint -f junit src/ > eslint-junit.xml || /bin/true
+    - python3 ../ci/junit_replace.py
+  artifacts:
+    when: always
+    reports:
+      junit: frontend/eslint-junit.xml
+
+test:
+  image: python:latest
+  stage: test
+  before_script:
+    - cd backend
+    - pip install coverage
+    - pip install -r requirements.txt
+  script:
+    - coverage run manage.py test
+    - coverage report --omit=manage.py
+    - coverage html --omit=manage.py
+    - mkdir public
+    - mv htmlcov public/coverage
+  artifacts:
+    paths:
+      - public/coverage
